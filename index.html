@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paul Adams II — Los Angeles Real Estate</title>
+  <meta name="description" content="Third-generation Los Angeles real estate advisor. I don't just guide you through the process — I explain every decision along the way.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body>
+
+<!-- ======================================================
+     NAVIGATION
+====================================================== -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+
+    <a href="index.html" class="logo-mark">
+      <span class="logo-name">Paul Adams II</span>
+      <span class="logo-rule"></span>
+      <span class="logo-sub">Los Angeles Real Estate</span>
+    </a>
+
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="active">Home</a></li>
+      <li class="nav-item">
+        <span>Properties <span class="nav-chevron">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="property-search.html">Property Search</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span>Buying &amp; Selling <span class="nav-chevron">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="buying-selling-tips.html">Buying &amp; Selling Tips</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span>About <span class="nav-chevron">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="about.html">My Story</a>
+          <a href="contact.html">Contact Me</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span>Blog <span class="nav-chevron">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="blog/index.html">All Articles</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="home-valuation.html">Home Valuation</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="#"
+         class="btn btn-gold btn-sm"
+         onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
+        Start a Conversation
+      </a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <div class="mob-divider"></div>
+  <a href="property-search.html" class="mob-sub">Property Search</a>
+  <div class="mob-divider"></div>
+  <a href="buying-selling-tips.html">Buying &amp; Selling Tips</a>
+  <div class="mob-divider"></div>
+  <a href="about.html">My Story</a>
+  <a href="contact.html">Contact Me</a>
+  <div class="mob-divider"></div>
+  <a href="blog/index.html">Blog</a>
+  <a href="home-valuation.html">Home Valuation</a>
+  <div class="mob-divider"></div>
+  <a href="#" style="color:var(--gold);"
+     onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
+    Start a Conversation
+  </a>
+</div>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-text">Third-Generation Realtor · Los Angeles</span>
+    </div>
+
+    <h1>Clarity at<br>every step.<br><em>Confidence in every decision.</em></h1>
+
+    <p class="hero-body">
+      Every step is intentional, and every recommendation is backed by a clear strategy so you can make informed decisions with confidence.
+    </p>
+
+    <div class="btn-group">
+      <a href="property-search.html" class="btn btn-gold">
+        View Available Properties <span class="btn-arrow">→</span>
+      </a>
+      <a href="#"
+         class="btn btn-outline-white"
+         onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
+        Start a Conversation
+      </a>
+    </div>
+
+    <div class="hero-credentials">
+      <div class="hero-cred-item">
+        <div class="hero-cred-value">Third-Generation</div>
+        <div class="hero-cred-label">Realtor</div>
+      </div>
+      <div class="hero-cred-item">
+        <div class="hero-cred-value">15+ Neighborhoods</div>
+        <div class="hero-cred-label">Covered</div>
+      </div>
+      <div class="hero-cred-item">
+        <div class="hero-cred-value">Coldwell Banker</div>
+        <div class="hero-cred-label">Beverly Hills</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="assets/images/paul-hero.png" alt="Paul Adams II — Los Angeles Real Estate" class="hero-photo">
+  </div>
+</section>
+
+
+<!-- ======================================================
+     PHILOSOPHY / DIFFERENTIATOR
+====================================================== -->
+<section class="philosophy">
+  <div class="container">
+    <div class="philosophy-inner">
+
+      <div>
+        <span class="label">My Approach</span>
+        <blockquote class="philosophy-quote">
+          "You should never feel uncertain about a decision this important.<br>I make sure you have the clarity to move forward with confidence."
+        </blockquote>
+        <p style="margin-top:28px; font-size:16px; line-height:1.78; color:rgba(255,255,255,0.45); max-width:440px; margin-bottom:0;">
+          Most agents are competent at writing offers and negotiating terms. Where deals are won or lost is in the reasoning behind those decisions.
+        </p>
+        <p style="margin-top:20px; font-size:16px; line-height:1.78; color:rgba(255,255,255,0.45); max-width:440px; margin-bottom:0;">
+          That is where I focus my work.
+        </p>
+        <p style="margin-top:20px; font-size:16px; line-height:1.78; color:rgba(255,255,255,0.45); max-width:440px; margin-bottom:0;">
+          Every recommendation is deliberate. Every move is backed by strategy. You are never left guessing why something is happening or what comes next.
+        </p>
+      </div>
+
+      <div>
+        <div class="philosophy-pillars">
+          <div class="philosophy-pillar">
+            <span class="pillar-num">I</span>
+            <div class="pillar-text">
+              <h4>Education First</h4>
+              <p>Every step is explained before we take it. You don't make decisions you don't fully understand.</p>
+            </div>
+          </div>
+          <div class="philosophy-pillar">
+            <span class="pillar-num">II</span>
+            <div class="pillar-text">
+              <h4>Strategy With Purpose</h4>
+              <p>No move without a reason. Every offer, counter, and negotiation is grounded in a clear, deliberate strategy.</p>
+            </div>
+          </div>
+          <div class="philosophy-pillar">
+            <span class="pillar-num">III</span>
+            <div class="pillar-text">
+              <h4>Your Advocate, Always</h4>
+              <p>My role is to protect your position and your outcome. Not to rush a deal to the finish line.</p>
+            </div>
+          </div>
+          <div class="philosophy-pillar">
+            <span class="pillar-num">IV</span>
+            <div class="pillar-text">
+              <h4>Accessible, Not Transactional</h4>
+              <p>First-time buyer or seasoned investor, you get the same level of attention, clarity, and execution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     HERITAGE / ABOUT
+====================================================== -->
+<section class="heritage">
+  <div class="container on-cream">
+    <div class="heritage-inner">
+
+      <div class="heritage-photo-wrap">
+        <img src="assets/images/paul-about.png" alt="Paul Adams II" class="heritage-photo">
+        <div class="heritage-badge">
+          <div class="heritage-badge-num">3rd</div>
+          <div class="heritage-badge-label">Generation<br>Realtor</div>
+        </div>
+      </div>
+
+      <div class="heritage-content">
+        <span class="label">About Paul Adams II</span>
+        <h2 class="display-md" style="color:var(--text-dark); margin-bottom:6px;">Built on Legacy.<br>Driven by Clarity and Strategy.</h2>
+        <span class="rule"></span>
+
+        <p class="heritage-body">
+          Real estate has been part of my life long before it became my profession. As a <strong>third-generation Realtor</strong>, I grew up watching how markets shift, how deals come together, and where they break down. That foundation gave me an early understanding of something most people only learn through experience.
+        </p>
+        <p class="heritage-body">
+          Los Angeles only sharpened that perspective. I've spent over a decade living in and studying this market, watching how neighborhoods evolve, how demand shifts, and how timing and positioning influence outcomes in ways that aren't always obvious on paper. That perspective shapes how I advise every client today.
+        </p>
+        <p class="heritage-body">
+          My approach is straightforward. Every recommendation is intentional. Every strategy is clearly thought through. You understand not just what we're doing, but why it works and how it impacts your position. Because at this level, real estate decisions are too important to approach without clarity.
+        </p>
+        <p class="heritage-body">
+          I work with buyers, sellers, and investors across Los Angeles, from first-time buyers to experienced clients building long-term portfolios. Every client gets the same level of attention, analysis, and strategic guidance.
+        </p>
+
+        <div class="heritage-tags">
+          <span class="heritage-tag">Third-Generation Realtor</span>
+          <span class="heritage-tag">Buyer Strategy</span>
+          <span class="heritage-tag">Seller Representation</span>
+          <span class="heritage-tag">Investment Analysis</span>
+          <span class="heritage-tag">Los Angeles Market</span>
+        </div>
+
+        <div class="btn-group">
+          <a href="about.html" class="btn btn-outline-dark">
+            Read My Full Story <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     SERVICES
+====================================================== -->
+<section class="services">
+  <div class="container">
+    <span class="label">How I Can Help</span>
+    <h2 class="display-md" style="font-size:clamp(26px,3.2vw,40px);">Buying or Selling in Los Angeles. Done With Strategy.</h2>
+    <p class="subhead" style="margin-top:16px;">Every client situation is different. Your strategy should be too.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-tag">For Buyers</span>
+        <span class="service-italic">Buy With Clarity. Compete With Confidence.</span>
+        <p class="service-body">
+          Buying in Los Angeles is not just about finding a property. It is about timing, positioning, and understanding value at a deeper level.
+        </p>
+        <p class="service-body" style="margin-top:-20px;">
+          I walk you through each step with structured analysis and direct, honest insight. So when the right opportunity appears, you are prepared to act decisively.
+        </p>
+        <div class="service-steps">
+          <div class="service-step"><span class="step-n">1</span>Define budget, financing, and target neighborhoods</div>
+          <div class="service-step"><span class="step-n">2</span>Identify strong on-market and off-market opportunities</div>
+          <div class="service-step"><span class="step-n">3</span>Build a competitive, well-structured offer</div>
+          <div class="service-step"><span class="step-n">4</span>Navigate inspections, contingencies, and closing with precision</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-tag">For Sellers</span>
+        <span class="service-italic">Positioned to Attract the Right Buyer. Priced to Perform.</span>
+        <p class="service-body">
+          Selling a home is not just listing it. It is positioning it.
+        </p>
+        <p class="service-body" style="margin-top:-20px;">
+          From pricing strategy to presentation to negotiation, every decision is designed to maximize exposure, attract qualified buyers, and protect your bottom line through closing.
+        </p>
+        <div class="service-steps">
+          <div class="service-step"><span class="step-n">1</span>Strategic pricing based on real market data</div>
+          <div class="service-step"><span class="step-n">2</span>Preparation and presentation guidance to elevate the asset</div>
+          <div class="service-step"><span class="step-n">3</span>Targeted marketing that reaches active, qualified buyers</div>
+          <div class="service-step"><span class="step-n">4</span>Negotiation and contract management through closing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     TESTIMONIALS
+====================================================== -->
+<section class="testimonials">
+  <div class="container">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+      <div>
+        <span class="label">Client Feedback</span>
+        <h2 class="display-md">Trusted by Clients Across Los Angeles</h2>
+      </div>
+      <div class="testi-nav">
+        <button class="testi-btn" id="testiPrev">&#8592;</button>
+        <button class="testi-btn" id="testiNext">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-sub">Calm, strategic, and clear from start to finish.</div>
+        <p class="testi-quote">"Paul made the Los Angeles market feel manageable right away. He explained everything clearly, gave honest advice, and always had a plan. I felt confident at every step of the process."</p>
+        <div class="testi-author">Ryan T.</div>
+        <div class="testi-location">Koreatown</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-sub">I never felt rushed. I always felt informed.</div>
+        <p class="testi-quote">"As a first-time home buyer in Los Angeles, I had a lot of questions going in. Paul walked me through everything from financing to inspections at a pace that made sense. He made sure I understood my options before making any decisions."</p>
+        <div class="testi-author">Jessica M.</div>
+        <div class="testi-location">Silver Lake</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-sub">I would confidently refer clients to Paul again.</div>
+        <p class="testi-quote">"His communication was strong, his process was clear, and he focused on educating the client rather than pushing them. He exceeded expectations and handled everything with professionalism."</p>
+        <div class="testi-author">Amanda K.</div>
+        <div class="testi-location">Washington, DC</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-sub">Straightforward, organized, and honest throughout.</div>
+        <p class="testi-quote">"Paul helped me navigate the Los Angeles rental market, which can be very competitive. He set clear expectations, explained lease terms in detail, and made the entire process feel simple and stress-free."</p>
+        <div class="testi-author">Marcus L.</div>
+        <div class="testi-location">Mar Vista</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-sub">He understands the details most agents overlook.</div>
+        <p class="testi-quote">"Paul broke down landlord-tenant laws, rental regulations, and long-term considerations in a way that was easy to understand. He is thoughtful, thorough, and very knowledgeable."</p>
+        <div class="testi-author">Daniel R.</div>
+        <div class="testi-location">Culver City</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-sub">Clear strategy and honest guidance at every step.</div>
+        <p class="testi-quote">"Paul walked us through pricing, comps, and offer strategy in a way that actually made sense. There was no vague advice — just clear options and thoughtful recommendations. He is exactly who you want representing you."</p>
+        <div class="testi-author">Silvia G.</div>
+        <div class="testi-location">Westwood</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     NEIGHBORHOODS
+====================================================== -->
+<section class="neighborhoods">
+  <div class="container">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:0;">
+      <div>
+        <span class="label">Neighborhood Expertise</span>
+        <h2 class="display-md">Explore Los Angeles</h2>
+        <p class="subhead" style="margin-top:12px;">The neighborhoods I actively track and advise clients on.</p>
+      </div>
+    </div>
+
+    <div class="n-grid" id="nGrid">
+
+      <!-- Row 1 -->
+      <a href="neighborhoods/beverly-hills.html" class="n-card" style="background-image:url('assets/images/neighborhoods/beverly-hills.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Beverly Hills</strong></div>
+      </a>
+      <a href="neighborhoods/bel-air.html" class="n-card" style="background-image:url('assets/images/neighborhoods/bel-air.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Bel Air</strong></div>
+      </a>
+      <a href="neighborhoods/hollywood-hills.html" class="n-card" style="background-image:url('assets/images/neighborhoods/hollywood-hills.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Hollywood Hills</strong></div>
+      </a>
+      <a href="neighborhoods/pacific-palisades.html" class="n-card" style="background-image:url('assets/images/neighborhoods/pacific-palisades.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Pacific Palisades</strong></div>
+      </a>
+      <a href="neighborhoods/santa-monica.html" class="n-card" style="background-image:url('assets/images/neighborhoods/santa-monica.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Santa Monica</strong></div>
+      </a>
+
+      <!-- Row 2 -->
+      <a href="neighborhoods/downtown-la.html" class="n-card" style="background-image:url('assets/images/neighborhoods/downtown-la.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Downtown LA</strong></div>
+      </a>
+      <a href="neighborhoods/los-feliz.html" class="n-card" style="background-image:url('assets/images/neighborhoods/los-feliz.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Los Feliz</strong></div>
+      </a>
+      <a href="neighborhoods/silver-lake.html" class="n-card" style="background-image:url('assets/images/neighborhoods/silver-lake.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Silver Lake</strong></div>
+      </a>
+      <a href="neighborhoods/venice.html" class="n-card" style="background-image:url('assets/images/neighborhoods/venice.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Venice</strong></div>
+      </a>
+      <a href="neighborhoods/west-hollywood.html" class="n-card" style="background-image:url('assets/images/neighborhoods/west-hollywood.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>West Hollywood</strong></div>
+      </a>
+
+      <!-- Rows 3–4 (hidden initially) -->
+      <a href="neighborhoods/encino.html" class="n-card hidden" style="background-image:url('assets/images/neighborhoods/encino.jpg'); background-position:38% center">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Encino</strong></div>
+      </a>
+      <a href="neighborhoods/highland-park.html" class="n-card hidden" style="background-image:url('assets/images/neighborhoods/highland-park.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Highland Park</strong></div>
+      </a>
+      <a href="neighborhoods/west-adams.html" class="n-card hidden" style="background-image:url('assets/images/neighborhoods/west-adams.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>West Adams</strong></div>
+      </a>
+      <a href="neighborhoods/studio-city.html" class="n-card hidden" style="background-image:url('assets/images/neighborhoods/studio-city.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Studio City</strong></div>
+      </a>
+      <a href="neighborhoods/sherman-oaks.html" class="n-card hidden" style="background-image:url('assets/images/neighborhoods/sherman-oaks.jpg')">
+        <div class="n-overlay"></div>
+        <div class="n-label"><strong>Sherman Oaks</strong></div>
+      </a>
+
+    </div>
+
+    <div class="n-more-wrap">
+      <button class="btn btn-outline-white" id="nMoreBtn">
+        Show More Neighborhoods <span class="btn-arrow">↓</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     BLOG
+====================================================== -->
+<section class="blog-section">
+  <div class="container on-cream">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:0;">
+      <div>
+        <span class="label">Insights &amp; Guidance</span>
+        <h2 class="display-md" style="color:var(--text-dark);">Real Estate Strategy &amp; LA Market Insight</h2>
+      </div>
+      <a href="blog/index.html" class="btn btn-outline-dark" style="margin-bottom:6px;">
+        All Articles <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- Row 1 -->
+      <div class="blog-card-wrap">
+        <a href="blog/tenant-buyout-disclosure.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Landlord &amp; Rental Laws</div>
+            <h3>Tenant Buyout Disclosure Laws in Los Angeles: What Landlords Must Do Before Offering Cash for Keys</h3>
+            <p>Most landlords think offering cash for keys is simple. It's more regulated than that.</p>
+            <div class="blog-meta"><span>Apr 28, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="blog-card-wrap">
+        <a href="blog/condo-financing.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Condo / HOA</div>
+            <h3>Condo Financing Is Tightening in Los Angeles: What Buyers and Sellers Need to Know</h3>
+            <p>Most buyers think getting pre-approved means they're ready to buy any condo. That's where deals fall apart.</p>
+            <div class="blog-meta"><span>Apr 28, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="blog-card-wrap">
+        <a href="blog/vacant-vs-occupied-duplex.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Investor Strategy</div>
+            <h3>Vacant vs Occupied Duplex Sales in Los Angeles: Which Strategy Gets Sellers the Best Price?</h3>
+            <p>Most duplex owners think vacancy automatically means a higher sale price. Sometimes it does. Not always.</p>
+            <div class="blog-meta"><span>Apr 27, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="blog-card-wrap">
+        <a href="blog/how-much-to-buy.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Buyer's Guide</div>
+            <h3>How Much Do You Need to Buy a House in Los Angeles?</h3>
+            <p>The question buyers ask most — and the one that gets answered too vaguely.</p>
+            <div class="blog-meta"><span>Apr 24, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="blog-card-wrap">
+        <a href="blog/win-bidding-war.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Buyer Strategy</div>
+            <h3>How to Win a Bidding War in Los Angeles Without Overpaying</h3>
+            <p>Competing in the LA market takes strategy, not just a higher number.</p>
+            <div class="blog-meta"><span>Apr 22, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="blog-card-wrap">
+        <a href="blog/how-to-buy-house-la.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Buyer's Guide</div>
+            <h3>How to Buy a House in Los Angeles — Step-by-Step Guide for 2026</h3>
+            <p>A clear walkthrough of the full buying process, from pre-approval to closing.</p>
+            <div class="blog-meta"><span>Apr 20, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Rows 3+ (hidden initially) -->
+      <div class="blog-card-wrap hidden">
+        <a href="blog/eviction-threshold.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Landlord &amp; Rental Laws</div>
+            <h3>Unincorporated LA County's New Nonpayment Eviction Threshold: What Property Owners Need to Know</h3>
+            <p>New rules affecting when landlords can begin eviction proceedings for nonpayment of rent.</p>
+            <div class="blog-meta"><span>Apr 13, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="blog-card-wrap hidden">
+        <a href="blog/spring-2026-buy-or-wait.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Market Analysis</div>
+            <h3>Is Spring 2026 a Good Time to Buy in Los Angeles, or Should You Wait?</h3>
+            <p>An honest look at current conditions, inventory trends, and what the data actually says.</p>
+            <div class="blog-meta"><span>Apr 12, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="blog-card-wrap hidden">
+        <a href="blog/adu-vs-garage-conversion.html" class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-cat">Real Estate Investing</div>
+            <h3>ADU vs. Garage Conversion in Los Angeles: Which Adds More Value and Rent Potential?</h3>
+            <p>For LA property owners looking to add income or increase value — this choice matters.</p>
+            <div class="blog-meta"><span>Apr 9, 2026</span><span class="blog-meta-dot">·</span><span>Paul Adams II</span></div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="blog-more-wrap">
+      <button class="btn btn-outline-dark" id="blogMoreBtn">
+        Show More Articles <span class="btn-arrow">↓</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     MARKET INSIDER / EMAIL
+====================================================== -->
+<section class="insider">
+  <div class="container">
+    <div class="insider-inner">
+
+      <div>
+        <span class="label">Market Insider Access</span>
+        <h2 class="display-md">Access Off-Market Opportunities and Real LA Market Insight</h2>
+        <p class="subhead" style="margin-top:16px;">Stay ahead of the market with curated listings, pricing intelligence, and opportunities most buyers never see.</p>
+
+        <div class="insider-features">
+          <div class="insider-feat">
+            <div class="insider-check">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c9a060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p>Off-market and pre-market opportunities before they hit public platforms</p>
+          </div>
+          <div class="insider-feat">
+            <div class="insider-check">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c9a060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p>Weekly pricing insights across key Los Angeles neighborhoods</p>
+          </div>
+          <div class="insider-feat">
+            <div class="insider-check">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c9a060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p>Curated deals aligned with your goals, not mass listings</p>
+          </div>
+          <div class="insider-feat">
+            <div class="insider-check">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c9a060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p>No noise. No spam. Just relevant opportunities</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="insider-form-wrap">
+        <span class="label">Free to Join</span>
+        <h3 style="font-family:var(--font-serif); font-size:26px; color:var(--white); margin-bottom:6px;">Unlock LA Insider Access</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.4); margin-bottom:0;">Private updates. Real opportunities. No obligation.</p>
+
+        <!-- Replace YOUR_FORM_ID with Formspree form ID -->
+        <form class="insider-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="insiderForm">
+          <input class="insider-input" type="text" name="name" placeholder="Your name" required>
+          <input class="insider-input" type="email" name="email" placeholder="Your email address" required>
+          <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;">
+            Get Access <span class="btn-arrow">→</span>
+          </button>
+          <div class="form-msg" id="insiderMsg"></div>
+        </form>
+
+        <p class="insider-consent">
+          By submitting you agree to be contacted by Paul Adams II via email for real estate market updates. You can unsubscribe at any time. Message and data rates may apply.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     CTA
+====================================================== -->
+<section class="cta-section">
+  <div class="container">
+    <span class="label" style="justify-content:center; display:flex;">Let's Connect</span>
+    <h2 class="display-md" style="text-align:center; max-width:560px; margin:0 auto 16px;">Ready to Talk Strategy?</h2>
+    <p class="subhead" style="text-align:center; margin:0 auto 40px;">
+      Whether you're buying, selling, or just starting to explore — let's have a real conversation about your position.
+    </p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="contact.html" class="btn btn-gold">Get in Touch <span class="btn-arrow">→</span></a>
+      <a href="#"
+         class="btn btn-outline-white"
+         onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
+        Start a Conversation
+      </a>
+    </div>
+
+    <div class="cta-contact-row">
+      <div class="cta-info-item">
+        <div class="cta-info-label">Email</div>
+        <div class="cta-info-value"><a href="mailto:Paul.Adams@CBRealty.com">Paul.Adams@CBRealty.com</a></div>
+      </div>
+      <div class="cta-info-item">
+        <div class="cta-info-label">Phone</div>
+        <div class="cta-info-value"><a href="tel:+13019066252">301-906-6252</a></div>
+      </div>
+      <div class="cta-info-item">
+        <div class="cta-info-label">Office</div>
+        <div class="cta-info-value"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr · Beverly Hills 90210</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-logo-wrap">
+            <a href="index.html" class="logo-mark">
+              <span class="logo-name">Paul Adams II</span>
+              <span class="logo-rule"></span>
+              <span class="logo-sub">Los Angeles Real Estate</span>
+            </a>
+          </div>
+          <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="property-search.html">Property Search</a></li>
+            <li><a href="buying-selling-tips.html">Buying &amp; Selling</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="home-valuation.html">Home Valuation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Neighborhoods</div>
+          <ul class="footer-links">
+            <li><a href="neighborhoods/beverly-hills.html">Beverly Hills</a></li>
+            <li><a href="neighborhoods/bel-air.html">Bel Air</a></li>
+            <li><a href="neighborhoods/hollywood-hills.html">Hollywood Hills</a></li>
+            <li><a href="neighborhoods/santa-monica.html">Santa Monica</a></li>
+            <li><a href="neighborhoods/venice.html">Venice</a></li>
+            <li><a href="neighborhoods/silver-lake.html">Silver Lake</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Email</div>
+            <div class="footer-contact-val"><a href="mailto:Paul.Adams@CBRealty.com">Paul.Adams@CBRealty.com</a></div>
+          </div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Phone</div>
+            <div class="footer-contact-val"><a href="tel:+13019066252">301-906-6252</a></div>
+          </div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Office</div>
+            <div class="footer-contact-val"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a></div>
+          </div>
+          <div class="footer-dre">CA DRE# 02232552</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-legal">
+          Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Fair Housing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+<script>
+  // ── Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Mobile nav
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navMobile').classList.toggle('open');
+  });
+
+  // ── Testimonial scroll
+  const track = document.getElementById('testiTrack');
+  document.getElementById('testiNext').addEventListener('click', () => {
+    track.scrollBy({ left: track.clientWidth / 3 + 20, behavior: 'smooth' });
+  });
+  document.getElementById('testiPrev').addEventListener('click', () => {
+    track.scrollBy({ left: -(track.clientWidth / 3 + 20), behavior: 'smooth' });
+  });
+
+  // ── Show more neighborhoods
+  const nMoreBtn = document.getElementById('nMoreBtn');
+  nMoreBtn.addEventListener('click', () => {
+    document.querySelectorAll('.n-card.hidden').forEach(el => {
+      el.classList.remove('hidden');
+    });
+    nMoreBtn.style.display = 'none';
+  });
+
+  // ── Show more blog posts
+  const blogMoreBtn = document.getElementById('blogMoreBtn');
+  blogMoreBtn.addEventListener('click', () => {
+    document.querySelectorAll('.blog-card-wrap.hidden').forEach(el => {
+      el.classList.remove('hidden');
+    });
+    blogMoreBtn.style.display = 'none';
+  });
+
+  // ── Insider form
+  const insiderForm = document.getElementById('insiderForm');
+  if (insiderForm) {
+    insiderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = insiderForm.querySelector('button[type=submit]');
+      const msg = document.getElementById('insiderMsg');
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(insiderForm.action, {
+          method: 'POST',
+          body: new FormData(insiderForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          msg.textContent = "You're in. I'll be in touch with your first update soon.";
+          msg.className = 'form-msg success';
+          insiderForm.reset();
+        } else { throw new Error(); }
+      } catch {
+        msg.textContent = 'Something went wrong — please try again.';
+        msg.className = 'form-msg error';
+      }
+      btn.innerHTML = 'Get Access <span class="btn-arrow">→</span>';
+      btn.disabled = false;
+    });
+  }
+</script>
+
+</body>
+</html>
