@@ -1638,13 +1638,13 @@ body:has(.post-content) {
     padding: 24px 20px 40px;
   }
   .hero-body { display: none; }
-  .hero-eyebrow { margin-bottom: 16px; }
+  .hero-eyebrow { margin-bottom: 24px; }
   /* Shrink letter-spacing so eyebrow fits on one line; shorten lines to match */
   .hero-eyebrow-text { font-size: 9px; letter-spacing: 0.10em; white-space: nowrap; }
   .hero-eyebrow-line { flex: 0 0 20px; }
   .hero h1 {
     font-size: clamp(30px, 7.5vw, 38px);
-    margin-bottom: 16px;
+    margin-bottom: 28px;
   }
   /* Hide the line break between "Clarity at" and "every step." on mobile */
   .h1-mob-br { display: none; }
