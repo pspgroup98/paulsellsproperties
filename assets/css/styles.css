@@ -395,9 +395,8 @@ body {
   align-items: center;
 }
 
-/* Arrow icon inside btn */
-.btn-arrow { font-size: 14px; transition: transform 0.2s; }
-.btn:hover .btn-arrow { transform: translateX(3px); }
+/* Arrow icon inside btn — hidden site-wide */
+.btn-arrow { display: none; }
 
 /* ---------- HERO ---------- */
 .hero {
@@ -1662,8 +1661,9 @@ body:has(.post-content) {
   }
   .hero-body { display: none; }
   .hero-eyebrow { margin-bottom: 16px; }
-  /* Shrink letter-spacing so eyebrow fits on one line */
+  /* Shrink letter-spacing so eyebrow fits on one line; shorten lines to match */
   .hero-eyebrow-text { font-size: 9px; letter-spacing: 0.10em; white-space: nowrap; }
+  .hero-eyebrow-line { flex: 0 0 20px; }
   .hero h1 {
     font-size: clamp(30px, 7.5vw, 38px);
     margin-bottom: 16px;
