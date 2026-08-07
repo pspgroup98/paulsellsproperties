@@ -98,7 +98,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-line"></span>
-      <span class="hero-eyebrow-text">Third-Generation Realtor · Los Angeles</span>
+      <span class="hero-eyebrow-text">Third-Generation Realtor ·<br class="hero-eyebrow-br"> Los Angeles</span>
     </div>
 
     <h1>Clarity at<br>every step.<br><em>Confidence in every decision.</em></h1>
@@ -782,6 +782,18 @@
 
 
 <!-- ======================================================
+     MOBILE STICKY CTA BAR
+====================================================== -->
+<div class="mobile-cta-bar" id="mobileCtaBar">
+  <a href="#"
+     class="btn btn-gold"
+     onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
+    Start a Conversation <span class="btn-arrow">→</span>
+  </a>
+</div>
+
+
+<!-- ======================================================
      JAVASCRIPT
 ====================================================== -->
 <script>
@@ -822,6 +834,17 @@
     });
     blogMoreBtn.style.display = 'none';
   });
+
+  // ── Mobile sticky CTA bar (appears once hero CTAs scroll out of view)
+  const mobileCtaBar = document.getElementById('mobileCtaBar');
+  if (mobileCtaBar) {
+    const heroBtnGroup = document.querySelector('.hero .btn-group');
+    if (heroBtnGroup) {
+      new IntersectionObserver((entries) => {
+        mobileCtaBar.classList.toggle('visible', !entries[0].isIntersecting);
+      }, { threshold: 0 }).observe(heroBtnGroup);
+    }
+  }
 
   // ── Insider form
   const insiderForm = document.getElementById('insiderForm');
