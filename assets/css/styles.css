@@ -498,28 +498,6 @@ body {
   margin-bottom: 44px;
 }
 
-.hero-credentials {
-  display: flex;
-  gap: 32px;
-  margin-top: 48px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border-dark);
-}
-.hero-cred-item { display:flex; flex-direction:column; justify-content:flex-end; }
-.hero-cred-value {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.hero-cred-label {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
 
 /* ---------- Philosophy / Differentiator ---------- */
 .philosophy {
@@ -1679,14 +1657,6 @@ body:has(.post-content) {
     width: 100%;
     justify-content: center;
   }
-  .hero-credentials {
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 24px;
-    padding-top: 20px;
-  }
-  .hero-cred-value { font-size: 22px; }
-
   .n-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; gap: 2px; }
