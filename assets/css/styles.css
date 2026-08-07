@@ -1662,7 +1662,7 @@ body:has(.post-content) {
   }
   .hero-body { display: none; }
   .hero-eyebrow { margin-bottom: 16px; }
-  .hero-eyebrow-br { display: inline; }
+  .hero-eyebrow-text { letter-spacing: 0.13em; }
   .hero h1 {
     font-size: clamp(30px, 7.5vw, 38px);
     margin-bottom: 16px;
