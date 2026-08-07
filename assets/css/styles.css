@@ -1662,11 +1662,14 @@ body:has(.post-content) {
   }
   .hero-body { display: none; }
   .hero-eyebrow { margin-bottom: 16px; }
-  .hero-eyebrow-text { letter-spacing: 0.13em; }
+  /* Shrink letter-spacing so eyebrow fits on one line */
+  .hero-eyebrow-text { font-size: 9px; letter-spacing: 0.10em; white-space: nowrap; }
   .hero h1 {
     font-size: clamp(30px, 7.5vw, 38px);
     margin-bottom: 16px;
   }
+  /* Hide the line break between "Clarity at" and "every step." on mobile */
+  .h1-mob-br { display: none; }
   /* Full-width stacked CTAs */
   .hero .btn-group {
     flex-direction: column;
@@ -1700,9 +1703,8 @@ body:has(.post-content) {
   .btn-group { flex-direction: column; align-items: flex-start; }
 }
 
-/* ---------- Mobile eyebrow line break + sticky CTA bar ---------- */
-.hero-eyebrow-br { display: none; }
-.mobile-cta-bar  { display: none; }
+/* ---------- Mobile sticky CTA bar ---------- */
+.mobile-cta-bar { display: none; }
 
 @media (max-width: 768px) {
   .mobile-cta-bar {
