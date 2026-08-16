@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blog/article-template.html
+
+Sitemap: https://paulsellsproperties.com/sitemap.xml

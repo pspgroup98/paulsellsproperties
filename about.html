@@ -3,20 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Paul Adams II — Los Angeles Real Estate Advisor</title>
-  <meta name="description" content="Third-generation Realtor and Los Angeles real estate advisor. Paul Adams II, Coldwell Banker Realty, Beverly Hills CA.">
+  <title>About Paul Adams II | Los Angeles Real Estate Agent</title>
+  <meta name="description" content="Third-generation Los Angeles real estate agent and Coldwell Banker Realty advisor. Paul Adams II combines deep market expertise with strategic clarity for buyers, sellers, and investors in LA.">
+  <link rel="canonical" href="https://paulsellsproperties.com/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About Paul Adams II | Los Angeles Real Estate Agent">
+  <meta property="og:description" content="Third-generation Los Angeles real estate agent at Coldwell Banker Realty Beverly Hills. Deep market expertise, strategic clarity for buyers, sellers, and investors.">
+  <meta property="og:url" content="https://paulsellsproperties.com/about.html">
+  <meta property="og:site_name" content="Paul Adams II">
+  <meta property="og:image" content="https://paulsellsproperties.com/assets/images/paul-about-new.png">
+  <meta property="og:image:alt" content="Paul Adams II — Los Angeles Real Estate Agent">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Paul Adams II | Los Angeles Real Estate Agent">
+  <meta name="twitter:description" content="Third-generation Los Angeles real estate agent at Coldwell Banker Realty Beverly Hills.">
+  <meta name="twitter:image" content="https://paulsellsproperties.com/assets/images/paul-about-new.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://paulsellsproperties.com/about.html#webpage",
+        "url": "https://paulsellsproperties.com/about.html",
+        "name": "About Paul Adams II | Los Angeles Real Estate Agent",
+        "description": "Third-generation Los Angeles real estate agent at Coldwell Banker Realty Beverly Hills.",
+        "isPartOf": {"@id": "https://paulsellsproperties.com/#website"},
+        "about": {"@id": "https://paulsellsproperties.com/#paul"},
+        "inLanguage": "en-US",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://paulsellsproperties.com/"},
+            {"@type": "ListItem", "position": 2, "name": "About Paul Adams II", "item": "https://paulsellsproperties.com/about.html"}
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://paulsellsproperties.com/#paul",
+        "name": "Paul Adams II",
+        "url": "https://paulsellsproperties.com/about.html",
+        "image": "https://paulsellsproperties.com/assets/images/paul-about-new.png",
+        "jobTitle": "Real Estate Agent",
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://paulsellsproperties.com/#coldwell-banker",
+          "name": "Coldwell Banker Realty",
+          "url": "https://www.coldwellbanker.com/"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "301 N Canon Dr Ste E",
+          "addressLocality": "Beverly Hills",
+          "addressRegion": "CA",
+          "postalCode": "90210",
+          "addressCountry": "US"
+        },
+        "telephone": "+13019066252",
+        "email": "Paul.Adams@CBRealty.com",
+        "knowsAbout": ["Los Angeles Real Estate", "Home Buying", "Home Selling", "Real Estate Investment"],
+        "alumniOf": [
+          {"@type": "CollegeOrUniversity", "name": "University of Southern California"},
+          {"@type": "EducationalOrganization", "name": "Georgetown Prep"}
+        ],
+        "sameAs": [
+          "https://www.instagram.com/paulsellsproperties/",
+          "https://www.facebook.com/profile.php?id=61580108736092"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav scrolled">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">Paul <span>Adams II</span></a>
+    <a href="index.html" class="logo-mark">
+      <span class="logo-name">Paul Adams II</span>
+      <span class="logo-rule"></span>
+      <span class="logo-sub">Los Angeles Real Estate</span>
+    </a>
     <ul class="nav-links">
       <li class="nav-item"><a href="index.html">Home</a></li>
       <li class="nav-item">
@@ -39,8 +121,8 @@
       <li class="nav-item"><a href="blog/index.html">Blog</a></li>
       <li class="nav-item"><a href="home-valuation.html">Custom Home Valuation</a></li>
     </ul>
-    <div class="nav-cta">
-      <a href="#" class="btn btn-accent" style="padding:10px 22px;font-size:12px;"
+    <div class="nav-right">
+      <a href="#" class="btn btn-gold btn-sm"
          onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
         Start a Conversation
       </a>
