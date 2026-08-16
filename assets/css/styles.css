@@ -400,7 +400,8 @@ body {
 
 /* ---------- HERO ---------- */
 .hero {
-  min-height: 100vh;
+  height: 100svh;
+  min-height: 560px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: var(--dark);
@@ -1599,9 +1600,9 @@ body:has(.post-content) {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 80px 32px; padding-top: calc(var(--nav-h) + 64px); }
-  .hero-right { height: 480px; }
+  .hero { grid-template-columns: 1fr 1fr; height: 100svh; min-height: 480px; }
+  .hero-left { padding: clamp(32px, 4.5vh, 64px) 32px clamp(32px, 4.5vh, 64px) 40px; }
+  .hero-right { height: auto; }
   .hero-right::after { display: none; }
   .philosophy-inner { grid-template-columns: 1fr; gap: 48px; }
   .heritage-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -1618,6 +1619,9 @@ body:has(.post-content) {
   .container { padding: 0 20px; }
   .nav-links, .nav-right .btn { display: none; }
   .nav-toggle { display: flex; }
+
+  /* ── Hero: reset 1024px height constraint for mobile ── */
+  .hero { grid-template-columns: 1fr; height: auto; min-height: 0; }
 
   /* ── Hero: portrait-first mobile layout ── */
   .hero-right {
