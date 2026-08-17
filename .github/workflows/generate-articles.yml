@@ -1,0 +1,87 @@
+name: Weekly Article Generation
+
+on:
+  # Sunday at 8:00 AM Pacific Time (15:00 UTC in summer / 16:00 UTC in winter)
+  # Using 15:00 UTC covers PDT (UTC-7). Adjust to 16:00 for PST (UTC-8) Nov-Mar if needed.
+  schedule:
+    - cron: '0 15 * * 0'
+
+  # Manual trigger — allows a dry run and optional topic overrides
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: research and generate but do not create a PR or write to repo'
+        required: false
+        type: boolean
+        default: false
+      openai_model:
+        description: 'Override OpenAI writing model (leave blank to use config.json default)'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  generate-articles:
+    name: Generate Weekly Article Batch
+    runs-on: ubuntu-latest
+    # Minimum permissions — only what is needed
+    permissions:
+      contents: write        # push branch
+      pull-requests: write   # create PR
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install openai
+
+      - name: Run editorial automation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          OPENAI_MODEL: ${{ inputs.openai_model || '' }}
+        run: python scripts/run_weekly_batch.py
+
+      # Only create a branch and PR when not in dry-run mode
+      - name: Create branch and pull request
+        if: ${{ inputs.dry_run != true }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="articles/week-$(date -u +%Y-%m-%d)"
+          git config user.name "Paul Sells Properties Bot"
+          git config user.email "noreply@paulsellsproperties.com"
+          git checkout -b "$BRANCH"
+          git add \
+            blog/ \
+            content-system/article-index.json \
+            content-system/manual-topics.json \
+            sitemap.xml \
+            feed.xml
+          git diff --cached --quiet && echo "No changes to commit — nothing to publish." && exit 0
+          git commit -m "Weekly article batch: $(date -u +%Y-%m-%d)"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Weekly Articles: $(date -u +'%B %d, %Y')" \
+            --body-file /tmp/pr_body.md \
+            --base main \
+            --label "editorial" 2>/dev/null || \
+          gh pr create \
+            --title "Weekly Articles: $(date -u +'%B %d, %Y')" \
+            --body-file /tmp/pr_body.md \
+            --base main
+          echo "Pull request created. Review and merge when ready."
+
+      - name: Dry-run summary
+        if: ${{ inputs.dry_run == true }}
+        run: |
+          echo "=== DRY RUN COMPLETE ==="
+          echo "No branch was created. No PR was opened."
+          echo "Generated article HTML files (if any) are in content-system/_dryrun_*.html"
+          cat /tmp/pr_body.md || echo "(no PR body generated)"

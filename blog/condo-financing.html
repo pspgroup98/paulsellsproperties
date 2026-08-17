@@ -40,10 +40,26 @@
           <a href="../property-search.html">Property Search</a>
         </div>
       </li>
+      <li class="nav-item"><span>Buying &amp; Selling ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="../buying-selling-tips.html">Buying &amp; Selling Tips</a>
+        </div>
+      </li>
       <li class="nav-item"><span>About Me ▾</span>
         <div class="nav-dropdown-menu">
           <a href="../about.html">My Bio</a>
           <a href="../contact.html">Contact Me</a>
+        </div>
+      </li>
+      <li class="nav-item"><span>Neighborhoods ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="../neighborhoods/index.html">All Neighborhoods</a>
+          <a href="../neighborhoods/beverly-hills.html">Beverly Hills</a>
+          <a href="../neighborhoods/bel-air.html">Bel Air</a>
+          <a href="../neighborhoods/hollywood-hills.html">Hollywood Hills</a>
+          <a href="../neighborhoods/santa-monica.html">Santa Monica</a>
+          <a href="../neighborhoods/silver-lake.html">Silver Lake</a>
+          <a href="../neighborhoods/venice.html">Venice</a>
         </div>
       </li>
       <li class="nav-item"><a href="index.html">Blog</a></li>
@@ -61,9 +77,11 @@
 <div class="nav-mobile" id="navMobile">
   <a href="../index.html">Home</a>
   <a href="../property-search.html" class="mobile-sub">Property Search</a>
+  <a href="../buying-selling-tips.html">Buying &amp; Selling Tips</a>
   <a href="../about.html">My Bio</a>
   <a href="../contact.html">Contact Me</a>
   <a href="index.html">Blog</a>
+  <a href="../neighborhoods/index.html">Neighborhoods</a>
   <a href="../home-valuation.html">Home Valuation</a>
 </div>
 
@@ -213,84 +231,18 @@
 
 </article>
 
-<!-- FOOTER -->
-<section class="post-more">
+<!-- RELATED ARTICLES -->
+<section class="post-more" data-slug="condo-financing">
   <div class="container">
     <div class="post-more-header">
-      <span class="post-more-label">More Articles</span>
-      <div class="post-more-arrows">
-        <button class="post-more-arrow post-more-prev" aria-label="Previous"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <button class="post-more-arrow post-more-next" aria-label="Next"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
+      <span class="post-more-label">Related Articles</span>
+      <a href="index.html" class="post-more-view-all">View All Insights &rarr;</a>
     </div>
-    <div class="post-more-track-wrap">
-      <div class="post-more-track">
-        <a href="adu-vs-garage-conversion.html" class="more-card">
-          <span class="more-card-cat">Real Estate Investing</span>
-          <h3 class="more-card-title">ADU vs. Garage Conversion in Los Angeles</h3>
-          <span class="more-card-date">April 9, 2026</span>
-        </a>
-        <a href="eviction-threshold.html" class="more-card">
-          <span class="more-card-cat">Landlord &amp; Rental Laws</span>
-          <h3 class="more-card-title">L.A. County&#8217;s New Nonpayment Eviction Threshold</h3>
-          <span class="more-card-date">April 13, 2026</span>
-        </a>
-        <a href="how-much-to-buy.html" class="more-card">
-          <span class="more-card-cat">Buyer&#8217;s Guide</span>
-          <h3 class="more-card-title">How Much Do You Need to Buy a House in Los Angeles?</h3>
-          <span class="more-card-date">April 24, 2026</span>
-        </a>
-        <a href="how-to-buy-house-la.html" class="more-card">
-          <span class="more-card-cat">Buyer&#8217;s Guide</span>
-          <h3 class="more-card-title">How to Buy a House in Los Angeles (Step-by-Step Guide for 2026)</h3>
-          <span class="more-card-date">April 20, 2026</span>
-        </a>
-        <a href="spring-2026-buy-or-wait.html" class="more-card">
-          <span class="more-card-cat">Market Analysis</span>
-          <h3 class="more-card-title">Is Spring 2026 a Good Time to Buy in Los Angeles, or Should You Wait?</h3>
-          <span class="more-card-date">April 12, 2026</span>
-        </a>
-        <a href="tenant-buyout-disclosure.html" class="more-card">
-          <span class="more-card-cat">Landlord &amp; Rental Laws</span>
-          <h3 class="more-card-title">Tenant Buyout Disclosure Laws in Los Angeles</h3>
-          <span class="more-card-date">April 28, 2026</span>
-        </a>
-        <a href="vacant-vs-occupied-duplex.html" class="more-card">
-          <span class="more-card-cat">Real Estate Investing</span>
-          <h3 class="more-card-title">Vacant vs Occupied Duplex Sales in Los Angeles</h3>
-          <span class="more-card-date">April 27, 2026</span>
-        </a>
-        <a href="win-bidding-war.html" class="more-card">
-          <span class="more-card-cat">Buyer Strategy</span>
-          <h3 class="more-card-title">How to Win a Bidding War in Los Angeles Without Overpaying</h3>
-          <span class="more-card-date">April 22, 2026</span>
-        </a>
-      </div>
+    <div class="post-more-grid" id="relatedArticlesGrid">
+      <!-- populated by assets/js/related-articles.js -->
     </div>
   </div>
 </section>
-
-<script>
-  (function() {
-    var track = document.querySelector('.post-more-track');
-    if (!track) return;
-    var prev = document.querySelector('.post-more-prev');
-    var next = document.querySelector('.post-more-next');
-    var CARD_W = 360;
-    var idx = 0;
-    function visible() { return Math.floor(track.parentElement.offsetWidth / CARD_W); }
-    function maxIdx() { return Math.max(0, track.children.length - visible()); }
-    function update() {
-      track.style.transform = 'translateX(-' + (idx * CARD_W) + 'px)';
-      prev.disabled = idx === 0;
-      next.disabled = idx >= maxIdx();
-    }
-    prev.addEventListener('click', function() { if (idx > 0) { idx--; update(); } });
-    next.addEventListener('click', function() { if (idx < maxIdx()) { idx++; update(); } });
-    window.addEventListener('resize', function() { if (idx > maxIdx()) idx = maxIdx(); update(); });
-    update();
-  })();
-</script>
 
 <footer class="footer">
   <div class="footer-main">

@@ -26,10 +26,26 @@
           <a href="../property-search.html">Property Search</a>
         </div>
       </li>
+      <li class="nav-item"><span>Buying &amp; Selling ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="../buying-selling-tips.html">Buying &amp; Selling Tips</a>
+        </div>
+      </li>
       <li class="nav-item"><span>About Me ▾</span>
         <div class="nav-dropdown-menu">
           <a href="../about.html">My Bio</a>
           <a href="../contact.html">Contact Me</a>
+        </div>
+      </li>
+      <li class="nav-item"><span>Neighborhoods ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="../neighborhoods/index.html">All Neighborhoods</a>
+          <a href="../neighborhoods/beverly-hills.html">Beverly Hills</a>
+          <a href="../neighborhoods/bel-air.html">Bel Air</a>
+          <a href="../neighborhoods/hollywood-hills.html">Hollywood Hills</a>
+          <a href="../neighborhoods/santa-monica.html">Santa Monica</a>
+          <a href="../neighborhoods/silver-lake.html">Silver Lake</a>
+          <a href="../neighborhoods/venice.html">Venice</a>
         </div>
       </li>
       <li class="nav-item"><a href="index.html">Blog</a></li>
@@ -47,9 +63,11 @@
 <div class="nav-mobile" id="navMobile">
   <a href="../index.html">Home</a>
   <a href="../property-search.html" class="mobile-sub">Property Search</a>
+  <a href="../buying-selling-tips.html">Buying &amp; Selling Tips</a>
   <a href="../about.html">My Bio</a>
   <a href="../contact.html">Contact Me</a>
   <a href="index.html">Blog</a>
+  <a href="../neighborhoods/index.html">Neighborhoods</a>
   <a href="../home-valuation.html">Home Valuation</a>
 </div>
 
@@ -151,6 +169,19 @@
 
 </article>
 
+<!-- RELATED ARTICLES -->
+<section class="post-more" data-slug="[ARTICLE-SLUG]">
+  <div class="container">
+    <div class="post-more-header">
+      <span class="post-more-label">Related Articles</span>
+      <a href="index.html" class="post-more-view-all">View All Insights &rarr;</a>
+    </div>
+    <div class="post-more-grid" id="relatedArticlesGrid">
+      <!-- populated by assets/js/related-articles.js -->
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-main">
@@ -231,5 +262,6 @@
     document.getElementById('navMobile').classList.toggle('open');
   });
 </script>
+<script src="../assets/js/related-articles.js"></script>
 </body>
 </html>

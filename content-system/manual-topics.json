@@ -1,0 +1,4 @@
+{
+  "_comment": "Optional manual topic overrides. Add entries here to have the automation prioritize them on the next run. Each entry will be used once and marked as consumed. Leave this array empty to let the system select topics automatically.",
+  "topics": []
+}

@@ -1,0 +1,18 @@
+{
+  "_comment": "Content system configuration. Edit these values to change model, limits, or schedule behavior. Environment variables override these values: OPENAI_MODEL, OPENAI_RESEARCH_MODEL.",
+  "writing_model": "gpt-4o",
+  "research_model": "gpt-4o",
+  "candidate_topic_count": 12,
+  "articles_per_run": 3,
+  "max_revision_attempts": 2,
+  "min_word_count": 900,
+  "max_word_count": 2200,
+  "site_base_url": "https://paulsellsproperties.com",
+  "blog_path": "blog",
+  "author_name": "Paul Adams II",
+  "author_url": "https://paulsellsproperties.com/about.html",
+  "author_id": "https://paulsellsproperties.com/#paul",
+  "agent_id": "https://paulsellsproperties.com/#agent",
+  "website_id": "https://paulsellsproperties.com/#website",
+  "default_og_image": "https://paulsellsproperties.com/assets/images/paul-hero.png"
+}
