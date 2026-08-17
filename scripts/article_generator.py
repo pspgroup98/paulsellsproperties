@@ -41,6 +41,13 @@ def slugify(text: str) -> str:
     return text
 
 
+TYPE_LABELS = {
+    "A": "Timely/Market Intelligence",
+    "B": "Evergreen/Consumer Education",
+    "C": "Authority/Investment",
+}
+
+
 def build_writing_prompt(topic: dict, editorial_guidelines: str, existing_articles: list, cfg: dict) -> str:
     related = [
         f"- {a['title']} (/{cfg['blog_path']}/{a['slug']}.html)"
@@ -50,6 +57,8 @@ def build_writing_prompt(topic: dict, editorial_guidelines: str, existing_articl
     ][:4]
     related_str = "\n".join(related) if related else "None identified"
 
+    type_label = TYPE_LABELS.get(topic.get("article_type", "B"), "")
+
     return f"""You are writing an article for paulsellsproperties.com, the website of Paul Adams II, a Los Angeles real estate agent at Coldwell Banker Realty Beverly Hills.
 
 EDITORIAL GUIDELINES (follow these strictly):
@@ -57,7 +66,7 @@ EDITORIAL GUIDELINES (follow these strictly):
 
 TOPIC ASSIGNMENT:
 - Topic: {topic.get('topic')}
-- Article type: {topic.get('article_type', 'B')} ({{'A': 'Timely/Market Intelligence', 'B': 'Evergreen/Consumer Education', 'C': 'Authority/Investment'}}.get(topic.get('article_type','B'), '')}
+- Article type: {topic.get('article_type', 'B')} ({type_label})
 - Category: {topic.get('category')}
 - Primary keyword: {topic.get('primary_keyword', '')}
 - Rationale: {topic.get('rationale', '')}
