@@ -1,0 +1,94 @@
+name: Weekly Article Generation
+
+on:
+  # ── AUTOMATED SCHEDULE — INTENTIONALLY DISABLED ──────────────────────────
+  # Automated Sunday generation requires a configured OpenAI editorial
+  # workflow that has not yet been finalized. The cron trigger will be
+  # re-enabled once the ChatGPT article pipeline is ready and tested.
+  #
+  # To re-enable: uncomment the schedule block below and set the
+  # OPENAI_API_KEY secret in Settings → Secrets → Actions.
+  #
+  # schedule:
+  #   - cron: '0 15,16 * * 0'   # Sunday 8:00 AM LA — both PDT (15:00) and PST (16:00)
+
+  # Manual trigger — available for local testing without activating the cron
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: research and generate but do not create a PR or write to repo'
+        required: false
+        type: boolean
+        default: false
+      openai_model:
+        description: 'Override OpenAI writing model (leave blank to use config.json default)'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  generate-articles:
+    name: Generate Weekly Article Batch
+    runs-on: ubuntu-latest
+    # Minimum permissions — only what is needed
+    permissions:
+      contents: write        # push branch
+      pull-requests: write   # create PR
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install openai
+
+      - name: Run editorial automation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          OPENAI_MODEL: ${{ inputs.openai_model || '' }}
+        run: python scripts/run_weekly_batch.py
+
+      # Only create a branch and PR when not in dry-run mode
+      - name: Create branch and pull request
+        if: ${{ inputs.dry_run != true }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="articles/week-$(date -u +%Y-%m-%d)"
+          git config user.name "Paul Sells Properties Bot"
+          git config user.email "noreply@paulsellsproperties.com"
+          git checkout -b "$BRANCH"
+          # Stage article HTML files and updated registry only.
+          # Homepage, archive, sitemap, and RSS are rebuilt at publish time
+          # by publish-scheduled.yml — not here.
+          git add \
+            blog/*.html \
+            content-system/article-index.json \
+            content-system/manual-topics.json
+          git diff --cached --quiet && echo "No changes to commit — nothing to publish." && exit 0
+          git commit -m "Weekly article batch: $(date -u +%Y-%m-%d)"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Weekly Articles: $(date -u +'%B %d, %Y')" \
+            --body-file /tmp/pr_body.md \
+            --base main \
+            --label "editorial" 2>/dev/null || \
+          gh pr create \
+            --title "Weekly Articles: $(date -u +'%B %d, %Y')" \
+            --body-file /tmp/pr_body.md \
+            --base main
+          echo "Pull request created. Review and merge when ready."
+
+      - name: Dry-run summary
+        if: ${{ inputs.dry_run == true }}
+        run: |
+          echo "=== DRY RUN COMPLETE ==="
+          echo "No branch was created. No PR was opened."
+          echo "Generated article HTML files (if any) are in content-system/_dryrun_*.html"
+          cat /tmp/pr_body.md || echo "(no PR body generated)"

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paul Adams II | Los Angeles Real Estate Insights</title>
+    <link>https://paulsellsproperties.com/</link>
+    <description>Real estate strategy, market analysis, and Los Angeles neighborhood insights from Paul Adams II, Coldwell Banker Realty Beverly Hills.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Aug 2026 15:42:45 -0700</lastBuildDate>
+    <atom:link href="https://paulsellsproperties.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://paulsellsproperties.com/assets/images/paul-hero.png</url>
+      <title>Paul Adams II | Los Angeles Real Estate</title>
+      <link>https://paulsellsproperties.com/</link>
+    </image>
+    <item>
+      <title>Tenant Buyout Disclosure Laws in Los Angeles: What Landlords Must Do Before Offering Cash for Keys</title>
+      <link>https://paulsellsproperties.com/blog/tenant-buyout-disclosure.html</link>
+      <description>Most landlords think offering cash for keys is simple. It&#x27;s more regulated than that.</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/tenant-buyout-disclosure.html</guid>
+      <category>Landlord &amp; Rental Laws</category>
+    </item>
+    <item>
+      <title>Condo Financing Is Tightening in Los Angeles: What Buyers and Sellers Need to Know</title>
+      <link>https://paulsellsproperties.com/blog/condo-financing.html</link>
+      <description>Most buyers think getting pre-approved means they&#x27;re ready to buy any condo. That&#x27;s where deals fall apart.</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/condo-financing.html</guid>
+      <category>Condo / HOA</category>
+    </item>
+    <item>
+      <title>Vacant vs Occupied Duplex Sales in Los Angeles: Which Strategy Gets Sellers the Best Price?</title>
+      <link>https://paulsellsproperties.com/blog/vacant-vs-occupied-duplex.html</link>
+      <description>Most duplex owners think vacancy automatically means a higher sale price. Sometimes it does. Not always.</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/vacant-vs-occupied-duplex.html</guid>
+      <category>Investor Strategy</category>
+    </item>
+    <item>
+      <title>How Much Do You Need to Buy a House in Los Angeles?</title>
+      <link>https://paulsellsproperties.com/blog/how-much-to-buy.html</link>
+      <description>The question buyers ask most — and the one that gets answered too vaguely.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/how-much-to-buy.html</guid>
+      <category>Buyer&#x27;s Guide</category>
+    </item>
+    <item>
+      <title>How to Win a Bidding War in Los Angeles Without Overpaying</title>
+      <link>https://paulsellsproperties.com/blog/win-bidding-war.html</link>
+      <description>Competing in the LA market takes strategy, not just a higher number.</description>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/win-bidding-war.html</guid>
+      <category>Buyer Strategy</category>
+    </item>
+    <item>
+      <title>How to Buy a House in Los Angeles (Step-by-Step Guide for 2026)</title>
+      <link>https://paulsellsproperties.com/blog/how-to-buy-house-la.html</link>
+      <description>A clear walkthrough of the full buying process, from pre-approval to closing.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/how-to-buy-house-la.html</guid>
+      <category>Buyer&#x27;s Guide</category>
+    </item>
+    <item>
+      <title>Unincorporated LA County&#x27;s New Nonpayment Eviction Threshold: What Property Owners Need to Know</title>
+      <link>https://paulsellsproperties.com/blog/eviction-threshold.html</link>
+      <description>New rules affecting when landlords can begin eviction proceedings for nonpayment of rent.</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/eviction-threshold.html</guid>
+      <category>Landlord &amp; Rental Laws</category>
+    </item>
+    <item>
+      <title>Is Spring 2026 a Good Time to Buy in Los Angeles, or Should You Wait?</title>
+      <link>https://paulsellsproperties.com/blog/spring-2026-buy-or-wait.html</link>
+      <description>An honest look at current conditions, inventory trends, and what the data actually says.</description>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/spring-2026-buy-or-wait.html</guid>
+      <category>Market Analysis</category>
+    </item>
+    <item>
+      <title>ADU vs. Garage Conversion in Los Angeles: Which Adds More Value and Rent Potential?</title>
+      <link>https://paulsellsproperties.com/blog/adu-vs-garage-conversion.html</link>
+      <description>For LA property owners looking to add income or increase value — this choice matters.</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 -0700</pubDate>
+      <guid isPermaLink="true">https://paulsellsproperties.com/blog/adu-vs-garage-conversion.html</guid>
+      <category>Real Estate Investing</category>
+    </item>
+  </channel>
+</rss>

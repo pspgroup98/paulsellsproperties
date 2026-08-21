@@ -1485,6 +1485,36 @@ body:has(.post-content) {
   .more-card { flex: 0 0 260px; }
 }
 
+/* Related articles grid (dynamic JS-driven layout) */
+.post-more-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.post-more-grid .more-card {
+  flex: unset;
+}
+.post-more-view-all {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+.post-more-view-all:hover { text-decoration: underline; }
+.post-more-empty {
+  color: var(--text-mid);
+  font-size: 14px;
+  padding: 20px 0;
+}
+@media (max-width: 767px) {
+  .post-more-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .post-more-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background: #060606;
