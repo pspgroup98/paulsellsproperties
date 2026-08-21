@@ -4,22 +4,23 @@ import os
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
-CONFIG_PATH = REPO_ROOT / "content-system" / "config.json"
-ARTICLE_INDEX_PATH = REPO_ROOT / "content-system" / "article-index.json"
-MANUAL_TOPICS_PATH = REPO_ROOT / "content-system" / "manual-topics.json"
+CONFIG_PATH           = REPO_ROOT / "content-system" / "config.json"
+ARTICLE_INDEX_PATH    = REPO_ROOT / "content-system" / "article-index.json"
+MANUAL_TOPICS_PATH    = REPO_ROOT / "content-system" / "manual-topics.json"
 EDITORIAL_GUIDELINES_PATH = REPO_ROOT / "content-system" / "EDITORIAL_GUIDELINES.md"
-BLOG_DIR = REPO_ROOT / "blog"
-SITEMAP_PATH = REPO_ROOT / "sitemap.xml"
-RSS_PATH = REPO_ROOT / "feed.xml"
-BLOG_INDEX_PATH = REPO_ROOT / "blog" / "index.html"
+BLOG_DIR              = REPO_ROOT / "blog"
+SITEMAP_PATH          = REPO_ROOT / "sitemap.xml"
+RSS_PATH              = REPO_ROOT / "feed.xml"
+BLOG_INDEX_PATH       = REPO_ROOT / "blog" / "index.html"
+HOMEPAGE_PATH         = REPO_ROOT / "index.html"
 
 
 def load_config() -> dict:
     with open(CONFIG_PATH) as f:
         cfg = json.load(f)
     # Environment variable overrides
-    cfg["writing_model"] = os.environ.get("OPENAI_MODEL", cfg.get("writing_model", "gpt-4o"))
-    cfg["research_model"] = os.environ.get("OPENAI_RESEARCH_MODEL", cfg.get("research_model", "gpt-4o"))
+    cfg["writing_model"]   = os.environ.get("OPENAI_MODEL",          cfg.get("writing_model",   "gpt-4o"))
+    cfg["research_model"]  = os.environ.get("OPENAI_RESEARCH_MODEL", cfg.get("research_model",  "gpt-4o"))
     return cfg
 
 

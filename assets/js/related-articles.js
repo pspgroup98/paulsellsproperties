@@ -10,33 +10,37 @@
 
   // Category affinity groups — articles in the same group score higher as related
   var CATEGORY_GROUPS = {
-    "Buyer's Guide":        ["Buyer's Guide", "Buyer Strategy", "Condo / HOA"],
-    "Buyer Strategy":       ["Buyer Strategy", "Buyer's Guide"],
-    "Market Analysis":      ["Market Analysis", "Buyer's Guide", "Buyer Strategy"],
-    "Landlord & Rental Laws": ["Landlord & Rental Laws", "Real Estate Investing"],
-    "Real Estate Investing": ["Real Estate Investing", "Landlord & Rental Laws", "Seller Strategy"],
-    "Condo / HOA":          ["Condo / HOA", "Buyer's Guide"],
-    "Seller Strategy":      ["Seller Strategy", "Real Estate Investing"]
+    "Buyer's Guide":          ["Buyer's Guide", "Buyer Strategy", "Condo / HOA"],
+    "Buyer Strategy":         ["Buyer Strategy", "Buyer's Guide"],
+    "Market Analysis":        ["Market Analysis", "Buyer's Guide", "Buyer Strategy"],
+    "Landlord & Rental Laws": ["Landlord & Rental Laws", "Real Estate Investing", "Investor Strategy"],
+    "Real Estate Investing":  ["Real Estate Investing", "Landlord & Rental Laws", "Investor Strategy"],
+    "Investor Strategy":      ["Investor Strategy", "Real Estate Investing", "Landlord & Rental Laws"],
+    "Condo / HOA":            ["Condo / HOA", "Buyer's Guide"],
+    "Seller Strategy":        ["Seller Strategy", "Real Estate Investing", "Investor Strategy"],
+    "Market Analysis":        ["Market Analysis", "Buyer's Guide", "Buyer Strategy"]
   };
+
+  function isPublished(article) {
+    // Only surface articles that are explicitly marked published.
+    // Approved-but-future and draft articles are excluded.
+    return article.status === 'published';
+  }
 
   function score(article, current) {
     var s = 0;
     if (!current) return s;
     var affinity = CATEGORY_GROUPS[current.category] || [current.category];
 
-    // Exact category match
     if (article.category === current.category) s += 4;
-    // Affinity group match
     else if (affinity.indexOf(article.category) !== -1) s += 2;
 
-    // Tag overlap
     if (current.tags && article.tags) {
       current.tags.forEach(function (t) {
         if (article.tags.indexOf(t) !== -1) s += 1;
       });
     }
 
-    // Same audience
     if (current.audience && article.audience) {
       current.audience.forEach(function (a) {
         if (article.audience.indexOf(a) !== -1) s += 1;
@@ -55,7 +59,7 @@
       return '<a href="' + a.slug + '.html" class="more-card">' +
         '<span class="more-card-cat">' + escHtml(a.category) + '</span>' +
         '<h3 class="more-card-title">' + escHtml(a.title) + '</h3>' +
-        '<span class="more-card-date">' + escHtml(a.date_display) + '</span>' +
+        '<span class="more-card-date">' + escHtml(a.date_display || '') + '</span>' +
         '</a>';
     }).join('');
   }
@@ -80,11 +84,15 @@
       return;
     }
     try {
-      var articles = JSON.parse(xhr.responseText);
-      var current = null;
+      var allArticles = JSON.parse(xhr.responseText);
+
+      // Filter to published articles only — never surface drafts or future-scheduled content
+      var published = allArticles.filter(isPublished);
+
+      var current    = null;
       var candidates = [];
 
-      articles.forEach(function (a) {
+      published.forEach(function (a) {
         if (a.slug === currentSlug) { current = a; }
         else { candidates.push(a); }
       });
@@ -94,8 +102,10 @@
         return { article: a, s: score(a, current) };
       }).sort(function (x, y) {
         if (y.s !== x.s) return y.s - x.s;
-        // Tiebreak by recency
-        return (y.article.date_iso || '').localeCompare(x.article.date_iso || '');
+        // Tiebreak by recency (published_at preferred, fall back to date_iso)
+        var ay = y.article.published_at || y.article.date_iso || '';
+        var ax = x.article.published_at || x.article.date_iso || '';
+        return ay.localeCompare(ax);
       }).map(function (o) { return o.article; });
 
       renderCards(candidates.slice(0, 3));

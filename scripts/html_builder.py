@@ -168,7 +168,7 @@ def build_json_ld(article: dict, cfg: dict) -> str:
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{base_url}/"},
-                    {"@type": "ListItem", "position": 2, "name": "Real Estate Insights", "item": f"{base_url}/blog/index.html"},
+                    {"@type": "ListItem", "position": 2, "name": "Real Estate Insights", "item": f"{base_url}/blog/"},
                     {"@type": "ListItem", "position": 3, "name": article["headline"], "item": article_url},
                 ],
             },

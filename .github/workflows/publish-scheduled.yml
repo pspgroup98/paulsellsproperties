@@ -1,0 +1,70 @@
+name: Publish Scheduled Articles
+
+on:
+  # Mon / Wed / Fri at 10:00 AM Pacific Time
+  # PDT (summer, UTC-7): 17:00 UTC
+  # PST (winter, UTC-8): 18:00 UTC
+  # Using 17:00 UTC covers PDT. Adjust cron to '0 18 * * 1,3,5' from Nov–Mar.
+  schedule:
+    - cron: '0 17 * * 1,3,5'
+
+  # Manual trigger — runs immediately, publishes any overdue approved articles
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: identify eligible articles but do not publish or commit'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    name: Publish Eligible Articles
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # required to push updated files to main
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run publication script
+        id: publish
+        env:
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          python scripts/publish_scheduled.py
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push changes
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name  "Paul Sells Properties Bot"
+          git config user.email "noreply@paulsellsproperties.com"
+          git add \
+            index.html \
+            blog/index.html \
+            content-system/article-index.json \
+            sitemap.xml \
+            feed.xml
+          if git diff --cached --quiet; then
+            echo "No eligible articles found — nothing to commit."
+          else
+            git commit -m "Publish scheduled articles $(date -u +%Y-%m-%d)"
+            git push origin main
+            echo "Published. GitHub Pages deployment will follow shortly."
+          fi
+
+      - name: Dry-run summary
+        if: ${{ inputs.dry_run == true }}
+        run: |
+          echo "=== DRY RUN — no commit was made ==="
+          echo "Review the publish_scheduled.py output above to see which articles"
+          echo "would have been published."
