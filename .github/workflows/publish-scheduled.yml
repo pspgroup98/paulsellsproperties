@@ -1,14 +1,27 @@
 name: Publish Scheduled Articles
 
 on:
-  # Mon / Wed / Fri at 10:00 AM Pacific Time
-  # PDT (summer, UTC-7): 17:00 UTC
-  # PST (winter, UTC-8): 18:00 UTC
-  # Using 17:00 UTC covers PDT. Adjust cron to '0 18 * * 1,3,5' from Nov–Mar.
+  # Mon / Wed / Fri at 10:00 AM America/Los_Angeles — DST-safe.
+  #
+  # GitHub Actions cron runs in UTC. Los Angeles observes:
+  #   PDT (Mar–Nov, UTC-7): 10:00 AM = 17:00 UTC
+  #   PST (Nov–Mar, UTC-8): 10:00 AM = 18:00 UTC
+  #
+  # Running at BOTH 17:00 and 18:00 UTC means the workflow fires at
+  # the right clock hour under both offsets year-round — no manual
+  # cron changes needed when daylight saving time shifts.
+  #
+  # The Python script (publish_scheduled.py) is authoritative:
+  #   - It reads now() in America/Los_Angeles via ZoneInfo
+  #   - An article's scheduled_publish_at is compared against that
+  #     timezone-aware timestamp, not a hardcoded UTC offset
+  #   - Running twice in a session is safe — already-published articles
+  #     have status="published" and are never re-processed
+  #   - git diff --cached --quiet skips the commit if nothing changed
   schedule:
-    - cron: '0 17 * * 1,3,5'
+    - cron: '0 17,18 * * 1,3,5'
 
-  # Manual trigger — runs immediately, publishes any overdue approved articles
+  # Manual trigger — publishes any overdue approved articles immediately
   workflow_dispatch:
     inputs:
       dry_run:

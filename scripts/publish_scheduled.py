@@ -1,12 +1,27 @@
 """
 Scheduled publication script.
 
-Runs on Mon / Wed / Fri at 10:00 AM PT via .github/workflows/publish-scheduled.yml.
-Can also be triggered manually via workflow_dispatch.
+Runs Mon / Wed / Fri at 10:00 AM America/Los_Angeles via publish-scheduled.yml.
+Can also be triggered manually via workflow_dispatch at any time.
+
+DST handling
+------------
+The workflow cron fires at both 17:00 UTC and 18:00 UTC on publication days,
+covering 10:00 AM under both PDT (UTC-7) and PST (UTC-8). This script is the
+sole authority on eligibility: it reads the current time via ZoneInfo so
+that no article can publish at 9:00 AM simply because clocks changed.
+
+Idempotency
+-----------
+Running this script twice in the same session is safe:
+  • Only articles with status='approved' are considered. Once an article is
+    transitioned to status='published', subsequent runs skip it.
+  • git diff --cached --quiet in the workflow step skips the commit when
+    no files changed — no duplicate commits, no redundant GitHub Pages deploys.
 
 Responsibility:
   1. Find 'approved' articles whose scheduled_publish_at <= now (America/Los_Angeles).
-  2. Set status → 'published', record published_at.
+  2. Set status → 'published', record published_at as a timezone-aware ISO string.
   3. Rebuild all public surfaces: homepage, blog archive, sitemap, RSS.
   4. Save updated article-index.json.
 

@@ -1,12 +1,18 @@
 name: Weekly Article Generation
 
 on:
-  # Sunday at 8:00 AM Pacific Time (15:00 UTC in summer / 16:00 UTC in winter)
-  # Using 15:00 UTC covers PDT (UTC-7). Adjust to 16:00 for PST (UTC-8) Nov-Mar if needed.
-  schedule:
-    - cron: '0 15 * * 0'
+  # ── AUTOMATED SCHEDULE — INTENTIONALLY DISABLED ──────────────────────────
+  # Automated Sunday generation requires a configured OpenAI editorial
+  # workflow that has not yet been finalized. The cron trigger will be
+  # re-enabled once the ChatGPT article pipeline is ready and tested.
+  #
+  # To re-enable: uncomment the schedule block below and set the
+  # OPENAI_API_KEY secret in Settings → Secrets → Actions.
+  #
+  # schedule:
+  #   - cron: '0 15,16 * * 0'   # Sunday 8:00 AM LA — both PDT (15:00) and PST (16:00)
 
-  # Manual trigger — allows a dry run and optional topic overrides
+  # Manual trigger — available for local testing without activating the cron
   workflow_dispatch:
     inputs:
       dry_run:
