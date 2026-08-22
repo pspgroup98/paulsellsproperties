@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+*.egg
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Phase 3: editorial context and batch archives
+# These files are generated locally and may contain unpublished content.
+# The .gitkeep in approved-batches/ is tracked so the directory exists in git.
+content-system/editorial-context.json
+content-system/approved-batches/*.json
+
+# Test artifacts
+scripts/test_fixtures/
+/tmp/test_batch_*.json
+
+# Environment
+.env
+.env.*

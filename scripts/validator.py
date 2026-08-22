@@ -1,10 +1,28 @@
-"""Article validation: em dash prohibition, quality checks, structural checks."""
+"""Article validation: em dash prohibition, quality checks, structural checks.
+
+Phase 3 additions:
+  scan_fields_for_em_dashes()  — per-field em dash scan with exact position reporting
+  scan_for_other_dashes()      — en dash and other Unicode dash variant warnings
+  check_source_completeness()  — warns when news/regulatory/market_data has no sources
+  check_search_intent_overlap() — detects search intent overlap against existing registry
+"""
+import difflib
 import re
 from dataclasses import dataclass, field
 from typing import Optional
 
 
-EM_DASH = "—"
+EM_DASH = "—"   # — Unicode em dash (U+2014) — hard failure
+
+# Other Unicode dash variants that may be silently substituted by editors.
+# These are warnings, not hard failures.
+EN_DASH       = "–"   # –
+HORIZONTAL_BAR = "―"  # ―
+FIGURE_DASH   = "‒"   # ‒
+OTHER_DASH_CHARS = {EN_DASH: "en dash (U+2013)", HORIZONTAL_BAR: "horizontal bar (U+2015)", FIGURE_DASH: "figure dash (U+2012)"}
+
+# Content types that require sources when making factual claims.
+SOURCES_REQUIRED_TYPES = {"news", "regulatory", "market_data", "legal-regulatory", "market-insight", "market-analysis"}
 
 # Phrases that signal generic AI writing — reported as warnings, not hard failures
 QUALITY_PHRASES = [
@@ -175,3 +193,151 @@ def check_slug_collision(slug: str, article_index: list, blog_dir) -> Optional[s
     if html_path.exists():
         return f"File already exists: blog/{slug}.html"
     return None
+
+
+# ── Phase 3: per-field em dash scanning ─────────────────────────────────────
+
+def _extract_text_fields(article: dict) -> list:
+    """Return a list of (field_label, text) pairs covering all user-facing text."""
+    fields = [
+        ("title",            article.get("title", "")),
+        ("excerpt",          article.get("excerpt", "")),
+        ("meta_title",       article.get("meta_title", "")),
+        ("meta_description", article.get("meta_description", "")),
+        ("body_html",        article.get("body_html", "")),
+    ]
+    for i, faq_item in enumerate(article.get("faq", [])):
+        fields.append((f"faq[{i}].question", faq_item.get("question", "")))
+        fields.append((f"faq[{i}].answer",   faq_item.get("answer", "")))
+    for i, src in enumerate(article.get("sources", [])):
+        fields.append((f"sources[{i}].title", src.get("title", "")))
+    return fields
+
+
+def scan_fields_for_em_dashes(article: dict) -> list:
+    """
+    Scan every user-facing text field individually for em dashes.
+
+    Returns a list of dicts:
+        {field: str, position: int, context: str}
+
+    An empty list means no em dashes were found.
+    """
+    findings = []
+    for field_label, text in _extract_text_fields(article):
+        for pos, ch in enumerate(text):
+            if ch == EM_DASH:
+                start   = max(0, pos - 30)
+                end     = min(len(text), pos + 31)
+                snippet = text[start:end].replace("\n", " ").replace("\r", "")
+                findings.append({"field": field_label, "position": pos, "context": snippet})
+    return findings
+
+
+def scan_for_other_dashes(article: dict) -> list:
+    """
+    Scan for en dashes and other Unicode dash variants that editors may silently substitute.
+
+    Returns a list of dicts:
+        {field: str, position: int, char_name: str, context: str}
+
+    These are warnings — not hard failures — because some punctuation (e.g. date ranges,
+    numeric ranges) legitimately uses an en dash. Review manually.
+    """
+    warnings = []
+    for field_label, text in _extract_text_fields(article):
+        for pos, ch in enumerate(text):
+            if ch in OTHER_DASH_CHARS:
+                start   = max(0, pos - 25)
+                end     = min(len(text), pos + 26)
+                snippet = text[start:end].replace("\n", " ").replace("\r", "")
+                warnings.append({
+                    "field":     field_label,
+                    "position":  pos,
+                    "char_name": OTHER_DASH_CHARS[ch],
+                    "context":   snippet,
+                })
+    return warnings
+
+
+# ── Phase 3: source-completeness warning ────────────────────────────────────
+
+def check_source_completeness(article: dict) -> list:
+    """
+    Warn when an article's content_type implies factual claims but sources is empty.
+
+    Returns a list of warning strings. Empty list = no warnings.
+    """
+    warnings = []
+    content_type = article.get("content_type", "")
+    sources      = article.get("sources", [])
+    if content_type in SOURCES_REQUIRED_TYPES and not sources:
+        warnings.append(
+            f"content_type='{content_type}' typically requires verifiable sources, "
+            f"but the sources array is empty. Add at least one source or change "
+            f"content_type to 'evergreen' / 'strategy-guide' if no primary sources apply."
+        )
+    return warnings
+
+
+# ── Phase 3: search-intent overlap detection ────────────────────────────────
+
+def _normalize_intent(text: str) -> set:
+    """Lowercase, strip punctuation, split, remove stop words — for Jaccard comparison."""
+    _STOP = {
+        "a","an","the","and","or","but","in","on","at","to","for","of","with",
+        "by","from","as","is","are","was","were","be","been","being","have",
+        "has","had","do","does","did","will","would","could","should","may",
+        "might","shall","can","need","dare","ought","used","how","what","when",
+        "where","who","which","why","that","this","these","those","i","you",
+        "he","she","it","we","they","me","him","her","us","them","my","your",
+        "his","its","our","their","los","angeles","la","into","about","not",
+    }
+    words = re.sub(r"[^a-z0-9\s]", " ", text.lower()).split()
+    return {w for w in words if w not in _STOP and len(w) > 1}
+
+
+def check_search_intent_overlap(article: dict, registry: list) -> list:
+    """
+    Compare the article's normalized_search_intent and primary_keyword against
+    all existing registry entries. Returns a list of warning strings.
+
+    Two overlap signals are checked:
+      1. Jaccard similarity on normalized_search_intent words ≥ 60 %
+      2. SequenceMatcher ratio on primary_keyword strings ≥ 0.80
+    """
+    warnings = []
+    new_intent  = article.get("normalized_search_intent", "")
+    new_keyword = article.get("primary_keyword", "")
+    new_words   = _normalize_intent(new_intent)
+
+    for existing in registry:
+        ex_slug    = existing.get("slug", "?")
+        ex_title   = existing.get("title", "?")
+
+        # Signal 1: normalized search intent Jaccard
+        ex_intent = existing.get("normalized_search_intent") or existing.get("search_intent", "")
+        ex_words  = _normalize_intent(ex_intent)
+        union = new_words | ex_words
+        if union:
+            jaccard = len(new_words & ex_words) / len(union)
+            if jaccard >= 0.60:
+                warnings.append(
+                    f"INTENT OVERLAP ({jaccard:.0%}) with '{ex_slug}' — "
+                    f"'{ex_title}': new='{new_intent}' vs existing='{ex_intent}'. "
+                    f"Confirm this is a genuinely distinct angle, not cannibalization."
+                )
+                continue  # One overlap warning per existing article is enough
+
+        # Signal 2: primary keyword similarity
+        ex_keyword = existing.get("primary_keyword", "")
+        if new_keyword and ex_keyword:
+            ratio = difflib.SequenceMatcher(None, new_keyword.lower(), ex_keyword.lower()).ratio()
+            if ratio >= 0.80:
+                warnings.append(
+                    f"KEYWORD SIMILARITY ({ratio:.0%}) with '{ex_slug}' — "
+                    f"new='{new_keyword}' vs existing='{ex_keyword}'. "
+                    f"Review for search intent cannibalization."
+                )
+
+    return warnings
