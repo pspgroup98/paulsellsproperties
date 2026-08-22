@@ -1,191 +1,204 @@
 # Content System — Paul Sells Properties
 
-This folder contains the editorial automation system that researches, writes, validates, and prepares weekly blog articles for paulsellsproperties.com.
+This folder contains the editorial system for paulsellsproperties.com.
 
-## How the system works
-
-Once per week (Sunday morning), a GitHub Actions workflow runs automatically. It:
-
-1. Reads the existing article inventory to understand what has already been covered
-2. Uses OpenAI with web search to research current Los Angeles real estate conditions
-3. Generates a pool of candidate article topics and scores them
-4. Selects three topics — one timely/market article, one evergreen educational article, one investment/authority article
-5. Writes each article using OpenAI, following strict editorial guidelines
-6. Validates every article: checks for prohibited characters, quality issues, structural problems, and metadata completeness
-7. If an article fails validation, it requests a correction and tries again (up to 2 attempts)
-8. Builds complete HTML pages that match the site's existing design
-9. Updates the blog index, sitemap, RSS feed, and article inventory
-10. Creates one pull request containing all three articles for your review
-
-**You review the pull request. You merge it. Only your merge causes anything to go live.**
+Phase 3 (current): ChatGPT acts as the editorial research and writing engine. A local Python importer validates and imports the approved batch. The existing Phase 2 publishing system (Mon/Wed/Fri at 10 AM PT) publishes approved articles automatically.
 
 ---
 
-## How topic selection works
+## How the Weekly Workflow Works
 
-The system uses OpenAI with web search to research:
-- Current Los Angeles real estate market conditions
-- Recent legislation and policy changes
-- Mortgage and financing environment
-- Common buyer, seller, and investor questions
-- Content gaps on the site
+### Sunday — Research and Writing (you + ChatGPT)
 
-It generates 12+ candidate topics, scores each one across 11 dimensions (relevance, LA-specificity, client usefulness, search intent, duplication risk, etc.), and selects the three strongest topics.
+**Step 1: Export editorial context**
+```bash
+python3 scripts/export_editorial_context.py
+```
+This generates `content-system/editorial-context.json` — a compact summary of everything published, scheduled, in the backlog, and on the watch list. It also includes the site page inventory for internal-link suggestions.
 
-Topics that substantially duplicate existing articles are rejected.
+**Step 2: Open ChatGPT**
+Open a new ChatGPT session. Paste the contents of `editorial-context.json` as your first message.
 
----
+Then paste the research prompt from `content-system/CHATGPT_EDITORIAL_PROMPT.md` as your second message.
 
-## How to manually suggest a topic
+**Step 3: Research, select, approve**
+ChatGPT will propose topic candidates. Review them, give feedback, and confirm the three topics for the week. ChatGPT will write each article. Review the writing, request edits, and approve each article.
 
-Edit `content-system/manual-topics.json`. Add an entry to the `topics` array:
+**Step 4: Get the package JSON**
+Once all three articles are approved, ask ChatGPT to produce the complete batch JSON package. Copy it and save it as a local file (e.g., `batch-2026-08-24.json`).
 
-```json
-{
-  "topics": [
-    {
-      "topic": "How rent control affects property values in Los Angeles",
-      "suggested_headline": "What Rent Control Actually Does to Property Values in Los Angeles",
-      "article_type": "C",
-      "category": "Real Estate Investing",
-      "primary_keyword": "rent control Los Angeles property value"
-    }
-  ]
-}
+**Step 5: Import the batch**
+```bash
+python3 scripts/import_editorial_batch.py batch-2026-08-24.json
+```
+The importer will:
+1. Validate all three articles (em dashes, structure, slugs, word count)
+2. Show the publication schedule (Mon/Wed/Fri dates and article summaries)
+3. Prompt you to confirm: type `yes` to approve or `draft` to import without scheduling
+
+**Step 6: Commit and push**
+```bash
+git add blog/*.html \
+    content-system/article-index.json \
+    content-system/editorial-backlog.json \
+    content-system/editorial-watch-list.json
+git commit -m "Editorial batch: week of 2026-08-24"
+git push origin main
 ```
 
-On the next run, the system will prioritize this topic. After it is used, it is removed from the file automatically.
+### Monday / Wednesday / Friday at 10 AM PT — Automatic Publishing
 
-Leave `topics` as an empty array `[]` for fully automated topic selection.
+A GitHub Actions workflow (`publish-scheduled.yml`) runs automatically at both 17:00 and 18:00 UTC (covering both PDT and PST year-round). It:
+1. Finds articles with `status="approved"` and `scheduled_publish_at` ≤ now
+2. Sets `status="published"` and records `published_at`
+3. Rebuilds the homepage, blog archive, sitemap, and RSS feed
+4. Commits and pushes to main
+5. GitHub Pages deploys automatically after the push
 
----
-
-## How to trigger a manual run
-
-Go to the GitHub repository, click **Actions**, select **Weekly Article Generation**, then click **Run workflow**.
-
-You can choose:
-- **Dry run**: generates and validates articles but does not create a PR or modify any files — useful for testing
-- **OpenAI model override**: use a specific model name for one run (leave blank to use the default)
+**You do not need to do anything on publish days.** Articles publish themselves on schedule.
 
 ---
 
-## How to change the OpenAI model
+## Key Files
 
-Edit `content-system/config.json`:
+| File | Purpose |
+|------|---------|
+| `article-index.json` | Registry of all articles: metadata, status, lifecycle fields |
+| `config.json` | System configuration (site URL, author name, model settings) |
+| `editorial-backlog.json` | Topics considered but not yet selected |
+| `editorial-watch-list.json` | Developing stories being monitored |
+| `editorial-context.json` | Generated each Sunday; paste into ChatGPT. Not committed to git. |
+| `approved-batches/` | Archive of imported batch files. Not committed to git. |
+| `EDITORIAL_GUIDELINES.md` | Voice, tone, prohibitions, structural rules, audience taxonomy |
+| `PACKAGE_SCHEMA.md` | Formal schema for the approved batch JSON format |
+| `CHATGPT_EDITORIAL_PROMPT.md` | The master prompt to paste into ChatGPT each Sunday |
 
-```json
-{
-  "writing_model": "gpt-4o",
-  "research_model": "gpt-4o"
-}
+---
+
+## Scripts
+
+| Script | Usage |
+|--------|-------|
+| `export_editorial_context.py` | Generates the weekly ChatGPT context file |
+| `import_editorial_batch.py` | Imports a ChatGPT-produced approved batch |
+| `publish_scheduled.py` | Runs automatically via GitHub Actions on Mon/Wed/Fri |
+| `site_updater.py` | Rebuilds all public surfaces from article-index.json |
+
+---
+
+## Article Lifecycle
+
+```
+ChatGPT writes → Paul approves → import_editorial_batch.py
+                                         ↓
+                              status = "approved"
+                              scheduled_publish_at = Mon/Wed/Fri 10 AM PT
+                                         ↓
+                              publish_scheduled.py runs
+                                         ↓
+                              status = "published"
+                              published_at = actual publish time
+                                         ↓
+                              site_updater rebuilds all public surfaces
+                                         ↓
+                              GitHub Pages deploys
 ```
 
-Change the model name and save. The next run will use the new model.
-
-You can also override for a single run using the model field in the manual workflow trigger.
-
----
-
-## How to change the schedule
-
-Edit `.github/workflows/generate-articles.yml`. Find the `cron:` line and change the time.
-
-The format is UTC: `'0 15 * * 0'` means Sunday at 15:00 UTC (8:00 AM Pacific Daylight Time).
-
-For Pacific Standard Time (winter), change to `'0 16 * * 0'`.
+Articles in `"draft"` status are never published automatically.
+Articles in `"approved"` status publish on the next eligible Mon/Wed/Fri run.
+Articles in `"published"` status are never re-processed.
 
 ---
 
-## How to review a weekly pull request
+## How to Import a Draft (No Publishing Schedule)
 
-When the automation runs successfully, a pull request appears in the GitHub repository.
-
-For each article, the PR description shows:
-- Title, slug, category, and article type
-- The primary search keyword
-- Estimated word count
-- Why the topic was selected
-- Sources the article drew on
-- Internal links added
-- Validation status for each check
-
-Read each article in the PR files tab before merging. You can edit article HTML directly in the PR branch if you want to make changes before publishing.
-
-When you are satisfied, click **Merge pull request**. GitHub Pages publishes the articles immediately.
+If you want to import articles for review without scheduling them:
+```bash
+python3 scripts/import_editorial_batch.py batch-2026-08-24.json --draft
+```
+Draft articles get HTML files and registry entries but no `scheduled_publish_at`. They will not publish until you manually set `status: "approved"` and assign a `scheduled_publish_at` in `article-index.json`.
 
 ---
 
-## How to disable the automation
+## How to Trigger a Manual Publish
 
-Go to the GitHub repository, click **Actions**, select **Weekly Article Generation**, and click **Disable workflow**.
+If you need to publish articles outside the scheduled Mon/Wed/Fri window:
+1. Go to the GitHub repository
+2. Click **Actions** → **Publish Scheduled Articles**
+3. Click **Run workflow**
+4. Leave **Dry run** unchecked
+5. Click **Run workflow**
 
-This stops the scheduled Sunday run. You can re-enable it at any time. Manual triggers still work.
-
----
-
-## Where editorial rules live
-
-`content-system/EDITORIAL_GUIDELINES.md`
-
-This file defines Paul's voice, prohibited phrases, the em dash prohibition, rules on fabrication, and how to approach different article types. The automation reads this file on every run and passes it to the writing model.
+This publishes any overdue approved articles immediately.
 
 ---
 
-## Where the article inventory lives
+## How to Check What Will Publish Next
 
-`content-system/article-index.json`
-
-This file records every published article: title, slug, URL, date, category, keywords, audience, tags, and internal links. The automation reads it to avoid topic duplication and uses it to identify related article opportunities. It is updated automatically when new articles are approved and merged.
-
----
-
-## What happens if generation fails
-
-If an article fails validation (most commonly because it contains a prohibited em dash that could not be corrected), the workflow:
-- Does not include that article in the PR
-- Reports the failure in the PR description
-- Continues with any articles that did pass
-
-If all three articles fail, no PR is created. The workflow exits with an error. You will see the failure in the Actions tab.
-
-If the entire run fails (OpenAI API error, configuration problem, etc.), no files are modified and no PR is created.
+Run the publish script in dry-run mode locally:
+```bash
+DRY_RUN=true python3 scripts/publish_scheduled.py
+```
+(Or trigger the workflow with Dry run checked on GitHub Actions.)
 
 ---
 
-## API usage and cost
+## DST and Scheduling
 
-Each weekly run makes approximately:
-- 1 research call (OpenAI with web search, ~$0.05-0.15)
-- 3 article generation calls (GPT-4o, ~$0.10-0.20 per article)
-- Up to 3 correction calls if em dashes are found (rare, ~$0.05-0.10 each)
+The publish workflow cron runs at both 17:00 UTC and 18:00 UTC on Mon/Wed/Fri.
 
-Estimated total per week: $0.50-1.00 at current GPT-4o pricing.
+- PDT (Mar–Nov): 10:00 AM = 17:00 UTC
+- PST (Nov–Mar): 10:00 AM = 18:00 UTC
 
-The system has a hard limit of 3 articles per run. It cannot generate more than 3 articles in a single scheduled execution regardless of how it is configured.
+The Python script (`publish_scheduled.py`) is the authority. It reads the current time in `America/Los_Angeles` via `ZoneInfo`, so an article's `scheduled_publish_at` of `2026-12-01T10:00:00-08:00` is only satisfied when LA time reaches 10:00 AM PST — which is 18:00 UTC. The 17:00 UTC run during PST sees `now_la = 9:00 AM` and correctly skips the article.
 
----
-
-## GitHub secret you need to add
-
-Before the first live run, add your OpenAI API key to GitHub:
-
-1. Go to your GitHub repository
-2. Click **Settings** → **Secrets and variables** → **Actions**
-3. Click **New repository secret**
-4. Name: `OPENAI_API_KEY`
-5. Value: your OpenAI API key (starts with `sk-`)
-6. Click **Add secret**
-
-The automation will not run without this secret.
+No manual cron changes are needed when clocks change. The system handles DST automatically.
 
 ---
 
-## Dry run procedure (before first live run)
+## Editing the Editorial Guidelines
 
-1. Go to Actions → Weekly Article Generation → Run workflow
-2. Check the **Dry run** box
-3. Click Run workflow
-4. Review the output in the Actions log
-5. Check `content-system/_dryrun_*.html` files to see the generated article HTML
-6. If satisfied, uncheck Dry run and run again — or wait for the next scheduled Sunday run
+Edit `content-system/EDITORIAL_GUIDELINES.md`. This file defines voice, prohibited phrases, the em dash prohibition, source requirements, audience taxonomy, content freshness types, and pillar/supporting article architecture.
+
+ChatGPT should receive the relevant sections of this file as context before writing.
+
+---
+
+## The Em Dash Rule
+
+**This is the most important validation rule in the system.**
+
+The em dash character (—, Unicode U+2014) must never appear anywhere in published content: titles, headlines, body text, excerpts, metadata, FAQ answers, CTAs.
+
+The importer scans every user-facing text field individually and reports the exact field name and character position if an em dash is found. A single em dash in any field of any article aborts the entire batch.
+
+If ChatGPT produces an em dash, correct it in the batch file before re-running the importer.
+
+Use a comma, semicolon, colon, or restructure the sentence instead.
+
+---
+
+## Autonomous Generation (Disabled)
+
+The system includes an autonomous generation pipeline (`run_weekly_batch.py`) that would call OpenAI's API to research topics and write articles without ChatGPT involvement. This pipeline is **intentionally disabled**.
+
+The autonomous cron trigger in `.github/workflows/generate-articles.yml` is commented out. To see whether it would run, check the workflow file.
+
+The Phase 3 ChatGPT bridge is the active editorial path. The autonomous pipeline may be revisited in a future phase.
+
+---
+
+## Article Index Schema
+
+`content-system/article-index.json` is the single source of truth for all article metadata.
+
+Phase 3 adds these fields to new entries:
+- `normalized_search_intent` — simplified search intent for deduplication
+- `neighborhood` — specific LA neighborhood (or null)
+- `pillar_relationship` — null | "pillar" | "supporting:slug"
+- `action_type` — "new" | "supporting"
+- `content_freshness_type` — freshness classification
+- `sources` — structured source objects
+- `audiences` — array (same values as `audience`, kept for compatibility)
+
+Existing entries (Phase 1/2 articles) do not have these fields. They remain valid and are used in the deduplication check against whatever fields they do have.

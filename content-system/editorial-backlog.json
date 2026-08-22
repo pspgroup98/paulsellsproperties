@@ -1,0 +1,5 @@
+{
+  "_schema": "1",
+  "_description": "Topics considered but not selected for a given week. Reviewed each Sunday before new topic research begins. Entries are merged from approved batch packages via import_editorial_batch.py.",
+  "entries": []
+}

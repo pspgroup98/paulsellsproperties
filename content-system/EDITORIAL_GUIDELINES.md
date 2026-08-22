@@ -161,3 +161,119 @@ Key site pages to link contextually:
 ## Geography
 
 Write specifically about Los Angeles. When sub-markets matter (City of LA vs. unincorporated County, specific neighborhoods, Westside vs. Valley), be precise. Do not write "the Los Angeles area" when you mean the City. Do not write "California" when you mean LA.
+
+---
+
+## Phase 3 Additions — ChatGPT Editorial Workflow
+
+### Content Mix
+
+Each weekly batch of three articles should cover:
+- **One Type A article** — Timely / Market Intelligence
+- **One Type B article** — Evergreen / Consumer Education
+- **One Type C article** — Authority / Investment
+
+Topic distribution: approximately **70% real estate topics** (buying, selling, financing, law, investment) and **30% lifestyle/quality-of-life topics** that a prospective Los Angeles buyer, homeowner, or investor genuinely cares about.
+
+### Audience Taxonomy
+
+| Identifier | Description |
+|-----------|-------------|
+| `buyers` | General homebuyers |
+| `first-time buyers` | First-time purchasers |
+| `move-up buyers` | Buyers moving from one home to a larger one |
+| `luxury buyers` | High-price-point purchasers |
+| `lifestyle buyers` | Buyers motivated by neighborhood / quality of life |
+| `sellers` | Homeowners preparing or actively selling |
+| `investors` | Investment property buyers |
+| `landlords` | Existing rental property owners |
+| `rental property owners` | Owners of rental units (may overlap with landlords) |
+| `duplex owners` | Specific to 2-4 unit properties |
+| `condo owners` | Condo-specific concerns |
+| `homeowners` | General homeowners not actively transacting |
+
+### Content Freshness Classifications
+
+| Type | Meaning | Review cadence |
+|------|---------|----------------|
+| `evergreen` | Valid indefinitely with minor updates | Annual |
+| `news` | Valid for days to weeks | Immediate; archive when superseded |
+| `periodic` | Valid for a season or cycle | Seasonal |
+| `regulatory` | Valid until the law/policy changes | When law changes |
+| `market_data` | Valid until next data release | Quarterly |
+
+### Article Update vs. New Article
+
+Before assigning a new slug to a topic, consider whether an existing article should be **updated** instead of replaced:
+- If the existing article covers the same search intent and is ranked: update it.
+- If the existing article covers adjacent intent and updating would dilute its focus: write a new article with a different slug.
+- If the topic is genuinely new or covers a distinct angle: new article.
+
+Phase 3 importer: `action_type: "update_existing"` is reserved for future implementation. Do not use it in batches until the importer supports it.
+
+### Topic Categories
+
+In addition to the standard article types, topics may come from these subject areas:
+
+**Real estate topics (70% target)**
+- Buying guides and process
+- Financing, lending, mortgage
+- Seller strategy and pricing
+- Investment and multifamily
+- Market analysis and timing
+- Legal and regulatory (landlord/tenant, disclosure, zoning)
+- Condo / HOA specifics
+- ADU, garage conversion, value-add
+
+**Lifestyle topics (30% target)**
+- Neighborhood quality of life: walkability, schools, commute, character
+- Relocation considerations: what life in [neighborhood] is actually like
+- Cost of living in Los Angeles context
+- Lifestyle-driven real estate decisions (home office, outdoor space, urban vs. suburban)
+- LA-specific considerations: earthquakes, wildfires, traffic, climate
+
+### Pillar and Supporting Article Architecture
+
+A **pillar article** covers a broad topic comprehensively (e.g., "How to Buy a House in Los Angeles").
+A **supporting article** covers a specific sub-topic that links to the pillar (e.g., "How Much Do You Need to Buy a House in Los Angeles").
+
+Use `pillar_relationship`:
+- `null` — standalone article
+- `"pillar"` — this article is a pillar
+- `"supporting:target-slug"` — this article supports the named pillar
+
+### Internal Linking
+
+When suggesting internal links, use only URLs from the `site_pages` array in the editorial context export, plus any published article slugs. Do not invent URLs that do not exist on the site.
+
+### Source Requirements
+
+| Content type | Source requirement |
+|--------------|-------------------|
+| `news` | At least one source with URL |
+| `regulatory` | At least one primary government source |
+| `market_data` | At least one data source with access date |
+| `evergreen` | Optional; include when making specific factual claims |
+| `strategy-guide` | Optional; include when referencing laws or data |
+
+### Duplicate Search Intent Prevention
+
+Before proposing any topic, verify that its `normalized_search_intent` does not substantially overlap with:
+1. Published articles (`published_articles` in context)
+2. Scheduled articles (`scheduled_articles` in context)
+3. Backlog entries that are already claimed
+
+**Threshold**: if a reader researching the same question would consider both articles equivalent answers, they are duplicates. Reframe or discard the newer topic.
+
+### Editorial Backlog
+
+The backlog is a list of candidate topics discovered during research but not selected for a given week. ChatGPT should:
+- Review the backlog before generating new topic candidates
+- Propose backlog items for promotion when they become timely
+- Add strong-but-not-yet-timely topics to the backlog via `backlog_updates` in the batch package
+
+### Editorial Watch List
+
+The watch list tracks developing stories (legislation, policy, market trends) that are not yet article-ready but should be monitored. ChatGPT should:
+- Check the watch list for items that have reached a milestone
+- Update watch-list item status via `watch_list_updates` in the batch package when a milestone is reached or a story resolves
