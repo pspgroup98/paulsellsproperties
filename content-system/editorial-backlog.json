@@ -1,5 +1,25 @@
 {
   "_schema": "1",
   "_description": "Topics considered but not selected for a given week. Reviewed each Sunday before new topic research begins. Entries are merged from approved batch packages via import_editorial_batch.py.",
-  "entries": []
+  "entries": [
+    {
+      "id": "20260822-bkl-001",
+      "topic": "Pacific Palisades recovery and the return of neighborhood retail and dining",
+      "category": "Lifestyle",
+      "audiences": [
+        "lifestyle buyers",
+        "buyers",
+        "homeowners"
+      ],
+      "geography": "Pacific Palisades",
+      "keyword_opportunity": "Pacific Palisades reopening 2026",
+      "reason_to_consider": "Palisades Village has reopened after the 2025 fire, creating a timely lifestyle and neighborhood recovery story that can connect community amenities with the experience of living in the Palisades.",
+      "evergreen": false,
+      "priority": "high",
+      "discovered_at": "2026-08-22",
+      "notes": "Consider a neighborhood-focused article that covers the return of retail and dining without overstating the pace of the broader recovery.",
+      "source": "Eater Los Angeles, August 2026",
+      "status": "pending"
+    }
+  ]
 }

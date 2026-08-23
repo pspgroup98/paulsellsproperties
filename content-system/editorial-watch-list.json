@@ -1,5 +1,24 @@
 {
   "_schema": "1",
   "_description": "Developing stories to monitor. Reviewed each Sunday before new topic research begins. Entries are merged from approved batch packages via import_editorial_batch.py.",
-  "entries": []
+  "entries": [
+    {
+      "id": "20260822-wch-001",
+      "story": "Pacific Palisades retail and restaurant reopening milestones after the 2025 fire",
+      "entity": "Pacific Palisades business community",
+      "geography": "Pacific Palisades",
+      "discovered_at": "2026-08-22",
+      "expected_milestone": "Additional restaurant and retail reopenings through late 2026",
+      "source": "Eater Los Angeles, August 2026",
+      "relevance": "Additional openings could support future LA lifestyle coverage and provide evidence of how neighborhood amenities are returning during the recovery.",
+      "audiences": [
+        "lifestyle buyers",
+        "buyers",
+        "homeowners"
+      ],
+      "current_status": "Palisades Village has reopened and additional business openings are continuing.",
+      "next_review_date": "2026-09-15",
+      "status": "active"
+    }
+  ]
 }
