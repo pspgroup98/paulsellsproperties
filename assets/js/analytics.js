@@ -35,7 +35,7 @@
   'use strict';
 
   // ── Configuration ───────────────────────────────────────────────────────────
-  var MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: replace with real GA4 Measurement ID
+  var MEASUREMENT_ID = 'G-FFJZQWNP3S'; // TODO: replace with real GA4 Measurement ID
   var CLARITY_ID     = 'xxxxxxxxxx';   // TODO: replace with real Clarity Project ID
   var GA4_ENABLED    = true;
   var CLARITY_ENABLED = true;
