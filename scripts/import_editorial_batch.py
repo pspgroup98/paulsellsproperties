@@ -45,6 +45,7 @@ from validator import (
     check_source_completeness,
     check_search_intent_overlap,
     check_slug_collision,
+    validate_social_content,
 )
 
 # ── Constants ────────────────────────────────────────────────────────────────
@@ -123,7 +124,8 @@ def _validate_batch_schema(batch: dict) -> list:
     return errors
 
 
-def _validate_single_article(article: dict, registry: list, blog_dir: Path, article_num: int) -> tuple:
+def _validate_single_article(article: dict, registry: list, blog_dir: Path, article_num: int,
+                              schema_version: str = "1") -> tuple:
     """
     Validate one article dict from the batch.
 
@@ -207,6 +209,11 @@ def _validate_single_article(article: dict, registry: list, blog_dir: Path, arti
     # ── Search intent overlap (warning) ──────────────────────────────────────
     overlap_warnings = check_search_intent_overlap(article, registry)
     warnings.extend(f"{label}: {w}" for w in overlap_warnings)
+
+    # ── Schema v2: social content validation ─────────────────────────────────
+    social_errors, social_warnings = validate_social_content(article, schema_version)
+    errors.extend(social_errors)
+    warnings.extend(social_warnings)
 
     return errors, warnings
 
@@ -304,6 +311,8 @@ def _build_registry_entry(article: dict, pub_dt: datetime, cfg: dict, status: st
         "review_after":           article.get("review_after", ""),
         "last_reviewed":          date_iso,
         "word_count_approx":      _word_count(article.get("body_html", "")),
+        # Schema v2: social content (None for v1 batches)
+        "social_content":         article.get("social_content"),
     }
 
 
@@ -412,10 +421,11 @@ def run_import(batch_path: Path, mode: str = "interactive") -> bool:
         print()
         return False
 
-    articles    = batch["articles"]
-    batch_week  = batch["batch_week"]
+    articles      = batch["articles"]
+    batch_week    = batch["batch_week"]
+    schema_ver    = str(batch.get("schema_version", "1"))
     article_count = len(articles)
-    print(f"  Batch week:  {batch_week}  ({article_count} article(s))")
+    print(f"  Batch week:  {batch_week}  ({article_count} article(s))  schema v{schema_ver}")
 
     # ── 3. Parse batch_week and compute publication slots ────────────────────
     try:
@@ -463,6 +473,7 @@ def run_import(batch_path: Path, mode: str = "interactive") -> bool:
             registry=registry,
             blog_dir=blog_dir,
             article_num=i + 1,
+            schema_version=schema_ver,
         )
         all_errors.extend(errors)
         all_warnings.extend(warnings)

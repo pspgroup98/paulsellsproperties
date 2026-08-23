@@ -20,9 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script type="application/ld+json">
+      <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Los Angeles Neighborhoods","item":"https://paulsellsproperties.com/neighborhoods/index.html"}]}
   </script>
 </head>
@@ -58,7 +56,7 @@
     </ul>
     <div class="nav-right">
       <a href="#" class="btn btn-gold btn-sm"
-         onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
+         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
         Start a Conversation
       </a>
     </div>
@@ -209,7 +207,7 @@
         Every Los Angeles neighborhood has its own market dynamics, pricing behavior, and buyer profile. Understanding which one actually fits your goals — and at what price point — is where the work begins.
       </p>
       <a href="#" class="btn btn-gold"
-         onclick="Calendly.initPopupWidget({url:'https://calendly.com/adams2paul'});return false;">
+         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
         Start a Conversation
       </a>
     </div>
@@ -294,8 +292,9 @@
           Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.
         </p>
         <div class="footer-bottom-links">
-          <a href="#">Terms</a>
-          <a href="#">Privacy</a>
+          <a href="../terms.html">Terms</a>
+          <a href="../privacy.html">Privacy</a>
+          <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp/fair_housing_act_overview" target="_blank" rel="noopener">Fair Housing</a>
           <a href="#">Accessibility</a>
           <a href="#">Fair Housing</a>
         </div>
@@ -313,5 +312,6 @@ if (navToggle && navMobile) {
 }
 </script>
 
+<script src="../assets/js/analytics.js" defer></script>
 </body>
 </html>

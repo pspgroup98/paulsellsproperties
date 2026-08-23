@@ -341,3 +341,113 @@ def check_search_intent_overlap(article: dict, registry: list) -> list:
                 )
 
     return warnings
+
+
+# ── Schema v2: social content validation ────────────────────────────────────
+
+REQUIRED_CAROUSEL_FIELDS = {"slides", "caption", "hashtags", "cta"}
+REQUIRED_REEL_FIELDS      = {"hook", "script", "cta", "caption", "hashtags"}
+REQUIRED_UTM_FIELDS       = {"campaign", "carousel_url", "reel_url"}
+
+def _social_em_dash_fields(social: dict) -> list:
+    """Return (field_label, text) pairs for all social content text."""
+    fields = []
+    carousel = social.get("instagram_carousel", {})
+    fields.append(("social_content.instagram_carousel.caption", carousel.get("caption", "")))
+    fields.append(("social_content.instagram_carousel.cta",     carousel.get("cta", "")))
+    for i, slide in enumerate(carousel.get("slides", [])):
+        fields.append((f"social_content.instagram_carousel.slides[{i}].headline", slide.get("headline", "")))
+        fields.append((f"social_content.instagram_carousel.slides[{i}].body",     slide.get("body", "")))
+    reel = social.get("instagram_reel", {})
+    fields.append(("social_content.instagram_reel.hook",    reel.get("hook", "")))
+    fields.append(("social_content.instagram_reel.script",  reel.get("script", "")))
+    fields.append(("social_content.instagram_reel.cta",     reel.get("cta", "")))
+    fields.append(("social_content.instagram_reel.caption", reel.get("caption", "")))
+    return fields
+
+
+def validate_social_content(article: dict, schema_version: str) -> tuple:
+    """
+    Validate the social_content block of a schema v2 article.
+
+    Returns (errors: list[str], warnings: list[str]).
+
+    For schema v1 articles (no social_content): returns a single warning, no errors.
+    For schema v2 articles: validates carousel + reel + utm structure and content.
+    """
+    errors   = []
+    warnings = []
+    label    = f"Article '{article.get('slug', '?')}'"
+
+    if schema_version != "2":
+        # v1 batch — social content is optional
+        if "social_content" not in article:
+            warnings.append(
+                f"{label}: no social_content field (schema_version='{schema_version}'). "
+                f"Batch v2 will require this field."
+            )
+        return errors, warnings
+
+    # schema_version == "2" — social_content is required
+    social = article.get("social_content")
+    if not social:
+        errors.append(
+            f"{label}: schema_version='2' requires a 'social_content' block. "
+            f"Add instagram_carousel, instagram_reel, and utm_tracking."
+        )
+        return errors, warnings
+
+    # Validate carousel
+    carousel = social.get("instagram_carousel", {})
+    for f in REQUIRED_CAROUSEL_FIELDS:
+        if not carousel.get(f):
+            errors.append(f"{label}: social_content.instagram_carousel missing required field '{f}'")
+    slides = carousel.get("slides", [])
+    if not isinstance(slides, list) or len(slides) < 3:
+        errors.append(
+            f"{label}: instagram_carousel.slides must have at least 3 slides "
+            f"(got {len(slides) if isinstance(slides, list) else 0})"
+        )
+    else:
+        for i, slide in enumerate(slides):
+            if not slide.get("headline"):
+                errors.append(f"{label}: instagram_carousel.slides[{i}] missing 'headline'")
+            if not slide.get("body"):
+                errors.append(f"{label}: instagram_carousel.slides[{i}] missing 'body'")
+
+    hashtags = carousel.get("hashtags", [])
+    if not isinstance(hashtags, list) or len(hashtags) < 3:
+        warnings.append(f"{label}: instagram_carousel.hashtags should have at least 3 tags (got {len(hashtags) if isinstance(hashtags, list) else 0})")
+
+    # Validate reel
+    reel = social.get("instagram_reel", {})
+    for f in REQUIRED_REEL_FIELDS:
+        if not reel.get(f):
+            errors.append(f"{label}: social_content.instagram_reel missing required field '{f}'")
+
+    script = reel.get("script", "")
+    word_count = len(script.split()) if script else 0
+    # 30-60 second reel: ~60-120 words at typical speaking pace
+    if script and word_count < 40:
+        warnings.append(f"{label}: instagram_reel.script is very short ({word_count} words) — may be under 20 seconds")
+    if script and word_count > 160:
+        warnings.append(f"{label}: instagram_reel.script is long ({word_count} words) — may exceed 60 seconds")
+
+    # Validate UTM tracking
+    utm = social.get("utm_tracking", {})
+    for f in REQUIRED_UTM_FIELDS:
+        if not utm.get(f):
+            errors.append(f"{label}: social_content.utm_tracking missing required field '{f}'")
+
+    # Em dash check in social content (hard failure — same rule as article body)
+    for field_label, text in _social_em_dash_fields(social):
+        for pos, ch in enumerate(text):
+            if ch == EM_DASH:
+                start   = max(0, pos - 25)
+                end     = min(len(text), pos + 26)
+                snippet = text[start:end].replace("\n", " ")
+                errors.append(
+                    f"{label}: em dash (U+2014) in '{field_label}' at position {pos}: ...{snippet}..."
+                )
+
+    return errors, warnings

@@ -54,6 +54,7 @@ from validator import (
     check_source_completeness,
     scan_fields_for_em_dashes,
     scan_for_other_dashes,
+    validate_social_content,
 )
 
 
@@ -540,20 +541,132 @@ class TestPhase3(unittest.TestCase):
         return {"success": success, "html_files": html_files, "registry": registry}
 
 
+# ── Schema v2 social content tests ───────────────────────────────────────────
+
+VALID_SOCIAL = {
+    "instagram_carousel": {
+        "slides": [
+            {"slide_number": 1, "headline": "Cover headline here", "body": "Subtitle text"},
+            {"slide_number": 2, "headline": "Key point one", "body": "Explanation sentence."},
+            {"slide_number": 3, "headline": "Key point two", "body": "Explanation sentence."},
+            {"slide_number": 4, "headline": "Key point three", "body": "Explanation sentence."},
+            {"slide_number": 5, "headline": "Read the full guide", "body": "Link in bio."},
+        ],
+        "caption": "Full carousel caption text here. It should be 100-200 words and conversational.",
+        "hashtags": ["#LosAngeles", "#LARealEstate", "#HomeBuying"],
+        "cta": "Link in bio",
+    },
+    "instagram_reel": {
+        "target_duration_seconds": 45,
+        "hook": "Did you know most LA buyers skip this critical step?",
+        "script": "Here is the full spoken script for the reel. It covers three key points about buying in Los Angeles. It is written conversationally so Paul can read it naturally on camera without sounding stiff.",
+        "cta": "Save this for your home search. Link in bio.",
+        "caption": "Reel caption text here covering the main topic.",
+        "hashtags": ["#LosAngeles", "#RealEstateTips", "#LAHomeBuyers"],
+    },
+    "utm_tracking": {
+        "campaign": "test-article-slug",
+        "carousel_url": "https://paulsellsproperties.com/blog/test-article.html?utm_source=instagram&utm_medium=carousel&utm_campaign=test-article-slug",
+        "reel_url": "https://paulsellsproperties.com/blog/test-article.html?utm_source=instagram&utm_medium=reel&utm_campaign=test-article-slug",
+    },
+}
+
+
+class TestSchemaV2(unittest.TestCase):
+    """Tests for schema v2 social content validation."""
+
+    def test_22_v1_batch_no_social_content_produces_warning(self):
+        """Schema v1 batch without social_content produces a warning but not an error."""
+        article = {"slug": "test-slug"}
+        errors, warnings = validate_social_content(article, "1")
+        self.assertEqual(errors, [], "v1 batch without social_content should not error")
+        self.assertTrue(
+            any("social_content" in w for w in warnings),
+            "Expected a warning about missing social_content for v1 batch",
+        )
+
+    def test_23_v2_batch_missing_social_content_is_hard_failure(self):
+        """Schema v2 article missing social_content entirely is a hard failure."""
+        article = {"slug": "test-slug"}
+        errors, warnings = validate_social_content(article, "2")
+        self.assertTrue(len(errors) > 0, "Expected errors for missing social_content in v2 batch")
+
+    def test_24_v2_valid_social_content_passes(self):
+        """Schema v2 article with complete, valid social_content passes."""
+        article = {"slug": "test-slug", "social_content": VALID_SOCIAL}
+        errors, warnings = validate_social_content(article, "2")
+        self.assertEqual(errors, [], f"Expected no errors for valid social_content, got: {errors}")
+
+    def test_25_social_em_dash_is_hard_failure(self):
+        """Em dash in carousel caption is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_carousel"]["caption"] = "Great insight — must read this"
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("em dash" in e for e in errors),
+            "Expected em dash error in carousel caption",
+        )
+
+    def test_26_social_em_dash_in_reel_script_is_hard_failure(self):
+        """Em dash in reel script is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_reel"]["script"] = "This is great — watch this reel now please."
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("em dash" in e for e in errors),
+            "Expected em dash error in reel script",
+        )
+
+    def test_27_carousel_too_few_slides_is_error(self):
+        """Carousel with fewer than 3 slides is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_carousel"]["slides"] = [
+            {"slide_number": 1, "headline": "Cover", "body": "Subtitle"},
+            {"slide_number": 2, "headline": "Point", "body": "Body"},
+        ]
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("slides" in e for e in errors),
+            "Expected error for too few carousel slides",
+        )
+
+    def test_28_missing_utm_tracking_is_error(self):
+        """Missing utm_tracking block in v2 social_content is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad.pop("utm_tracking")
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("utm_tracking" in e for e in errors),
+            "Expected error for missing utm_tracking",
+        )
+
+
 # ── Run ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     # Run with verbose output and a clean summary
     loader = unittest.TestLoader()
-    suite  = loader.loadTestsFromTestCase(TestPhase3)
+    suite_phase3 = loader.loadTestsFromTestCase(TestPhase3)
+    suite_v2     = loader.loadTestsFromTestCase(TestSchemaV2)
 
-    # Sort by test number for readable output
+    # Sort individual test cases by test number for readable output
     def _test_num(test):
-        name = test._testMethodName
         import re
+        name = getattr(test, '_testMethodName', '')
         m = re.match(r"test_(\d+)", name)
         return int(m.group(1)) if m else 999
-    suite._tests.sort(key=_test_num)
+
+    suite_phase3._tests.sort(key=_test_num)
+    suite_v2._tests.sort(key=_test_num)
+    suite = unittest.TestSuite([suite_phase3, suite_v2])
 
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)

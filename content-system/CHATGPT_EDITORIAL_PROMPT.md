@@ -124,8 +124,42 @@ If a claim cannot be sourced, remove it or reframe it as a general observed patt
 
 ### After Paul approves all three articles
 
-Produce the complete approved-batch JSON in a code block. The JSON must exactly match the schema in `content-system/PACKAGE_SCHEMA.md`. Include:
-- All three articles in the `articles` array
+**Step 1 — Write the social content for each article.**
+
+For each of the three articles, produce:
+
+**Instagram Carousel** (5-7 slides):
+- Slide 1: Cover — punchy headline (5-8 words) + subtitle
+- Slides 2-5 (or 2-6): One key insight per slide — short headline + 1-2 sentence body
+- Final slide: CTA — "Read the full guide — link in bio" or similar
+- Caption: 100-200 words, conversational, ends with a question or direct CTA. No em dashes.
+- Hashtags: 5-10 tags mixing broad (#LARealEstate) and specific (#BeverlyHillsHomes, #LAHomeBuyers)
+- CTA: "Link in bio" or equivalent
+
+**Instagram Reel Script** (30-60 seconds, 60-120 words):
+- Hook (first 3 seconds): A question or surprising fact. Must stop the scroll.
+- Body: 3-4 key points, spoken naturally. Write the way you'd say it aloud.
+- CTA: Clear action at the end ("Link in bio", "Save this", "Drop a question below")
+- Caption: 75-150 words for the Reel post. Can differ from the Carousel caption.
+- Hashtags: 5-10 tags
+- Target duration: 30-60 seconds
+
+**UTM tracking URLs** for each piece of social content:
+- carousel_url: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=carousel&utm_campaign={slug}`
+- reel_url: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=reel&utm_campaign={slug}`
+- campaign slug: lowercase, hyphens, derived from the article slug
+
+**Social content rules (same prohibitions as article body):**
+- No em dashes (U+2014) anywhere
+- Write in Paul's voice — direct, knowledgeable, warm. Not corporate, not breathless.
+- No claims of legal compliance
+- No advertising language, no "investment advice"
+- Do not automatically publish — this content is for manual review and posting
+
+**Step 2 — Produce the complete approved-batch JSON.**
+
+Produce the JSON in a code block. The JSON must exactly match the schema in `content-system/PACKAGE_SCHEMA.md`. Use `"schema_version": "2"`. Include:
+- All three articles in the `articles` array, each with a `social_content` block
 - Any topics that should be added to the backlog in `backlog_updates`
 - Any developing stories worth monitoring in `watch_list_updates`
 - Correct `batch_week` (ISO date of the Monday beginning the publication week)

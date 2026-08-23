@@ -2105,3 +2105,52 @@ body:has(.post-content) {
   .nbhd-carousel-outer { padding: 0 40px; }
   .nbhd-carousel .n-card { flex: 0 0 160px; height: 220px; }
 }
+
+/* ── Privacy choices modal (PSP.showPrivacyChoices()) ────────────────────── */
+#psp-privacy-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.psp-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+.psp-modal-box {
+  position: relative;
+  background: var(--white, #fff);
+  color: var(--dark, #1a1a1a);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 440px;
+  width: calc(100% - 2rem);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  z-index: 1;
+}
+.psp-modal-box h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+.psp-modal-box p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+.psp-modal-status { font-size: 0.875rem; }
+.psp-modal-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 0.75rem;
+}
+.psp-modal-note {
+  font-size: 0.8rem;
+  color: var(--text-muted, #888);
+  margin: 0;
+}
+.psp-modal-note a { color: var(--gold, #c9a060); }

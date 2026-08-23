@@ -141,7 +141,25 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Blog articles -->
+  <!-- Blog articles (newest first) -->
+  <url>
+    <loc>https://paulsellsproperties.com/blog/analyze-duplex-los-angeles-before-buying.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paulsellsproperties.com/blog/buying-rso-property-los-angeles.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paulsellsproperties.com/blog/california-home-insurance-los-angeles-buyers-sellers.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://paulsellsproperties.com/blog/tenant-buyout-disclosure.html</loc>
     <lastmod>2026-04-28</lastmod>

@@ -1,4 +1,6 @@
-# Approved Editorial Batch — Package Schema v1
+# Approved Editorial Batch — Package Schema
+
+**Current version: v2** (v1 batches are still accepted but will produce social_content warnings)
 
 This document defines the exact JSON structure ChatGPT must produce at the end of each weekly editorial session. The structure is validated by `scripts/import_editorial_batch.py` before any file is written.
 
@@ -22,7 +24,7 @@ This document defines the exact JSON structure ChatGPT must produce at the end o
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `schema_version` | ✓ | Always `"1"` |
+| `schema_version` | ✓ | `"2"` for new batches. `"1"` accepted with a warning (no social_content required). |
 | `batch_week` | ✓ | ISO date of the **Monday** that begins the publication week. Example: `"2026-08-24"` schedules Mon Aug 24, Wed Aug 26, Fri Aug 28. |
 | `generated_by` | | `"ChatGPT"` |
 | `approved_at` | | ISO 8601 datetime when Paul approved the package |
@@ -227,3 +229,69 @@ The importer will warn but continue if:
 
 See `content-system/approved-batches/` for archived batch files after import.
 A test fixture is available at `scripts/test_phase3.py`.
+
+---
+
+## Schema v2 — Social Content (Required in v2 Batches)
+
+Each article in a schema v2 batch must include a `social_content` block with Instagram carousel copy, Reel script, and UTM tracking URLs. This content is for **manual posting only** — it is never published automatically.
+
+### social_content Structure
+
+```json
+{
+  "social_content": {
+    "instagram_carousel": {
+      "slides": [
+        { "slide_number": 1, "headline": "Cover headline (5-8 words)", "body": "Cover subtitle or context" },
+        { "slide_number": 2, "headline": "Point one", "body": "Explanation, 1-2 sentences" },
+        { "slide_number": 3, "headline": "Point two", "body": "Explanation, 1-2 sentences" },
+        { "slide_number": 4, "headline": "Point three", "body": "Explanation, 1-2 sentences" },
+        { "slide_number": 5, "headline": "CTA slide", "body": "One sentence driving to the article" }
+      ],
+      "caption": "Full Instagram post caption. 100-200 words. Conversational, no em dashes, ends with question or CTA.",
+      "hashtags": ["#LosAngeles", "#LARealEstate", "#HomeBuying"],
+      "cta": "Link in bio"
+    },
+    "instagram_reel": {
+      "target_duration_seconds": 45,
+      "hook": "Opening line for first 3 seconds — the grab",
+      "script": "Full spoken script for the Reel, 60-120 words. Conversational. No em dashes.",
+      "cta": "Call-to-action at end of script",
+      "caption": "Reel caption, 75-150 words. Can be shorter than carousel caption.",
+      "hashtags": ["#LosAngeles", "#LARealEstate", "#RealEstateTips"]
+    },
+    "utm_tracking": {
+      "campaign": "article-slug-campaign",
+      "carousel_url": "https://paulsellsproperties.com/blog/slug.html?utm_source=instagram&utm_medium=carousel&utm_campaign=slug",
+      "reel_url": "https://paulsellsproperties.com/blog/slug.html?utm_source=instagram&utm_medium=reel&utm_campaign=slug"
+    }
+  }
+}
+```
+
+### social_content Rules
+
+| Rule | Hard failure? |
+|------|--------------|
+| `instagram_carousel.slides` must have at least 3 slides | Yes |
+| Each slide must have `headline` and `body` | Yes |
+| `instagram_carousel.caption`, `cta`, `hashtags` required | Yes |
+| `instagram_reel.hook`, `script`, `cta`, `caption`, `hashtags` required | Yes |
+| `utm_tracking.campaign`, `carousel_url`, `reel_url` required | Yes |
+| Em dash (U+2014) in any social field | Yes (same as article body) |
+| Fewer than 3 hashtags on either platform | Warning only |
+| Reel script under 40 words | Warning only |
+| Reel script over 160 words | Warning only |
+
+### social_content Voice and Format
+
+- Write in Paul's voice: knowledgeable, direct, warm — not corporate, not breathless
+- No em dashes anywhere in social content
+- No claims of legal compliance
+- Carousel slides: short punchy headlines + 1-2 sentence body per slide
+- Reel hook: a question or surprising fact that stops the scroll
+- Reel script: spoken word — write the way you'd say it out loud
+- UTM campaign slug: lowercase, hyphens, derived from the article slug
+- Hashtags: mix of broad (#LARealEstate) and specific (#BeverlyHillsHomes, #LAHomeBuyers)
+
