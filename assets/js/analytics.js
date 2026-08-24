@@ -36,7 +36,7 @@
 
   // ── Configuration ───────────────────────────────────────────────────────────
   var MEASUREMENT_ID = 'G-FFJZQWNP3S'; // TODO: replace with real GA4 Measurement ID
-  var CLARITY_ID     = 'xxxxxxxxxx';   // TODO: replace with real Clarity Project ID
+  var CLARITY_ID     = 'y76kfwt0b1';   // TODO: replace with real Clarity Project ID
   var GA4_ENABLED    = true;
   var CLARITY_ENABLED = true;
   var CONSENT_KEY    = 'psp_analytics'; // localStorage key
