@@ -1510,6 +1510,9 @@ body:has(.post-content) {
 }
 @media (max-width: 767px) {
   .post-more-grid { grid-template-columns: 1fr; }
+  /* Reduce top/bottom breathing room on blog articles for mobile */
+  .post-content { padding: 48px 20px 64px; }
+  .post-header { padding-bottom: 40px; }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .post-more-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1707,7 +1710,9 @@ body:has(.post-content) {
 
 @media (max-width: 480px) {
   .n-grid { grid-template-columns: repeat(2, 1fr); }
-  .btn-group { flex-direction: column; align-items: flex-start; }
+  /* Stretch buttons full-width on small phones — consistent with hero treatment */
+  .btn-group { flex-direction: column; align-items: stretch; }
+  .btn-group .btn { width: 100%; justify-content: center; text-align: center; }
 }
 
 /* ---------- Mobile sticky CTA bar ---------- */
@@ -2027,6 +2032,8 @@ body:has(.post-content) {
   .pillars-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .contact-info-row { flex-direction: column; gap: 24px; }
+  /* Reduce insider signup card padding on small screens */
+  .insider-form-wrap { padding: 24px; }
 }
 
 /* ---------- Neighborhood Stats ---------- */
