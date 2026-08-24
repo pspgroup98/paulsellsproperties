@@ -35,9 +35,10 @@
       padding-right: 36px !important;
       border: 1px solid rgba(255,255,255,0.08) !important;
       border-radius: 6px !important;
-      color: rgba(255,255,255,0.9) !important;
+      color: rgba(255,255,255,0.22) !important;
       height: 49px !important;
     }
+    #timeline.has-value { color: rgba(255,255,255,0.9) !important; }
   </style>
   </head>
 <body>
@@ -165,7 +166,7 @@
           </div>
           <div class="form-group">
             <label for="timeline">Your Timeline</label>
-            <select id="timeline" name="timeline">
+            <select id="timeline" name="timeline" onchange="this.classList.add('has-value')">
               <option value="" disabled selected>Select your timeline</option>
               <option value="asap">As soon as possible</option>
               <option value="1-3mo">1–3 months</option>
