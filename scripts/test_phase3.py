@@ -546,22 +546,31 @@ class TestPhase3(unittest.TestCase):
 VALID_SOCIAL = {
     "instagram_carousel": {
         "slides": [
-            {"slide_number": 1, "headline": "Cover headline here", "body": "Subtitle text"},
-            {"slide_number": 2, "headline": "Key point one", "body": "Explanation sentence."},
-            {"slide_number": 3, "headline": "Key point two", "body": "Explanation sentence."},
-            {"slide_number": 4, "headline": "Key point three", "body": "Explanation sentence."},
-            {"slide_number": 5, "headline": "Read the full guide", "body": "Link in bio."},
+            {"slide_number": 1, "headline": "Cover headline here", "body": "Subtitle text for the cover slide."},
+            {"slide_number": 2, "headline": "Key point one", "body": "Most LA buyers skip this step and it costs them later."},
+            {"slide_number": 3, "headline": "Key point two", "body": "Lender pre-approval does not mean the building qualifies."},
+            {"slide_number": 4, "headline": "Key point three", "body": "Portfolio lenders are an option but cost more."},
+            {"slide_number": 5, "headline": "Key point four", "body": "Due diligence on the HOA is as important as the unit."},
+            {"slide_number": 6, "headline": "Read the full guide", "body": "Link in bio for the complete breakdown."},
         ],
-        "caption": "Full carousel caption text here. It should be 100-200 words and conversational.",
+        "caption": "Full carousel caption text here. It should be 100-200 words and conversational. This caption explains the key takeaways from the article in a way that makes sense for Instagram readers who may not click through immediately.",
         "hashtags": ["#LosAngeles", "#LARealEstate", "#HomeBuying"],
         "cta": "Link in bio",
     },
     "instagram_reel": {
-        "target_duration_seconds": 45,
-        "hook": "Did you know most LA buyers skip this critical step?",
-        "script": "Here is the full spoken script for the reel. It covers three key points about buying in Los Angeles. It is written conversationally so Paul can read it naturally on camera without sounding stiff.",
-        "cta": "Save this for your home search. Link in bio.",
-        "caption": "Reel caption text here covering the main topic.",
+        "target_duration_seconds": 40,
+        "hook": "Did you know most LA buyers skip this critical step before making an offer?",
+        "script": (
+            "Most buyers in Los Angeles get pre-approved and assume they can buy any condo they want. "
+            "That is not how it works. Pre-approval covers your finances. It says nothing about whether "
+            "the building itself qualifies for your loan. Buildings with HOA issues, deferred maintenance, "
+            "or high investor ownership ratios can fail the warrantability review. When that happens, your "
+            "conventional loan does not work in that building, regardless of your credit score. "
+            "Before you fall in love with a unit, ask about the building. "
+            "I cover the full checklist in the link in bio."
+        ),
+        "cta": "Save this before your next condo search. Full breakdown in bio.",
+        "caption": "The pre-approval does not cover the building. Here is what to check before you make an offer on any LA condo.",
         "hashtags": ["#LosAngeles", "#RealEstateTips", "#LAHomeBuyers"],
     },
     "utm_tracking": {
@@ -622,18 +631,20 @@ class TestSchemaV2(unittest.TestCase):
         )
 
     def test_27_carousel_too_few_slides_is_error(self):
-        """Carousel with fewer than 3 slides is a hard failure."""
+        """Carousel with fewer than 4 slides is a hard failure (target is 6-8)."""
         import copy
         bad = copy.deepcopy(VALID_SOCIAL)
+        # 3 slides: passes old rule (<3) but fails new rule (<4)
         bad["instagram_carousel"]["slides"] = [
             {"slide_number": 1, "headline": "Cover", "body": "Subtitle"},
-            {"slide_number": 2, "headline": "Point", "body": "Body"},
+            {"slide_number": 2, "headline": "Point A", "body": "Body A."},
+            {"slide_number": 3, "headline": "Point B", "body": "Body B."},
         ]
         article = {"slug": "test-slug", "social_content": bad}
         errors, _ = validate_social_content(article, "2")
         self.assertTrue(
             any("slides" in e for e in errors),
-            "Expected error for too few carousel slides",
+            "Expected error for fewer than 4 carousel slides",
         )
 
     def test_28_missing_utm_tracking_is_error(self):
@@ -646,6 +657,164 @@ class TestSchemaV2(unittest.TestCase):
         self.assertTrue(
             any("utm_tracking" in e for e in errors),
             "Expected error for missing utm_tracking",
+        )
+
+    # ── New tests 29-41 — social content completeness and quality ─────────────
+
+    def test_29_v2_six_slide_social_package_passes(self):
+        """Schema v2 with a complete 6-slide social package passes with no errors."""
+        article = {"slug": "test-slug", "social_content": VALID_SOCIAL}
+        errors, _ = validate_social_content(article, "2")
+        self.assertEqual(errors, [], f"Expected no errors for 6-slide social package, got: {errors}")
+
+    def test_30_missing_instagram_carousel_key_is_error(self):
+        """social_content without the instagram_carousel key is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad.pop("instagram_carousel")
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("instagram_carousel" in e for e in errors),
+            f"Expected error for missing instagram_carousel key, got: {errors}",
+        )
+
+    def test_31_carousel_empty_caption_is_error(self):
+        """Carousel present but caption is an empty string is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_carousel"]["caption"] = ""
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("caption" in e for e in errors),
+            f"Expected error for empty carousel caption, got: {errors}",
+        )
+
+    def test_32_carousel_empty_cta_is_error(self):
+        """Carousel present but cta is an empty string is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_carousel"]["cta"] = ""
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("cta" in e for e in errors),
+            f"Expected error for empty carousel cta, got: {errors}",
+        )
+
+    def test_33_missing_instagram_reel_key_is_error(self):
+        """social_content without the instagram_reel key is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad.pop("instagram_reel")
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("instagram_reel" in e for e in errors),
+            f"Expected error for missing instagram_reel key, got: {errors}",
+        )
+
+    def test_34_reel_empty_script_is_error(self):
+        """Reel present but script is an empty string is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_reel"]["script"] = ""
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("script" in e for e in errors),
+            f"Expected error for empty reel script, got: {errors}",
+        )
+
+    def test_35_reel_empty_caption_is_error(self):
+        """Reel present but caption is an empty string is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_reel"]["caption"] = ""
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("caption" in e for e in errors),
+            f"Expected error for empty reel caption, got: {errors}",
+        )
+
+    def test_36_reel_empty_cta_is_error(self):
+        """Reel present but cta is an empty string is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_reel"]["cta"] = ""
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("cta" in e for e in errors),
+            f"Expected error for empty reel cta, got: {errors}",
+        )
+
+    def test_37_utm_tracking_missing_campaign_is_error(self):
+        """utm_tracking present but campaign is empty string is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["utm_tracking"]["campaign"] = ""
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("campaign" in e for e in errors),
+            f"Expected error for empty utm_tracking campaign, got: {errors}",
+        )
+
+    def test_38_nonsequential_slide_numbers_produce_warning(self):
+        """Slide numbers that skip a number (1, 2, 4) produce a warning, not an error."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        # Replace sequential slide_numbers with a gap (skip 3)
+        bad["instagram_carousel"]["slides"] = [
+            {"slide_number": 1, "headline": "Cover", "body": "Subtitle."},
+            {"slide_number": 2, "headline": "Point A", "body": "Body A."},
+            {"slide_number": 4, "headline": "Point B", "body": "Body B."},  # skips 3
+            {"slide_number": 5, "headline": "Point C", "body": "Body C."},
+            {"slide_number": 6, "headline": "CTA", "body": "Link in bio."},
+        ]
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, warnings = validate_social_content(article, "2")
+        self.assertEqual(errors, [], f"Non-sequential slides should warn, not error; errors: {errors}")
+        self.assertTrue(
+            any("sequential" in w for w in warnings),
+            f"Expected sequential ordering warning, got warnings: {warnings}",
+        )
+
+    def test_39_em_dash_in_reel_hook_is_hard_failure(self):
+        """Em dash in reel hook is a hard failure."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        bad["instagram_reel"]["hook"] = "Did you know — most LA buyers skip this step?"
+        article = {"slug": "test-slug", "social_content": bad}
+        errors, _ = validate_social_content(article, "2")
+        self.assertTrue(
+            any("em dash" in e for e in errors),
+            f"Expected em dash error in reel hook, got: {errors}",
+        )
+
+    def test_40_v1_batch_with_social_content_passes_without_error(self):
+        """Schema v1 batch that includes social_content does not produce errors (optional field)."""
+        article = {"slug": "test-slug", "social_content": VALID_SOCIAL}
+        errors, warnings = validate_social_content(article, "1")
+        self.assertEqual(
+            errors, [],
+            f"v1 batch with social_content should not produce errors; got: {errors}",
+        )
+
+    def test_41_reel_script_too_short_produces_warning(self):
+        """Reel script under 75 words produces a word-count warning."""
+        import copy
+        bad = copy.deepcopy(VALID_SOCIAL)
+        # 12 words — well under 75
+        bad["instagram_reel"]["script"] = "Short script. Under target. Fix before posting. This is too brief for a 30-second reel."
+        article = {"slug": "test-slug", "social_content": bad}
+        _, warnings = validate_social_content(article, "2")
+        self.assertTrue(
+            any("short" in w.lower() or "75" in w for w in warnings),
+            f"Expected word-count warning for short reel script, got: {warnings}",
         )
 
 
@@ -670,4 +839,8 @@ if __name__ == "__main__":
 
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)
+    total = result.testsRun
+    passed = total - len(result.failures) - len(result.errors)
+    print(f"\n{'='*60}")
+    print(f"Tests run: {total}  |  Passed: {passed}  |  Failed: {len(result.failures)}  |  Errors: {len(result.errors)}")
     sys.exit(0 if result.wasSuccessful() else 1)

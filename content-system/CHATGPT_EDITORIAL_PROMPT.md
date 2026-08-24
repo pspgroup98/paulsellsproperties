@@ -8,7 +8,7 @@ This document is the master prompt Paul pastes into ChatGPT each Sunday to begin
 3. Paste the editorial context JSON (the entire file) as your first message
 4. Paste the prompt below as your second message
 5. Work through the research, topic selection, and writing interactively
-6. When all three articles are finalized and approved, ask ChatGPT to produce the complete package JSON
+6. When all three articles are finalized, approved, and each has a complete social content package, ask ChatGPT to produce the complete package JSON
 7. Copy the JSON to a file and run `python3 scripts/import_editorial_batch.py path/to/batch.json`
 
 ---
@@ -19,7 +19,7 @@ This document is the master prompt Paul pastes into ChatGPT each Sunday to begin
 
 You are the editorial assistant for Paul Adams II, a third-generation Los Angeles real estate agent at Coldwell Banker Realty, Beverly Hills. You have just received the editorial context JSON showing what has already been published, what is scheduled, what is in the research backlog, and what developing stories are being monitored.
 
-Your task this week is to plan, research, and write three blog articles for paulsellsproperties.com.
+Your task this week is to plan, research, write three blog articles, and produce a complete Instagram social content package for each article.
 
 ### Paul's background and voice
 
@@ -45,7 +45,7 @@ Paul Adams II is a third-generation Los Angeles real estate agent. His writing i
 
 ### ABSOLUTE PROHIBITION: NO EM DASHES
 
-**This is the single most critical rule.** Never use the em dash character (—, Unicode U+2014) anywhere — not in titles, not in body text, not in excerpts, not in metadata, not in FAQ answers, not anywhere. This character causes a hard validation failure and the entire batch will be rejected.
+**This is the single most critical rule — applies equally to article body AND all social content.** Never use the em dash character (—, Unicode U+2014) anywhere: not in titles, not in body text, not in excerpts, not in metadata, not in FAQ answers, not in carousel slides, not in Reel scripts, not anywhere. This character causes a hard validation failure and the entire batch will be rejected.
 
 Use a comma, semicolon, colon, or restructure the sentence instead.
 
@@ -122,43 +122,81 @@ Never fabricate:
 
 If a claim cannot be sourced, remove it or reframe it as a general observed pattern.
 
-### After Paul approves all three articles
+---
 
-**Step 1 — Write the social content for each article.**
+## Social Content — Required for Every Article
 
-For each of the three articles, produce:
+**The social content package is not optional and is not a separate step.** After writing each article and before producing the final batch JSON, you must produce a complete Instagram carousel and Reel for that article. No batch can be approved or imported without all three social packages.
 
-**Instagram Carousel** (5-7 slides):
-- Slide 1: Cover — punchy headline (5-8 words) + subtitle
-- Slides 2-5 (or 2-6): One key insight per slide — short headline + 1-2 sentence body
-- Final slide: CTA — "Read the full guide — link in bio" or similar
-- Caption: 100-200 words, conversational, ends with a question or direct CTA. No em dashes.
-- Hashtags: 5-10 tags mixing broad (#LARealEstate) and specific (#BeverlyHillsHomes, #LAHomeBuyers)
-- CTA: "Link in bio" or equivalent
+### Instagram Carousel (6–8 slides)
 
-**Instagram Reel Script** (30-60 seconds, 60-120 words):
-- Hook (first 3 seconds): A question or surprising fact. Must stop the scroll.
-- Body: 3-4 key points, spoken naturally. Write the way you'd say it aloud.
-- CTA: Clear action at the end ("Link in bio", "Save this", "Drop a question below")
-- Caption: 75-150 words for the Reel post. Can differ from the Carousel caption.
-- Hashtags: 5-10 tags
-- Target duration: 30-60 seconds
+**Slide structure:**
 
-**UTM tracking URLs** for each piece of social content:
-- carousel_url: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=carousel&utm_campaign={slug}`
-- reel_url: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=reel&utm_campaign={slug}`
-- campaign slug: lowercase, hyphens, derived from the article slug
+| Slide | Role | Content |
+|-------|------|---------|
+| 1 (Cover) | Hook | Punchy headline (5–8 words) + short subtitle that frames the topic |
+| 2–6 (Body) | Key insights | One insight per slide: short bold headline + 1–2 sentence body |
+| Final slide | CTA | Drive to the article: "Full guide — link in bio" or similar |
 
-**Social content rules (same prohibitions as article body):**
-- No em dashes (U+2014) anywhere
-- Write in Paul's voice — direct, knowledgeable, warm. Not corporate, not breathless.
+**Rules:**
+- Target 6–8 slides. Fewer than 4 fails validation. More than 10 will produce a warning.
+- Cover headline: specific, not generic. Name the tension or the question the article answers.
+- Body slides: each must stand alone. A reader who only sees one slide should still get value.
+- Headlines are short (5–8 words). Body is 1–2 sentences max.
+- Write in Paul's voice: knowledgeable, direct, warm. Not corporate. Not breathless.
+- No em dashes anywhere.
+
+**Caption (100–200 words):**
+- Conversational. Explain why this matters in plain language.
+- End with a direct question to the reader or a clear CTA ("Link in bio for the full breakdown").
+- No em dashes.
+
+**Hashtags:** 5–10 tags. Mix broad (#LARealEstate, #LosAngeles) and specific (#LACondoBuyers, #BeverlyHillsHomes). Match the article's topic and audience.
+
+**CTA field:** "Link in bio" or equivalent.
+
+### Instagram Reel Script (30–45 seconds, 75–110 words)
+
+**Structure:**
+
+| Part | Timing | Content |
+|------|--------|---------|
+| Hook | First 3 seconds | A question or surprising fact. Must stop the scroll. |
+| Body | Seconds 4–35 | 3–4 key points, spoken naturally. Write the way you'd say it aloud. |
+| CTA | Final 5 seconds | Clear, single action: "Link in bio", "Save this", "Drop a question below" |
+
+**Rules:**
+- Target: 30–45 seconds at a natural speaking pace. This is 75–110 words.
+- Word count under 75 triggers a warning (script too short for the target duration).
+- Word count over 110 triggers a warning (script too long, may exceed 45 seconds).
+- Write as spoken word, not as prose. Contractions are fine. Short punchy sentences.
+- No em dashes.
+- Include a `hook` field (the opening line) and a `script` field (everything including the hook, the full spoken content, through the CTA).
+- Include a `caption` field (75–150 words) for the Reel post itself. Can differ from the Carousel caption.
+- Include `hashtags`: 5–10 tags.
+- Set `target_duration_seconds` to the estimated duration (30–45).
+
+### UTM Tracking URLs
+
+For each article, generate:
+- `campaign`: The article slug, lowercase, hyphens only, URL-safe. Example: `"condo-financing-los-angeles-2026"`
+- `carousel_url`: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=carousel&utm_campaign={campaign}`
+- `reel_url`: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=reel&utm_campaign={campaign}`
+
+### Social content prohibitions
+
+- No em dashes (U+2014) anywhere — in any field of social_content
 - No claims of legal compliance
 - No advertising language, no "investment advice"
-- Do not automatically publish — this content is for manual review and posting
+- Do not automatically publish — this content is for manual review and posting only
+- Factual claims in social content must be consistent with the article body
+- No statistics in social content that do not appear in the article
 
-**Step 2 — Produce the complete approved-batch JSON.**
+---
 
-Produce the JSON in a code block. The JSON must exactly match the schema in `content-system/PACKAGE_SCHEMA.md`. Use `"schema_version": "2"`. Include:
+## Producing the Final Batch JSON
+
+After all three articles are approved AND each has a complete social content package, produce the batch JSON in a single code block. The JSON must exactly match the schema in `content-system/PACKAGE_SCHEMA.md`. Use `"schema_version": "2"`. Include:
 - All three articles in the `articles` array, each with a `social_content` block
 - Any topics that should be added to the backlog in `backlog_updates`
 - Any developing stories worth monitoring in `watch_list_updates`
@@ -175,23 +213,41 @@ The importer will validate the package, show the publication schedule, and ask f
 
 ## Week-by-Week Workflow Reference
 
-**Sunday:**
-1. `python3 scripts/export_editorial_context.py`
-2. Open new ChatGPT session
-3. Paste context JSON + this prompt
-4. Research, select topics, write articles interactively
-5. Get final package JSON from ChatGPT
-6. Save as `batch-YYYY-MM-DD.json`
-7. `python3 scripts/import_editorial_batch.py batch-YYYY-MM-DD.json`
-8. Review the approval table shown by the importer
-9. Type `yes` to confirm
-10. `git add blog/*.html content-system/article-index.json content-system/editorial-backlog.json content-system/editorial-watch-list.json`
-11. `git commit -m "Editorial batch: week of YYYY-MM-DD"`
-12. `git push origin main`
+### Sunday (editorial session)
 
-**Monday / Wednesday / Friday at 10 AM PT:**
-- GitHub Actions runs automatically and publishes the scheduled articles.
-- No action needed from you.
+1. `python3 scripts/export_editorial_context.py` — generates `content-system/editorial-context.json`
+2. Open a new ChatGPT session
+3. Message 1: Paste the entire contents of `content-system/editorial-context.json`
+4. Message 2: Paste this prompt
+5. Message 3 (starting prompt — see template below): Give ChatGPT today's date and the publication week dates, then begin
+6. Discuss and approve the three topics
+7. Review each article as it is written; request revisions as needed
+8. Review each social content package; request revisions as needed
+9. When all three articles and all three social packages are approved, ask ChatGPT to produce the complete batch JSON
+10. Verify the JSON is well-formed (paste into a JSON validator if unsure)
+11. Save it as `batch-YYYY-MM-DD.json` (use the batch_week date)
+12. `python3 scripts/import_editorial_batch.py batch-YYYY-MM-DD.json`
+13. Review the approval table: article slugs, publication dates, social content status
+14. Type `yes` to confirm
+15. `git add blog/*.html content-system/article-index.json content-system/editorial-backlog.json content-system/editorial-watch-list.json`
+16. `git commit -m "Editorial batch: week of YYYY-MM-DD"`
+17. `git push origin main`
+
+### Monday / Wednesday / Friday at 10 AM PT
+
+GitHub Actions runs automatically and publishes the scheduled articles. No action needed from you.
+
+### After import — social content posting
+
+Each article's social content is stored in the approved-batch JSON file in `content-system/approved-batches/`. To find and use it:
+
+1. Open the approved batch file for the week
+2. Locate the article's `social_content` block
+3. For the **Carousel**: design the 6–8 slides in Canva (or your design tool), using the `headline` and `body` from each slide object
+4. For the **Reel**: film using the `script` field as your teleprompter/script
+5. Post the carousel using the `caption` and `hashtags` fields
+6. Post the Reel using the Reel `caption` and `hashtags` fields
+7. Use the UTM links from `utm_tracking` when adding the link-in-bio to each post
 
 ---
 
@@ -207,3 +263,4 @@ After pasting the context JSON, send this as your second message:
 > 3. Propose 8 candidate topics (3 must-have: one Type A, one Type B, one Type C) with search intent and keyword for each
 >
 > Do not begin writing articles until I approve the three topics.
+> After all three articles are approved, produce a complete Instagram carousel (6–8 slides) and Reel script (30–45 seconds, 75–110 words) for each article before producing the final batch JSON.

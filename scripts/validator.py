@@ -398,46 +398,98 @@ def validate_social_content(article: dict, schema_version: str) -> tuple:
         return errors, warnings
 
     # Validate carousel
-    carousel = social.get("instagram_carousel", {})
-    for f in REQUIRED_CAROUSEL_FIELDS:
-        if not carousel.get(f):
-            errors.append(f"{label}: social_content.instagram_carousel missing required field '{f}'")
-    slides = carousel.get("slides", [])
-    if not isinstance(slides, list) or len(slides) < 3:
+    carousel = social.get("instagram_carousel")
+    if not carousel:
         errors.append(
-            f"{label}: instagram_carousel.slides must have at least 3 slides "
-            f"(got {len(slides) if isinstance(slides, list) else 0})"
+            f"{label}: social_content is missing 'instagram_carousel'. "
+            f"Each v2 article requires an Instagram carousel."
         )
+        carousel = {}
     else:
-        for i, slide in enumerate(slides):
-            if not slide.get("headline"):
-                errors.append(f"{label}: instagram_carousel.slides[{i}] missing 'headline'")
-            if not slide.get("body"):
-                errors.append(f"{label}: instagram_carousel.slides[{i}] missing 'body'")
+        for f in REQUIRED_CAROUSEL_FIELDS:
+            if not carousel.get(f):
+                errors.append(f"{label}: social_content.instagram_carousel missing required field '{f}'")
+        slides = carousel.get("slides", [])
+        if not isinstance(slides, list) or len(slides) < 4:
+            errors.append(
+                f"{label}: instagram_carousel.slides must have at least 4 slides "
+                f"(got {len(slides) if isinstance(slides, list) else 0}); "
+                f"target is 6-8 slides"
+            )
+        else:
+            if len(slides) > 10:
+                warnings.append(
+                    f"{label}: instagram_carousel has {len(slides)} slides — "
+                    f"recommended range is 6-8 slides (4-10 acceptable)"
+                )
+            # Validate slide content and sequential numbering
+            expected_num = 1
+            sequential_ok = True
+            for i, slide in enumerate(slides):
+                if not slide.get("headline"):
+                    errors.append(f"{label}: instagram_carousel.slides[{i}] missing 'headline'")
+                if not slide.get("body"):
+                    errors.append(f"{label}: instagram_carousel.slides[{i}] missing 'body'")
+                actual_num = slide.get("slide_number")
+                if actual_num is not None and actual_num != expected_num:
+                    sequential_ok = False
+                expected_num += 1
+            if not sequential_ok:
+                warnings.append(
+                    f"{label}: instagram_carousel slide numbers are not sequential (expected 1, 2, 3, ...). "
+                    f"Renumber slides so slide_number matches position order."
+                )
 
-    hashtags = carousel.get("hashtags", [])
+    hashtags = carousel.get("hashtags", []) if carousel else []
     if not isinstance(hashtags, list) or len(hashtags) < 3:
         warnings.append(f"{label}: instagram_carousel.hashtags should have at least 3 tags (got {len(hashtags) if isinstance(hashtags, list) else 0})")
 
     # Validate reel
-    reel = social.get("instagram_reel", {})
-    for f in REQUIRED_REEL_FIELDS:
-        if not reel.get(f):
-            errors.append(f"{label}: social_content.instagram_reel missing required field '{f}'")
+    reel = social.get("instagram_reel")
+    if not reel:
+        errors.append(
+            f"{label}: social_content is missing 'instagram_reel'. "
+            f"Each v2 article requires an Instagram Reel script."
+        )
+        reel = {}
+    else:
+        for f in REQUIRED_REEL_FIELDS:
+            if not reel.get(f):
+                errors.append(f"{label}: social_content.instagram_reel missing required field '{f}'")
 
-    script = reel.get("script", "")
-    word_count = len(script.split()) if script else 0
-    # 30-60 second reel: ~60-120 words at typical speaking pace
-    if script and word_count < 40:
-        warnings.append(f"{label}: instagram_reel.script is very short ({word_count} words) — may be under 20 seconds")
-    if script and word_count > 160:
-        warnings.append(f"{label}: instagram_reel.script is long ({word_count} words) — may exceed 60 seconds")
+        script = reel.get("script", "")
+        word_count = len(script.split()) if script else 0
+        # 30-45 second reel: ~75-110 words at typical speaking pace
+        if script and word_count < 75:
+            warnings.append(
+                f"{label}: instagram_reel.script is short ({word_count} words); "
+                f"target is 75-110 words (30-45 seconds)"
+            )
+        if script and word_count > 110:
+            warnings.append(
+                f"{label}: instagram_reel.script is long ({word_count} words); "
+                f"target is 75-110 words (30-45 seconds)"
+            )
 
     # Validate UTM tracking
-    utm = social.get("utm_tracking", {})
-    for f in REQUIRED_UTM_FIELDS:
-        if not utm.get(f):
-            errors.append(f"{label}: social_content.utm_tracking missing required field '{f}'")
+    utm = social.get("utm_tracking")
+    if not utm:
+        errors.append(
+            f"{label}: social_content is missing 'utm_tracking'. "
+            f"Each v2 article requires UTM tracking URLs."
+        )
+        utm = {}
+    else:
+        for f in REQUIRED_UTM_FIELDS:
+            if not utm.get(f):
+                errors.append(f"{label}: social_content.utm_tracking missing required field '{f}'")
+        # Campaign slug must be URL-safe: lowercase letters, digits, hyphens only
+        campaign = utm.get("campaign", "")
+        if campaign and not re.match(r'^[a-z0-9][a-z0-9\-]*$', campaign):
+            errors.append(
+                f"{label}: social_content.utm_tracking.campaign '{campaign}' is not URL-safe. "
+                f"Use only lowercase letters, digits, and hyphens."
+            )
 
     # Em dash check in social content (hard failure — same rule as article body)
     for field_label, text in _social_em_dash_fields(social):
