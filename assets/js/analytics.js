@@ -340,6 +340,7 @@
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-modal', 'true');
     modal.setAttribute('aria-labelledby', 'psp-privacy-title');
+    var analyticsOn = current === 'granted';
     modal.innerHTML = [
       '<div class="psp-modal-backdrop"></div>',
       '<div class="psp-modal-box">',
@@ -347,12 +348,13 @@
       '  <p>This site uses Google Analytics and Microsoft Clarity to understand',
       '  how visitors use the site. No advertising pixels or cross-site tracking.',
       '  No personal information is sent to these services.</p>',
-      '  <p class="psp-modal-status">Current status: <strong id="psp-consent-label">',
-      (current === 'granted' ? 'Analytics on' : 'Analytics off'),
+      '  <p class="psp-modal-status">Current status: <strong>',
+      (analyticsOn ? 'Analytics on' : 'Analytics off'),
       '  </strong></p>',
       '  <div class="psp-modal-actions">',
-      '    <button id="psp-opt-out" class="btn btn-outline">Turn off analytics</button>',
-      '    <button id="psp-opt-in" class="btn btn-gold">Turn on analytics</button>',
+      (analyticsOn
+        ? '    <button id="psp-opt-out" class="btn btn-outline">Turn off analytics</button>'
+        : '    <button id="psp-opt-in" class="btn btn-gold">Turn on analytics</button>'),
       '    <button id="psp-modal-close" class="btn btn-outline">Close</button>',
       '  </div>',
       '  <p class="psp-modal-note"><a href="/privacy.html">Full Privacy Policy</a></p>',
@@ -367,12 +369,10 @@
     modal.querySelector('#psp-modal-close').addEventListener('click', function () {
       modal.remove();
     });
-    modal.querySelector('#psp-opt-out').addEventListener('click', function () {
-      setConsent('denied');
-    });
-    modal.querySelector('#psp-opt-in').addEventListener('click', function () {
-      setConsent('granted');
-    });
+    var optOut = modal.querySelector('#psp-opt-out');
+    var optIn  = modal.querySelector('#psp-opt-in');
+    if (optOut) optOut.addEventListener('click', function () { setConsent('denied'); });
+    if (optIn)  optIn.addEventListener('click',  function () { setConsent('granted'); });
   }
 
   // ── Initialization ─────────────────────────────────────────────────────────
