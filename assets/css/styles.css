@@ -2130,26 +2130,30 @@ body:has(.post-content) {
 }
 .psp-modal-box {
   position: relative;
-  background: var(--white, #fff);
-  color: var(--dark, #1a1a1a);
+  background: var(--dark-2, #141414);
+  color: var(--white, #fff);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   padding: 2rem;
   max-width: 440px;
   width: calc(100% - 2rem);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.7);
   z-index: 1;
 }
 .psp-modal-box h2 {
   font-size: 1.15rem;
   font-weight: 700;
+  color: var(--white, #fff);
   margin: 0 0 0.75rem;
 }
 .psp-modal-box p {
   font-size: 0.875rem;
   line-height: 1.6;
+  color: rgba(255,255,255,0.75);
   margin: 0 0 0.75rem;
 }
-.psp-modal-status { font-size: 0.875rem; }
+.psp-modal-status { font-size: 0.875rem; color: rgba(255,255,255,0.75); }
+.psp-modal-status strong { color: var(--white, #fff); }
 .psp-modal-actions {
   display: flex;
   gap: 0.5rem;
@@ -2158,7 +2162,7 @@ body:has(.post-content) {
 }
 .psp-modal-note {
   font-size: 0.8rem;
-  color: var(--text-muted, #888);
+  color: rgba(255,255,255,0.4);
   margin: 0;
 }
 .psp-modal-note a { color: var(--gold, #c9a060); }
