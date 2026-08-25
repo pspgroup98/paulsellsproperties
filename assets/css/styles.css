@@ -1109,9 +1109,24 @@ body {
 
 /* ---------- CTA Banner ---------- */
 .cta-section {
-  padding: 96px 0;
-  background: var(--dark);
+  padding: 112px 0;
+  position: relative;
+  background: url('../images/venice-aerial.jpg') center 35% / cover no-repeat;
   text-align: center;
+}
+/* Flat dark overlay — keeps the photo visible while ensuring text legibility */
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,0.58);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Lift content above overlay */
+.cta-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .cta-contact-row {
@@ -1636,6 +1651,8 @@ body:has(.post-content) {
   .services-grid { grid-template-columns: 1fr; }
   .n-grid { grid-template-columns: repeat(4, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  /* CTA photo section — tablet positioning */
+  .cta-section { padding: 88px 0; background-position: center 30%; }
 }
 
 @media (max-width: 768px) {
@@ -1695,6 +1712,8 @@ body:has(.post-content) {
   .testi-card { flex: 0 0 88%; }
   .heritage-badge { width: 90px; height: 90px; right: -10px; bottom: -10px; }
   .heritage-badge-num { font-size: 22px; }
+  /* CTA photo section — mobile positioning */
+  .cta-section { padding: 72px 0; background-position: 52% 38%; }
 }
 
 @media (max-width: 480px) {
