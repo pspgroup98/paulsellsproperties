@@ -1109,10 +1109,14 @@ body {
 
 /* ---------- CTA Banner ---------- */
 .cta-section {
-  padding: 112px 0;
+  min-height: 680px;
+  padding: 0 0 112px;
   position: relative;
   background: url('../images/venice-aerial.jpg') center 35% / cover no-repeat;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 /* Flat dark overlay — keeps the photo visible while ensuring text legibility */
 .cta-section::before {
@@ -1127,11 +1131,11 @@ body {
 .cta-section .container {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
-/* Subhead legibility against lighter overlay */
-.cta-section .subhead {
-  color: rgba(255,255,255,0.82);
-}
+/* Intentional spacing within the reduced content stack */
+.cta-section .label { margin-bottom: 22px; }
+.cta-section h2    { margin-bottom: 48px; }
 
 .cta-contact-row {
   display: grid;
@@ -1655,8 +1659,8 @@ body:has(.post-content) {
   .services-grid { grid-template-columns: 1fr; }
   .n-grid { grid-template-columns: repeat(4, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  /* CTA photo section — tablet positioning */
-  .cta-section { padding: 88px 0; background-position: center 30%; }
+  /* CTA photo section — tablet: preserve cinematic layout, reduce height */
+  .cta-section { min-height: 560px; padding: 0 0 88px; background-position: center 30%; }
 }
 
 @media (max-width: 768px) {
@@ -1716,8 +1720,8 @@ body:has(.post-content) {
   .testi-card { flex: 0 0 88%; }
   .heritage-badge { width: 90px; height: 90px; right: -10px; bottom: -10px; }
   .heritage-badge-num { font-size: 22px; }
-  /* CTA photo section — mobile positioning */
-  .cta-section { padding: 72px 0; background-position: 52% 38%; }
+  /* CTA photo section — mobile: center content, ensure photo breathes */
+  .cta-section { min-height: 420px; padding: 0 0 64px; background-position: 52% 38%; justify-content: flex-end; }
 }
 
 @media (max-width: 480px) {
@@ -2185,3 +2189,18 @@ body:has(.post-content) {
   margin: 0;
 }
 .psp-modal-note a { color: var(--gold, #c9a060); }
+
+/* ---------- Footer — desktop typography scale ---------- */
+/* Applied only at desktop widths (above tablet breakpoint).
+   Tablet and mobile retain original sizes. */
+@media (min-width: 1025px) {
+  .footer-tagline     { font-size: 14px; }
+  .footer-col-title   { font-size: 11px; }
+  .footer-links       { gap: 14px; }
+  .footer-links a     { font-size: 15px; }
+  .footer-contact-lbl { font-size: 10px; }
+  .footer-contact-val { font-size: 15px; }
+  .footer-dre         { font-size: 12px; }
+  .footer-legal       { font-size: 12px; }
+  .footer-bottom-links a { font-size: 12px; }
+}
