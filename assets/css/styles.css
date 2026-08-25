@@ -222,7 +222,8 @@ body {
 .nav-item { position: relative; }
 
 .nav-item > a,
-.nav-item > span {
+.nav-item > span,
+.nav-item > button {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -240,6 +241,7 @@ body {
 }
 .nav-item > a:hover,
 .nav-item > span:hover,
+.nav-item > button:hover,
 .nav-item > a.active { color: var(--white); }
 
 .nav-chevron {
@@ -583,6 +585,17 @@ body {
   line-height: 1.65;
 }
 
+/* Philosophy body paragraphs — replaces repeated inline styles */
+.philosophy-body {
+  font-size: 16px;
+  line-height: 1.78;
+  color: rgba(255,255,255,0.45);
+  max-width: 440px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.philosophy-body:first-of-type { margin-top: 28px; }
+
 /* ---------- About / Heritage ---------- */
 .heritage {
   padding: 112px 0;
@@ -591,7 +604,7 @@ body {
 
 .heritage-inner {
   display: grid;
-  grid-template-columns: 5fr 4fr;
+  grid-template-columns: 4fr 5fr;
   gap: 96px;
   align-items: center;
 }
@@ -853,8 +866,17 @@ body {
 
 .testi-nav {
   display: flex;
+  align-items: center;
   gap: 12px;
   margin-top: 36px;
+}
+.testi-count {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.28);
+  min-width: 36px;
+  text-align: center;
 }
 .testi-btn {
   width: 44px;
@@ -945,7 +967,6 @@ body {
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 300px;
   gap: 28px;
   margin-top: 56px;
 }
@@ -961,7 +982,7 @@ body {
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   display: flex;
   flex-direction: column;
-  height: 300px;
+  min-height: 280px;
 }
 .blog-card:hover {
   transform: translateY(-3px);
@@ -1651,6 +1672,10 @@ body:has(.post-content) {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
+  /* Nav collapses to hamburger at tablet — 7 items + logo + CTA overflows at this width */
+  .nav-links, .nav-right .btn { display: none; }
+  .nav-toggle { display: flex; }
+
   .hero { grid-template-columns: 1fr 1fr; height: 100svh; min-height: 480px; }
   .hero-left { padding: clamp(32px, 4.5vh, 64px) 32px clamp(32px, 4.5vh, 64px) 40px; }
   .hero-right { height: auto; }
@@ -1661,6 +1686,8 @@ body:has(.post-content) {
   .insider-inner { grid-template-columns: 1fr; gap: 48px; }
   .services-grid { grid-template-columns: 1fr; }
   .n-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Blog: 2-col at tablet instead of jumping from 3-col to 1-col */
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   /* CTA strip — tablet: proportional reduction, pull crop up for coastal panorama */
   .cta-section { min-height: 300px; padding: 44px 0; background-position: center 15%; }
@@ -1670,8 +1697,7 @@ body:has(.post-content) {
   :root { --nav-h: 64px; }
   .section { padding: 72px 0; }
   .container { padding: 0 20px; }
-  .nav-links, .nav-right .btn { display: none; }
-  .nav-toggle { display: flex; }
+  /* Nav rules now live at 1024px; only re-state what changes at 768px */
 
   /* ── Hero: reset 1024px height constraint for mobile ── */
   .hero { grid-template-columns: 1fr; height: auto; min-height: 0; }
@@ -1694,7 +1720,8 @@ body:has(.post-content) {
   .hero-left {
     padding: 24px 20px 40px;
   }
-  .hero-body { display: none; }
+  /* Hero body: visible on mobile but smaller — keeps the elevator pitch in place */
+  .hero-body { font-size: 14px; line-height: 1.65; margin-bottom: 28px; }
   .hero-eyebrow { margin-bottom: 24px; }
   /* Shrink letter-spacing so eyebrow fits on one line; shorten lines to match */
   .hero-eyebrow-text { font-size: 9px; letter-spacing: 0.10em; white-space: nowrap; }
@@ -1732,6 +1759,8 @@ body:has(.post-content) {
   /* Stretch buttons full-width on small phones — consistent with hero treatment */
   .btn-group { flex-direction: column; align-items: stretch; }
   .btn-group .btn { width: 100%; justify-content: center; text-align: center; }
+  /* CTA strip: stacked buttons need more vertical room at narrow widths */
+  .cta-section { min-height: 420px; }
 }
 
 /* ---------- Mobile sticky CTA bar ---------- */

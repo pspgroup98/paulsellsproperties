@@ -154,26 +154,26 @@
     <ul class="nav-links">
       <li class="nav-item"><a href="index.html" class="active">Home</a></li>
       <li class="nav-item">
-        <span>Properties <span class="nav-chevron">▾</span></span>
+        <button type="button">Properties <span class="nav-chevron">▾</span></button>
         <div class="nav-dropdown">
           <a href="property-search.html">Property Search</a>
         </div>
       </li>
       <li class="nav-item">
-        <span>Buying &amp; Selling <span class="nav-chevron">▾</span></span>
+        <button type="button">Buying &amp; Selling <span class="nav-chevron">▾</span></button>
         <div class="nav-dropdown">
           <a href="buying-selling-tips.html">Buying &amp; Selling Tips</a>
         </div>
       </li>
       <li class="nav-item">
-        <span>About <span class="nav-chevron">▾</span></span>
+        <button type="button">About <span class="nav-chevron">▾</span></button>
         <div class="nav-dropdown">
           <a href="about.html">My Story</a>
           <a href="contact.html">Contact Me</a>
         </div>
       </li>
       <li class="nav-item">
-        <span>Neighborhoods <span class="nav-chevron">▾</span></span>
+        <button type="button">Neighborhoods <span class="nav-chevron">▾</span></button>
         <div class="nav-dropdown">
           <a href="neighborhoods/index.html">All Neighborhoods</a>
           <a href="neighborhoods/beverly-hills.html">Beverly Hills</a>
@@ -185,7 +185,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <span>Blog <span class="nav-chevron">▾</span></span>
+        <button type="button">Blog <span class="nav-chevron">▾</span></button>
         <div class="nav-dropdown">
           <a href="blog/index.html">All Articles</a>
         </div>
@@ -276,13 +276,13 @@
         <blockquote class="philosophy-quote">
           "You should never feel uncertain about a decision this important.<br>I make sure you have the clarity to move forward with confidence."
         </blockquote>
-        <p style="margin-top:28px; font-size:16px; line-height:1.78; color:rgba(255,255,255,0.45); max-width:440px; margin-bottom:0;">
+        <p class="philosophy-body">
           Most agents are competent at writing offers and negotiating terms. Where deals are won or lost is in the reasoning behind those decisions.
         </p>
-        <p style="margin-top:20px; font-size:16px; line-height:1.78; color:rgba(255,255,255,0.45); max-width:440px; margin-bottom:0;">
+        <p class="philosophy-body">
           That is where I focus my work.
         </p>
-        <p style="margin-top:20px; font-size:16px; line-height:1.78; color:rgba(255,255,255,0.45); max-width:440px; margin-bottom:0;">
+        <p class="philosophy-body">
           Every recommendation is deliberate. Every move is backed by strategy. You are never left guessing why something is happening or what comes next.
         </p>
       </div>
@@ -437,8 +437,9 @@
         <h2 class="display-md">Trusted by Clients Across Los Angeles</h2>
       </div>
       <div class="testi-nav">
-        <button class="testi-btn" id="testiPrev">&#8592;</button>
-        <button class="testi-btn" id="testiNext">&#8594;</button>
+        <button class="testi-btn" id="testiPrev" aria-label="Previous testimonial">&#8592;</button>
+        <span class="testi-count" id="testiCount">1 / 6</span>
+        <button class="testi-btn" id="testiNext" aria-label="Next testimonial">&#8594;</button>
       </div>
     </div>
 
@@ -866,7 +867,7 @@
               <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
             </div>
           </div>
-          <div class="footer-dre">CA DRE# 02232552</div>
+          <!-- DRE# covered in footer legal text below -->
         </div>
 
       </div>
@@ -917,22 +918,40 @@
     document.getElementById('navMobile').classList.toggle('open');
   });
 
-  // ── Testimonial scroll
+  // ── Testimonial scroll + counter
   const track = document.getElementById('testiTrack');
+  const testiCards = track.querySelectorAll('.testi-card');
+  const testiCountEl = document.getElementById('testiCount');
+  const total = testiCards.length;
+
+  function updateTestiCount() {
+    if (!testiCards.length) return;
+    const cardW = testiCards[0].offsetWidth + 20; // card width + gap
+    const idx = Math.min(Math.round(track.scrollLeft / cardW) + 1, total);
+    testiCountEl.textContent = idx + ' / ' + total;
+  }
+
   document.getElementById('testiNext').addEventListener('click', () => {
     track.scrollBy({ left: track.clientWidth / 3 + 20, behavior: 'smooth' });
   });
   document.getElementById('testiPrev').addEventListener('click', () => {
     track.scrollBy({ left: -(track.clientWidth / 3 + 20), behavior: 'smooth' });
   });
+  track.addEventListener('scroll', updateTestiCount, { passive: true });
+  updateTestiCount();
 
-  // ── Show more neighborhoods
+  // ── Show more / show less neighborhoods
   const nMoreBtn = document.getElementById('nMoreBtn');
+  const extraCards = document.querySelectorAll('#nGrid .n-card.hidden');
+  let nExpanded = false;
   nMoreBtn.addEventListener('click', () => {
-    document.querySelectorAll('.n-card.hidden').forEach(el => {
-      el.classList.remove('hidden');
-    });
-    nMoreBtn.style.display = 'none';
+    nExpanded = !nExpanded;
+    extraCards.forEach(el => el.classList.toggle('hidden', !nExpanded));
+    nMoreBtn.textContent = nExpanded ? 'Show Fewer Neighborhoods' : 'Show More Neighborhoods';
+    if (!nExpanded) {
+      // Scroll back up to the neighborhoods section so the grid doesn't orphan
+      document.querySelector('.neighborhoods').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 
   // ── Show more blog posts
