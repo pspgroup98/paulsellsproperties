@@ -1108,15 +1108,16 @@ body {
 }
 
 /* ---------- CTA Banner ---------- */
+/* Panoramic strip: shorter section reads as visual transition, not a second hero */
 .cta-section {
-  min-height: 620px;
-  padding: 0 0 136px;
+  min-height: 400px;
+  padding: 56px 0;
   position: relative;
-  background: url('../images/venice-aerial.jpg') center 35% / cover no-repeat;
+  background: url('../images/venice-aerial.jpg') center 18% / cover no-repeat;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 }
 /* Flat dark overlay — keeps the photo visible while ensuring text legibility */
 .cta-section::before {
@@ -1133,9 +1134,11 @@ body {
   z-index: 1;
   width: 100%;
 }
-/* Intentional spacing within the reduced content stack */
+/* Intentional spacing within the strip — h2 needs slightly more breath before buttons */
 .cta-section .label { margin-bottom: 22px; }
-.cta-section h2    { margin-bottom: 48px; }
+.cta-section h2    { margin-bottom: 56px; }
+/* Outlined button: modest border boost for legibility against varied photo crop */
+.cta-section .btn-outline-white { border-color: rgba(255,255,255,0.68); }
 
 .cta-contact-row {
   display: grid;
@@ -1659,8 +1662,8 @@ body:has(.post-content) {
   .services-grid { grid-template-columns: 1fr; }
   .n-grid { grid-template-columns: repeat(4, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  /* CTA photo section — tablet: preserve cinematic layout, reduce height */
-  .cta-section { min-height: 560px; padding: 0 0 88px; background-position: center 30%; }
+  /* CTA strip — tablet: proportional reduction, pull crop up for coastal panorama */
+  .cta-section { min-height: 300px; padding: 44px 0; background-position: center 15%; }
 }
 
 @media (max-width: 768px) {
@@ -1720,8 +1723,8 @@ body:has(.post-content) {
   .testi-card { flex: 0 0 88%; }
   .heritage-badge { width: 90px; height: 90px; right: -10px; bottom: -10px; }
   .heritage-badge-num { font-size: 22px; }
-  /* CTA photo section — mobile: center content, ensure photo breathes */
-  .cta-section { min-height: 420px; padding: 0 0 64px; background-position: 52% 38%; justify-content: flex-end; }
+  /* CTA strip — mobile: enough room for stacked buttons; Y crop less critical at narrow width */
+  .cta-section { min-height: 360px; padding: 48px 0; background-position: center center; }
 }
 
 @media (max-width: 480px) {
