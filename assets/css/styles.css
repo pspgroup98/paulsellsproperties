@@ -1136,7 +1136,7 @@ body {
 }
 /* Intentional spacing within the strip — h2 needs slightly more breath before buttons */
 .cta-section .label { margin-bottom: 22px; }
-.cta-section h2    { margin-bottom: 72px; }
+.cta-section h2    { margin-bottom: 96px; }
 /* Outlined button: modest border boost for legibility against varied photo crop */
 .cta-section .btn-outline-white { border-color: rgba(255,255,255,0.68); }
 
