@@ -1109,8 +1109,8 @@ body {
 
 /* ---------- CTA Banner ---------- */
 .cta-section {
-  min-height: 680px;
-  padding: 0 0 112px;
+  min-height: 620px;
+  padding: 0 0 136px;
   position: relative;
   background: url('../images/venice-aerial.jpg') center 35% / cover no-repeat;
   text-align: center;
