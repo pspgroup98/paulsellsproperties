@@ -1119,7 +1119,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(10,10,10,0.58);
+  background: rgba(10,10,10,0.48);
   pointer-events: none;
   z-index: 0;
 }
@@ -1127,6 +1127,10 @@ body {
 .cta-section .container {
   position: relative;
   z-index: 1;
+}
+/* Subhead legibility against lighter overlay */
+.cta-section .subhead {
+  color: rgba(255,255,255,0.82);
 }
 
 .cta-contact-row {
@@ -1137,19 +1141,19 @@ body {
   border: 1px solid var(--border-dark);
   border-radius: var(--radius);
   overflow: hidden;
-  margin-top: 56px;
+  margin-top: 72px;
 }
 .cta-info-value {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .cta-info-item {
-  background: var(--dark-2);
+  background: rgba(20,20,20,0.90);
   padding: 36px 28px;
   text-align: center;
   transition: background 0.2s;
 }
-.cta-info-item:hover { background: var(--dark-3); }
+.cta-info-item:hover { background: rgba(28,28,28,0.92); }
 .cta-info-label {
   font-size: 9px;
   font-weight: 700;
