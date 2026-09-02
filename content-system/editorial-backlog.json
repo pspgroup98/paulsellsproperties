@@ -20,6 +20,163 @@
       "notes": "Consider a neighborhood-focused article that covers the return of retail and dining without overstating the pace of the broader recovery.",
       "source": "Eater Los Angeles, August 2026",
       "status": "pending"
+    },
+    {
+      "topic": "Inglewood's $261 Million Mobility Overhaul and What It Could Mean for the Area Around SoFi Stadium",
+      "category": "Neighborhood",
+      "audiences": [
+        "buyers",
+        "investors",
+        "homeowners",
+        "lifestyle buyers"
+      ],
+      "geography": "Inglewood",
+      "keyword_opportunity": "Inglewood transportation improvements SoFi Stadium",
+      "reason_to_consider": "The newly announced mobility investment creates a strong infrastructure, neighborhood, and real-estate crossover story ahead of the 2028 Olympics.",
+      "evergreen": false,
+      "priority": "high",
+      "discovered_at": "2026-08-30",
+      "notes": "Monitor project milestones, construction timing, K Line connections, pedestrian improvements, and impacts around SoFi Stadium, Kia Forum, and Intuit Dome.",
+      "source": "City of Inglewood and current Los Angeles infrastructure reporting",
+      "status": "pending",
+      "id": "20260831-bkl-001"
+    },
+    {
+      "topic": "Soft-Story Retrofit Economics for Los Angeles Multifamily Owners",
+      "category": "Investor Strategy",
+      "audiences": [
+        "investors",
+        "landlords",
+        "rental property owners"
+      ],
+      "geography": "City of Los Angeles",
+      "keyword_opportunity": "Los Angeles soft story retrofit grants",
+      "reason_to_consider": "Retrofit requirements, available assistance, financing, and construction costs create a practical landlord and investor topic.",
+      "evergreen": false,
+      "priority": "high",
+      "discovered_at": "2026-08-30",
+      "notes": "Verify current grant funding, eligibility, deadlines, and retrofit requirements immediately before publication.",
+      "source": "Los Angeles Department of Building and Safety",
+      "status": "pending",
+      "id": "20260831-bkl-002"
+    },
+    {
+      "topic": "House Hacking a 2-to-4 Unit Property in Los Angeles",
+      "category": "Real Estate Investing",
+      "audiences": [
+        "buyers",
+        "first-time buyers",
+        "investors",
+        "duplex owners"
+      ],
+      "geography": "Los Angeles",
+      "keyword_opportunity": "house hacking Los Angeles duplex fourplex",
+      "reason_to_consider": "Strong bridge between first-time-buyer education and investment strategy with durable search intent.",
+      "evergreen": true,
+      "priority": "high",
+      "discovered_at": "2026-08-30",
+      "notes": "Keep search intent distinct from the duplex underwriting and RSO buyer guides.",
+      "source": "Editorial gap analysis",
+      "status": "pending",
+      "id": "20260831-bkl-003"
+    },
+    {
+      "topic": "Condo vs. House in Los Angeles: How to Decide",
+      "category": "Buyer's Guide",
+      "audiences": [
+        "buyers",
+        "first-time buyers",
+        "lifestyle buyers"
+      ],
+      "geography": "Los Angeles",
+      "keyword_opportunity": "condo vs house Los Angeles",
+      "reason_to_consider": "Durable consumer search intent with clear practical differences involving price, HOA costs, maintenance, financing, location, and lifestyle.",
+      "evergreen": true,
+      "priority": "high",
+      "discovered_at": "2026-08-30",
+      "notes": "Cross-link to the existing condo-financing article without duplicating its financing search intent.",
+      "source": "Editorial gap analysis",
+      "status": "pending",
+      "id": "20260831-bkl-004"
+    },
+    {
+      "topic": "Apple's Growing Culver City Campus and the Changing Culver City Employment Corridor",
+      "category": "Neighborhood",
+      "audiences": [
+        "buyers",
+        "sellers",
+        "investors",
+        "lifestyle buyers"
+      ],
+      "geography": "Culver City and West Los Angeles",
+      "keyword_opportunity": "Apple Culver City campus real estate",
+      "reason_to_consider": "A major employment campus creates a useful neighborhood, housing-demand, transportation, and lifestyle crossover story.",
+      "evergreen": false,
+      "priority": "medium",
+      "discovered_at": "2026-08-30",
+      "notes": "Wait for a meaningful construction, opening, hiring, or occupancy milestone.",
+      "source": "Current Los Angeles development reporting",
+      "status": "pending",
+      "id": "20260831-bkl-005"
+    },
+    {
+      "topic": "Housing Growth Around Culver City Station and What It Means for Palms",
+      "category": "Market Analysis",
+      "audiences": [
+        "buyers",
+        "investors",
+        "homeowners"
+      ],
+      "geography": "Palms and Culver City",
+      "keyword_opportunity": "Palms Culver City Station apartments development",
+      "reason_to_consider": "Multiple housing projects near transit create a useful neighborhood-change and transit-oriented-development story.",
+      "evergreen": false,
+      "priority": "medium",
+      "discovered_at": "2026-08-30",
+      "notes": "Consider a cluster article rather than writing about a single project.",
+      "source": "Current Los Angeles development reporting",
+      "status": "pending",
+      "id": "20260831-bkl-006"
+    },
+    {
+      "topic": "North Hollywood to Pasadena Bus Rapid Transit and the Neighborhoods Along the Route",
+      "category": "Neighborhood",
+      "audiences": [
+        "buyers",
+        "homeowners",
+        "investors",
+        "lifestyle buyers"
+      ],
+      "geography": "San Fernando Valley and San Gabriel Valley",
+      "keyword_opportunity": "North Hollywood Pasadena BRT neighborhoods",
+      "reason_to_consider": "The project offers a strong transportation and neighborhood-accessibility story ahead of the 2028 Olympics.",
+      "evergreen": false,
+      "priority": "medium",
+      "discovered_at": "2026-08-30",
+      "notes": "Revisit around major construction or station milestones.",
+      "source": "Los Angeles County Metropolitan Transportation Authority",
+      "status": "pending",
+      "id": "20260831-bkl-007"
+    },
+    {
+      "topic": "Robertson Row and the Next Chapter of West Hollywood's Historic Factory Site",
+      "category": "Lifestyle",
+      "audiences": [
+        "buyers",
+        "homeowners",
+        "lifestyle buyers",
+        "investors"
+      ],
+      "geography": "West Hollywood",
+      "keyword_opportunity": "Robertson Row West Hollywood",
+      "reason_to_consider": "The redevelopment combines historic preservation, retail, restaurants, fitness, and neighborhood change in a high-interest Los Angeles location.",
+      "evergreen": false,
+      "priority": "medium",
+      "discovered_at": "2026-08-30",
+      "notes": "Best timed to a construction, tenant, approval, or opening milestone.",
+      "source": "Current West Hollywood development reporting",
+      "status": "pending",
+      "id": "20260831-bkl-008"
     }
   ]
 }

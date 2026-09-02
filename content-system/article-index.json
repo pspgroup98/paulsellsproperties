@@ -690,5 +690,207 @@
     "review_after": "2027-04-09",
     "last_reviewed": "2026-04-09",
     "word_count_approx": 1600
+  },
+  {
+    "slug": "boyle-heights-community-plan-2026-property-owners",
+    "title": "Boyle Heights' New Community Plan Is Now in Effect: What Property Owners and Buyers Should Know",
+    "excerpt": "The updated Boyle Heights Community Plan is now in effect. Buyers and owners should understand how parcel-specific zoning changes can affect development options and long-term value.",
+    "url": "https://paulsellsproperties.com/blog/boyle-heights-community-plan-2026-property-owners.html",
+    "status": "published",
+    "scheduled_publish_at": "2026-08-31T10:00:00-07:00",
+    "published_at": "2026-09-02T11:20:31.845448-07:00",
+    "date_iso": "2026-08-31",
+    "date_display": "August 31, 2026",
+    "category": "Market Analysis",
+    "author": "Paul Adams II",
+    "article_type": "A",
+    "primary_topic": "Boyle Heights zoning and property strategy",
+    "primary_keyword": "Boyle Heights Community Plan 2026",
+    "secondary_topics": [
+      "Boyle Heights zoning changes",
+      "Boyle Heights real estate",
+      "Los Angeles zoning Boyle Heights",
+      "Boyle Heights development"
+    ],
+    "search_intent": "Understand how the 2026 Boyle Heights Community Plan and zoning changes affect property owners, buyers, and investors.",
+    "normalized_search_intent": "boyle heights community plan 2026 property owners buyers zoning",
+    "geographic_focus": "Boyle Heights, City of Los Angeles",
+    "neighborhood": "Boyle Heights",
+    "audience": [
+      "buyers",
+      "sellers",
+      "investors",
+      "homeowners"
+    ],
+    "content_type": "regulatory",
+    "content_freshness_type": "regulatory",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/property-search.html",
+      "/buying-selling-tips.html",
+      "/contact.html"
+    ],
+    "related_articles": [
+      "adu-vs-garage-conversion",
+      "analyze-duplex-los-angeles-before-buying",
+      "buying-rso-property-los-angeles"
+    ],
+    "sources": [
+      {
+        "name": "Los Angeles City Planning",
+        "title": "Boyle Heights Community Plan",
+        "url": "https://planning.lacity.gov/plans-policies/community-plan-area/boyle-heights",
+        "published_date": "2026-07-01",
+        "accessed_date": "2026-08-30",
+        "source_type": "primary"
+      }
+    ],
+    "review_after": "2027-02-28",
+    "last_reviewed": "2026-08-31",
+    "word_count_approx": 1269,
+    "social_content": null
+  },
+  {
+    "slug": "palisades-village-reopening-pacific-palisades-2026",
+    "title": "Palisades Village Has Reopened: What It Means for Daily Life in Pacific Palisades",
+    "excerpt": "Palisades Village has reopened after extensive repairs following the 2025 fire. Its return restores an important part of daily life as Pacific Palisades continues rebuilding.",
+    "url": "https://paulsellsproperties.com/blog/palisades-village-reopening-pacific-palisades-2026.html",
+    "status": "published",
+    "scheduled_publish_at": "2026-09-02T10:00:00-07:00",
+    "published_at": "2026-09-02T11:20:31.845448-07:00",
+    "date_iso": "2026-09-02",
+    "date_display": "September 2, 2026",
+    "category": "Lifestyle",
+    "author": "Paul Adams II",
+    "article_type": "B",
+    "primary_topic": "Pacific Palisades lifestyle and recovery",
+    "primary_keyword": "Palisades Village reopening 2026",
+    "secondary_topics": [
+      "Pacific Palisades recovery",
+      "living in Pacific Palisades 2026",
+      "Pacific Palisades restaurants",
+      "Palisades Village restaurants"
+    ],
+    "search_intent": "Understand what the Palisades Village reopening means for daily life, amenities, and home-buying decisions in Pacific Palisades.",
+    "normalized_search_intent": "palisades village reopening pacific palisades daily life recovery",
+    "geographic_focus": "Pacific Palisades, City of Los Angeles",
+    "neighborhood": "Pacific Palisades",
+    "audience": [
+      "buyers",
+      "homeowners",
+      "sellers",
+      "lifestyle buyers"
+    ],
+    "content_type": "lifestyle",
+    "content_freshness_type": "periodic",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/neighborhoods/pacific-palisades.html",
+      "/property-search.html",
+      "/contact.html"
+    ],
+    "related_articles": [
+      "california-home-insurance-los-angeles-buyers-sellers",
+      "spring-2026-buy-or-wait"
+    ],
+    "sources": [
+      {
+        "name": "Office of Mayor Karen Bass",
+        "title": "Palisades Village Reopening and Pacific Palisades Recovery",
+        "url": "https://mayor.lacity.gov/",
+        "published_date": "2026-08-15",
+        "accessed_date": "2026-08-30",
+        "source_type": "primary"
+      },
+      {
+        "name": "Los Angeles Times",
+        "title": "Palisades Village Reopening Coverage",
+        "url": "https://www.latimes.com/",
+        "published_date": "2026-08-15",
+        "accessed_date": "2026-08-30",
+        "source_type": "secondary"
+      }
+    ],
+    "review_after": "2027-02-28",
+    "last_reviewed": "2026-09-02",
+    "word_count_approx": 1228,
+    "social_content": null
+  },
+  {
+    "slug": "how-to-read-rent-roll-los-angeles-multifamily",
+    "title": "How to Read a Rent Roll Before Buying a Los Angeles Multifamily Property",
+    "excerpt": "A rent roll is the beginning of multifamily income due diligence, not proof of income. Learn how to verify rents, leases, deposits, collections, and realistic upside before buying.",
+    "url": "https://paulsellsproperties.com/blog/how-to-read-rent-roll-los-angeles-multifamily.html",
+    "status": "approved",
+    "scheduled_publish_at": "2026-09-04T10:00:00-07:00",
+    "published_at": null,
+    "date_iso": "2026-09-04",
+    "date_display": "September 4, 2026",
+    "category": "Multifamily",
+    "author": "Paul Adams II",
+    "article_type": "C",
+    "primary_topic": "Multifamily income due diligence",
+    "primary_keyword": "how to read a rent roll Los Angeles",
+    "secondary_topics": [
+      "multifamily rent roll analysis",
+      "Los Angeles apartment due diligence",
+      "tenant occupied property analysis",
+      "apartment building rent roll"
+    ],
+    "search_intent": "Learn how to verify and analyze a rent roll before buying a Los Angeles multifamily property.",
+    "normalized_search_intent": "read rent roll los angeles multifamily due diligence",
+    "geographic_focus": "Los Angeles",
+    "neighborhood": null,
+    "audience": [
+      "investors",
+      "landlords",
+      "rental property owners",
+      "buyers"
+    ],
+    "content_type": "strategy-guide",
+    "content_freshness_type": "evergreen",
+    "evergreen": true,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/buying-selling-tips.html",
+      "/property-search.html",
+      "/contact.html"
+    ],
+    "related_articles": [
+      "analyze-duplex-los-angeles-before-buying",
+      "buying-rso-property-los-angeles",
+      "vacant-vs-occupied-duplex"
+    ],
+    "sources": [
+      {
+        "name": "Los Angeles Housing Department",
+        "title": "Rent Stabilization Ordinance",
+        "url": "https://housing.lacity.gov/residents/rso-overview",
+        "accessed_date": "2026-08-30",
+        "source_type": "primary"
+      },
+      {
+        "name": "Los Angeles Housing Department",
+        "title": "Rent Registry",
+        "url": "https://housing.lacity.gov/rental-property-owners/rent-registry",
+        "accessed_date": "2026-08-30",
+        "source_type": "primary"
+      }
+    ],
+    "review_after": "2027-08-31",
+    "last_reviewed": "2026-09-04",
+    "word_count_approx": 1646,
+    "social_content": null
   }
 ]

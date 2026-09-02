@@ -4,7 +4,7 @@
   <!-- Core pages -->
   <url>
     <loc>https://paulsellsproperties.com/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -40,7 +40,7 @@
   </url>
   <url>
     <loc>https://paulsellsproperties.com/blog/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -142,6 +142,18 @@
   </url>
 
   <!-- Blog articles -->
+  <url>
+    <loc>https://paulsellsproperties.com/blog/boyle-heights-community-plan-2026-property-owners.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paulsellsproperties.com/blog/palisades-village-reopening-pacific-palisades-2026.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://paulsellsproperties.com/blog/analyze-duplex-los-angeles-before-buying.html</loc>
     <lastmod>2026-08-28</lastmod>

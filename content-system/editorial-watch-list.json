@@ -19,6 +19,117 @@
       "current_status": "Palisades Village has reopened and additional business openings are continuing.",
       "next_review_date": "2026-09-15",
       "status": "active"
+    },
+    {
+      "story": "Los Angeles Tenant Anti-Harassment Ordinance implementation and enforcement",
+      "entity": "Los Angeles Housing Department",
+      "geography": "City of Los Angeles",
+      "discovered_at": "2026-08-30",
+      "expected_milestone": "Meaningful new enforcement cases, implementation guidance, or public database activity",
+      "source": "Los Angeles Housing Department",
+      "relevance": "Could support a timely landlord and investor article once implementation produces concrete examples or new compliance obligations.",
+      "audiences": [
+        "landlords",
+        "investors",
+        "rental property owners"
+      ],
+      "current_status": "Monitor implementation and enforcement",
+      "next_review_date": "2026-09-15",
+      "status": "active",
+      "id": "20260831-wch-001"
+    },
+    {
+      "story": "August 2026 Los Angeles housing market data",
+      "entity": "California Association of Realtors",
+      "geography": "Los Angeles Metro",
+      "discovered_at": "2026-08-30",
+      "expected_milestone": "Release of August 2026 sales, inventory, and median-price data",
+      "source": "California Association of Realtors",
+      "relevance": "Fresh August data may provide a stronger fall-market story for buyers and sellers than the currently available July data.",
+      "audiences": [
+        "buyers",
+        "sellers",
+        "investors"
+      ],
+      "current_status": "Awaiting August market data",
+      "next_review_date": "2026-09-20",
+      "status": "active",
+      "id": "20260831-wch-002"
+    },
+    {
+      "story": "Mortgage rate movement",
+      "entity": "Freddie Mac",
+      "geography": "Los Angeles and United States",
+      "discovered_at": "2026-08-30",
+      "expected_milestone": "Meaningful sustained change in the 30-year fixed mortgage rate",
+      "source": "Freddie Mac Primary Mortgage Market Survey",
+      "relevance": "Rates remain highly relevant to Los Angeles affordability, buyer purchasing power, seller demand, and investor financing, but small weekly moves do not justify repetitive articles.",
+      "audiences": [
+        "buyers",
+        "sellers",
+        "investors",
+        "first-time buyers"
+      ],
+      "current_status": "30-year fixed rate approximately 6.66% as of August 27, 2026",
+      "next_review_date": "2026-09-10",
+      "status": "active",
+      "id": "20260831-wch-003"
+    },
+    {
+      "story": "Warner Center major development pipeline",
+      "entity": "City of Los Angeles and private developers",
+      "geography": "Warner Center and Woodland Hills",
+      "discovered_at": "2026-08-30",
+      "expected_milestone": "Major entitlement approval, construction start, tenant announcement, or material project revision",
+      "source": "Los Angeles planning records and current development reporting",
+      "relevance": "Large residential, sports, retail, hotel, and senior-housing projects could materially reshape Warner Center and the surrounding Woodland Hills market.",
+      "audiences": [
+        "buyers",
+        "investors",
+        "homeowners",
+        "lifestyle buyers"
+      ],
+      "current_status": "Multiple projects advancing",
+      "next_review_date": "2026-10-01",
+      "status": "active",
+      "id": "20260831-wch-004"
+    },
+    {
+      "story": "East Hollywood modular and ED1 housing development",
+      "entity": "City of Los Angeles and private developers",
+      "geography": "East Hollywood",
+      "discovered_at": "2026-08-30",
+      "expected_milestone": "Entitlement, construction, financing, or completion milestone",
+      "source": "Los Angeles planning records and current development reporting",
+      "relevance": "Could become a useful case study in modular construction, affordable housing, ED1, and neighborhood development.",
+      "audiences": [
+        "investors",
+        "homeowners",
+        "buyers"
+      ],
+      "current_status": "Development proposals advancing",
+      "next_review_date": "2026-10-15",
+      "status": "active",
+      "id": "20260831-wch-005"
+    },
+    {
+      "story": "Santa Monica housing pipeline near Bergamot and the E Line",
+      "entity": "City of Santa Monica and private developers",
+      "geography": "Santa Monica",
+      "discovered_at": "2026-08-30",
+      "expected_milestone": "Major approval, construction start, or new project announcement",
+      "source": "Santa Monica planning records and current development reporting",
+      "relevance": "The concentration of new housing near transit could support a larger article about how this part of Santa Monica is changing.",
+      "audiences": [
+        "buyers",
+        "investors",
+        "homeowners",
+        "lifestyle buyers"
+      ],
+      "current_status": "Multiple housing projects in the pipeline",
+      "next_review_date": "2026-10-15",
+      "status": "active",
+      "id": "20260831-wch-006"
     }
   ]
 }
