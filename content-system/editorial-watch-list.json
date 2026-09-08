@@ -130,6 +130,60 @@
       "next_review_date": "2026-10-15",
       "status": "active",
       "id": "20260831-wch-006"
+    },
+    {
+      "story": "Mortgage rate movement",
+      "entity": "Freddie Mac",
+      "geography": "Los Angeles and United States",
+      "discovered_at": "2026-09-06",
+      "expected_milestone": "Move materially above 7% or meaningful sustained reversal",
+      "source": "Freddie Mac Primary Mortgage Market Survey",
+      "relevance": "Rates affect purchasing power and seller demand.",
+      "audiences": [
+        "buyers",
+        "sellers",
+        "investors"
+      ],
+      "current_status": "30-year fixed averaged 6.71% on September 3, 2026",
+      "next_review_date": "2026-09-17",
+      "status": "active",
+      "id": "20260907-wch-001"
+    },
+    {
+      "story": "September 2026 Los Angeles housing market data",
+      "entity": "Realtor.com",
+      "geography": "Los Angeles",
+      "discovered_at": "2026-09-06",
+      "expected_milestone": "September sales and inventory data",
+      "source": "Realtor.com",
+      "relevance": "Could justify a follow-up if conditions materially change.",
+      "audiences": [
+        "buyers",
+        "sellers",
+        "investors"
+      ],
+      "current_status": "Awaiting September data",
+      "next_review_date": "2026-10-10",
+      "status": "active",
+      "id": "20260907-wch-002"
+    },
+    {
+      "story": "Inglewood mobility project construction",
+      "entity": "City of Inglewood",
+      "geography": "Inglewood",
+      "discovered_at": "2026-09-06",
+      "expected_milestone": "Downtown roadway construction start",
+      "source": "Inglewood Transit Connector",
+      "relevance": "Construction start may justify an update.",
+      "audiences": [
+        "buyers",
+        "homeowners",
+        "investors"
+      ],
+      "current_status": "Construction scheduled for fall 2026",
+      "next_review_date": "2026-11-15",
+      "status": "active",
+      "id": "20260907-wch-003"
     }
   ]
 }

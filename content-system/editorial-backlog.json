@@ -177,6 +177,61 @@
       "source": "Current West Hollywood development reporting",
       "status": "pending",
       "id": "20260831-bkl-008"
+    },
+    {
+      "topic": "Condo vs. House in Los Angeles: How to Decide",
+      "category": "Buyer's Guide",
+      "audiences": [
+        "buyers",
+        "first-time buyers"
+      ],
+      "geography": "Los Angeles",
+      "keyword_opportunity": "condo vs house Los Angeles",
+      "reason_to_consider": "Durable buyer search intent.",
+      "evergreen": true,
+      "priority": "high",
+      "discovered_at": "2026-09-06",
+      "notes": "Cluster with condo financing.",
+      "source": "Editorial gap analysis",
+      "status": "pending",
+      "id": "20260907-bkl-001"
+    },
+    {
+      "topic": "House Hacking a 2-to-4 Unit Property in Los Angeles",
+      "category": "Real Estate Investing",
+      "audiences": [
+        "buyers",
+        "first-time buyers",
+        "investors"
+      ],
+      "geography": "Los Angeles",
+      "keyword_opportunity": "house hacking Los Angeles",
+      "reason_to_consider": "Strong first-time buyer and investor crossover.",
+      "evergreen": true,
+      "priority": "high",
+      "discovered_at": "2026-09-06",
+      "notes": "Keep distinct from duplex underwriting.",
+      "source": "Editorial gap analysis",
+      "status": "pending",
+      "id": "20260907-bkl-002"
+    },
+    {
+      "topic": "How to Evaluate HOA Financials Before Buying an LA Condo",
+      "category": "Condo / HOA",
+      "audiences": [
+        "buyers",
+        "condo owners"
+      ],
+      "geography": "Los Angeles",
+      "keyword_opportunity": "Los Angeles condo HOA financials",
+      "reason_to_consider": "High-value due diligence topic.",
+      "evergreen": true,
+      "priority": "high",
+      "discovered_at": "2026-09-06",
+      "notes": "Cluster with condo financing.",
+      "source": "Editorial gap analysis",
+      "status": "pending",
+      "id": "20260907-bkl-003"
     }
   ]
 }
