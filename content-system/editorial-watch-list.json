@@ -184,6 +184,60 @@
       "next_review_date": "2026-11-15",
       "status": "active",
       "id": "20260907-wch-003"
+    },
+    {
+      "story": "Mortgage rate movement",
+      "entity": "Freddie Mac",
+      "geography": "Los Angeles and United States",
+      "discovered_at": "2026-09-13",
+      "expected_milestone": "Move materially above 7% or meaningful sustained reversal",
+      "source": "Freddie Mac Primary Mortgage Market Survey",
+      "relevance": "Rates affect purchasing power, but small weekly moves do not justify repetitive articles.",
+      "audiences": [
+        "buyers",
+        "sellers",
+        "investors"
+      ],
+      "current_status": "30-year fixed averaged 6.76% on September 10, 2026",
+      "next_review_date": "2026-09-24",
+      "status": "active",
+      "id": "20260914-wch-001"
+    },
+    {
+      "story": "Lucas Museum public opening",
+      "entity": "Lucas Museum of Narrative Art",
+      "geography": "Exposition Park, Los Angeles",
+      "discovered_at": "2026-09-13",
+      "expected_milestone": "Public opening on September 22, 2026",
+      "source": "Lucas Museum of Narrative Art",
+      "relevance": "Already covered in the September 16 article. Revisit only for a genuinely new development.",
+      "audiences": [
+        "buyers",
+        "homeowners",
+        "lifestyle buyers"
+      ],
+      "current_status": "Opening scheduled for September 22",
+      "next_review_date": "2026-10-01",
+      "status": "active",
+      "id": "20260914-wch-002"
+    },
+    {
+      "story": "Los Angeles landlord regulation updates",
+      "entity": "Los Angeles Housing Department",
+      "geography": "City of Los Angeles",
+      "discovered_at": "2026-09-13",
+      "expected_milestone": "Material JCO, relocation, Right to Counsel or Rent Registry update",
+      "source": "Los Angeles Housing Department",
+      "relevance": "Regulatory changes can directly affect landlords and acquisition due diligence.",
+      "audiences": [
+        "landlords",
+        "investors",
+        "rental property owners"
+      ],
+      "current_status": "JCO guidance last modified September 10, 2026",
+      "next_review_date": "2026-10-15",
+      "status": "active",
+      "id": "20260914-wch-003"
     }
   ]
 }
