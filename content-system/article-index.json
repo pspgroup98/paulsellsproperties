@@ -1,5 +1,208 @@
 [
   {
+    "slug": "mortgage-rates-6-95-los-angeles-buyers-september-2026",
+    "title": "Mortgage Rates Hit 6.95%: What the Jump Means for Los Angeles Buyers",
+    "excerpt": "Mortgage rates reached 6.95% on September 17. Here is how the increase changes payments, budgets and negotiating strategy for Los Angeles buyers.",
+    "url": "https://paulsellsproperties.com/blog/mortgage-rates-6-95-los-angeles-buyers-september-2026.html",
+    "status": "approved",
+    "scheduled_publish_at": "2026-09-21T10:00:00-07:00",
+    "published_at": null,
+    "date_iso": "2026-09-21",
+    "date_display": "September 21, 2026",
+    "category": "Market Analysis",
+    "author": "Paul Adams II",
+    "article_type": "A",
+    "primary_topic": "September 2026 mortgage rate increase and Los Angeles buyers",
+    "primary_keyword": "mortgage rates Los Angeles September 2026",
+    "secondary_topics": [
+      "Los Angeles mortgage rates",
+      "6.95 mortgage rate",
+      "LA home buyer 2026",
+      "mortgage payment Los Angeles",
+      "buying a house in Los Angeles"
+    ],
+    "search_intent": "Understand how the September 2026 increase in mortgage rates affects Los Angeles home buyers, monthly payments and offer strategy.",
+    "normalized_search_intent": "mortgage rates los angeles september 2026 buyers payments strategy",
+    "geographic_focus": "Los Angeles",
+    "neighborhood": null,
+    "audience": [
+      "buyers",
+      "first-time buyers",
+      "sellers",
+      "homeowners"
+    ],
+    "content_type": "market_data",
+    "content_freshness_type": "market_data",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/blog/los-angeles-housing-market-august-2026.html",
+      "/blog/condo-financing.html"
+    ],
+    "related_articles": [
+      "los-angeles-housing-market-august-2026",
+      "spring-2026-buy-or-wait",
+      "condo-financing"
+    ],
+    "sources": [
+      {
+        "name": "Freddie Mac",
+        "title": "Primary Mortgage Market Survey",
+        "url": "https://www.freddiemac.com/pmms",
+        "published_date": "2026-09-17",
+        "accessed_date": "2026-09-22",
+        "source_type": "data"
+      }
+    ],
+    "review_after": "2026-10-22",
+    "last_reviewed": "2026-09-21",
+    "word_count_approx": 1199,
+    "social_content": null
+  },
+  {
+    "slug": "hotel-lucile-silver-lake-opening-1931-church",
+    "title": "Hotel Lucile Opens in a 1931 Silver Lake Church: What It Adds to the Neighborhood",
+    "excerpt": "Hotel Lucile has opened in a restored 1931 Silver Lake church, adding 25 rooms, Sous Sous restaurant and a new adaptive-reuse destination near Sunset Junction.",
+    "url": "https://paulsellsproperties.com/blog/hotel-lucile-silver-lake-opening-1931-church.html",
+    "status": "approved",
+    "scheduled_publish_at": "2026-09-23T10:00:00-07:00",
+    "published_at": null,
+    "date_iso": "2026-09-23",
+    "date_display": "September 23, 2026",
+    "category": "Lifestyle",
+    "author": "Paul Adams II",
+    "article_type": "B",
+    "primary_topic": "Hotel Lucile opening and Silver Lake adaptive reuse",
+    "primary_keyword": "Hotel Lucile Silver Lake",
+    "secondary_topics": [
+      "Silver Lake hotel",
+      "Sous Sous Silver Lake",
+      "Silver Lake restaurants 2026",
+      "adaptive reuse Los Angeles"
+    ],
+    "search_intent": "Learn what Hotel Lucile is, what opened inside the restored Silver Lake church and what the adaptive-reuse project adds to the neighborhood.",
+    "normalized_search_intent": "hotel lucile silver lake opening church neighborhood adaptive reuse",
+    "geographic_focus": "Silver Lake, Sunset Junction",
+    "neighborhood": "Silver Lake",
+    "audience": [
+      "homeowners",
+      "buyers",
+      "sellers",
+      "lifestyle buyers"
+    ],
+    "content_type": "lifestyle",
+    "content_freshness_type": "news",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/blog/los-angeles-housing-market-august-2026.html",
+      "/property-search.html"
+    ],
+    "related_articles": [
+      "lucas-museum-opening-exposition-park-los-angeles-2026",
+      "los-angeles-housing-market-august-2026"
+    ],
+    "sources": [
+      {
+        "name": "Hotel Lucile",
+        "title": "Hotel Lucile",
+        "url": "https://hotellucile.com/",
+        "published_date": "2026-09-14",
+        "accessed_date": "2026-09-22",
+        "source_type": "primary"
+      },
+      {
+        "name": "Eater Los Angeles",
+        "title": "Sous Sous at Hotel Lucile",
+        "url": "https://la.eater.com/",
+        "published_date": "2026-09-14",
+        "accessed_date": "2026-09-22",
+        "source_type": "secondary"
+      }
+    ],
+    "review_after": "2027-03-23",
+    "last_reviewed": "2026-09-23",
+    "word_count_approx": 1152,
+    "social_content": null
+  },
+  {
+    "slug": "miracle-mile-apartment-sale-114-million-la-multifamily-investing",
+    "title": "A $114 Million Miracle Mile Apartment Sale: What It Says About LA Multifamily Investing",
+    "excerpt": "A 163-unit Miracle Mile property sold for about $114 million. The deal offers useful lessons about basis, replacement cost and Los Angeles multifamily investing.",
+    "url": "https://paulsellsproperties.com/blog/miracle-mile-apartment-sale-114-million-la-multifamily-investing.html",
+    "status": "approved",
+    "scheduled_publish_at": "2026-09-25T10:00:00-07:00",
+    "published_at": null,
+    "date_iso": "2026-09-25",
+    "date_display": "September 25, 2026",
+    "category": "Investor Strategy",
+    "author": "Paul Adams II",
+    "article_type": "C",
+    "primary_topic": "5550 Wilshire sale and Los Angeles multifamily investment analysis",
+    "primary_keyword": "Los Angeles multifamily investing 2026",
+    "secondary_topics": [
+      "Miracle Mile apartments",
+      "5550 Wilshire sale",
+      "LA apartment investment",
+      "Los Angeles multifamily market",
+      "replacement cost real estate"
+    ],
+    "search_intent": "Understand what the $114 million sale of 5550 Wilshire illustrates about basis, replacement cost and multifamily investment analysis in Los Angeles.",
+    "normalized_search_intent": "los angeles multifamily investing 5550 wilshire miracle mile replacement cost",
+    "geographic_focus": "Miracle Mile, Mid-Wilshire, Los Angeles",
+    "neighborhood": "Miracle Mile",
+    "audience": [
+      "investors",
+      "landlords",
+      "multifamily buyers"
+    ],
+    "content_type": "market-analysis",
+    "content_freshness_type": "market_data",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/blog/how-to-read-rent-roll-los-angeles-multifamily.html",
+      "/blog/analyze-duplex-los-angeles-before-buying.html",
+      "/blog/buying-rso-property-los-angeles.html"
+    ],
+    "related_articles": [
+      "how-to-read-rent-roll-los-angeles-multifamily",
+      "analyze-duplex-los-angeles-before-buying",
+      "los-angeles-rents-falling-landlords-investors-2026"
+    ],
+    "sources": [
+      {
+        "name": "Commercial Observer",
+        "title": "Decron Buys 5550 Wilshire in Miracle Mile for $114M",
+        "url": "https://commercialobserver.com/",
+        "published_date": "2026-09-18",
+        "accessed_date": "2026-09-22",
+        "source_type": "secondary"
+      },
+      {
+        "name": "Bisnow",
+        "title": "Decron Returns To LA With $114M Miracle Mile Apartment Acquisition",
+        "url": "https://www.bisnow.com/los-angeles",
+        "published_date": "2026-09-18",
+        "accessed_date": "2026-09-22",
+        "source_type": "secondary"
+      }
+    ],
+    "review_after": "2027-03-25",
+    "last_reviewed": "2026-09-25",
+    "word_count_approx": 1292,
+    "social_content": null
+  },
+  {
     "slug": "west-hollywood-housing-development-2026-santa-monica-boulevard",
     "title": "West Hollywood Is Adding New Housing Along Santa Monica Boulevard: What Buyers and Owners Should Watch",
     "excerpt": "West Hollywood is adding housing along and near Santa Monica Boulevard. Here is what current development may mean for buyers, owners and investors.",

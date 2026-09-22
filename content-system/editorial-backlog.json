@@ -306,6 +306,48 @@
       "source": "Current development reporting",
       "status": "pending",
       "id": "20260914-bkl-004"
+    },
+    {
+      "topic": "Condo vs. House in Los Angeles: How to Decide",
+      "category": "Buyer's Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260921-bkl-001"
+    },
+    {
+      "topic": "House Hacking a 2-to-4 Unit Property in Los Angeles",
+      "category": "Real Estate Investing",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260921-bkl-002"
+    },
+    {
+      "topic": "How to Evaluate HOA Financials Before Buying an LA Condo",
+      "category": "Condo / HOA",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260921-bkl-003"
+    },
+    {
+      "topic": "Soft-Story Retrofit Economics for Los Angeles Multifamily Owners",
+      "category": "Investor Strategy",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260921-bkl-004"
+    },
+    {
+      "topic": "Centro Westlake and the Future of MacArthur Park Station",
+      "category": "Neighborhood",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260921-bkl-005"
+    },
+    {
+      "topic": "Robertson Row and the Future of the Factory Site",
+      "category": "Neighborhood",
+      "priority": "medium",
+      "status": "pending",
+      "id": "20260921-bkl-006"
     }
   ]
 }

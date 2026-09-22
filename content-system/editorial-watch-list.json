@@ -238,6 +238,42 @@
       "next_review_date": "2026-10-15",
       "status": "active",
       "id": "20260914-wch-003"
+    },
+    {
+      "story": "Mortgage rate movement",
+      "entity": "Freddie Mac",
+      "geography": "Los Angeles and United States",
+      "current_status": "30-year fixed averaged 6.95% on September 17, 2026",
+      "next_review_date": "2026-10-01",
+      "status": "active",
+      "id": "20260921-wch-001"
+    },
+    {
+      "story": "Miracle Mile institutional multifamily acquisitions",
+      "entity": "Los Angeles multifamily market",
+      "geography": "Miracle Mile and Los Angeles",
+      "current_status": "5550 Wilshire sold for approximately $114 million",
+      "next_review_date": "2026-11-01",
+      "status": "active",
+      "id": "20260921-wch-002"
+    },
+    {
+      "story": "Robertson Row",
+      "entity": "Robertson Row",
+      "geography": "West Hollywood",
+      "current_status": "Fresh plans and renderings reported",
+      "next_review_date": "2026-10-22",
+      "status": "active",
+      "id": "20260921-wch-003"
+    },
+    {
+      "story": "Fall restaurant and hotel openings",
+      "entity": "Los Angeles hospitality pipeline",
+      "geography": "Los Angeles",
+      "current_status": "Several fall and winter openings announced",
+      "next_review_date": "2026-10-05",
+      "status": "active",
+      "id": "20260921-wch-004"
     }
   ]
 }
