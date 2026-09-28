@@ -348,6 +348,76 @@
       "priority": "medium",
       "status": "pending",
       "id": "20260921-bkl-006"
+    },
+    {
+      "topic": "Condo vs. House in Los Angeles: How to Decide",
+      "category": "Buyer's Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-001"
+    },
+    {
+      "topic": "House Hacking a 2-to-4 Unit Property in Los Angeles",
+      "category": "Real Estate Investing",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-002"
+    },
+    {
+      "topic": "How to Evaluate HOA Financials Before Buying an LA Condo",
+      "category": "Condo / HOA",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-003"
+    },
+    {
+      "topic": "How to Calculate the Real Monthly Cost of Owning a Los Angeles Condo",
+      "category": "Buyer's Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-004"
+    },
+    {
+      "topic": "West Adams Development Guide",
+      "category": "Neighborhood",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-005"
+    },
+    {
+      "topic": "Hyde Park Housing Around the K Line",
+      "category": "Neighborhood",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-006"
+    },
+    {
+      "topic": "Centro Westlake and MacArthur Park Station",
+      "category": "Neighborhood",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-007"
+    },
+    {
+      "topic": "San Pedro Residential Development Pipeline",
+      "category": "Neighborhood",
+      "priority": "medium",
+      "status": "pending",
+      "id": "20260928-bkl-008"
+    },
+    {
+      "topic": "What Los Angeles Sellers Should Fix Before Listing",
+      "category": "Seller Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-009"
+    },
+    {
+      "topic": "Pre-Listing Inspections in Los Angeles",
+      "category": "Seller Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20260928-bkl-010"
     }
   ]
 }
