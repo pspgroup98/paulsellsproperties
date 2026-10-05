@@ -4,43 +4,43 @@
   <!-- Core pages -->
   <url>
     <loc>https://paulsellsproperties.com/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/about.html</loc>
+    <loc>https://paulsellsproperties.com/about</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/contact.html</loc>
+    <loc>https://paulsellsproperties.com/contact</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/property-search.html</loc>
+    <loc>https://paulsellsproperties.com/property-search</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/buying-selling-tips.html</loc>
+    <loc>https://paulsellsproperties.com/buying-selling-tips</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/home-valuation.html</loc>
+    <loc>https://paulsellsproperties.com/home-valuation</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://paulsellsproperties.com/blog/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,91 +51,91 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/beverly-hills.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/beverly-hills</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/bel-air.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/bel-air</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/hollywood-hills.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/hollywood-hills</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/santa-monica.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/santa-monica</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/venice.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/venice</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/silver-lake.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/silver-lake</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/west-hollywood.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/west-hollywood</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/los-feliz.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/los-feliz</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/studio-city.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/studio-city</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/sherman-oaks.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/sherman-oaks</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/encino.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/encino</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/highland-park.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/highland-park</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/west-adams.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/west-adams</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/pacific-palisades.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/pacific-palisades</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/neighborhoods/downtown-la.html</loc>
+    <loc>https://paulsellsproperties.com/neighborhoods/downtown-la</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -143,163 +143,163 @@
 
   <!-- Blog articles -->
   <url>
-    <loc>https://paulsellsproperties.com/blog/valley-boulevard-improvements-lincoln-heights-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/valley-boulevard-improvements-lincoln-heights-2026</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/horror-show-academy-museum-los-angeles-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/horror-show-academy-museum-los-angeles-2026</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/sawtelle-apartment-development-housing-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/sawtelle-apartment-development-housing-2026</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/miracle-mile-apartment-sale-114-million-la-multifamily-investing.html</loc>
+    <loc>https://paulsellsproperties.com/blog/miracle-mile-apartment-sale-114-million-la-multifamily-investing</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/mortgage-rates-6-95-los-angeles-buyers-september-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/mortgage-rates-6-95-los-angeles-buyers-september-2026</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/hotel-lucile-silver-lake-opening-1931-church.html</loc>
+    <loc>https://paulsellsproperties.com/blog/hotel-lucile-silver-lake-opening-1931-church</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/los-angeles-just-cause-ordinance-jco-landlords.html</loc>
+    <loc>https://paulsellsproperties.com/blog/los-angeles-just-cause-ordinance-jco-landlords</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/lucas-museum-opening-exposition-park-los-angeles-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/lucas-museum-opening-exposition-park-los-angeles-2026</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/west-hollywood-housing-development-2026-santa-monica-boulevard.html</loc>
+    <loc>https://paulsellsproperties.com/blog/west-hollywood-housing-development-2026-santa-monica-boulevard</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/los-angeles-rents-falling-landlords-investors-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/los-angeles-rents-falling-landlords-investors-2026</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/los-angeles-housing-market-august-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/los-angeles-housing-market-august-2026</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/inglewood-261-million-mobility-project-sofi-k-line.html</loc>
+    <loc>https://paulsellsproperties.com/blog/inglewood-261-million-mobility-project-sofi-k-line</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/how-to-read-rent-roll-los-angeles-multifamily.html</loc>
+    <loc>https://paulsellsproperties.com/blog/how-to-read-rent-roll-los-angeles-multifamily</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/boyle-heights-community-plan-2026-property-owners.html</loc>
+    <loc>https://paulsellsproperties.com/blog/boyle-heights-community-plan-2026-property-owners</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/palisades-village-reopening-pacific-palisades-2026.html</loc>
+    <loc>https://paulsellsproperties.com/blog/palisades-village-reopening-pacific-palisades-2026</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/analyze-duplex-los-angeles-before-buying.html</loc>
+    <loc>https://paulsellsproperties.com/blog/analyze-duplex-los-angeles-before-buying</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/buying-rso-property-los-angeles.html</loc>
+    <loc>https://paulsellsproperties.com/blog/buying-rso-property-los-angeles</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/california-home-insurance-los-angeles-buyers-sellers.html</loc>
+    <loc>https://paulsellsproperties.com/blog/california-home-insurance-los-angeles-buyers-sellers</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/tenant-buyout-disclosure.html</loc>
+    <loc>https://paulsellsproperties.com/blog/tenant-buyout-disclosure</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/condo-financing.html</loc>
+    <loc>https://paulsellsproperties.com/blog/condo-financing</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/vacant-vs-occupied-duplex.html</loc>
+    <loc>https://paulsellsproperties.com/blog/vacant-vs-occupied-duplex</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/how-much-to-buy.html</loc>
+    <loc>https://paulsellsproperties.com/blog/how-much-to-buy</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/win-bidding-war.html</loc>
+    <loc>https://paulsellsproperties.com/blog/win-bidding-war</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/how-to-buy-house-la.html</loc>
+    <loc>https://paulsellsproperties.com/blog/how-to-buy-house-la</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/eviction-threshold.html</loc>
+    <loc>https://paulsellsproperties.com/blog/eviction-threshold</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/spring-2026-buy-or-wait.html</loc>
+    <loc>https://paulsellsproperties.com/blog/spring-2026-buy-or-wait</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paulsellsproperties.com/blog/adu-vs-garage-conversion.html</loc>
+    <loc>https://paulsellsproperties.com/blog/adu-vs-garage-conversion</loc>
     <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

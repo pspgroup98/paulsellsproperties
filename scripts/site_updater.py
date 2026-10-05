@@ -32,28 +32,28 @@ ARCHIVE_GRID_END    = "<!-- END:blog-archive -->"
 # None → use today's date (pages that change whenever new articles are published)
 _STATIC_SITEMAP_PAGES = [
     ("https://paulsellsproperties.com/",                              "weekly",  "1.0", None),
-    ("https://paulsellsproperties.com/about.html",                   "monthly", "0.9", "2026-08-16"),
-    ("https://paulsellsproperties.com/contact.html",                 "monthly", "0.8", "2026-08-16"),
-    ("https://paulsellsproperties.com/property-search.html",         "daily",   "0.9", "2026-08-16"),
-    ("https://paulsellsproperties.com/buying-selling-tips.html",     "monthly", "0.8", "2026-08-16"),
-    ("https://paulsellsproperties.com/home-valuation.html",         "monthly", "0.8", "2026-08-16"),
+    ("https://paulsellsproperties.com/about",                   "monthly", "0.9", "2026-08-16"),
+    ("https://paulsellsproperties.com/contact",                 "monthly", "0.8", "2026-08-16"),
+    ("https://paulsellsproperties.com/property-search",         "daily",   "0.9", "2026-08-16"),
+    ("https://paulsellsproperties.com/buying-selling-tips",     "monthly", "0.8", "2026-08-16"),
+    ("https://paulsellsproperties.com/home-valuation",         "monthly", "0.8", "2026-08-16"),
     ("https://paulsellsproperties.com/blog/",                        "weekly",  "0.8", None),
     ("https://paulsellsproperties.com/neighborhoods/",               "monthly", "0.8", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/beverly-hills.html",   "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/bel-air.html",         "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/hollywood-hills.html", "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/santa-monica.html",    "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/venice.html",          "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/silver-lake.html",     "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/west-hollywood.html",  "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/los-feliz.html",       "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/studio-city.html",     "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/sherman-oaks.html",    "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/encino.html",          "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/highland-park.html",   "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/west-adams.html",      "monthly", "0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/pacific-palisades.html","monthly","0.7", "2026-08-16"),
-    ("https://paulsellsproperties.com/neighborhoods/downtown-la.html",     "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/beverly-hills",   "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/bel-air",         "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/hollywood-hills", "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/santa-monica",    "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/venice",          "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/silver-lake",     "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/west-hollywood",  "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/los-feliz",       "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/studio-city",     "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/sherman-oaks",    "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/encino",          "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/highland-park",   "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/west-adams",      "monthly", "0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/pacific-palisades","monthly","0.7", "2026-08-16"),
+    ("https://paulsellsproperties.com/neighborhoods/downtown-la",     "monthly", "0.7", "2026-08-16"),
 ]
 
 
@@ -150,7 +150,7 @@ def _homepage_card_html(article: dict, hidden: bool = False) -> str:
 
     return (
         f'      <div class="{wrap_cls}">\n'
-        f'        <a href="blog/{slug}.html" class="blog-card">\n'
+        f'        <a href="blog/{slug}" class="blog-card">\n'
         f'          <div class="blog-card-body">\n'
         f'            <div class="blog-cat">{category}</div>\n'
         f'            <h3>{title}</h3>\n'
@@ -175,7 +175,7 @@ def _archive_card_html(article: dict) -> str:
     date_str = _fmt_long(ts) if ts else article.get("date_display", "")
 
     return (
-        f'\n      <a href="{slug}.html" class="blog-card">\n'
+        f'\n      <a href="{slug}" class="blog-card">\n'
         f'        <div class="blog-card-body">\n'
         f'          <div class="blog-category">{category}</div>\n'
         f'          <h3>{title}</h3>\n'
@@ -296,7 +296,7 @@ def update_sitemap_full(article_index: list, sitemap_path: Path,
             slug    = a["slug"]
             lastmod = a.get("date_iso", today)
             lines.append(f'  <url>')
-            lines.append(f'    <loc>{base_url}/blog/{slug}.html</loc>')
+            lines.append(f'    <loc>{base_url}/blog/{slug}</loc>')
             lines.append(f'    <lastmod>{lastmod}</lastmod>')
             lines.append(f'    <changefreq>monthly</changefreq>')
             lines.append(f'    <priority>0.7</priority>')
@@ -327,7 +327,7 @@ def update_rss_full(article_index: list, rss_path: Path,
     items = []
     for a in published:
         slug    = a["slug"]
-        url     = f"{base_url}/blog/{slug}.html"
+        url     = f"{base_url}/blog/{slug}"
         title   = html_lib.escape(a.get("title", ""))
         desc    = html_lib.escape(a.get("excerpt", a.get("primary_keyword", "")))
         cat     = html_lib.escape(a.get("category", ""))
@@ -395,7 +395,7 @@ def update_article_index(articles: list, index_path: Path) -> None:
             "slug":                 slug,
             "title":                article.get("headline", ""),
             "excerpt":              article.get("excerpt", article.get("meta_description", "")),
-            "url":                  f"{base_url}/blog/{slug}.html",
+            "url":                  f"{base_url}/blog/{slug}",
             "status":               article.get("status", "approved"),
             "scheduled_publish_at": article.get("scheduled_publish_at"),
             "published_at":         article.get("published_at"),

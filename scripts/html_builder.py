@@ -142,7 +142,7 @@ NAV_HTML = """<nav class="nav scrolled">
 def build_json_ld(article: dict, cfg: dict) -> str:
     slug = article["slug"]
     base_url = cfg.get("site_base_url", "https://paulsellsproperties.com")
-    article_url = f"{base_url}/blog/{slug}.html"
+    article_url = f"{base_url}/blog/{slug}"
     data = {
         "@context": "https://schema.org",
         "@graph": [
@@ -157,7 +157,7 @@ def build_json_ld(article: dict, cfg: dict) -> str:
                     "@type": "Person",
                     "@id": cfg.get("author_id", "https://paulsellsproperties.com/#paul"),
                     "name": cfg.get("author_name", "Paul Adams II"),
-                    "url": cfg.get("author_url", "https://paulsellsproperties.com/about.html"),
+                    "url": cfg.get("author_url", "https://paulsellsproperties.com/about"),
                 },
                 "publisher": {"@id": cfg.get("agent_id", "https://paulsellsproperties.com/#agent")},
                 "isPartOf": {"@id": cfg.get("website_id", "https://paulsellsproperties.com/#website")},
@@ -188,7 +188,7 @@ def format_display_date(iso_date: str) -> str:
 def build_article_html(article: dict, cfg: dict) -> str:
     slug = article["slug"]
     base_url = cfg.get("site_base_url", "https://paulsellsproperties.com")
-    article_url = f"{base_url}/blog/{slug}.html"
+    article_url = f"{base_url}/blog/{slug}"
     og_image = cfg.get("default_og_image", "https://paulsellsproperties.com/assets/images/paul-hero.png")
     headline_esc = html_lib.escape(article["headline"])
     meta_esc = html_lib.escape(article["meta_description"])
