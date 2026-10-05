@@ -418,6 +418,125 @@
       "priority": "high",
       "status": "pending",
       "id": "20260928-bkl-010"
+    },
+    {
+      "topic": "Condo vs. House in Los Angeles: How to Decide",
+      "category": "Buyer's Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-001"
+    },
+    {
+      "topic": "House Hacking a 2-to-4 Unit Property in Los Angeles",
+      "category": "Real Estate Investing",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-002"
+    },
+    {
+      "topic": "How to Evaluate HOA Financials Before Buying an LA Condo",
+      "category": "Condo / HOA",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-003"
+    },
+    {
+      "topic": "How to Calculate the Real Monthly Cost of Owning a Los Angeles Condo",
+      "category": "Buyer's Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-004"
+    },
+    {
+      "topic": "What Los Angeles Sellers Should Fix Before Listing",
+      "category": "Seller Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-005"
+    },
+    {
+      "topic": "Pre-Listing Inspections in Los Angeles",
+      "category": "Seller Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-006"
+    },
+    {
+      "topic": "AB 1621 and California's Faster Housing Permit Review Rules",
+      "category": "Law / Regulation",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-007"
+    },
+    {
+      "topic": "California Missing Middle Townhome Ownership Act",
+      "category": "Law / Regulation",
+      "priority": "medium",
+      "status": "pending",
+      "id": "20261005-bkl-008"
+    },
+    {
+      "topic": "ADU Project Economics in Los Angeles",
+      "category": "Real Estate Investing",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-009"
+    },
+    {
+      "topic": "How to Evaluate a Property's ADU Potential Before Buying",
+      "category": "Buyer's Guide",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-010"
+    },
+    {
+      "topic": "Echo Park 1150 Sunset Affordable Housing Proposal",
+      "category": "Neighborhood",
+      "priority": "medium",
+      "status": "pending",
+      "id": "20261005-bkl-011"
+    },
+    {
+      "topic": "Broadway-Manchester Affordable Housing Investment",
+      "category": "Neighborhood",
+      "priority": "medium",
+      "status": "pending",
+      "id": "20261005-bkl-012"
+    },
+    {
+      "topic": "West Adams Development Guide",
+      "category": "Neighborhood",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-013"
+    },
+    {
+      "topic": "Hyde Park Housing Around the K Line",
+      "category": "Neighborhood",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-014"
+    },
+    {
+      "topic": "Centro Westlake and MacArthur Park Station",
+      "category": "Neighborhood",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261005-bkl-015"
+    },
+    {
+      "topic": "San Pedro Residential Development Pipeline",
+      "category": "Neighborhood",
+      "priority": "medium",
+      "status": "pending",
+      "id": "20261005-bkl-016"
+    },
+    {
+      "topic": "Culver Commons Opening Guide",
+      "category": "Lifestyle",
+      "priority": "medium",
+      "status": "pending",
+      "id": "20261005-bkl-017"
     }
   ]
 }

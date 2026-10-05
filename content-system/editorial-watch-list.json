@@ -319,6 +319,69 @@
       "next_review_date": "2026-11-01",
       "status": "active",
       "id": "20260928-wch-005"
+    },
+    {
+      "story": "Mortgage rate movement",
+      "entity": "Freddie Mac",
+      "geography": "Los Angeles and United States",
+      "current_status": "30-year fixed averaged 7.28% on October 1, 2026. Update the existing mortgage-rate article rather than create a competing URL.",
+      "next_review_date": "2026-10-15",
+      "status": "active",
+      "id": "20261005-wch-001"
+    },
+    {
+      "story": "Los Angeles speed cameras",
+      "entity": "City of Los Angeles",
+      "geography": "Los Angeles",
+      "current_status": "Installation underway for 125 cameras across all 15 City Council districts, with activation scheduled to begin October 26 and a warning period associated with activation.",
+      "next_review_date": "2026-10-26",
+      "status": "active",
+      "id": "20261005-wch-002"
+    },
+    {
+      "story": "1000 La Brea",
+      "entity": "1000 La Brea",
+      "geography": "West Hollywood, California",
+      "current_status": "Proposed 514-apartment tower with 128 affordable units and roughly 30,000 square feet of commercial space. Wait for approval or construction milestone.",
+      "next_review_date": "2026-11-05",
+      "status": "active",
+      "id": "20261005-wch-003"
+    },
+    {
+      "story": "Echo Park affordable housing",
+      "entity": "The Flats on Sunset",
+      "geography": "Echo Park, Los Angeles",
+      "current_status": "Proposal calls for 237 affordable apartments at 1150 Sunset Boulevard. Hold for entitlement or construction milestone.",
+      "next_review_date": "2026-11-05",
+      "status": "active",
+      "id": "20261005-wch-004"
+    },
+    {
+      "story": "Broadway-Manchester affordable housing",
+      "entity": "252 W. Imperial Highway",
+      "geography": "Broadway-Manchester, Los Angeles",
+      "current_status": "Nearly $93 million in financing supports a 166-unit affordable development. Hold for groundbreaking or broader South LA development cluster.",
+      "next_review_date": "2026-11-05",
+      "status": "active",
+      "id": "20261005-wch-005"
+    },
+    {
+      "story": "Culver Commons",
+      "entity": "Culver Commons",
+      "geography": "Culver City, California",
+      "current_status": "Construction advancing at Washington and Centinela with restaurant tenants announced and estimated completion in Spring 2027.",
+      "next_review_date": "2027-02-01",
+      "status": "active",
+      "id": "20261005-wch-006"
+    },
+    {
+      "story": "Hotel Clark",
+      "entity": "Hotel Clark",
+      "geography": "Downtown Los Angeles",
+      "current_status": "Opening article approved for October 7. Do not create another opening article for Votana's October 15 event unless it develops independent search intent.",
+      "next_review_date": "2026-10-20",
+      "status": "active",
+      "id": "20261005-wch-007"
     }
   ]
 }
