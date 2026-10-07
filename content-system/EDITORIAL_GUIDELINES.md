@@ -66,6 +66,8 @@ Unless that information has been explicitly supplied.
 - Should describe exactly what the reader will learn
 - Not keyword-stuffed
 - No em dashes
+- The `title` field becomes the visible `<h1>` on the page; use `meta_title` for the browser title tag
+- `meta_title` should target 50–65 characters for clean display in search results (not a hard rule, but truncation past ~65 characters hurts CTR)
 
 ### Sections
 
@@ -151,11 +153,11 @@ Covers analytical real estate topics: investment strategy, multifamily, rental e
 When the article naturally connects to another page on the site, link to it using descriptive anchor text. Do not force links. A useful link improves the article; a forced link cheapens it.
 
 Key site pages to link contextually:
-- `/property-search.html` — when discussing finding properties
-- `/about.html` — when context calls for introducing Paul
-- `/contact.html` or Calendly — at the CTA
-- `/blog/index.html` — at the end or in the related articles section
-- `/neighborhoods/[name].html` — when discussing a specific neighborhood
+- `/property-search` — when discussing finding properties
+- `/about` — when context calls for introducing Paul
+- `/contact` or Calendly — at the CTA
+- `/blog/` — at the end or in the related articles section
+- `/neighborhoods/[name]` — when discussing a specific neighborhood
 - Other relevant articles — when the topic connects
 
 ## Geography

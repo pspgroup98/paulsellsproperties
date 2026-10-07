@@ -191,6 +191,7 @@ def build_article_html(article: dict, cfg: dict) -> str:
     article_url = f"{base_url}/blog/{slug}"
     og_image = cfg.get("default_og_image", "https://paulsellsproperties.com/assets/images/paul-hero.png")
     headline_esc = html_lib.escape(article["headline"])
+    seo_title_esc = html_lib.escape(article.get("seo_title") or article["headline"])
     meta_esc = html_lib.escape(article["meta_description"])
     date_display = article.get("date_display", format_display_date(article.get("date_iso", "")))
     category_esc = html_lib.escape(article["category"])
@@ -201,18 +202,18 @@ def build_article_html(article: dict, cfg: dict) -> str:
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{headline_esc} | Paul Adams II</title>
+  <title>{seo_title_esc}</title>
   <meta name="description" content="{meta_esc}">
   <link rel="canonical" href="{article_url}">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="{headline_esc} | Paul Adams II">
+  <meta property="og:title" content="{seo_title_esc}">
   <meta property="og:description" content="{meta_esc}">
   <meta property="og:url" content="{article_url}">
   <meta property="og:site_name" content="Paul Adams II">
   <meta property="og:image" content="{og_image}">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{headline_esc} | Paul Adams II">
+  <meta name="twitter:title" content="{seo_title_esc}">
   <meta name="twitter:description" content="{meta_esc}">
   <meta name="twitter:image" content="{og_image}">
   <link rel="preconnect" href="https://fonts.googleapis.com">

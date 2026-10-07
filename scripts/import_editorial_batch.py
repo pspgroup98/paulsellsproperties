@@ -529,6 +529,7 @@ def run_import(batch_path: Path, mode: str = "interactive") -> bool:
         # Build the dict html_builder expects (uses "headline" not "title")
         article_for_html = dict(article)
         article_for_html["headline"]     = article["title"]
+        article_for_html["seo_title"]    = article.get("meta_title") or article.get("title")
         article_for_html["date_iso"]     = slot.strftime("%Y-%m-%d")
         article_for_html["date_display"] = _format_date_display(slot)
 

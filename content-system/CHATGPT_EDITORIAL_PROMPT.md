@@ -94,7 +94,7 @@ A topic is "too similar" if: the same reader researching the same question would
 
 For each approved topic, write the complete article following these structural rules:
 
-- **Title**: Specific and clear. Describes exactly what the reader will learn. No em dashes.
+- **Title**: Specific and clear. Describes exactly what the reader will learn. No em dashes. Becomes the visible `<h1>` on the page. For the browser title tag and search results, use `meta_title` — aim for 50–65 characters.
 - **body_html**: The complete article body HTML. Must **not** contain `<h1>` tags (the page template handles H1). Must contain at least one `<h2>`. Minimum 900 words, maximum 2200 words.
 - **Sections**: Use H2 for major sections, H3 for sub-points. Sections should develop ideas, not just introduce bullet points.
 - **Lists**: Use only when items are genuinely enumerable and parallel.
@@ -180,8 +180,8 @@ If a claim cannot be sourced, remove it or reframe it as a general observed patt
 
 For each article, generate:
 - `campaign`: The article slug, lowercase, hyphens only, URL-safe. Example: `"condo-financing-los-angeles-2026"`
-- `carousel_url`: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=carousel&utm_campaign={campaign}`
-- `reel_url`: `https://paulsellsproperties.com/blog/{slug}.html?utm_source=instagram&utm_medium=reel&utm_campaign={campaign}`
+- `carousel_url`: `https://paulsellsproperties.com/blog/{slug}?utm_source=instagram&utm_medium=carousel&utm_campaign={campaign}`
+- `reel_url`: `https://paulsellsproperties.com/blog/{slug}?utm_source=instagram&utm_medium=reel&utm_campaign={campaign}`
 
 ### Social content prohibitions
 

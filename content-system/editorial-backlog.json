@@ -537,6 +537,25 @@
       "priority": "medium",
       "status": "pending",
       "id": "20261005-bkl-017"
+    },
+    {
+      "id": "20261007-bkl-001",
+      "topic": "Tenant Buyout Agreement: What Landlords and Tenants Need to Know",
+      "category": "Landlord & Rental Laws",
+      "audiences": [
+        "landlords",
+        "investors",
+        "rental property owners"
+      ],
+      "geography": "City of Los Angeles",
+      "keyword_opportunity": "tenant buyout agreement los angeles",
+      "reason_to_consider": "SC data shows tenant-buyout-disclosure ranks for buyout agreement queries (\"buyout agreement tenant\", \"landlord tenant buyout agreement\", \"tenant buyout agreement\") but serves disclosure law content, not agreement templates. A separate article targeting the agreement itself would capture this intent directly.",
+      "evergreen": true,
+      "priority": "medium",
+      "discovered_at": "2026-10-07",
+      "notes": "Do NOT expand tenant-buyout-disclosure article. Create a separate article targeting the agreement/template itself. SC evidence from Sprint 2 audit.",
+      "source": "Search Console query data, Sprint 2 CTR audit",
+      "status": "pending"
     }
   ]
 }

@@ -40,7 +40,7 @@ This document defines the exact JSON structure ChatGPT must produce at the end o
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `title` | string | Full article title. No em dashes. This becomes the HTML `<h1>` and `<title>` tag. |
+| `title` | string | Full article title. No em dashes. This becomes the visible `<h1>` on the page. The browser `<title>` tag uses `meta_title` (falls back to `title` if `meta_title` is omitted). |
 | `slug` | string | URL-safe identifier. Lowercase, hyphens only. Example: `"condo-financing-los-angeles"` |
 | `category` | string | One of the established categories (see taxonomy below) |
 | `article_type` | string | `"A"` (Timely), `"B"` (Evergreen), or `"C"` (Authority/Investment) |
@@ -59,7 +59,7 @@ This document defines the exact JSON structure ChatGPT must produce at the end o
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `meta_title` | string | Override for the browser `<title>`. Defaults to `"{title} \| Paul Adams II"` if omitted. |
+| `meta_title` | string | SEO title for the browser `<title>`, `og:title`, and `twitter:title`. No brand suffix is appended. Target 50–65 characters. Falls back to `title` if omitted. Always provide this field. |
 | `secondary_keywords` | array | Supporting keyword phrases |
 | `primary_topic` | string | Broader topic description (if different from primary_keyword) |
 | `neighborhood` | string or null | Specific LA neighborhood if geographically focused |
@@ -429,8 +429,8 @@ The following is a complete, valid schema v2 batch object. All fields shown here
         },
         "utm_tracking": {
           "campaign": "la-condo-warrantability-2026",
-          "carousel_url": "https://paulsellsproperties.com/blog/la-condo-warrantability-2026.html?utm_source=instagram&utm_medium=carousel&utm_campaign=la-condo-warrantability-2026",
-          "reel_url": "https://paulsellsproperties.com/blog/la-condo-warrantability-2026.html?utm_source=instagram&utm_medium=reel&utm_campaign=la-condo-warrantability-2026"
+          "carousel_url": "https://paulsellsproperties.com/blog/la-condo-warrantability-2026?utm_source=instagram&utm_medium=carousel&utm_campaign=la-condo-warrantability-2026",
+          "reel_url": "https://paulsellsproperties.com/blog/la-condo-warrantability-2026?utm_source=instagram&utm_medium=reel&utm_campaign=la-condo-warrantability-2026"
         }
       }
     }
