@@ -12,19 +12,19 @@ import unicodedata
 EM_DASH = "—"
 
 KNOWN_INTERNAL_PAGES = {
-    "property-search": "../property-search.html",
-    "buying-selling-tips": "../buying-selling-tips.html",
-    "about": "../about.html",
-    "contact": "../contact.html",
-    "home-valuation": "../home-valuation.html",
-    "neighborhoods": "../neighborhoods/index.html",
-    "beverly-hills": "../neighborhoods/beverly-hills.html",
-    "bel-air": "../neighborhoods/bel-air.html",
-    "hollywood-hills": "../neighborhoods/hollywood-hills.html",
-    "santa-monica": "../neighborhoods/santa-monica.html",
-    "silver-lake": "../neighborhoods/silver-lake.html",
-    "venice": "../neighborhoods/venice.html",
-    "blog": "index.html",
+    "property-search": "/property-search",
+    "buying-selling-tips": "/buying-selling-tips",
+    "about": "/about",
+    "contact": "/contact",
+    "home-valuation": "/home-valuation",
+    "neighborhoods": "/neighborhoods/",
+    "beverly-hills": "/neighborhoods/beverly-hills",
+    "bel-air": "/neighborhoods/bel-air",
+    "hollywood-hills": "/neighborhoods/hollywood-hills",
+    "santa-monica": "/neighborhoods/santa-monica",
+    "silver-lake": "/neighborhoods/silver-lake",
+    "venice": "/neighborhoods/venice",
+    "blog": "/blog/",
 }
 
 
@@ -102,7 +102,7 @@ CTA BOX STRUCTURE (must appear at the end of body_html):
   <h3>[Specific CTA headline related to this article's topic]</h3>
   <p>[1-2 sentences connecting what the reader just learned to what Paul can help them do]</p>
   <div class="btn-group">
-    <a href="../contact.html" class="btn btn-primary">Get in Touch</a>
+    <a href="/contact" class="btn btn-primary">Get in Touch</a>
     <a href="#" class="btn btn-outline" onclick="Calendly.initPopupWidget({{url:'https://calendly.com/adams2paul'}});return false;">Start a Conversation</a>
   </div>
 </div>
