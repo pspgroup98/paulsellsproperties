@@ -50,7 +50,7 @@ TYPE_LABELS = {
 
 def build_writing_prompt(topic: dict, editorial_guidelines: str, existing_articles: list, cfg: dict) -> str:
     related = [
-        f"- {a['title']} (/{cfg['blog_path']}/{a['slug']}.html)"
+        f"- {a['title']} (/blog/{a['slug']})"
         for a in existing_articles
         if a.get("category") == topic.get("category") or
            any(t in a.get("tags", []) for t in topic.get("tags_hint", []))
@@ -75,13 +75,21 @@ TOPIC ASSIGNMENT:
 POTENTIALLY RELEVANT EXISTING ARTICLES (link to these contextually where natural):
 {related_str}
 
-SITE PAGES AVAILABLE FOR INTERNAL LINKING:
-- Property search: ../property-search.html
-- Buying and selling tips: ../buying-selling-tips.html
-- Neighborhoods landing: ../neighborhoods/index.html
-- Contact: ../contact.html
-- Home valuation: ../home-valuation.html
-- About Paul: ../about.html
+SITE PAGES AVAILABLE FOR INTERNAL LINKING (use these exact root-relative paths):
+- Home: /
+- Blog archive: /blog/
+- Property search: /property-search
+- Buying and selling tips: /buying-selling-tips
+- Neighborhoods index: /neighborhoods/
+- Beverly Hills: /neighborhoods/beverly-hills
+- Bel Air: /neighborhoods/bel-air
+- Hollywood Hills: /neighborhoods/hollywood-hills
+- Santa Monica: /neighborhoods/santa-monica
+- Venice: /neighborhoods/venice
+- Silver Lake: /neighborhoods/silver-lake
+- Contact: /contact
+- Home valuation: /home-valuation
+- About Paul: /about
 
 REQUIREMENTS:
 1. Write a complete, high-quality article that genuinely serves Los Angeles real estate buyers, sellers, landlords, or investors.
@@ -92,7 +100,7 @@ REQUIREMENTS:
 6. DO NOT use the em dash character (—, Unicode U+2014) anywhere. Not in headlines, not in body, not in meta. Use commas, colons, semicolons, or rewrite the sentence instead.
 7. Do not fabricate statistics, laws, quotes, transaction data, or claims about Paul's personal experience.
 8. Avoid all phrases listed as prohibited in the guidelines.
-9. Internal links: use <a href="[relative-url]"> with descriptive anchor text. Link naturally, not forcefully. Report which links you used.
+9. Internal links: All internal links MUST use root-relative, extensionless canonical paths (e.g. /contact, /blog/slug, /neighborhoods/beverly-hills). Do NOT use ../ relative paths, .html suffixes, or absolute https:// URLs for internal links. Use <a href="/canonical-path"> with descriptive anchor text. Link naturally, not forcefully. Report which links you used.
 10. Meta description: 130-155 characters, does not repeat the headline verbatim.
 11. Minimum article body: 900 words of substantive content.
 12. Suggest 4-8 topic tags for the article index.
@@ -122,7 +130,7 @@ Return ONLY valid JSON in this exact structure (no markdown fence, no extra text
   "geographic_focus": "Los Angeles",
   "body_html": "<p>Full article body HTML here...</p>",
   "internal_links_used": [
-    {{"anchor_text": "the anchor", "url": "../path/to/page.html"}}
+    {{"anchor_text": "the anchor", "url": "/canonical-path"}}
   ],
   "key_sources": ["Source 1", "Source 2"],
   "word_count_estimate": 0,
