@@ -357,7 +357,7 @@
         : '    <button id="psp-opt-in" class="btn btn-gold">Turn on analytics</button>'),
       '    <button id="psp-modal-close" class="btn btn-outline">Close</button>',
       '  </div>',
-      '  <p class="psp-modal-note"><a href="/privacy.html">Full Privacy Policy</a></p>',
+      '  <p class="psp-modal-note"><a href="/privacy">Full Privacy Policy</a></p>',
       '</div>',
     ].join('');
 

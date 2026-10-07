@@ -281,7 +281,7 @@ def _build_registry_entry(article: dict, pub_dt: datetime, cfg: dict, status: st
         "slug":                   slug,
         "title":                  article["title"],
         "excerpt":                article.get("excerpt", ""),
-        "url":                    f"{base_url}/{blog_path}/{slug}.html",
+        "url":                    f"{base_url}/{blog_path}/{slug}",
         "status":                 status,
         "scheduled_publish_at":   pub_dt.isoformat() if status == "approved" else None,
         "published_at":           None,

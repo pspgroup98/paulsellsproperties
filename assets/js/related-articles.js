@@ -56,7 +56,7 @@
       return;
     }
     grid.innerHTML = articles.map(function (a) {
-      return '<a href="' + a.slug + '.html" class="more-card">' +
+      return '<a href="/blog/' + a.slug + '" class="more-card">' +
         '<span class="more-card-cat">' + escHtml(a.category) + '</span>' +
         '<h3 class="more-card-title">' + escHtml(a.title) + '</h3>' +
         '<span class="more-card-date">' + escHtml(a.date_display || '') + '</span>' +
@@ -80,7 +80,7 @@
   xhr.onreadystatechange = function () {
     if (xhr.readyState !== 4) return;
     if (xhr.status !== 200) {
-      grid.innerHTML = '<p class="post-more-empty"><a href="index.html">View all articles &rarr;</a></p>';
+      grid.innerHTML = '<p class="post-more-empty"><a href="/blog/">View all articles &rarr;</a></p>';
       return;
     }
     try {
