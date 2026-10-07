@@ -74,9 +74,9 @@
     "title": "Hotel Clark Finally Opens in Downtown Los Angeles: Inside a Decades-Long Adaptive Reuse Story",
     "excerpt": "Hotel Clark has finally opened at 426 S. Hill Street with 348 rooms, bringing a long-dormant Downtown Los Angeles landmark back into active use.",
     "url": "https://paulsellsproperties.com/blog/hotel-clark-opens-downtown-los-angeles-2026",
-    "status": "approved",
+    "status": "published",
     "scheduled_publish_at": "2026-10-07T10:00:00-07:00",
-    "published_at": null,
+    "published_at": "2026-10-07T14:53:07.011364-07:00",
     "date_iso": "2026-10-07",
     "date_display": "October 7, 2026",
     "category": "Lifestyle",
@@ -1332,7 +1332,7 @@
       "rent-controlled units",
       "landlord compliance"
     ],
-    "search_intent": "Informational — landlord researching legal requirements before making a tenant buyout offer",
+    "search_intent": "Informational \u2014 landlord researching legal requirements before making a tenant buyout offer",
     "geographic_focus": "City of Los Angeles",
     "audience": [
       "landlords",
@@ -1383,7 +1383,7 @@
       "condo buying",
       "FHA spot approval"
     ],
-    "search_intent": "Informational — buyer or seller researching why condo financing differs from single-family financing",
+    "search_intent": "Informational \u2014 buyer or seller researching why condo financing differs from single-family financing",
     "geographic_focus": "Los Angeles",
     "audience": [
       "buyers",
@@ -1434,7 +1434,7 @@
       "tenant buyout",
       "seller strategy"
     ],
-    "search_intent": "Decision-making — duplex owner evaluating whether to vacate tenants before selling",
+    "search_intent": "Decision-making \u2014 duplex owner evaluating whether to vacate tenants before selling",
     "geographic_focus": "Los Angeles",
     "audience": [
       "investors",
@@ -1468,7 +1468,7 @@
   {
     "slug": "how-much-to-buy",
     "title": "How Much Do You Need to Buy a House in Los Angeles?",
-    "excerpt": "The question buyers ask most — and the one that gets answered too vaguely.",
+    "excerpt": "The question buyers ask most \u2014 and the one that gets answered too vaguely.",
     "url": "https://paulsellsproperties.com/blog/how-much-to-buy",
     "status": "published",
     "scheduled_publish_at": "2026-04-24T00:00:00-07:00",
@@ -1487,7 +1487,7 @@
       "financing",
       "cash to close"
     ],
-    "search_intent": "Informational — first-time or early-stage buyer calculating how much cash they actually need",
+    "search_intent": "Informational \u2014 first-time or early-stage buyer calculating how much cash they actually need",
     "geographic_focus": "Los Angeles",
     "audience": [
       "buyers",
@@ -1539,7 +1539,7 @@
       "pre-approval",
       "multiple offers"
     ],
-    "search_intent": "Informational — buyer in active search looking for tactical advice on competitive offers",
+    "search_intent": "Informational \u2014 buyer in active search looking for tactical advice on competitive offers",
     "geographic_focus": "Los Angeles",
     "audience": [
       "buyers"
@@ -1589,7 +1589,7 @@
       "closing costs",
       "home inspection"
     ],
-    "search_intent": "Informational — prospective buyer seeking a comprehensive step-by-step overview of the LA home buying process",
+    "search_intent": "Informational \u2014 prospective buyer seeking a comprehensive step-by-step overview of the LA home buying process",
     "geographic_focus": "Los Angeles",
     "audience": [
       "buyers",
@@ -1642,7 +1642,7 @@
       "landlord obligations",
       "rental law compliance"
     ],
-    "search_intent": "Informational — landlord in unincorporated LA County researching new nonpayment eviction rules",
+    "search_intent": "Informational \u2014 landlord in unincorporated LA County researching new nonpayment eviction rules",
     "geographic_focus": "Unincorporated Los Angeles County",
     "audience": [
       "landlords",
@@ -1692,7 +1692,7 @@
       "price trends",
       "timing strategy"
     ],
-    "search_intent": "Decision-making — buyer unsure whether current market conditions favor buying now or waiting",
+    "search_intent": "Decision-making \u2014 buyer unsure whether current market conditions favor buying now or waiting",
     "geographic_focus": "Los Angeles",
     "audience": [
       "buyers",
@@ -1722,7 +1722,7 @@
   {
     "slug": "adu-vs-garage-conversion",
     "title": "ADU vs. Garage Conversion in Los Angeles: Which Adds More Value and Rent Potential?",
-    "excerpt": "For LA property owners looking to add income or increase value — this choice matters.",
+    "excerpt": "For LA property owners looking to add income or increase value \u2014 this choice matters.",
     "url": "https://paulsellsproperties.com/blog/adu-vs-garage-conversion",
     "status": "published",
     "scheduled_publish_at": "2026-04-09T00:00:00-07:00",
@@ -1741,7 +1741,7 @@
       "construction cost",
       "value-add"
     ],
-    "search_intent": "Decision-making — LA homeowner or investor evaluating which property addition yields better return",
+    "search_intent": "Decision-making \u2014 LA homeowner or investor evaluating which property addition yields better return",
     "geographic_focus": "Los Angeles",
     "audience": [
       "homeowners",

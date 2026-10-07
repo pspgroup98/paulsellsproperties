@@ -143,6 +143,12 @@
 
   <!-- Blog articles -->
   <url>
+    <loc>https://paulsellsproperties.com/blog/hotel-clark-opens-downtown-los-angeles-2026</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://paulsellsproperties.com/blog/california-ab-956-two-detached-adus-los-angeles-2027</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
