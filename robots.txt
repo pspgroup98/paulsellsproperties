@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /2026/04/20/how-to-buy-a-house-in-los-angeles
 Disallow: /blog/article-template.html
 # Disallow garbage URL patterns from external links (old platform / agent site links)
 Disallow: /listings/
