@@ -382,6 +382,96 @@
       "next_review_date": "2026-10-20",
       "status": "active",
       "id": "20261005-wch-007"
+    },
+    {
+      "story": "Mortgage rates",
+      "entity": "Freddie Mac",
+      "geography": "Los Angeles",
+      "current_status": "October 8 30-year average reported at 7.40%; update existing mortgage article, do not duplicate.",
+      "next_review_date": "2026-10-15",
+      "status": "active",
+      "id": "20261012-wch-001"
+    },
+    {
+      "story": "Homes for LA Round 2",
+      "entity": "Los Angeles Housing Department",
+      "geography": "Los Angeles",
+      "current_status": "Portal tentatively scheduled October 13; verify actual opening and deadlines.",
+      "next_review_date": "2026-10-13",
+      "status": "active",
+      "id": "20261012-wch-002"
+    },
+    {
+      "story": "Hollywood Burbank Airport",
+      "entity": "Hollywood Burbank Airport",
+      "geography": "Burbank",
+      "current_status": "Terminal scheduled to open October 13; verify actual opening before October 14 publication.",
+      "next_review_date": "2026-10-13",
+      "status": "active",
+      "id": "20261012-wch-003"
+    },
+    {
+      "story": "Mel\u2019s Drive-In redevelopment",
+      "entity": "City of Santa Monica",
+      "geography": "Santa Monica",
+      "current_status": "138-unit proposal and pending landmark nomination; December 14 hearing reported.",
+      "next_review_date": "2026-12-14",
+      "status": "active",
+      "id": "20261012-wch-004"
+    },
+    {
+      "story": "LAUSD housing sites",
+      "entity": "LAUSD",
+      "geography": "Woodland Hills and West Hollywood",
+      "current_status": "Proposed housing sites awaiting next agreement or approval milestone.",
+      "next_review_date": "2026-11-15",
+      "status": "active",
+      "id": "20261012-wch-005"
+    },
+    {
+      "story": "Chinatown healthcare and housing campus",
+      "entity": "Robert K. Ross Center",
+      "geography": "Chinatown",
+      "current_status": "October groundbreaking reported; monitor construction.",
+      "next_review_date": "2026-11-15",
+      "status": "active",
+      "id": "20261012-wch-006"
+    },
+    {
+      "story": "Los Angeles speed cameras",
+      "entity": "City of Los Angeles",
+      "geography": "Los Angeles",
+      "current_status": "Activation expected October 26; confirm operating rules.",
+      "next_review_date": "2026-10-26",
+      "status": "active",
+      "id": "20261012-wch-007"
+    },
+    {
+      "story": "Hotel Clark",
+      "entity": "Hotel Clark",
+      "geography": "Downtown Los Angeles",
+      "current_status": "Monitor Votana October 15 opening and update existing article only.",
+      "next_review_date": "2026-10-20",
+      "status": "active",
+      "id": "20261012-wch-008"
+    },
+    {
+      "story": "Culver Commons",
+      "entity": "Culver Commons",
+      "geography": "Culver City",
+      "current_status": "Monitor 2027 opening.",
+      "next_review_date": "2027-02-01",
+      "status": "active",
+      "id": "20261012-wch-009"
+    },
+    {
+      "story": "1000 La Brea",
+      "entity": "1000 La Brea",
+      "geography": "West Hollywood",
+      "current_status": "Monitor approval or groundbreaking.",
+      "next_review_date": "2026-11-15",
+      "status": "active",
+      "id": "20261012-wch-010"
     }
   ]
 }

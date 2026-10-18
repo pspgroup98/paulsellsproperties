@@ -556,6 +556,118 @@
       "notes": "Do NOT expand tenant-buyout-disclosure article. Create a separate article targeting the agreement/template itself. SC evidence from Sprint 2 audit.",
       "source": "Search Console query data, Sprint 2 CTR audit",
       "status": "pending"
+    },
+    {
+      "topic": "Condo vs. House in Los Angeles: How to Decide",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-001"
+    },
+    {
+      "topic": "House Hacking a 2-to-4 Unit Property in Los Angeles",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-002"
+    },
+    {
+      "topic": "How to Evaluate HOA Financials Before Buying an LA Condo",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-003"
+    },
+    {
+      "topic": "The Real Monthly Cost of Owning a Los Angeles Condo",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-004"
+    },
+    {
+      "topic": "What Los Angeles Sellers Should Fix Before Listing",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-005"
+    },
+    {
+      "topic": "Pre-Listing Inspections in Los Angeles",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-006"
+    },
+    {
+      "topic": "How to Evaluate ADU Potential Before Buying",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-007"
+    },
+    {
+      "topic": "How to Calculate an ADU Return on Investment",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-008"
+    },
+    {
+      "topic": "AB 1621 and Faster Housing Permit Reviews",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-009"
+    },
+    {
+      "topic": "LAUSD Affordable Housing in Woodland Hills and West Hollywood",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-010"
+    },
+    {
+      "topic": "Chinatown Robert K. Ross Center for Hope and Healing",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-011"
+    },
+    {
+      "topic": "West Adams Development Guide",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-012"
+    },
+    {
+      "topic": "Hyde Park Housing Around the K Line",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-013"
+    },
+    {
+      "topic": "Centro Westlake and MacArthur Park Station",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-014"
+    },
+    {
+      "topic": "Santa Monica Lincoln Boulevard Housing Pipeline",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-015"
+    },
+    {
+      "topic": "Culver Commons",
+      "category": "Editorial",
+      "priority": "high",
+      "status": "pending",
+      "id": "20261012-bkl-016"
     }
   ]
 }
