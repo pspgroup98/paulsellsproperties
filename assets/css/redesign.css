@@ -9,15 +9,12 @@
    Navigation
    --------------------------------------------------------------------------- */
 .psp-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   width: 100%;
   height: var(--nav-height); /* 76px */
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
+  background: transparent;
 }
 
 .psp-nav__inner {
@@ -36,7 +33,7 @@
   flex-direction: column;
   gap: 2px;
   text-decoration: none;
-  color: var(--color-text-primary);
+  color: var(--color-white);
   flex-shrink: 0;
   line-height: 1;
 }
@@ -46,7 +43,7 @@
   font-size: 1.0625rem;
   font-weight: 500;
   letter-spacing: 0.025em;
-  color: var(--color-text-primary);
+  color: var(--color-white);
   line-height: 1;
 }
 
@@ -56,7 +53,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.62);
   line-height: 1;
 }
 
@@ -78,7 +75,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-primary);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: color var(--transition-base);
   white-space: nowrap;
@@ -86,7 +83,7 @@
 }
 
 .psp-nav__link:hover {
-  color: var(--color-text-secondary);
+  color: var(--color-white);
 }
 
 /* Right actions */
@@ -106,14 +103,14 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--color-text-primary);
+  color: var(--color-white);
   border-radius: 50%;
   transition: background var(--transition-base);
   flex-shrink: 0;
 }
 
 .psp-nav__search-btn:hover {
-  background: var(--color-bg-secondary);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 /* Mobile hamburger (hidden on desktop) */
@@ -135,19 +132,29 @@
   display: block;
   width: 22px;
   height: 1.5px;
-  background: var(--color-text-primary);
+  background: var(--color-white);
   border-radius: 1px;
   transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
-/* Focus ring — applies to all interactive nav elements */
+/* Focus ring — white outline for nav over dark hero */
 .psp-nav__brand:focus-visible,
 .psp-nav__link:focus-visible,
 .psp-nav__toggle:focus-visible,
 .psp-nav__search-btn:focus-visible {
-  outline: 2px solid var(--color-text-primary);
+  outline: 2px solid rgba(255, 255, 255, 0.80);
   outline-offset: 3px;
   border-radius: 3px;
+}
+
+/* Contact button — white outlined on transparent nav */
+.psp-nav .psp-btn--nav {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.psp-nav .psp-btn--nav:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.80);
 }
 
 /* ---------------------------------------------------------------------------
@@ -305,8 +312,8 @@
 .psp-hero {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - var(--nav-height));
-  min-height: calc(100svh - var(--nav-height));
+  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -354,7 +361,7 @@
   display: flex;
   align-items: center;
   padding-inline: var(--section-px);
-  padding-top: 80px;
+  padding-top: calc(var(--nav-height) + 56px);
   padding-bottom: 80px;
   max-width: calc(var(--max-width) + 2 * var(--section-px));
   margin-inline: auto;
@@ -381,12 +388,12 @@
 /* Headline */
 .psp-hero__headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-size: clamp(3.25rem, 8.5vw, 6.5rem);
   font-weight: var(--fw-light);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
   color: var(--color-white);
-  margin: 0 0 var(--space-6);
+  margin: 0 0 var(--space-8);
 }
 
 /* Body copy */
@@ -404,22 +411,68 @@
 .psp-hero__ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-5);
   align-items: center;
 }
 
-/* Circular arrow badge on Explore Properties CTA */
-.psp-btn__arrow-badge {
+/* Hero CTAs — larger, more substantial than base token sizes */
+.psp-hero__ctas .psp-btn--primary-light {
+  min-height: 58px;
+  padding-block: 1.0625rem;
+  padding-inline: 2.25rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+}
+
+/* Explore Properties — long outlined pill with large overlapping circle */
+.psp-btn--explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 2.25rem;
+  padding-right: 0;
+  height: 58px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.58);
+  background: transparent;
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: visible;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 200ms ease;
+  flex-shrink: 0;
+}
+
+.psp-btn--explore:hover {
+  border-color: rgba(255, 255, 255, 0.90);
+}
+
+/* Large circle — overlaps the pill's right boundary */
+.psp-btn__circle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.875rem;
-  height: 1.875rem;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
-  border: 1.5px solid currentColor;
-  font-size: 0.875rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.58);
   flex-shrink: 0;
+  margin-right: -31px; /* right half extends beyond pill border */
+  font-size: 1.125rem;
   line-height: 1;
+  transition: border-color 200ms ease;
+}
+
+.psp-btn--explore:hover .psp-btn__circle {
+  border-color: rgba(255, 255, 255, 0.90);
 }
 
 /* Placeholder badge */
@@ -447,7 +500,7 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .psp-hero__content-wrap {
-    padding-top: 64px;
+    padding-top: calc(var(--nav-height) + 40px);
     padding-bottom: 80px;
     padding-inline: var(--space-6);
   }
@@ -462,11 +515,11 @@
 /* Tablet portrait — push content toward bottom, stack CTAs */
 @media (max-width: 768px) {
   .psp-hero {
-    min-height: calc(100svh - var(--nav-height));
+    min-height: 100svh;
   }
   .psp-hero__content-wrap {
     align-items: flex-end;
-    padding-top: 48px;
+    padding-top: calc(var(--nav-height) + 24px);
     padding-bottom: 60px;
   }
   .psp-hero__content {
@@ -477,9 +530,15 @@
     align-items: stretch;
     gap: var(--space-3);
   }
-  .psp-hero__ctas .psp-btn {
+  /* Consultation: full width */
+  .psp-hero__ctas .psp-btn--primary-light {
     justify-content: center;
     width: 100%;
+  }
+  /* Explore: pill is narrower; circle fills the remaining width to match */
+  .psp-hero__ctas .psp-btn--explore {
+    width: calc(100% - 31px);
+    justify-content: space-between;
   }
   .psp-hero__photo {
     object-position: 65% center;
@@ -493,21 +552,21 @@
     padding-bottom: 48px;
   }
   .psp-hero__headline {
-    font-size: clamp(2.375rem, 11vw, 3rem);
-    margin-bottom: var(--space-5);
+    font-size: clamp(2.5rem, 11vw, 3.25rem);
+    margin-bottom: var(--space-6);
   }
   .psp-hero__body {
     font-size: var(--text-body);
     margin-bottom: var(--space-8);
   }
-  /* Heavier overlay on mobile for text legibility at smaller sizes */
+  /* Heavier overlay on mobile for text legibility */
   .psp-hero__overlay {
     background:
       linear-gradient(
         to bottom,
-        rgba(8, 6, 4, 0.42) 0%,
-        rgba(8, 6, 4, 0.32) 40%,
-        rgba(8, 6, 4, 0.65) 100%
+        rgba(8, 6, 4, 0.48) 0%,
+        rgba(8, 6, 4, 0.35) 40%,
+        rgba(8, 6, 4, 0.72) 100%
       );
   }
 }
