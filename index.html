@@ -30,8 +30,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/design-tokens.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
     
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -140,127 +142,119 @@
 <body>
 
 <!-- ======================================================
-     NAVIGATION
+     NAVIGATION — redesign/phase-1
 ====================================================== -->
-<nav class="nav" id="mainNav">
-  <div class="nav-inner">
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
 
-    <a href="/" class="logo-mark">
-      <span class="logo-name">Paul Adams II</span>
-      <span class="logo-rule"></span>
-      <span class="logo-sub">Los Angeles Real Estate</span>
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
     </a>
 
-    <ul class="nav-links">
-      <li class="nav-item"><a href="/" class="active">Home</a></li>
-      <li class="nav-item">
-        <button type="button">Properties <span class="nav-chevron">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="/property-search">Property Search</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <button type="button">Buying &amp; Selling <span class="nav-chevron">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <button type="button">About <span class="nav-chevron">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="/about">My Story</a>
-          <a href="/contact">Contact Me</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <button type="button">Neighborhoods <span class="nav-chevron">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="/neighborhoods/">All Neighborhoods</a>
-          <a href="/neighborhoods/beverly-hills">Beverly Hills</a>
-          <a href="/neighborhoods/bel-air">Bel Air</a>
-          <a href="/neighborhoods/hollywood-hills">Hollywood Hills</a>
-          <a href="/neighborhoods/santa-monica">Santa Monica</a>
-          <a href="/neighborhoods/silver-lake">Silver Lake</a>
-          <a href="/neighborhoods/venice">Venice</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <button type="button">Blog <span class="nav-chevron">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="/blog/">All Articles</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="/home-valuation">Home Valuation</a></li>
-    </ul>
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
 
-    <div class="nav-right">
+    <div class="psp-nav__actions">
       <a href="#"
-         class="btn btn-gold btn-sm"
+         class="psp-btn psp-btn--nav"
          onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
+        Contact
       </a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
     </div>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <button class="psp-nav__toggle"
+            id="navToggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
     </button>
   </div>
-</nav>
-
-<!-- Mobile nav -->
-<div class="nav-mobile" id="navMobile">
-  <a href="/">Home</a>
-  <div class="mob-divider"></div>
-  <a href="/property-search" class="mob-sub">Property Search</a>
-  <div class="mob-divider"></div>
-  <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-  <div class="mob-divider"></div>
-  <a href="/about">My Story</a>
-  <a href="/contact">Contact Me</a>
-  <div class="mob-divider"></div>
-  <a href="/neighborhoods/">Neighborhoods</a>
-  <a href="/blog/">Blog</a>
-  <a href="/home-valuation">Home Valuation</a>
-  <div class="mob-divider"></div>
-  <a href="#" style="color:var(--gold);"
-     onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-    Start a Conversation
-  </a>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="#"
+       class="psp-btn psp-btn--primary"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
+      Schedule a Consultation
+    </a>
+  </div>
 </div>
 
 
 <!-- ======================================================
-     HERO
+     HERO — redesign/phase-1
 ====================================================== -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-line"></span>
-      <span class="hero-eyebrow-text">Third-Generation Realtor · Los Angeles</span>
-      <span class="hero-eyebrow-line"></span>
-    </div>
+<section class="psp-hero" aria-label="Introduction">
 
-    <h1>Clarity at <br class="h1-mob-br">every step.<br><em>Confidence in every decision.</em></h1>
+  <div class="psp-hero__media">
+    <!-- ⚑ PLACEHOLDER PHOTO — replace with approved hero asset before launch -->
+    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1920&q=80"
+         alt="Modern Los Angeles home — placeholder photograph"
+         class="psp-hero__photo"
+         loading="eager"
+         fetchpriority="high"
+         width="1920" height="1280"
+         crossorigin="anonymous">
+    <div class="psp-hero__overlay" aria-hidden="true"></div>
+  </div>
 
-    <p class="hero-body">
-      Every step is intentional, and every recommendation is backed by a clear strategy so you can make informed decisions with confidence.
-    </p>
-
-    <div class="btn-group">
-      <a href="/property-search" class="btn btn-gold">
-        View Available Properties
-      </a>
-      <a href="#"
-         class="btn btn-outline-white"
-         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
-      </a>
+  <div class="psp-hero__content-wrap">
+    <div class="psp-hero__content">
+      <p class="psp-hero__eyebrow">Los Angeles Real Estate</p>
+      <h1 class="psp-hero__headline">Homes.<br>Neighborhoods.<br>Opportunity.</h1>
+      <p class="psp-hero__body">I'm Paul Adams II. I help buyers, sellers, and investors navigate Los Angeles real estate with a thoughtful, financially informed approach.</p>
+      <div class="psp-hero__ctas">
+        <a href="#"
+           class="psp-btn psp-btn--primary-light"
+           onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
+          Schedule a Consultation
+        </a>
+        <a href="/listings" class="psp-btn psp-btn--explore">
+          Explore Properties
+          <span class="psp-btn__arrow-badge" aria-hidden="true">&#x2192;</span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="hero-right">
-    <img src="assets/images/paul-hero.png" alt="Paul Adams II — Los Angeles Real Estate" class="hero-photo">
-  </div>
+  <div class="psp-hero__placeholder" aria-hidden="true">⚑ Placeholder photo — requires replacement</div>
+
 </section>
 
 
@@ -1235,5 +1229,38 @@
 </script>
 
 <script src="assets/js/analytics.js" defer></script>
+
+<!-- Mobile menu — redesign/phase-1 -->
+<script>
+(function () {
+  var toggle = document.getElementById('navToggle');
+  var menu   = document.getElementById('mobileMenu');
+  var close  = document.getElementById('mobileMenuClose');
+  if (!toggle || !menu) return;
+
+  function openMenu() {
+    menu.classList.add('is-open');
+    menu.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (close) close.focus();
+  }
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    menu.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    toggle.focus();
+  }
+
+  toggle.addEventListener('click', openMenu);
+  if (close) close.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+  });
+}());
+</script>
 </body>
 </html>

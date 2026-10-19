@@ -1,0 +1,513 @@
+/* =============================================================================
+   PAULSELLSPROPERTIES.COM — Redesign Component Styles
+   Phase 2: Navigation + Hero
+   Branch: redesign/phase-1
+   Builds on: design-tokens.css (load before this file)
+   ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+   Navigation
+   --------------------------------------------------------------------------- */
+.psp-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--nav-height); /* 76px */
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.psp-nav__inner {
+  max-width: var(--max-width);
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: var(--section-px);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+/* Brand wordmark */
+.psp-nav__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.psp-nav__name {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.psp-nav__descriptor {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem; /* 9px */
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  line-height: 1;
+}
+
+/* Center nav links */
+.psp-nav__links {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.psp-nav__link {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.psp-nav__link:hover {
+  color: var(--color-text-secondary);
+}
+
+/* Right actions */
+.psp-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.psp-nav__search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  transition: background var(--transition-base);
+  flex-shrink: 0;
+}
+
+.psp-nav__search-btn:hover {
+  background: var(--color-bg-secondary);
+}
+
+/* Mobile hamburger (hidden on desktop) */
+.psp-nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.psp-nav__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-text-primary);
+  border-radius: 1px;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* Focus ring — applies to all interactive nav elements */
+.psp-nav__brand:focus-visible,
+.psp-nav__link:focus-visible,
+.psp-nav__toggle:focus-visible,
+.psp-nav__search-btn:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile menu — full-screen slide-in drawer
+   --------------------------------------------------------------------------- */
+.psp-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.psp-mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+.psp-mobile-menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: var(--nav-height);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.psp-mobile-menu__brand {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+}
+
+.psp-mobile-menu__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  transition: background var(--transition-base);
+}
+
+.psp-mobile-menu__close:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+.psp-mobile-menu__close:hover {
+  background: var(--color-bg-secondary);
+}
+
+.psp-mobile-menu__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 24px;
+}
+
+.psp-mobile-menu__nav a {
+  font-family: var(--font-serif);
+  font-size: clamp(1.875rem, 8vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  display: block;
+  transition: color var(--transition-base);
+}
+
+.psp-mobile-menu__nav a:last-child {
+  border-bottom: none;
+}
+
+.psp-mobile-menu__nav a:hover {
+  color: var(--color-text-secondary);
+}
+
+.psp-mobile-menu__nav a:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.psp-mobile-menu__cta {
+  padding: 24px;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.psp-mobile-menu__cta .psp-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .psp-mobile-menu {
+    transition: none;
+  }
+  .psp-nav__toggle-bar {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive: Nav breakpoints
+   --------------------------------------------------------------------------- */
+
+/* Tablet: hide desktop links + search, show hamburger */
+@media (max-width: 1024px) {
+  .psp-nav__links {
+    display: none;
+  }
+  .psp-nav__search-btn {
+    display: none;
+  }
+  .psp-nav__toggle {
+    display: flex;
+  }
+  .psp-nav__inner {
+    padding-inline: var(--space-6);
+    gap: var(--space-3);
+  }
+}
+
+/* Mobile: also hide Contact button (it's in the mobile menu) */
+@media (max-width: 479px) {
+  .psp-nav__inner {
+    padding-inline: var(--space-4);
+  }
+  .psp-nav__actions .psp-btn--nav {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------------------- */
+.psp-hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - var(--nav-height));
+  min-height: calc(100svh - var(--nav-height));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full-bleed photo */
+.psp-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.psp-hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+/* Gradient overlay — left-heavy for text contrast; bottom fade for depth */
+.psp-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      108deg,
+      rgba(8, 6, 4, 0.66) 0%,
+      rgba(8, 6, 4, 0.46) 42%,
+      rgba(8, 6, 4, 0.14) 68%,
+      transparent 88%
+    ),
+    linear-gradient(
+      to top,
+      rgba(8, 6, 4, 0.42) 0%,
+      transparent 48%
+    );
+}
+
+/* Content wrapper — constrains width, provides padding */
+.psp-hero__content-wrap {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--section-px);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  max-width: calc(var(--max-width) + 2 * var(--section-px));
+  margin-inline: auto;
+  width: 100%;
+}
+
+.psp-hero__content {
+  max-width: 660px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow */
+.psp-hero__eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 var(--space-4);
+}
+
+/* Headline */
+.psp-hero__headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: var(--fw-light);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--color-white);
+  margin: 0 0 var(--space-6);
+}
+
+/* Body copy */
+.psp-hero__body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+  margin: 0 0 var(--space-10);
+  max-width: 500px;
+}
+
+/* CTA row */
+.psp-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+/* Circular arrow badge on Explore Properties CTA */
+.psp-btn__arrow-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Placeholder badge */
+.psp-hero__placeholder {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 10;
+  background: rgba(170, 60, 0, 0.88);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive: Hero breakpoints
+   --------------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .psp-hero__content-wrap {
+    padding-top: 64px;
+    padding-bottom: 80px;
+    padding-inline: var(--space-6);
+  }
+  .psp-hero__content {
+    max-width: 560px;
+  }
+  .psp-hero__body {
+    max-width: 100%;
+  }
+}
+
+/* Tablet portrait — push content toward bottom, stack CTAs */
+@media (max-width: 768px) {
+  .psp-hero {
+    min-height: calc(100svh - var(--nav-height));
+  }
+  .psp-hero__content-wrap {
+    align-items: flex-end;
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+  .psp-hero__content {
+    max-width: 100%;
+  }
+  .psp-hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  .psp-hero__ctas .psp-btn {
+    justify-content: center;
+    width: 100%;
+  }
+  .psp-hero__photo {
+    object-position: 65% center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 479px) {
+  .psp-hero__content-wrap {
+    padding-inline: var(--space-4);
+    padding-bottom: 48px;
+  }
+  .psp-hero__headline {
+    font-size: clamp(2.375rem, 11vw, 3rem);
+    margin-bottom: var(--space-5);
+  }
+  .psp-hero__body {
+    font-size: var(--text-body);
+    margin-bottom: var(--space-8);
+  }
+  /* Heavier overlay on mobile for text legibility at smaller sizes */
+  .psp-hero__overlay {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(8, 6, 4, 0.42) 0%,
+        rgba(8, 6, 4, 0.32) 40%,
+        rgba(8, 6, 4, 0.65) 100%
+      );
+  }
+}
