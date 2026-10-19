@@ -18,13 +18,12 @@
 }
 
 .psp-nav__inner {
-  max-width: var(--max-width);
+  width: 100%;
   height: 100%;
-  margin-inline: auto;
   padding-inline: var(--section-px);
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-5);
 }
 
 /* Brand wordmark */
@@ -57,13 +56,13 @@
   line-height: 1;
 }
 
-/* Center nav links */
+/* Nav links — distribute evenly across the flexible middle zone */
 .psp-nav__links {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-6);
+  gap: clamp(16px, 2.4vw, 36px);
   list-style: none;
   margin: 0;
   padding: 0;
