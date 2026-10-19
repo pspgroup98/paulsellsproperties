@@ -1,0 +1,510 @@
+/* =============================================================================
+   PAULSELLSPROPERTIES.COM — Design Tokens
+   Phase 1: Monochrome Atelier palette, typography, spacing, buttons
+   Branch: redesign/phase-1
+   ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+   Color palette — Monochrome Atelier
+   --------------------------------------------------------------------------- */
+:root {
+  /* Light surface palette */
+  --color-bg:               #FAF9F6;
+  --color-bg-secondary:     #E2E0DA;
+  --color-muted:            #A9A8A2;
+  --color-text-primary:     #242424;
+  --color-text-secondary:   #666762;
+  --color-white:            #FFFFFF;
+
+  /* Dark surfaces (Sections 6 Neighborhoods, 9 Local Expertise, Footer) */
+  --color-dark:             #242424;
+  --color-dark-overlay:     rgba(36, 36, 36, 0.55); /* photo overlay for text legibility */
+
+  /* Component-specific */
+  --color-testimonial-card: #EDEBE5; /* warm greige — CONFIRM exact HEX before production */
+  --color-border:           rgba(36, 36, 36, 0.10); /* subtle dividers on light sections */
+  --color-border-light:     rgba(255, 255, 255, 0.20); /* dividers on dark sections */
+
+  /* Removed from legacy stylesheet — do not reintroduce:
+     --gold: #c9a060  (no gold in Monochrome Atelier)
+     --dark: #0d0d0d  (replaced by --color-dark: #242424)
+     --cream: #f4f0e8 (replaced by --color-bg: #FAF9F6)     */
+}
+
+/* ---------------------------------------------------------------------------
+   Typography
+   --------------------------------------------------------------------------- */
+:root {
+  /* Font families */
+  --font-serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font weights */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* Display scale — serif, used for all headlines
+     clamp(min, preferred-vw, max) ensures fluid scaling */
+  --text-display-xl:  clamp(3.25rem, 6.5vw, 6rem);   /* ~52–96px: hero headline */
+  --text-display-lg:  clamp(2.5rem, 4.5vw, 4rem);    /* ~40–64px: section headlines */
+  --text-display-md:  clamp(2rem, 3.5vw, 3rem);      /* ~32–48px: medium headings */
+  --text-display-sm:  clamp(1.5rem, 2.25vw, 2rem);   /* ~24–32px: small display */
+
+  /* Body scale — sans, used for copy, labels, nav */
+  --text-body-lg:   1.25rem;    /* 20px — intro copy */
+  --text-body:      1.0625rem;  /* 17px — standard body */
+  --text-body-sm:   0.9375rem;  /* 15px — captions, meta, button labels */
+  --text-eyebrow:   0.6875rem;  /* 11px — uppercase section labels */
+  --text-caption:   0.75rem;    /* 12px — fine print */
+
+  /* Line heights */
+  --lh-display:   1.05;
+  --lh-heading:   1.15;
+  --lh-body:      1.65;
+  --lh-compact:   1.35;
+
+  /* Letter spacing */
+  --ls-display:   -0.02em;  /* tight for large serif type */
+  --ls-eyebrow:    0.12em;  /* open for all-caps labels */
+  --ls-body:       0;
+}
+
+/* ---------------------------------------------------------------------------
+   Spacing scale — 4px base unit
+   --------------------------------------------------------------------------- */
+:root {
+  --space-1:   0.25rem;   /*   4px */
+  --space-2:   0.5rem;    /*   8px */
+  --space-3:   0.75rem;   /*  12px */
+  --space-4:   1rem;      /*  16px */
+  --space-5:   1.25rem;   /*  20px */
+  --space-6:   1.5rem;    /*  24px */
+  --space-8:   2rem;      /*  32px */
+  --space-10:  2.5rem;    /*  40px */
+  --space-12:  3rem;      /*  48px */
+  --space-16:  4rem;      /*  64px */
+  --space-20:  5rem;      /*  80px */
+  --space-24:  6rem;      /*  96px */
+  --space-32:  8rem;      /* 128px */
+
+  /* Section rhythm */
+  --section-py:  var(--space-24);  /* 96px vertical padding, desktop */
+  --section-px:  var(--space-10);  /* 40px horizontal padding, desktop */
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section-py:  var(--space-16);  /* 64px tablet */
+    --section-px:  var(--space-6);   /* 24px tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-py:  var(--space-12);  /* 48px mobile */
+    --section-px:  var(--space-4);   /* 16px mobile */
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Layout tokens
+   --------------------------------------------------------------------------- */
+:root {
+  --max-width:    1180px;
+  --nav-height:   76px;
+  --gutter:       var(--space-10);  /* 40px desktop column gutter */
+}
+
+@media (max-width: 1024px) {
+  :root { --gutter: var(--space-6); }
+}
+
+@media (max-width: 768px) {
+  :root { --gutter: var(--space-4); }
+}
+
+/* ---------------------------------------------------------------------------
+   Border radius
+   --------------------------------------------------------------------------- */
+:root {
+  --radius-pill:  9999px;    /* buttons, status badges */
+  --radius-card:  0.75rem;   /* 12px — testimonial cards, blog cards */
+  --radius-sm:    0.375rem;  /*  6px — small elements */
+}
+
+/* ---------------------------------------------------------------------------
+   Button dimension tokens
+   --------------------------------------------------------------------------- */
+:root {
+  --btn-py:        0.875rem;  /* 14px */
+  --btn-px:        1.75rem;   /* 28px */
+  --btn-py-sm:     0.625rem;  /* 10px */
+  --btn-px-sm:     1.25rem;   /* 20px */
+  --btn-border-w:  1.5px;
+  --btn-min-h:     44px;      /* WCAG 2.1 AA touch target */
+}
+
+/* ---------------------------------------------------------------------------
+   Elevation / shadow
+   --------------------------------------------------------------------------- */
+:root {
+  --shadow-card:       0 2px 12px rgba(36, 36, 36, 0.06);
+  --shadow-card-hover: 0 6px 24px rgba(36, 36, 36, 0.12);
+}
+
+/* ---------------------------------------------------------------------------
+   Transitions
+   --------------------------------------------------------------------------- */
+:root {
+  --transition-base: 200ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* =============================================================================
+   FOUNDATIONAL STYLES
+   ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+   Box sizing reset
+   --------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------------------
+   Section wrappers
+   --------------------------------------------------------------------------- */
+.psp-section--light {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.psp-section--secondary {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.psp-section--dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.psp-section-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--section-px);
+  padding-block: var(--section-py);
+}
+
+/* ---------------------------------------------------------------------------
+   Typography utility classes
+   --------------------------------------------------------------------------- */
+
+/* Eyebrow — uppercase sans-serif label above headlines */
+.psp-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Display scale */
+.psp-display-xl {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-xl);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.psp-display-lg {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.psp-display-md {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-md);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.psp-display-sm {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-sm);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Body scale */
+.psp-body-lg {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.psp-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.psp-caption {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-compact);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* Dark section overrides — text color reversals */
+.psp-section--dark .psp-eyebrow,
+.psp-on-dark.psp-eyebrow {
+  color: var(--color-muted);
+}
+
+.psp-section--dark .psp-display-xl,
+.psp-section--dark .psp-display-lg,
+.psp-section--dark .psp-display-md,
+.psp-section--dark .psp-display-sm,
+.psp-on-dark.psp-display-xl,
+.psp-on-dark.psp-display-lg,
+.psp-on-dark.psp-display-md,
+.psp-on-dark.psp-display-sm {
+  color: var(--color-white);
+}
+
+.psp-section--dark .psp-body-lg,
+.psp-section--dark .psp-body,
+.psp-on-dark.psp-body-lg,
+.psp-on-dark.psp-body {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.psp-section--dark .psp-caption,
+.psp-on-dark.psp-caption {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+/* ---------------------------------------------------------------------------
+   Button system — pill shape, per approved mockups
+   --------------------------------------------------------------------------- */
+
+/* Base pill */
+.psp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--btn-py) var(--btn-px);
+  border-radius: var(--radius-pill);
+  border: var(--btn-border-w) solid transparent;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+  min-height: var(--btn-min-h);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-base),
+    color            var(--transition-base),
+    border-color     var(--transition-base);
+}
+
+/* Primary — dark fill, white text (light sections) */
+.psp-btn--primary {
+  background-color: var(--color-text-primary);
+  color: var(--color-white);
+  border-color: var(--color-text-primary);
+}
+.psp-btn--primary:hover {
+  background-color: #3a3a38;
+  border-color: #3a3a38;
+}
+
+/* Primary light — cream fill, dark text (hero over photo, dark sections) */
+.psp-btn--primary-light {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  border-color: var(--color-bg);
+}
+.psp-btn--primary-light:hover {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+/* Outline — transparent fill, dark border (light sections) */
+.psp-btn--outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+.psp-btn--outline:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-white);
+}
+
+/* Outline light — transparent fill, white border (dark sections + hero) */
+.psp-btn--outline-light {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+.psp-btn--outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Explore — outlined pill + attached circular arrow badge (hero CTA) */
+.psp-btn--explore {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+  padding-right: var(--btn-py);
+}
+.psp-btn--explore:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.psp-btn__arrow-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: var(--btn-border-w) solid currentColor;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+}
+
+/* Nav Contact button — smaller pill */
+.psp-btn--nav {
+  padding: var(--btn-py-sm) var(--btn-px-sm);
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+.psp-btn--nav:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-white);
+}
+
+/* ---------------------------------------------------------------------------
+   Testimonial card component
+   --------------------------------------------------------------------------- */
+.psp-testimonial-card {
+  background-color: var(--color-testimonial-card);
+  border-radius: var(--radius-card);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-card);
+}
+
+.psp-testimonial-card__mark {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  line-height: 0.75;
+  color: var(--color-muted);
+  user-select: none;
+  pointer-events: none;
+}
+
+.psp-testimonial-card__quote {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-sm);
+  font-weight: var(--fw-light);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.psp-testimonial-card__attribution {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Status badge — used on transaction cards (SOLD / FOR SALE / LEASED)
+   --------------------------------------------------------------------------- */
+.psp-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  background-color: var(--color-text-primary);
+  color: var(--color-white);
+}
+
+.psp-badge--sold    { background-color: #242424; }
+.psp-badge--leased  { background-color: #4a4a48; }
+.psp-badge--forsale { background-color: var(--color-text-secondary); }
+
+/* ---------------------------------------------------------------------------
+   Stat block — used in LA Market Data section
+   --------------------------------------------------------------------------- */
+.psp-stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.psp-stat-block__value {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-md);
+  font-weight: var(--fw-light);
+  line-height: 1;
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+}
+
+.psp-stat-block__label {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--lh-compact);
+}
+
+.psp-stat-block__sub {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+}

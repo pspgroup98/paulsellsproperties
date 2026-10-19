@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 1 Token Preview — paulsellsproperties.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <style>
+    body { margin: 0; background: var(--color-bg); font-family: var(--font-sans); }
+    .preview-nav { background: #fff; border-bottom: 1px solid var(--color-border); padding: 12px 24px; font-size: 12px; color: var(--color-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .preview-section { padding: 48px 24px; border-bottom: 1px solid var(--color-border); }
+    .preview-label { font-size: 10px; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted); margin-bottom: 8px; }
+    .swatch-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .swatch { width: 80px; }
+    .swatch-color { height: 56px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.07); }
+    .swatch-hex { font-size: 10px; font-family: monospace; color: var(--color-text-secondary); margin-top: 4px; }
+    .swatch-name { font-size: 10px; color: var(--color-muted); }
+    .type-row { display: flex; flex-direction: column; gap: 20px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .card-row { display: flex; flex-wrap: wrap; gap: 24px; }
+    .dark-bg { background: var(--color-dark); padding: 48px 24px; }
+    .stat-row { display: flex; flex-wrap: wrap; gap: 48px; }
+    .note { font-size: 11px; color: var(--color-text-secondary); font-style: italic; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+<div class="preview-nav">paulsellsproperties.com — Phase 1 Token Preview — redesign/phase-1</div>
+
+<!-- COLOR PALETTE -->
+<div class="preview-section">
+  <div class="preview-label">Color Palette — Monochrome Atelier</div>
+  <div class="swatch-row">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#FAF9F6"></div>
+      <div class="swatch-hex">#FAF9F6</div>
+      <div class="swatch-name">bg</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E2E0DA"></div>
+      <div class="swatch-hex">#E2E0DA</div>
+      <div class="swatch-name">bg-secondary</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#EDEBE5"></div>
+      <div class="swatch-hex">~#EDEBE5</div>
+      <div class="swatch-name">testimonial card*</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#A9A8A2"></div>
+      <div class="swatch-hex">#A9A8A2</div>
+      <div class="swatch-name">muted</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#666762"></div>
+      <div class="swatch-hex">#666762</div>
+      <div class="swatch-name">text-secondary</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#242424"></div>
+      <div class="swatch-hex">#242424</div>
+      <div class="swatch-name">text-primary / dark</div>
+    </div>
+  </div>
+  <div class="note">* Testimonial card HEX is estimated from the mockup. Paul to confirm exact value before production.</div>
+</div>
+
+<!-- TYPOGRAPHY SCALE -->
+<div class="preview-section">
+  <div class="preview-label">Typography Scale</div>
+  <div class="type-row">
+    <div>
+      <div class="preview-label">Display XL — Hero headline (clamp 52–96px)</div>
+      <div class="psp-display-xl">Homes. Neighborhoods.<br>Opportunity.</div>
+    </div>
+    <div>
+      <div class="preview-label">Display LG — Section headlines (clamp 40–64px)</div>
+      <div class="psp-display-lg">Find your next move.</div>
+    </div>
+    <div>
+      <div class="preview-label">Display MD — Medium headings (clamp 32–48px)</div>
+      <div class="psp-display-md">A more informed way to look at L.A.</div>
+    </div>
+    <div>
+      <div class="preview-label">Display SM — Small display (clamp 24–32px)</div>
+      <div class="psp-display-sm">Real estate is more than property.</div>
+    </div>
+    <div>
+      <div class="preview-label">Eyebrow — Section labels (11px uppercase)</div>
+      <div class="psp-eyebrow">Los Angeles Real Estate</div>
+    </div>
+    <div>
+      <div class="preview-label">Body LG — Intro copy (20px)</div>
+      <div class="psp-body-lg">I'm Paul Adams II. I help buyers, sellers, and investors navigate Los Angeles real estate with a thoughtful, financially informed approach.</div>
+    </div>
+    <div>
+      <div class="preview-label">Body — Standard copy (17px)</div>
+      <div class="psp-body">I'm Paul Adams II, a third-generation real estate professional with a financial perspective, focused on helping buyers, sellers, and investors make confident decisions across Los Angeles.</div>
+    </div>
+    <div>
+      <div class="preview-label">Caption — Fine print (12px)</div>
+      <div class="psp-caption">Represented Seller · Single Family Residence · CalRE #02232552</div>
+    </div>
+  </div>
+</div>
+
+<!-- BUTTONS — LIGHT SECTIONS -->
+<div class="preview-section psp-section--light">
+  <div class="preview-label">Buttons — Light Sections</div>
+  <div class="btn-row">
+    <a href="#" class="psp-btn psp-btn--primary">Schedule a Consultation</a>
+    <a href="#" class="psp-btn psp-btn--outline">Get to Know Paul</a>
+    <a href="#" class="psp-btn psp-btn--nav">Contact</a>
+    <a href="#" class="psp-btn psp-btn--outline">Explore Market Data</a>
+  </div>
+</div>
+
+<!-- BUTTONS — DARK / HERO -->
+<div class="dark-bg">
+  <div class="preview-label" style="color:rgba(255,255,255,0.4)">Buttons — Dark Sections &amp; Hero</div>
+  <div class="btn-row">
+    <a href="#" class="psp-btn psp-btn--primary-light">Schedule a Consultation</a>
+    <a href="#" class="psp-btn psp-btn--explore">
+      Explore Properties
+      <span class="psp-btn__arrow-badge">→</span>
+    </a>
+    <a href="#" class="psp-btn psp-btn--outline-light">View All Transactions</a>
+  </div>
+</div>
+
+<!-- TESTIMONIAL CARDS -->
+<div class="preview-section psp-section--light">
+  <div class="preview-label">Client Experiences — Testimonial Cards</div>
+  <div class="card-row">
+    <div class="psp-testimonial-card" style="flex:1;min-width:240px;max-width:360px">
+      <div class="psp-testimonial-card__mark">&ldquo;</div>
+      <p class="psp-testimonial-card__quote">Paul made the entire process seamless. His market knowledge, communication, and attention to detail gave us complete confidence from start to finish.</p>
+      <p class="psp-testimonial-card__attribution">— [DEV PLACEHOLDER — requires verified client testimonial]</p>
+    </div>
+    <div class="psp-testimonial-card" style="flex:1;min-width:240px;max-width:360px">
+      <div class="psp-testimonial-card__mark">&ldquo;</div>
+      <p class="psp-testimonial-card__quote">Thoughtful, responsive, and genuinely invested in our goals. Paul's financial perspective and local expertise made all the difference.</p>
+      <p class="psp-testimonial-card__attribution">— [DEV PLACEHOLDER — requires verified client testimonial]</p>
+    </div>
+    <div class="psp-testimonial-card" style="flex:1;min-width:240px;max-width:360px">
+      <div class="psp-testimonial-card__mark">&ldquo;</div>
+      <p class="psp-testimonial-card__quote">Professional, knowledgeable, and a pleasure to work with. I always felt informed and supported throughout the process.</p>
+      <p class="psp-testimonial-card__attribution">— [DEV PLACEHOLDER — requires verified client testimonial]</p>
+    </div>
+  </div>
+  <div class="note">Testimonial text is development placeholder only. Verified, approved testimonials required before production.</div>
+</div>
+
+<!-- STATUS BADGES -->
+<div class="preview-section psp-section--light">
+  <div class="preview-label">Status Badges — Transaction Cards</div>
+  <div class="btn-row">
+    <span class="psp-badge psp-badge--sold">Sold</span>
+    <span class="psp-badge psp-badge--forsale">For Sale</span>
+    <span class="psp-badge psp-badge--leased">Leased</span>
+  </div>
+</div>
+
+<!-- STAT BLOCKS -->
+<div class="preview-section psp-section--light">
+  <div class="preview-label">LA Market Data — Stat Blocks</div>
+  <div class="stat-row">
+    <div class="psp-stat-block">
+      <div class="psp-stat-block__value">$1.2M</div>
+      <div class="psp-stat-block__label">Median Home Price</div>
+      <div class="psp-stat-block__sub">[DEV PLACEHOLDER — verify source]</div>
+    </div>
+    <div class="psp-stat-block">
+      <div class="psp-stat-block__value">+14%</div>
+      <div class="psp-stat-block__label">Year-over-year growth</div>
+      <div class="psp-stat-block__sub">[DEV PLACEHOLDER — verify source]</div>
+    </div>
+    <div class="psp-stat-block">
+      <div class="psp-stat-block__value">362</div>
+      <div class="psp-stat-block__label">Active Listings Under $1.5M</div>
+      <div class="psp-stat-block__sub">[DEV PLACEHOLDER — verify source]</div>
+    </div>
+    <div class="psp-stat-block">
+      <div class="psp-stat-block__value">28</div>
+      <div class="psp-stat-block__label">Median Days on Market</div>
+      <div class="psp-stat-block__sub">[DEV PLACEHOLDER — verify source]</div>
+    </div>
+  </div>
+  <div class="note">All statistics are development placeholders. Verified, dated figures and source attribution required before production. Block from production deployment until confirmed.</div>
+</div>
+
+<!-- SECTION BACKGROUNDS -->
+<div class="preview-section psp-section--light">
+  <div class="preview-label">Section Backgrounds</div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px">
+    <div style="background:var(--color-bg);padding:24px 32px;border-radius:8px;border:1px solid var(--color-border);flex:1;min-width:180px">
+      <div class="preview-label">Light</div>
+      <div class="psp-eyebrow">Section Label</div>
+      <div class="psp-display-sm" style="margin-top:8px">Section Headline</div>
+      <div class="psp-body" style="margin-top:8px">Body copy text.</div>
+    </div>
+    <div style="background:var(--color-bg-secondary);padding:24px 32px;border-radius:8px;flex:1;min-width:180px">
+      <div class="preview-label">Secondary</div>
+      <div class="psp-eyebrow">Section Label</div>
+      <div class="psp-display-sm" style="margin-top:8px">Section Headline</div>
+      <div class="psp-body" style="margin-top:8px">Body copy text.</div>
+    </div>
+    <div style="background:var(--color-dark);padding:24px 32px;border-radius:8px;flex:1;min-width:180px">
+      <div class="preview-label" style="color:rgba(255,255,255,0.35)">Dark (#242424)</div>
+      <div class="psp-eyebrow psp-on-dark">Section Label</div>
+      <div class="psp-display-sm psp-on-dark" style="margin-top:8px">Section Headline</div>
+      <div class="psp-body psp-on-dark" style="margin-top:8px">Body copy text.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
