@@ -435,7 +435,7 @@
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 2.25rem;
-  padding-right: 70px;      /* reserves space so text clears the circle */
+  padding-right: 66px;      /* reserves space so text clears the circle */
   height: 58px;
   border-radius: 9999px;
   border: 1.5px solid rgba(255, 255, 255, 0.58);
@@ -471,8 +471,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 62px;
-  height: 62px;
+  width: 58px;
+  height: 58px;
+  box-sizing: border-box;
   border-radius: 50%;
   border: 1.5px solid rgba(255, 255, 255, 0.58);
   font-size: 1.125rem;
