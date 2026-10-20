@@ -246,6 +246,7 @@
           Schedule a Consultation
         </a>
         <a href="/listings" class="psp-btn psp-btn--explore">
+          <svg class="psp-btn__svg-outline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path/></svg>
           Explore Properties
           <span class="psp-btn__circle" aria-hidden="true">&#x2192;</span>
         </a>
@@ -1260,6 +1261,72 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
   });
+}());
+</script>
+
+<!-- Explore Properties SVG outline — redesign/phase-1
+     Draws pill + circle-compartment as ONE stroke to avoid double-border. -->
+<script>
+(function () {
+  'use strict';
+
+  function initExploreSVG(btn) {
+    var svg  = btn.querySelector('.psp-btn__svg-outline');
+    if (!svg) return;
+    var path = svg.querySelector('path');
+    if (!path) return;
+
+    var W  = btn.offsetWidth;
+    var H  = btn.offsetHeight;
+    if (!W || !H) return;
+
+    var sw = 1.5;          // stroke-width (matches CSS value)
+    var s  = sw / 2;       // half-stroke: center stroke on geometry edge
+    var R  = H / 2;        // pill outer radius
+    var pr = R - s;        // pill path radius (stroke centered on outer edge)
+
+    // Inner circle inscribed in pill's inner height (H - 2*sw):
+    var cr = (H - sw * 2) / 2;   // circle radius
+    var cx = W - sw - cr;        // circle center x
+    var cy = H / 2;              // circle center y
+
+    // Pill outline (closed path, clockwise):
+    var pillD = [
+      'M', (s + pr), s,
+      'L', (W - s - pr), s,
+      'A', pr, pr, '0 0 1', (W - s - pr), (H - s),
+      'L', (s + pr), (H - s),
+      'A', pr, pr, '0 0 1', (s + pr), s,
+      'Z'
+    ].join(' ');
+
+    // Circle left-arc divider (counterclockwise = left half of circle):
+    // From top inner edge (cx, sw) to bottom inner edge (cx, H-sw)
+    var divD = [
+      'M', cx, (cy - cr),
+      'A', cr, cr, '0 0 0', cx, (cy + cr)
+    ].join(' ');
+
+    path.setAttribute('d', pillD + ' ' + divD);
+  }
+
+  function initAll() {
+    var btns = document.querySelectorAll('.psp-btn--explore');
+    btns.forEach(function (btn) { initExploreSVG(btn); });
+
+    if (typeof ResizeObserver !== 'undefined') {
+      var ro = new ResizeObserver(function (entries) {
+        entries.forEach(function (e) { initExploreSVG(e.target); });
+      });
+      btns.forEach(function (btn) { ro.observe(btn); });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
 }());
 </script>
 </body>

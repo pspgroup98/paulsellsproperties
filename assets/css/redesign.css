@@ -431,10 +431,10 @@
   letter-spacing: 0.1em;
 }
 
-/* Explore Properties — pill with inscribed circle at right
- * --explore-h controls the pill height. The circle derives its size
- * automatically via top:0/bottom:0/aspect-ratio:1 — no hardcoded diameter.
- * padding-right is derived from --explore-h so both stay in sync. */
+/* Explore Properties — pill with inscribed circle at right.
+ * The outline is a single SVG stroke (pill path + left-arc divider),
+ * eliminating the double-border that appeared when two CSS borders shared
+ * the same junction. No overflow:hidden needed. */
 .psp-btn--explore {
   --explore-h: 58px;
   position: relative;
@@ -443,10 +443,9 @@
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 2.25rem;
-  padding-right: calc(var(--explore-h) + 8px); /* clears auto-sized circle + gap */
+  padding-right: calc(var(--explore-h) + 8px);
   height: var(--explore-h);
-  border-radius: 9999px;
-  border: 1.5px solid rgba(255, 255, 255, 0.58);
+  border: none;
   background: transparent;
   color: var(--color-white);
   font-family: var(--font-sans);
@@ -455,17 +454,35 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  transition: border-color 200ms ease;
   flex-shrink: 0;
 }
 
-.psp-btn--explore:hover {
-  border-color: rgba(255, 255, 255, 0.90);
+/* SVG outline — drawn by initExploreSVG() in JS; covers the full button */
+.psp-btn__svg-outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
 }
 
+.psp-btn__svg-outline path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.58);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 200ms ease;
+}
+
+.psp-btn--explore:hover .psp-btn__svg-outline path {
+  stroke: rgba(255, 255, 255, 0.90);
+}
+
+/* Circle: positions the arrow; no border (SVG handles the arc) */
 .psp-btn__circle {
   position: absolute;
   top: 0;
@@ -473,19 +490,11 @@
   bottom: 0;
   width: auto;
   aspect-ratio: 1 / 1;
-  box-sizing: border-box;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.58);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.125rem;
   line-height: 1;
-  transition: border-color 200ms ease;
-}
-
-.psp-btn--explore:hover .psp-btn__circle {
-  border-color: rgba(255, 255, 255, 0.90);
 }
 
 /* Placeholder badge */
