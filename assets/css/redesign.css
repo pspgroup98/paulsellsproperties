@@ -99,7 +99,7 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important; /* styles.css resets button{border:none} */
   background: transparent;
   cursor: pointer;
   color: var(--color-white);
@@ -110,7 +110,7 @@
 
 .psp-nav__search-btn:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.80);
+  border-color: rgba(255, 255, 255, 1.0) !important;
 }
 
 /* Mobile hamburger (hidden on desktop) */
@@ -431,18 +431,21 @@
   letter-spacing: 0.1em;
 }
 
-/* Explore Properties — long outlined pill with large overlapping circle */
+/* Explore Properties — long outlined pill with inscribed circle at right */
 .psp-btn--explore {
+  --pill-h: 58px;
+  --pill-b: 1.5px;
+  --circle-d: calc(var(--pill-h) - 2 * var(--pill-b)); /* 55px — fits inside pill */
   position: relative;       /* positioning context for the circle */
   display: inline-flex;
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 2.25rem;
-  padding-right: 66px;      /* reserves space so text clears the circle */
-  height: 58px;
+  padding-right: calc(var(--circle-d) + 7px); /* clear the inscribed circle */
+  height: var(--pill-h);
   border-radius: 9999px;
-  border: 1.5px solid rgba(255, 255, 255, 0.58);
+  border: var(--pill-b) solid rgba(255, 255, 255, 0.58);
   background: transparent;
   color: var(--color-white);
   font-family: var(--font-sans);
@@ -451,7 +454,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  overflow: visible;
+  overflow: hidden;         /* keeps circle inside pill's rounded boundary */
   white-space: nowrap;
   cursor: pointer;
   transition: border-color 200ms ease;
@@ -463,19 +466,20 @@
 }
 
 /*
- * Circle: right outer border = pill right outer border.
- * right: -1.5px compensates for the pill's 1.5px border so the absolute
- * element's border-box right aligns with the pill's border-box right.
+ * Circle: inscribed at the pill's inner-right corner.
+ * right:0 / top:0 aligns circle at the pill's padding edge (inside the border).
+ * Diameter = pill inner height (--circle-d = 55px) so the circle's arc
+ * is concentric with the pill's inner-right cap — no transforms, no subpixel drift.
  */
 .psp-btn__circle {
   position: absolute;
-  right: -1.5px;
-  top: -1.5px;   /* mirrors right: -1.5px — compensates for pill's 1.5px border */
+  right: 0;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
+  width: var(--circle-d, 55px);
+  height: var(--circle-d, 55px);
   box-sizing: border-box;
   border-radius: 50%;
   border: 1.5px solid rgba(255, 255, 255, 0.58);
