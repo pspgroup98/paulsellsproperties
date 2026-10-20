@@ -97,9 +97,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid rgba(255, 255, 255, 0.85) !important; /* styles.css resets button{border:none} */
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important; /* overrides styles.css button{border:none} reset */
   background: transparent;
   cursor: pointer;
   color: var(--color-white);
@@ -431,16 +431,20 @@
   letter-spacing: 0.1em;
 }
 
-/* Explore Properties — long outlined pill with inscribed circle at right */
+/* Explore Properties — pill with inscribed circle at right
+ * --explore-h controls the pill height. The circle derives its size
+ * automatically via top:0/bottom:0/aspect-ratio:1 — no hardcoded diameter.
+ * padding-right is derived from --explore-h so both stay in sync. */
 .psp-btn--explore {
-  position: relative;       /* positioning context for the circle */
+  --explore-h: 58px;
+  position: relative;
   display: inline-flex;
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 2.25rem;
-  padding-right: 64px;      /* fixed: clears the inscribed circle (~56px) + gap */
-  height: 58px;
+  padding-right: calc(var(--explore-h) + 8px); /* clears auto-sized circle + gap */
+  height: var(--explore-h);
   border-radius: 9999px;
   border: 1.5px solid rgba(255, 255, 255, 0.58);
   background: transparent;
@@ -451,7 +455,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  overflow: hidden;         /* clips circle to pill's rounded boundary */
+  overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
   transition: border-color 200ms ease;
@@ -462,11 +466,6 @@
   border-color: rgba(255, 255, 255, 0.90);
 }
 
-/*
- * Circle: stretches top:0/bottom:0 to exactly fill the pill's inner height,
- * then aspect-ratio:1 makes width=height for a perfect circle. No hardcoded
- * diameter; no border-width arithmetic; immune to subpixel border rounding.
- */
 .psp-btn__circle {
   position: absolute;
   top: 0;
