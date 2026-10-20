@@ -1,6 +1,7 @@
 /* =============================================================================
    PAULSELLSPROPERTIES.COM — Redesign Component Styles
    Phase 2: Navigation + Hero
+   Phase 3 Batch A: Philosophy, Heritage, Services
    Branch: redesign/phase-1
    Builds on: design-tokens.css (load before this file)
    ============================================================================= */
@@ -590,5 +591,360 @@
         rgba(8, 6, 4, 0.35) 40%,
         rgba(8, 6, 4, 0.72) 100%
       );
+  }
+}
+
+
+/* =============================================================================
+   Phase 3 Batch A — Philosophy, Heritage / About, Services
+   ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+   Philosophy / Differentiator
+   Dark section (psp-section--dark from tokens) + 50/50 two-column layout
+   --------------------------------------------------------------------------- */
+
+.psp-philosophy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(var(--space-12), 8vw, var(--space-32));
+  align-items: start;
+}
+
+.psp-philosophy__quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.625rem);
+  font-weight: var(--fw-light);
+  font-style: italic;
+  line-height: 1.28;
+  letter-spacing: var(--ls-display);
+  color: var(--color-white);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.22);
+  padding-left: var(--space-6);
+  margin: var(--space-8) 0 0;
+}
+
+.psp-philosophy__body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.48);
+  margin: var(--space-5) 0 0;
+}
+
+/* Ordered list reset */
+.psp-pillars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.psp-pillar {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: var(--space-5);
+  align-items: start;
+  padding-block: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.psp-pillar:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.psp-pillar__num {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  font-weight: var(--fw-light);
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.psp-pillar__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0 0 var(--space-2);
+}
+
+.psp-pillar__body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Heritage / About
+   Light section (psp-section--light) + asymmetric 5:7 photo-left layout
+   --------------------------------------------------------------------------- */
+
+.psp-heritage {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(var(--space-12), 8vw, var(--space-32));
+  align-items: start;
+}
+
+.psp-heritage__photo-col {
+  position: relative;
+}
+
+.psp-heritage__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.psp-heritage__badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 112px;
+  height: 112px;
+  background: var(--color-dark);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3);
+}
+
+.psp-heritage__badge-num {
+  font-family: var(--font-serif);
+  font-size: 1.625rem;
+  font-weight: var(--fw-medium);
+  color: var(--color-white);
+  line-height: 1;
+  display: block;
+}
+
+.psp-heritage__badge-label {
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: var(--space-1);
+  line-height: 1.3;
+  display: block;
+}
+
+.psp-heritage__content {
+  padding-top: var(--space-6);
+}
+
+.psp-heritage__headline {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-md);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.psp-rule {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0 0 var(--space-8);
+}
+
+.psp-heritage__body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-5);
+}
+
+.psp-heritage__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-8) 0;
+}
+
+.psp-heritage__tag {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+
+/* ---------------------------------------------------------------------------
+   Services
+   Dark section (psp-section--dark) + left-aligned header + two-column cards
+   --------------------------------------------------------------------------- */
+
+.psp-services__header {
+  max-width: 600px;
+  margin-bottom: var(--space-16);
+}
+
+.psp-services__headline {
+  font-family: var(--font-serif);
+  font-size: var(--text-display-md);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-display);
+  color: var(--color-white);
+  margin: var(--space-4) 0 var(--space-4);
+}
+
+.psp-services__subhead {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.48);
+  margin: 0;
+}
+
+.psp-services__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.psp-service {
+  background: var(--color-dark);
+  padding: var(--space-16) var(--space-12);
+  display: flex;
+  flex-direction: column;
+}
+
+.psp-service__eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 var(--space-6);
+}
+
+.psp-service__headline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  font-weight: var(--fw-light);
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 var(--space-6);
+}
+
+.psp-service__body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 var(--space-4);
+  flex: 1;
+}
+
+.psp-service__body:last-of-type {
+  margin-bottom: var(--space-8);
+}
+
+.psp-service__steps {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-6) 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.psp-service__step {
+  display: flex;
+  gap: var(--space-4);
+  align-items: baseline;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: var(--lh-compact);
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.psp-service__step-num {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  font-weight: var(--fw-light);
+  color: var(--color-muted);
+  width: 1.25rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Phase 3 Batch A — Responsive
+   --------------------------------------------------------------------------- */
+
+/* Tablet: stack philosophy and heritage grids */
+@media (max-width: 1024px) {
+  .psp-philosophy {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .psp-heritage {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+
+  .psp-heritage__photo-col {
+    max-width: 420px;
+  }
+
+  .psp-heritage__content {
+    padding-top: 0;
+  }
+}
+
+/* Tablet portrait: stack services cards */
+@media (max-width: 768px) {
+  .psp-services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .psp-service {
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+/* Mobile: scale down heritage badge */
+@media (max-width: 479px) {
+  .psp-heritage__badge {
+    width: 88px;
+    height: 88px;
+    right: -10px;
+    bottom: -10px;
+  }
+
+  .psp-heritage__badge-num {
+    font-size: 1.25rem;
+  }
+
+  .psp-service {
+    padding: var(--space-8) var(--space-6);
   }
 }
