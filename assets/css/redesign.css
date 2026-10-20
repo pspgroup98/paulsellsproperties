@@ -99,17 +99,18 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
   background: transparent;
   cursor: pointer;
   color: var(--color-white);
   border-radius: 50%;
-  transition: background var(--transition-base);
+  transition: background var(--transition-base), border-color var(--transition-base);
   flex-shrink: 0;
 }
 
 .psp-nav__search-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.80);
 }
 
 /* Mobile hamburger (hidden on desktop) */
@@ -139,11 +140,17 @@
 /* Focus ring — white outline for nav over dark hero */
 .psp-nav__brand:focus-visible,
 .psp-nav__link:focus-visible,
-.psp-nav__toggle:focus-visible,
-.psp-nav__search-btn:focus-visible {
+.psp-nav__toggle:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.80);
   outline-offset: 3px;
   border-radius: 3px;
+}
+
+/* Search circle: keep circular focus ring */
+.psp-nav__search-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.80);
+  outline-offset: 2px;
+  border-radius: 50%;
 }
 
 /* Contact button — white outlined on transparent nav */
@@ -278,12 +285,9 @@
    Responsive: Nav breakpoints
    --------------------------------------------------------------------------- */
 
-/* Tablet: hide desktop links + search, show hamburger */
+/* Tablet: hide desktop links, show search circle + hamburger */
 @media (max-width: 1024px) {
   .psp-nav__links {
-    display: none;
-  }
-  .psp-nav__search-btn {
     display: none;
   }
   .psp-nav__toggle {
@@ -466,8 +470,7 @@
 .psp-btn__circle {
   position: absolute;
   right: -1.5px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: -1.5px;   /* mirrors right: -1.5px — compensates for pill's 1.5px border */
   display: flex;
   align-items: center;
   justify-content: center;
