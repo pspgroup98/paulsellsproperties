@@ -39,9 +39,9 @@
 
 .psp-nav__name {
   font-family: var(--font-serif);
-  font-size: 1.0625rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.17em;
   color: var(--color-white);
   line-height: 1;
 }
@@ -442,8 +442,9 @@
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 2.25rem;
+  padding-left: calc(var(--explore-h) + 8px);
   padding-right: calc(var(--explore-h) + 8px);
+  justify-content: center;
   height: var(--explore-h);
   border: none;
   background: transparent;
