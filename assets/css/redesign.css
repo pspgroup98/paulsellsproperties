@@ -806,8 +806,8 @@
 
 .psp-about-paul {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: clamp(var(--space-12), 8vw, var(--space-24));
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(var(--space-10), 6vw, var(--space-16));
   align-items: start;
 }
 
@@ -817,9 +817,9 @@
 
 .psp-about-paul__photo {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 18%;
   display: block;
 }
 
@@ -834,7 +834,7 @@
 .psp-about-paul__heading {
   font-family: var(--font-serif);
   font-size: clamp(1.875rem, 3vw, 2.75rem);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-medium);
   line-height: var(--lh-heading);
   letter-spacing: var(--ls-display);
   color: var(--color-text-primary);
@@ -866,16 +866,7 @@
   }
 
   .psp-about-paul {
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-  }
-
-  .psp-about-paul__photo-col {
-    max-width: 400px;
-  }
-
-  .psp-about-paul__content {
-    padding-top: 0;
+    gap: var(--space-8);
   }
 }
 
@@ -889,6 +880,34 @@
   .psp-next-move__cards {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-3);
+  }
+}
+
+/* 641–768px: photo stretches to fill content column height */
+@media (min-width: 641px) and (max-width: 768px) {
+  .psp-about-paul {
+    align-items: stretch;
+  }
+
+  .psp-about-paul__content {
+    padding-top: 0;
+  }
+
+  .psp-about-paul__photo {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+}
+
+/* Narrow tablet / large mobile: stack About Paul to single column */
+@media (max-width: 640px) {
+  .psp-about-paul {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .psp-about-paul__content {
+    padding-top: 0;
   }
 }
 
@@ -939,8 +958,8 @@
   }
 
   .psp-about-paul__photo {
-    aspect-ratio: 3 / 2; /* landscape crop on mobile — prevents oversized portrait block */
-    object-position: center 15%;
+    aspect-ratio: 3 / 2;
+    object-position: center 20%;
   }
 }
 
