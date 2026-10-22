@@ -600,14 +600,32 @@
    ============================================================================= */
 
 /* ---------------------------------------------------------------------------
+   Section modifier — compact vertical padding for denser layouts
+   --------------------------------------------------------------------------- */
+
+.psp-section--compact {
+  padding-block: var(--space-16) !important; /* 64px vs default 96px */
+}
+@media (max-width: 1024px) {
+  .psp-section--compact {
+    padding-block: var(--space-12) !important; /* 48px at tablet */
+  }
+}
+@media (max-width: 768px) {
+  .psp-section--compact {
+    padding-block: var(--space-8) !important; /* 32px at mobile */
+  }
+}
+
+/* ---------------------------------------------------------------------------
    Find Your Next Move
    Light section · 2-column: large heading left, 4 service nav cards right
    --------------------------------------------------------------------------- */
 
 .psp-next-move {
   display: grid;
-  grid-template-columns: 1fr 2.4fr;
-  gap: clamp(var(--space-12), 7vw, var(--space-20));
+  grid-template-columns: 1fr 3fr;
+  gap: clamp(var(--space-8), 5vw, var(--space-12));
   align-items: start;
 }
 
@@ -620,7 +638,7 @@
 
 .psp-next-move__heading {
   font-family: var(--font-serif);
-  font-size: var(--text-display-lg);
+  font-size: var(--text-display-md);
   font-weight: var(--fw-light);
   line-height: var(--lh-display);
   letter-spacing: var(--ls-display);
@@ -631,7 +649,7 @@
 .psp-next-move__cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .psp-move-card {
@@ -645,7 +663,7 @@
 .psp-move-card__img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--color-bg-secondary);
 }
@@ -686,6 +704,7 @@
   margin: 0;
   flex-shrink: 0;
   transition: color var(--transition-base), transform var(--transition-base);
+  display: none; /* hidden on desktop; shown in mobile list layout below */
 }
 
 .psp-move-card:hover .psp-move-card__arrow {
@@ -740,7 +759,7 @@
 }
 
 .psp-about-paul__content {
-  padding-top: var(--space-8);
+  padding-top: var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
@@ -833,11 +852,20 @@
     min-width: 0;
   }
 
+  .psp-move-card__arrow {
+    display: block; /* show arrow in mobile list rows */
+  }
+
   .psp-about-paul__content {
     gap: var(--space-5);
   }
 
   .psp-about-paul__photo-col {
     max-width: 100%;
+  }
+
+  .psp-about-paul__photo {
+    aspect-ratio: 3 / 2; /* landscape crop on mobile — prevents oversized portrait block */
+    object-position: center 15%;
   }
 }
