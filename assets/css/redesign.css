@@ -1249,11 +1249,12 @@
 }
 .psp-experiences__dot.is-active { opacity: 1; }
 
-/* ── 1024px: 2 visible cards (readability over 3 narrow columns) ── */
-@media (max-width: 1024px) {
+/* ── 769–1199px: 2 cards + partial peek of 3rd ─────────────────── */
+@media (max-width: 1199px) {
   .psp-experiences__track  { gap: var(--space-6); }
   .psp-experience-card {
-    flex: 0 0 calc((100% - var(--space-6)) / 2);
+    /* peek = 48px — visible sliver of next card */
+    flex: 0 0 calc((100% - var(--space-6) - 48px) / 2);
     padding: var(--space-8);
   }
   .psp-experience-card__mark  { font-size: 6.5rem; }
