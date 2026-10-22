@@ -506,104 +506,88 @@
 
 
 <!-- ======================================================
-     CLIENT EXPERIENCES — redesign/phase-1 Batch B
+     CLIENT EXPERIENCES — redesign/phase-1 Phase 7
 ====================================================== -->
-<section class="psp-section--light psp-section--compact psp-section--experiences-bg">
+<section class="psp-section--light psp-section--compact psp-section--experiences">
   <div class="psp-section-inner">
 
     <div class="psp-experiences__header">
       <p class="psp-eyebrow">Client Experiences</p>
-    </div>
-
-    <div class="psp-experiences__grid">
-
-      <div class="psp-experience-card">
-        <p class="psp-experience-card__quote">"Paul made the Los Angeles market feel manageable right away. He explained everything clearly, gave honest advice, and always had a plan. I felt confident at every step of the process."</p>
-        <p class="psp-experience-card__source">— Ryan T., Koreatown</p>
-      </div>
-
-      <div class="psp-experience-card">
-        <p class="psp-experience-card__quote">"His communication was strong, his process was clear, and he focused on educating the client rather than pushing them. He exceeded expectations and handled everything with professionalism."</p>
-        <p class="psp-experience-card__source">— Amanda K., Washington, DC</p>
-      </div>
-
-      <div class="psp-experience-card">
-        <p class="psp-experience-card__quote">"Paul walked us through pricing, comps, and offer strategy in a way that actually made sense. There was no vague advice — just clear options and thoughtful recommendations. He is exactly who you want representing you."</p>
-        <p class="psp-experience-card__source">— Silvia G., Westwood</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ======================================================
-     TESTIMONIALS (legacy — superseded by Client Experiences above)
-====================================================== -->
-<section class="testimonials" hidden aria-hidden="true">
-  <div class="container">
-    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
-      <div>
-        <span class="label">Client Feedback</span>
-        <h2 class="display-md">Trusted by Clients Across Los Angeles</h2>
-      </div>
-      <div class="testi-nav">
-        <button class="testi-btn" id="testiPrev" aria-label="Previous testimonial">&#8592;</button>
-        <span class="testi-count" id="testiCount">1 / 6</span>
-        <button class="testi-btn" id="testiNext" aria-label="Next testimonial">&#8594;</button>
+      <div class="psp-experiences__nav" aria-label="Navigate testimonials">
+        <button class="psp-experiences__nav-btn" id="expPrev" aria-label="Previous testimonial" disabled>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="psp-experiences__nav-btn" id="expNext" aria-label="Next testimonial">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
     </div>
 
-    <div class="testi-track" id="testiTrack">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-sub">Calm, strategic, and clear from start to finish.</div>
-        <p class="testi-quote">"Paul made the Los Angeles market feel manageable right away. He explained everything clearly, gave honest advice, and always had a plan. I felt confident at every step of the process."</p>
-        <div class="testi-author">Ryan T.</div>
-        <div class="testi-location">Koreatown</div>
+    <div class="psp-experiences__track" id="expTrack" role="region" aria-label="Client testimonials" tabindex="0">
+
+      <div class="psp-experience-card" role="group" aria-label="Testimonial 1 of 6">
+        <span class="psp-experience-card__mark" aria-hidden="true">&#x201C;</span>
+        <div class="psp-experience-card__body">
+          <p class="psp-experience-card__quote">&#x201C;Paul made the Los Angeles market feel manageable right away. He explained everything clearly, gave honest advice, and always had a plan. I felt confident at every step of the process.&#x201D;</p>
+          <p class="psp-experience-card__source">&#x2014; Ryan T., Koreatown</p>
+        </div>
       </div>
 
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-sub">I never felt rushed. I always felt informed.</div>
-        <p class="testi-quote">"As a first-time home buyer in Los Angeles, I had a lot of questions going in. Paul walked me through everything from financing to inspections at a pace that made sense. He made sure I understood my options before making any decisions."</p>
-        <div class="testi-author">Jessica M.</div>
-        <div class="testi-location">Silver Lake</div>
+      <div class="psp-experience-card" role="group" aria-label="Testimonial 2 of 6">
+        <span class="psp-experience-card__mark" aria-hidden="true">&#x201C;</span>
+        <div class="psp-experience-card__body">
+          <p class="psp-experience-card__quote">&#x201C;As a first-time home buyer in Los Angeles, I had a lot of questions going in. Paul walked me through everything from financing to inspections at a pace that made sense. He made sure I understood my options before making any decisions.&#x201D;</p>
+          <p class="psp-experience-card__source">&#x2014; Jessica M., Silver Lake</p>
+        </div>
       </div>
 
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-sub">I would confidently refer clients to Paul again.</div>
-        <p class="testi-quote">"His communication was strong, his process was clear, and he focused on educating the client rather than pushing them. He exceeded expectations and handled everything with professionalism."</p>
-        <div class="testi-author">Amanda K.</div>
-        <div class="testi-location">Washington, DC</div>
+      <div class="psp-experience-card" role="group" aria-label="Testimonial 3 of 6">
+        <span class="psp-experience-card__mark" aria-hidden="true">&#x201C;</span>
+        <div class="psp-experience-card__body">
+          <p class="psp-experience-card__quote">&#x201C;His communication was strong, his process was clear, and he focused on educating the client rather than pushing them. He exceeded expectations and handled everything with professionalism.&#x201D;</p>
+          <p class="psp-experience-card__source">&#x2014; Amanda K., Washington, DC</p>
+        </div>
       </div>
 
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-sub">Straightforward, organized, and honest throughout.</div>
-        <p class="testi-quote">"Paul helped me navigate the Los Angeles rental market, which can be very competitive. He set clear expectations, explained lease terms in detail, and made the entire process feel simple and stress-free."</p>
-        <div class="testi-author">Marcus L.</div>
-        <div class="testi-location">Mar Vista</div>
+      <div class="psp-experience-card" role="group" aria-label="Testimonial 4 of 6">
+        <span class="psp-experience-card__mark" aria-hidden="true">&#x201C;</span>
+        <div class="psp-experience-card__body">
+          <p class="psp-experience-card__quote">&#x201C;Paul helped me navigate the Los Angeles rental market, which can be very competitive. He set clear expectations, explained lease terms in detail, and made the entire process feel simple and stress-free.&#x201D;</p>
+          <p class="psp-experience-card__source">&#x2014; Marcus L., Mar Vista</p>
+        </div>
       </div>
 
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-sub">He understands the details most agents overlook.</div>
-        <p class="testi-quote">"Paul broke down landlord-tenant laws, rental regulations, and long-term considerations in a way that was easy to understand. He is thoughtful, thorough, and very knowledgeable."</p>
-        <div class="testi-author">Daniel R.</div>
-        <div class="testi-location">Culver City</div>
+      <div class="psp-experience-card" role="group" aria-label="Testimonial 5 of 6">
+        <span class="psp-experience-card__mark" aria-hidden="true">&#x201C;</span>
+        <div class="psp-experience-card__body">
+          <p class="psp-experience-card__quote">&#x201C;Paul broke down landlord-tenant laws, rental regulations, and long-term considerations in a way that was easy to understand. He is thoughtful, thorough, and very knowledgeable.&#x201D;</p>
+          <p class="psp-experience-card__source">&#x2014; Daniel R., Culver City</p>
+        </div>
       </div>
 
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-sub">Clear strategy and honest guidance at every step.</div>
-        <p class="testi-quote">"Paul walked us through pricing, comps, and offer strategy in a way that actually made sense. There was no vague advice — just clear options and thoughtful recommendations. He is exactly who you want representing you."</p>
-        <div class="testi-author">Silvia G.</div>
-        <div class="testi-location">Westwood</div>
+      <div class="psp-experience-card" role="group" aria-label="Testimonial 6 of 6">
+        <span class="psp-experience-card__mark" aria-hidden="true">&#x201C;</span>
+        <div class="psp-experience-card__body">
+          <p class="psp-experience-card__quote">&#x201C;Paul walked us through pricing, comps, and offer strategy in a way that actually made sense. There was no vague advice &#x2014; just clear options and thoughtful recommendations. He is exactly who you want representing you.&#x201D;</p>
+          <p class="psp-experience-card__source">&#x2014; Silvia G., Westwood</p>
+        </div>
       </div>
+
     </div>
+
+    <div class="psp-experiences__dots" id="expDots" role="tablist" aria-label="Testimonial navigation">
+      <button class="psp-experiences__dot is-active" role="tab" aria-label="Testimonial 1 of 6" aria-selected="true"  data-idx="0"></button>
+      <button class="psp-experiences__dot"           role="tab" aria-label="Testimonial 2 of 6" aria-selected="false" data-idx="1"></button>
+      <button class="psp-experiences__dot"           role="tab" aria-label="Testimonial 3 of 6" aria-selected="false" data-idx="2"></button>
+      <button class="psp-experiences__dot"           role="tab" aria-label="Testimonial 4 of 6" aria-selected="false" data-idx="3"></button>
+      <button class="psp-experiences__dot"           role="tab" aria-label="Testimonial 5 of 6" aria-selected="false" data-idx="4"></button>
+      <button class="psp-experiences__dot"           role="tab" aria-label="Testimonial 6 of 6" aria-selected="false" data-idx="5"></button>
+    </div>
+
   </div>
 </section>
 
@@ -1259,27 +1243,59 @@
     document.getElementById('navMobile').classList.toggle('open');
   });
 
-  // ── Testimonial scroll + counter
-  const track = document.getElementById('testiTrack');
-  const testiCards = track.querySelectorAll('.testi-card');
-  const testiCountEl = document.getElementById('testiCount');
-  const total = testiCards.length;
+  // ── Client Experiences carousel
+  (function () {
+    var expTrack  = document.getElementById('expTrack');
+    var expPrev   = document.getElementById('expPrev');
+    var expNext   = document.getElementById('expNext');
+    var expDots   = document.getElementById('expDots');
+    if (!expTrack) return;
 
-  function updateTestiCount() {
-    if (!testiCards.length) return;
-    const cardW = testiCards[0].offsetWidth + 20; // card width + gap
-    const idx = Math.min(Math.round(track.scrollLeft / cardW) + 1, total);
-    testiCountEl.textContent = idx + ' / ' + total;
-  }
+    var dotBtns = expDots ? Array.from(expDots.querySelectorAll('.psp-experiences__dot')) : [];
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  document.getElementById('testiNext').addEventListener('click', () => {
-    track.scrollBy({ left: track.clientWidth / 3 + 20, behavior: 'smooth' });
-  });
-  document.getElementById('testiPrev').addEventListener('click', () => {
-    track.scrollBy({ left: -(track.clientWidth / 3 + 20), behavior: 'smooth' });
-  });
-  track.addEventListener('scroll', updateTestiCount, { passive: true });
-  updateTestiCount();
+    function cardMetrics() {
+      var cards = expTrack.querySelectorAll('.psp-experience-card');
+      if (!cards.length) return { w: 0, gap: 0 };
+      var gapVal = getComputedStyle(expTrack).columnGap || '0';
+      return { w: cards[0].offsetWidth, gap: parseFloat(gapVal) || 0 };
+    }
+
+    function getActive() {
+      var m = cardMetrics();
+      if (!m.w) return 0;
+      return Math.min(Math.round(expTrack.scrollLeft / (m.w + m.gap)), 5);
+    }
+
+    function scrollToIdx(idx) {
+      var m = cardMetrics();
+      expTrack.scrollTo({ left: idx * (m.w + m.gap), behavior: prefersReduced ? 'auto' : 'smooth' });
+    }
+
+    function updateState() {
+      var idx = getActive();
+      var maxScroll = expTrack.scrollWidth - expTrack.clientWidth;
+      dotBtns.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === idx);
+        d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      });
+      if (expPrev) expPrev.disabled = idx === 0;
+      if (expNext) expNext.disabled = expTrack.scrollLeft >= maxScroll - 2;
+    }
+
+    expTrack.addEventListener('scroll', updateState, { passive: true });
+    if (expPrev) expPrev.addEventListener('click', function () { scrollToIdx(Math.max(0, getActive() - 1)); });
+    if (expNext) expNext.addEventListener('click', function () { scrollToIdx(Math.min(5, getActive() + 1)); });
+    dotBtns.forEach(function (d) {
+      d.addEventListener('click', function () { scrollToIdx(parseInt(d.dataset.idx, 10)); });
+    });
+    expTrack.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIdx(Math.min(5, getActive() + 1)); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollToIdx(Math.max(0, getActive() - 1)); }
+    });
+
+    updateState();
+  }());
 
   // ── Show more / show less neighborhoods
   const nMoreBtn = document.getElementById('nMoreBtn');
