@@ -1542,7 +1542,7 @@ body:has(.post-content) {
 
 .footer-tagline {
   font-size: 13px;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.40);
   line-height: 1.7;
   max-width: 280px;
   margin-bottom: 28px;
@@ -1550,11 +1550,11 @@ body:has(.post-content) {
 
 .footer-social {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 .social-btn {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius);
   display: flex;
@@ -1580,7 +1580,7 @@ body:has(.post-content) {
 .footer-links { display: flex; flex-direction: column; gap: 11px; }
 .footer-links a {
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.52);
   transition: color 0.15s;
 }
 .footer-links a:hover { color: var(--white); }
@@ -1596,7 +1596,7 @@ body:has(.post-content) {
 }
 .footer-contact-val {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.62);
   line-height: 1.5;
 }
 .footer-contact-val a:hover { color: var(--gold); }
@@ -1608,7 +1608,7 @@ body:has(.post-content) {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(255,255,255,0.08);
   padding: 22px 0;
 }
 .footer-bottom-inner {
@@ -1620,7 +1620,7 @@ body:has(.post-content) {
 }
 .footer-legal {
   font-size: 11px;
-  color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.24);
   line-height: 1.7;
   max-width: 660px;
 }
@@ -1713,7 +1713,7 @@ body:has(.post-content) {
   .blog-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; gap: 2px; }
   .cta-contact-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-bottom-inner { flex-direction: column; }
   .testi-card { flex: 0 0 88%; }
   /* CTA strip — mobile: enough room for stacked buttons; Y crop less critical at narrow width */
@@ -1727,6 +1727,9 @@ body:has(.post-content) {
   .btn-group .btn { width: 100%; justify-content: center; text-align: center; }
   /* CTA strip: stacked buttons need more vertical room at narrow widths */
   .cta-section { min-height: 420px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-main { padding: 56px 0 44px; }
+  .footer-bottom-links { flex-wrap: wrap; gap: 10px 16px; }
 }
 
 /* ---------- Mobile sticky CTA bar ---------- */
