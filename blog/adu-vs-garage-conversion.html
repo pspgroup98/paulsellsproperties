@@ -22,65 +22,86 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://paulsellsproperties.com/blog/adu-vs-garage-conversion#post","headline":"ADU vs. Garage Conversion in Los Angeles | Paul Adams II","description":"Choosing between an ADU and a garage conversion in Los Angeles is a strategy decision, not a construction one. Here is how to evaluate which option actually performs better over time.","url":"https://paulsellsproperties.com/blog/adu-vs-garage-conversion","datePublished":"2026-04-09","author":{"@type":"Person","@id":"https://paulsellsproperties.com/#paul","name":"Paul Adams II","url":"https://paulsellsproperties.com/about"},"publisher":{"@id":"https://paulsellsproperties.com/#agent"},"isPartOf":{"@id":"https://paulsellsproperties.com/#website"},"image":"https://paulsellsproperties.com/assets/images/paul-hero.png","inLanguage":"en-US"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Real Estate Insights","item":"https://paulsellsproperties.com/blog/"},{"@type":"ListItem","position":3,"name":"ADU vs. Garage Conversion in Los Angeles | Paul Adams II","item":"https://paulsellsproperties.com/blog/adu-vs-garage-conversion"}]}]}
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <link rel="stylesheet" href="../assets/css/redesign.css">
     </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav scrolled">
-  <div class="nav-inner">
-    <a href="/" class="logo-mark"><span class="logo-name">Paul Adams II</span><span class="logo-rule"></span><span class="logo-sub">Los Angeles Real Estate</span></a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="/">Home</a></li>
-      <li class="nav-item"><span>Properties ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/property-search">Property Search</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Buying &amp; Selling ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>About Me ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/about">My Bio</a>
-          <a href="/contact">Contact Me</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Neighborhoods ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/neighborhoods/">All Neighborhoods</a>
-          <a href="/neighborhoods/beverly-hills">Beverly Hills</a>
-          <a href="/neighborhoods/bel-air">Bel Air</a>
-          <a href="/neighborhoods/hollywood-hills">Hollywood Hills</a>
-          <a href="/neighborhoods/santa-monica">Santa Monica</a>
-          <a href="/neighborhoods/silver-lake">Silver Lake</a>
-          <a href="/neighborhoods/venice">Venice</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="/blog/">Blog</a></li>
-      <li class="nav-item"><a href="/home-valuation">Custom Home Valuation</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="#" class="btn btn-gold btn-sm"
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+
+    <div class="psp-nav__actions">
+      <a href="#"
+         class="psp-btn psp-btn--nav"
          onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
+        Contact
       </a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
     </div>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+
+    <button class="psp-nav__toggle"
+            id="navToggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
+
   </div>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="/">Home</a>
-  <a href="/property-search" class="mobile-sub">Property Search</a>
-  <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-  <a href="/about">My Bio</a>
-  <a href="/contact">Contact Me</a>
-  <a href="/blog/">Blog</a>
-  <a href="/neighborhoods/">Neighborhoods</a>
-  <a href="/home-valuation">Home Valuation</a>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="#"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="#"
+       class="psp-btn psp-btn--primary"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+      Schedule a Consultation
+    </a>
+  </div>
 </div>
 
 <!-- POST HEADER -->
@@ -286,9 +307,12 @@
           </div>
           <div class="footer-contact-block">
             <div class="footer-contact-lbl">Office</div>
-            <div class="footer-contact-val"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a></div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
           </div>
-          <div class="footer-dre">CA DRE# 02232552</div>
+          <!-- DRE# covered in footer legal text below -->
         </div>
       </div>
     </div>
@@ -296,7 +320,9 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom-inner">
-        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+        <p class="footer-legal">
+          Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.
+        </p>
         <div class="footer-bottom-links">
           <a href="/terms">Terms</a>
           <a href="/privacy">Privacy</a>
@@ -308,9 +334,34 @@
 </footer>
 
 <script>
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navMobile').classList.toggle('open');
+// ── Nav + mobile menu
+(function () {
+  var nav = document.getElementById('siteNav');
+  if (nav) nav.classList.add('scrolled');
+  var toggle = document.getElementById('navToggle');
+  var menu   = document.getElementById('mobileMenu');
+  var close  = document.getElementById('mobileMenuClose');
+  if (!toggle || !menu) return;
+  function openMenu() {
+    menu.classList.add('is-open');
+    menu.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (close) close.focus();
+  }
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    menu.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    toggle.focus();
+  }
+  toggle.addEventListener('click', openMenu);
+  if (close) close.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
   });
+}());
 </script>
 <script src="../assets/js/analytics.js" defer></script>
 </body>
