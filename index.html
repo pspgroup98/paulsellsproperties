@@ -225,14 +225,12 @@
 <section class="psp-hero" aria-label="Introduction">
 
   <div class="psp-hero__media">
-    <!-- ⚑ PLACEHOLDER PHOTO — replace with approved hero asset before launch -->
-    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1920&q=80"
-         alt="Modern Los Angeles home — placeholder photograph"
+    <img src="assets/images/paul-hero.png"
+         alt="Paul Adams II, Los Angeles real estate agent"
          class="psp-hero__photo"
          loading="eager"
          fetchpriority="high"
-         width="1920" height="1280"
-         crossorigin="anonymous">
+         width="1023" height="1537">
     <div class="psp-hero__overlay" aria-hidden="true"></div>
   </div>
 
@@ -244,98 +242,119 @@
         <a href="#"
            class="psp-btn psp-btn--primary-light"
            onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-          Schedule a Consultation
+          Contact Paul
         </a>
         <a href="/listings" class="psp-btn psp-btn--explore">
-          <svg class="psp-btn__svg-outline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path/></svg>
           Explore Properties
-          <span class="psp-btn__circle" aria-hidden="true">&#x2192;</span>
         </a>
       </div>
     </div>
   </div>
 
-  <div class="psp-hero__placeholder" aria-hidden="true">⚑ Placeholder photo — requires replacement</div>
 
 </section>
 
 
 <!-- ======================================================
-     FIND YOUR NEXT MOVE — redesign/phase-1
+     FIND YOUR NEXT MOVE — redesign/phase-1 · Concept 2
+     Asymmetric Editorial Grid
 ====================================================== -->
-<section class="psp-section--light psp-section--compact">
-  <div class="psp-section-inner psp-next-move">
+<section class="psp-section--light fnm-section" aria-labelledby="fnm-heading">
+  <div class="psp-section-inner">
 
-    <div class="psp-next-move__intro">
-      <p class="psp-eyebrow">Find Your Next Move</p>
-      <h2 class="psp-next-move__heading">Find your<br>next move.</h2>
-    </div>
+    <div class="fnm__grid">
 
-    <div class="psp-next-move__cards">
+      <!-- Left: large hero with heading overlay -->
+      <div class="fnm__hero">
+        <img src="assets/images/find-your-next-move/01-hero-los-angeles.webp"
+             alt="Contemporary Los Angeles residence with warm limestone architecture, mature olive trees, and landscaped outdoor living space"
+             class="fnm__hero-img"
+             loading="lazy">
+        <div class="fnm__hero-overlay" aria-hidden="true"></div>
+        <div class="fnm__hero-copy">
+          <h2 class="fnm__hero-heading" id="fnm-heading">Find Your<br>Next Move.</h2>
+          <p class="fnm__hero-sub">Personalized guidance for every stage of your real estate journey in Los Angeles.</p>
+        </div>
+      </div>
 
-      <a href="/buyers" class="psp-move-card">
-        <div class="psp-move-card__img-wrap">
-          <!-- ⚑ ASSET NEEDED — replace with approved warm residential photography -->
-          <img src="assets/images/neighborhoods/hollywood-hills.jpg"
-               alt="Buy a Home in Los Angeles"
-               class="psp-move-card__img"
-               loading="lazy"
-               width="400" height="500">
-        </div>
-        <div class="psp-move-card__text">
-          <p class="psp-move-card__label">Buy a Home</p>
-          <p class="psp-move-card__arrow">→</p>
-        </div>
-      </a>
+      <!-- Right: 4 stacked service panels -->
+      <div class="fnm__panels">
 
-      <a href="/sellers" class="psp-move-card">
-        <div class="psp-move-card__img-wrap">
-          <!-- ⚑ ASSET NEEDED — replace with approved warm residential photography -->
-          <img src="assets/images/neighborhoods/bel-air.jpg"
-               alt="Sell Your Property in Los Angeles"
-               class="psp-move-card__img"
-               loading="lazy"
-               width="400" height="500">
-        </div>
-        <div class="psp-move-card__text">
-          <p class="psp-move-card__label">Sell Your Property</p>
-          <p class="psp-move-card__arrow">→</p>
-        </div>
-      </a>
+        <a href="/buyers" class="fnm__panel">
+          <div class="fnm__panel-content">
+            <div class="fnm__panel-text">
+              <h3 class="fnm__panel-heading">Buy a Home</h3>
+              <p class="fnm__panel-desc">Find your place in Los Angeles with expert guidance.</p>
+            </div>
+            <span class="fnm__panel-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </div>
+          <div class="fnm__panel-texture" aria-hidden="true">
+            <img src="assets/images/find-your-next-move/02-buy-a-home.webp"
+                 alt=""
+                 class="fnm__panel-img"
+                 loading="lazy">
+          </div>
+        </a>
 
-      <a href="/investors" class="psp-move-card">
-        <div class="psp-move-card__img-wrap">
-          <!-- ⚑ ASSET NEEDED — replace with approved warm residential photography -->
-          <img src="assets/images/neighborhoods/pacific-palisades.jpg"
-               alt="Invest in Los Angeles Real Estate"
-               class="psp-move-card__img"
-               loading="lazy"
-               width="400" height="500">
-        </div>
-        <div class="psp-move-card__text">
-          <p class="psp-move-card__label">Invest in Real Estate</p>
-          <p class="psp-move-card__arrow">→</p>
-        </div>
-      </a>
+        <a href="/sellers" class="fnm__panel">
+          <div class="fnm__panel-content">
+            <div class="fnm__panel-text">
+              <h3 class="fnm__panel-heading">Sell Your Property</h3>
+              <p class="fnm__panel-desc">A thoughtful strategy to position your property for success.</p>
+            </div>
+            <span class="fnm__panel-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </div>
+          <div class="fnm__panel-texture" aria-hidden="true">
+            <img src="assets/images/find-your-next-move/03-sell-your-property.webp"
+                 alt=""
+                 class="fnm__panel-img"
+                 loading="lazy">
+          </div>
+        </a>
 
-      <a href="/neighborhoods/" class="psp-move-card">
-        <div class="psp-move-card__img-wrap">
-          <!-- ⚑ ASSET NEEDED — replace with approved warm residential photography -->
-          <img src="assets/images/neighborhoods/santa-monica.jpg"
-               alt="Explore Los Angeles Neighborhoods"
-               class="psp-move-card__img"
-               loading="lazy"
-               width="400" height="500">
-        </div>
-        <div class="psp-move-card__text">
-          <p class="psp-move-card__label">Explore Neighborhoods</p>
-          <p class="psp-move-card__arrow">→</p>
-        </div>
-      </a>
+        <a href="/investors" class="fnm__panel">
+          <div class="fnm__panel-content">
+            <div class="fnm__panel-text">
+              <h3 class="fnm__panel-heading">Invest in Real Estate</h3>
+              <p class="fnm__panel-desc">Explore investment opportunities with financial insight.</p>
+            </div>
+            <span class="fnm__panel-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </div>
+          <div class="fnm__panel-texture" aria-hidden="true">
+            <img src="assets/images/find-your-next-move/04-invest-in-real-estate.webp"
+                 alt=""
+                 class="fnm__panel-img"
+                 loading="lazy">
+          </div>
+        </a>
 
-    </div>
+        <a href="/neighborhoods/" class="fnm__panel">
+          <div class="fnm__panel-content">
+            <div class="fnm__panel-text">
+              <h3 class="fnm__panel-heading">Explore Neighborhoods</h3>
+              <p class="fnm__panel-desc">Discover the Los Angeles communities that fit your lifestyle.</p>
+            </div>
+            <span class="fnm__panel-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </div>
+          <div class="fnm__panel-texture" aria-hidden="true">
+            <img src="assets/images/find-your-next-move/05-explore-neighborhoods.webp"
+                 alt=""
+                 class="fnm__panel-img"
+                 loading="lazy">
+          </div>
+        </a>
 
-  </div>
+      </div><!-- /.fnm__panels -->
+    </div><!-- /.fnm__grid -->
+  </div><!-- /.psp-section-inner -->
 </section>
 
 
@@ -354,9 +373,14 @@
     </div>
 
     <div class="psp-about-paul__content">
-      <p class="psp-eyebrow">About Paul</p>
-      <h2 class="psp-about-paul__heading">Real estate is more than property. It's people, place, and possibility.</h2>
-      <p class="psp-about-paul__bio">I'm Paul Adams II, a third-generation real estate professional with a financial perspective, focused on helping buyers, sellers, and investors make confident decisions across Los Angeles.</p>
+      <h2 class="psp-about-paul__heading">About Paul Adams II</h2>
+      <p class="psp-about-paul__subheadline">Built on Legacy.<br>Driven by Clarity and Strategy.</p>
+      <div class="psp-about-paul__bio-group">
+        <p class="psp-about-paul__bio">Real estate has been part of my life long before it became my profession. As a third-generation Realtor, I grew up watching how markets shift, how deals come together, and where they break down. That foundation gave me an early understanding of something most people only learn through experience.</p>
+        <p class="psp-about-paul__bio">Los Angeles only sharpened that perspective. I've spent over a decade living in and studying this market, watching how neighborhoods evolve, how demand shifts, and how timing and positioning influence outcomes in ways that aren't always obvious on paper. That perspective shapes how I advise every client today.</p>
+        <p class="psp-about-paul__bio">My approach is straightforward. Every recommendation is intentional. Every strategy is clearly thought through. You understand not just what we're doing, but why it works and how it impacts your position. Because at this level, real estate decisions are too important to approach without clarity.</p>
+        <p class="psp-about-paul__bio">I work with buyers, sellers, and investors across Los Angeles, from first-time buyers to experienced clients building long-term portfolios. Every client gets the same level of attention, analysis, and strategic guidance.</p>
+      </div>
       <a href="/about" class="psp-btn psp-btn--outline">Get to Know Paul</a>
     </div>
 
@@ -374,14 +398,14 @@
 
     <div class="psp-transactions__header">
       <div class="psp-transactions__header-left">
-        <p class="psp-eyebrow">Selected Transactions</p>
-        <p class="psp-transactions__sub">A look at recent properties I've represented.</p>
+        <h2 class="psp-transactions__title">Recent Transactions</h2>
       </div>
-      <a href="/listings" class="psp-transactions__view-all">View All Transactions →</a>
+      <a href="/listings" class="psp-transactions__view-all">View All Transactions</a>
     </div>
 
-    <div class="psp-transactions__grid">
+    <div class="psp-transactions__grid" id="psp-tx-grid">
 
+      <!-- 1: Seller (featured) -->
       <div class="psp-tx-card">
         <div class="psp-tx-card__img-wrap">
           <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/904%20N%20Western%20Ave.png" alt="904 N Western Ave, Los Angeles" style="object-position: center center;">
@@ -395,32 +419,7 @@
         </div>
       </div>
 
-      <div class="psp-tx-card">
-        <div class="psp-tx-card__img-wrap">
-          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/244%20N%20Chicago%20Ave.png" alt="244 N Chicago Ave, Los Angeles" style="object-position: center 25%;">
-          <span class="psp-tx-badge psp-tx-badge--off-market">Off Market</span>
-        </div>
-        <div class="psp-tx-card__body">
-          <p class="psp-tx-card__address">244 N Chicago Ave</p>
-          <p class="psp-tx-card__neighborhood">Los Angeles</p>
-          <p class="psp-tx-card__price">$1,299,000</p>
-          <p class="psp-tx-card__meta">Represented Seller</p>
-        </div>
-      </div>
-
-      <div class="psp-tx-card">
-        <div class="psp-tx-card__img-wrap">
-          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/72450%20Manzanita%20Dr.png" alt="72450 Manzanita Dr, Palm Desert" style="object-position: center center;">
-          <span class="psp-tx-badge psp-tx-badge--active">For Sale</span>
-        </div>
-        <div class="psp-tx-card__body">
-          <p class="psp-tx-card__address">72450 Manzanita Dr</p>
-          <p class="psp-tx-card__neighborhood">Palm Desert</p>
-          <p class="psp-tx-card__price">$595,000</p>
-          <p class="psp-tx-card__meta">Represented Seller</p>
-        </div>
-      </div>
-
+      <!-- 2: Buyer (featured) -->
       <div class="psp-tx-card">
         <div class="psp-tx-card__img-wrap">
           <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/8455%20Fountain%20Ave%20%23504.png" alt="8455 Fountain Ave #504, West Hollywood" style="object-position: center top;">
@@ -434,6 +433,35 @@
         </div>
       </div>
 
+      <!-- 3: Seller (featured) -->
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/244%20N%20Chicago%20Ave.png" alt="244 N Chicago Ave, Los Angeles" style="object-position: center 25%;">
+          <span class="psp-tx-badge psp-tx-badge--off-market">Off Market</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">244 N Chicago Ave</p>
+          <p class="psp-tx-card__neighborhood">Los Angeles</p>
+          <p class="psp-tx-card__price">$1,299,000</p>
+          <p class="psp-tx-card__meta">Represented Seller</p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/72450%20Manzanita%20Dr.png" alt="72450 Manzanita Dr, Palm Desert" style="object-position: center center;">
+          <span class="psp-tx-badge psp-tx-badge--active">For Sale</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">72450 Manzanita Dr</p>
+          <p class="psp-tx-card__neighborhood">Palm Desert</p>
+          <p class="psp-tx-card__price">$595,000</p>
+          <p class="psp-tx-card__meta">Represented Seller</p>
+        </div>
+      </div>
+
+      <!-- 5 -->
       <div class="psp-tx-card">
         <div class="psp-tx-card__img-wrap">
           <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/4343%20Finley%20Ave%20%2336.png" alt="4343 Finley Ave #36, Los Angeles" style="object-position: center center;">
@@ -501,6 +529,18 @@
 
     </div>
 
+    <div class="psp-btn-stack" data-stack-for="psp-tx-more-wrap">
+      <div class="psp-tx-more-wrap" id="psp-tx-more-wrap">
+        <button class="psp-tx-more-btn" id="psp-tx-more-btn"
+                aria-expanded="false" aria-controls="psp-tx-grid">
+          SHOW MORE TRANSACTIONS
+        </button>
+      </div>
+      <div class="psp-tx-view-all-wrap">
+        <a href="/listings" class="psp-view-all-btn">VIEW ALL TRANSACTIONS</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -512,7 +552,7 @@
   <div class="psp-section-inner">
 
     <div class="psp-experiences__header">
-      <p class="psp-eyebrow">Client Experiences</p>
+      <h2 class="psp-experiences__title">Client Experiences</h2>
       <div class="psp-experiences__nav" aria-label="Navigate testimonials">
         <button class="psp-experiences__nav-btn" id="expPrev" aria-label="Previous testimonial" disabled>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -593,27 +633,155 @@
 
 
 <!-- ======================================================
-     FEATURED NEIGHBORHOODS — redesign/phase-1 Batch B
+     NEIGHBORHOOD CAROUSEL — redesign/phase-1
 ====================================================== -->
-<section class="psp-section--dark psp-section--nhd-bg" style="padding-block: var(--space-20);">
-  <div class="psp-section-inner psp-neighborhoods-featured">
+<section class="psp-nhd-c" aria-label="Explore Los Angeles Neighborhoods">
+  <div class="psp-nhd-c__inner">
 
-    <div class="psp-neighborhoods-featured__intro">
-      <p class="psp-eyebrow">Featured Neighborhoods</p>
-      <h2 class="psp-neighborhoods-featured__heading">Distinct neighborhoods.<br>Different perspectives.</h2>
-    </div>
-
-    <nav class="psp-nhd-list" aria-label="Featured neighborhoods">
-      <a href="/neighborhoods/los-feliz" class="psp-nhd-row">Los Feliz <span class="psp-nhd-row__arrow">→</span></a>
-      <a href="/neighborhoods/silver-lake" class="psp-nhd-row">Silver Lake <span class="psp-nhd-row__arrow">→</span></a>
-      <a href="/neighborhoods/echo-park" class="psp-nhd-row">Echo Park <span class="psp-nhd-row__arrow">→</span></a>
-      <a href="/neighborhoods/culver-city" class="psp-nhd-row">Culver City <span class="psp-nhd-row__arrow">→</span></a>
-      <a href="/neighborhoods/santa-monica" class="psp-nhd-row">Santa Monica <span class="psp-nhd-row__arrow">→</span></a>
-      <a href="/neighborhoods/west-hollywood" class="psp-nhd-row">West Hollywood <span class="psp-nhd-row__arrow">→</span></a>
-      <a href="/neighborhoods/beverly-hills" class="psp-nhd-row">Beverly Hills <span class="psp-nhd-row__arrow">→</span></a>
+  <div class="psp-nhd-c__header">
+    <h2 class="psp-nhd-c__title">Explore Los Angeles Neighborhoods</h2>
+    <nav class="psp-nhd-c__nav" aria-label="Carousel navigation">
+      <button class="psp-nhd-c__btn" id="nhd-prev" aria-label="Previous neighborhoods" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <button class="psp-nhd-c__btn" id="nhd-next" aria-label="Next neighborhoods">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
     </nav>
-
   </div>
+
+  <div class="psp-nhd-c__viewport">
+    <div class="psp-nhd-c__track" id="nhd-track" role="list">
+
+      <a class="psp-nhd-card" href="/neighborhoods/beverly-hills" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/beverly-hills.jpg" alt="Beverly Hills" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Beverly Hills</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/bel-air" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/bel-air.jpg" alt="Bel Air" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Bel Air</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/hollywood-hills" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/hollywood-hills.jpg" alt="Hollywood Hills" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Hollywood Hills</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/pacific-palisades" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/pacific-palisades.jpg" alt="Pacific Palisades" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Pacific Palisades</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/santa-monica" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/santa-monica.jpg" alt="Santa Monica" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Santa Monica</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/downtown-la" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/downtown-la.jpg" alt="Downtown LA" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Downtown LA</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/los-feliz" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/los-feliz.jpg" alt="Los Feliz" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Los Feliz</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/silver-lake" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/silver-lake.jpg" alt="Silver Lake" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Silver Lake</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/venice" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/venice.jpg" alt="Venice" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Venice</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/west-hollywood" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/west-hollywood.jpg" alt="West Hollywood" loading="eager">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">West Hollywood</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/encino" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" style="object-position: 38% center"
+               src="assets/images/neighborhoods/encino.jpg" alt="Encino" loading="lazy">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Encino</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/highland-park" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/highland-park.jpg" alt="Highland Park" loading="lazy">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Highland Park</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/west-adams" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/west-adams.jpg" alt="West Adams" loading="lazy">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">West Adams</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/studio-city" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/studio-city.jpg" alt="Studio City" loading="lazy">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Studio City</span>
+        </div>
+      </a>
+
+      <a class="psp-nhd-card" href="/neighborhoods/sherman-oaks" role="listitem">
+        <div class="psp-nhd-card__img-wrap">
+          <img class="psp-nhd-card__img" src="assets/images/neighborhoods/sherman-oaks.jpg" alt="Sherman Oaks" loading="lazy">
+          <div class="psp-nhd-card__gradient" aria-hidden="true"></div>
+          <span class="psp-nhd-card__name">Sherman Oaks</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  </div><!-- /.psp-nhd-c__inner -->
 </section>
 
 
@@ -706,11 +874,11 @@
   <div class="psp-section-inner">
 
     <div class="psp-journal__header">
-      <p class="psp-eyebrow">The L.A. Property Journal</p>
-      <a href="/blog/" class="psp-journal__view-all">View All Articles →</a>
+      <h2 class="psp-journal__title">The L.A. Property Journal</h2>
+      <a href="/blog/" class="psp-journal__view-all">View All Articles</a>
     </div>
 
-    <div class="psp-journal__grid blog-grid">
+    <div class="psp-journal__grid blog-grid" id="psp-journal-grid">
 <!-- BEGIN:blog-grid -->
       <div class="blog-card-wrap">
         <a href="blog/los-angeles-467-million-housing-funding-measure-ula-2026" class="blog-card">
@@ -742,316 +910,21 @@
           </div>
         </a>
       </div>
-      <div class="blog-card-wrap">
-        <a href="blog/valley-village-303-homes-abc-radio-site-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Neighborhood</div>
-            <h3>303 For-Sale Homes Planned in Valley Village: What the Former ABC Radio Site Could Become</h3>
-            <p>Plans call for 303 for-sale homes at the former ABC Radio site in Valley Village, including houses, townhomes, affordable ownership units and open space.</p>
-            <div class="blog-meta"><span>Oct 9, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap">
-        <a href="blog/hotel-clark-opens-downtown-los-angeles-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Lifestyle</div>
-            <h3>Hotel Clark Finally Opens in Downtown Los Angeles: Inside a Decades-Long Adaptive Reuse Story</h3>
-            <p>Hotel Clark has finally opened at 426 S. Hill Street with 348 rooms, bringing a long-dormant Downtown Los Angeles landmark back into active use.</p>
-            <div class="blog-meta"><span>Oct 7, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap">
-        <a href="blog/california-ab-956-two-detached-adus-los-angeles-2027" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Real Estate Investing</div>
-            <h3>California Will Allow Two Detached ADUs on Many Single-Family Lots: What LA Homeowners Should Know About AB 956</h3>
-            <p>California&#x27;s AB 956 will allow two detached ADUs on qualifying single-family lots starting in 2027. Here is what Los Angeles homeowners and investors should know.</p>
-            <div class="blog-meta"><span>Oct 5, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/valley-boulevard-improvements-lincoln-heights-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Neighborhood</div>
-            <h3>Valley Boulevard Is Getting a $9.4 Million Makeover: What It Could Mean for Lincoln Heights</h3>
-            <p>Valley Boulevard is slated for bus lanes, bike lanes, sidewalks, trees, lighting and a Lincoln Park expansion. Here is what the project could mean for Lincoln Heights.</p>
-            <div class="blog-meta"><span>Oct 2, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/horror-show-academy-museum-los-angeles-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Lifestyle</div>
-            <h3>The Horror Show Opens at the Academy Museum: What to Know About LA&#x27;s New Fall Exhibition</h3>
-            <p>The Horror Show is now open at the Academy Museum with nearly 350 objects, six themed galleries and related horror programming through 2027.</p>
-            <div class="blog-meta"><span>Sep 30, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/sawtelle-apartment-development-housing-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Neighborhood</div>
-            <h3>Sawtelle Is Adding Hundreds of Apartments: What Buyers and Owners Should Watch</h3>
-            <p>Sawtelle is adding housing near the 405 and Metro E Line. Here is what the development pipeline may mean for buyers, owners and investors.</p>
-            <div class="blog-meta"><span>Sep 28, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/miracle-mile-apartment-sale-114-million-la-multifamily-investing" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Investor Strategy</div>
-            <h3>A $114 Million Miracle Mile Apartment Sale: What It Says About LA Multifamily Investing</h3>
-            <p>A 163-unit Miracle Mile property sold for about $114 million. The deal offers useful lessons about basis, replacement cost and Los Angeles multifamily investing.</p>
-            <div class="blog-meta"><span>Sep 25, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/mortgage-rates-6-95-los-angeles-buyers-september-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Market Analysis</div>
-            <h3>Mortgage Rates Hit 6.95%: What It Means for Los Angeles Buyers</h3>
-            <p>Mortgage rates reached 6.95% on September 17. Here is how the increase changes payments, budgets and negotiating strategy for Los Angeles buyers.</p>
-            <div class="blog-meta"><span>Sep 23, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/hotel-lucile-silver-lake-opening-1931-church" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Lifestyle</div>
-            <h3>Hotel Lucile Silver Lake: A New Boutique Hotel in a 1931 Church</h3>
-            <p>Hotel Lucile has opened in a restored 1931 Silver Lake church, adding 25 rooms, Sous Sous restaurant and a new adaptive-reuse destination near Sunset Junction.</p>
-            <div class="blog-meta"><span>Sep 23, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/los-angeles-just-cause-ordinance-jco-landlords" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Landlord &amp; Rental Laws</div>
-            <h3>Los Angeles Just Cause Ordinance (JCO): A Guide for Landlords</h3>
-            <p>Many Los Angeles rentals outside the RSO are still covered by the Just Cause Ordinance. Here is what landlords and investors should understand.</p>
-            <div class="blog-meta"><span>Sep 18, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/lucas-museum-opening-exposition-park-los-angeles-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Lifestyle</div>
-            <h3>Lucas Museum Opens Sept. 22: What It Adds to Exposition Park</h3>
-            <p>The Lucas Museum opens September 22 with major galleries, a 13-acre public park and a destination restaurant, strengthening Exposition Park as a cultural district.</p>
-            <div class="blog-meta"><span>Sep 16, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/west-hollywood-housing-development-2026-santa-monica-boulevard" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Neighborhood</div>
-            <h3>New Apartments Coming to West Hollywood&#x27;s Santa Monica Boulevard</h3>
-            <p>West Hollywood is adding housing along and near Santa Monica Boulevard. Here is what current development may mean for buyers, owners and investors.</p>
-            <div class="blog-meta"><span>Sep 14, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/los-angeles-rents-falling-landlords-investors-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Multifamily</div>
-            <h3>Los Angeles Rents Are Falling: What Landlords Should Do in 2026</h3>
-            <p>Los Angeles asking rents are lower than a year ago. Landlords and multifamily buyers should rethink vacancy, pricing, concessions and projected rent growth.</p>
-            <div class="blog-meta"><span>Sep 11, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/los-angeles-housing-market-august-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Market Analysis</div>
-            <h3>Los Angeles Housing Market August 2026: Buyers Gain Leverage</h3>
-            <p>Los Angeles asking prices softened in August while inventory remained tight. Buyers have more negotiating leverage, but desirable homes can still move quickly.</p>
-            <div class="blog-meta"><span>Sep 9, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/inglewood-261-million-mobility-project-sofi-k-line" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Neighborhood</div>
-            <h3>Inglewood&#x27;s $261 Million Mobility Overhaul: What It Could Mean for Downtown, SoFi Stadium and the K Line</h3>
-            <p>Inglewood is advancing a $261 million mobility and streetscape project connecting Downtown, the K Line and its major entertainment venues.</p>
-            <div class="blog-meta"><span>Sep 9, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/how-to-read-rent-roll-los-angeles-multifamily" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Multifamily</div>
-            <h3>How to Read a Rent Roll: Los Angeles Multifamily Investing Guide</h3>
-            <p>A rent roll is the beginning of multifamily income due diligence, not proof of income. Learn how to verify rents, leases, deposits, collections, and realistic upside before buying.</p>
-            <div class="blog-meta"><span>Sep 4, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/boyle-heights-community-plan-2026-property-owners" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Market Analysis</div>
-            <h3>Boyle Heights&#x27; New Community Plan Is Now in Effect: What Property Owners and Buyers Should Know</h3>
-            <p>The updated Boyle Heights Community Plan is now in effect. Buyers and owners should understand how parcel-specific zoning changes can affect development options and long-term value.</p>
-            <div class="blog-meta"><span>Sep 2, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/palisades-village-reopening-pacific-palisades-2026" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Lifestyle</div>
-            <h3>Palisades Village Reopens: Pacific Palisades Recovery in 2026</h3>
-            <p>Palisades Village has reopened after extensive repairs following the 2025 fire. Its return restores an important part of daily life as Pacific Palisades continues rebuilding.</p>
-            <div class="blog-meta"><span>Sep 2, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/analyze-duplex-los-angeles-before-buying" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Multifamily</div>
-            <h3>How to Analyze a Los Angeles Duplex Before Buying</h3>
-            <p>A Los Angeles duplex should be analyzed as a business, not just a listing. Start with actual rents, expenses, financing, tenant risk, repairs, upside, and exit strategy.</p>
-            <div class="blog-meta"><span>Aug 28, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/buying-rso-property-los-angeles" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Buyer&#x27;s Guide</div>
-            <h3>What Does RSO Mean in Los Angeles? A Buyer&#x27;s Guide</h3>
-            <p>RSO status can materially affect the income, tenant strategy, and value of a Los Angeles rental property. Buyers should verify the rules before underwriting the deal.</p>
-            <div class="blog-meta"><span>Aug 26, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/california-home-insurance-los-angeles-buyers-sellers" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Market Analysis</div>
-            <h3>California&#x27;s Home Insurance Market Is Changing: What Los Angeles Buyers and Sellers Need to Know</h3>
-            <p>California&#x27;s insurance market is showing signs of greater insurer participation, but Los Angeles buyers and sellers still need property-specific insurance due diligence.</p>
-            <div class="blog-meta"><span>Aug 24, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/tenant-buyout-disclosure" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Landlord &amp; Rental Laws</div>
-            <h3>Tenant Buyout Disclosure Laws in Los Angeles</h3>
-            <p>Most landlords think offering cash for keys is simple. It&#x27;s more regulated than that.</p>
-            <div class="blog-meta"><span>Apr 28, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/condo-financing" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Condo / HOA</div>
-            <h3>Condo Financing Is Tightening in Los Angeles: What Buyers and Sellers Need to Know</h3>
-            <p>Most buyers think getting pre-approved means they&#x27;re ready to buy any condo. That&#x27;s where deals fall apart.</p>
-            <div class="blog-meta"><span>Apr 28, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/vacant-vs-occupied-duplex" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Investor Strategy</div>
-            <h3>Vacant vs Occupied Duplex Sales in Los Angeles: Which Strategy Gets Sellers the Best Price?</h3>
-            <p>Most duplex owners think vacancy automatically means a higher sale price. Sometimes it does. Not always.</p>
-            <div class="blog-meta"><span>Apr 27, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/how-much-to-buy" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Buyer&#x27;s Guide</div>
-            <h3>How Much Do You Need to Buy a House in Los Angeles?</h3>
-            <p>The question buyers ask most — and the one that gets answered too vaguely.</p>
-            <div class="blog-meta"><span>Apr 24, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/win-bidding-war" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Buyer Strategy</div>
-            <h3>How to Win a Bidding War in Los Angeles Without Overpaying</h3>
-            <p>Competing in the LA market takes strategy, not just a higher number.</p>
-            <div class="blog-meta"><span>Apr 22, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/how-to-buy-house-la" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Buyer&#x27;s Guide</div>
-            <h3>How to Buy a House in Los Angeles: Step-by-Step Guide (2026)</h3>
-            <p>A clear walkthrough of the full buying process, from pre-approval to closing.</p>
-            <div class="blog-meta"><span>Apr 20, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/eviction-threshold" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Landlord &amp; Rental Laws</div>
-            <h3>Unincorporated LA County&#x27;s New Nonpayment Eviction Threshold: What Property Owners Need to Know</h3>
-            <p>New rules affecting when landlords can begin eviction proceedings for nonpayment of rent.</p>
-            <div class="blog-meta"><span>Apr 13, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/spring-2026-buy-or-wait" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Market Analysis</div>
-            <h3>Is Spring 2026 a Good Time to Buy in Los Angeles, or Should You Wait?</h3>
-            <p>An honest look at current conditions, inventory trends, and what the data actually says.</p>
-            <div class="blog-meta"><span>Apr 12, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="blog-card-wrap hidden">
-        <a href="blog/adu-vs-garage-conversion" class="blog-card">
-          <div class="blog-card-body">
-            <div class="blog-cat">Real Estate Investing</div>
-            <h3>ADU vs. Garage Conversion in Los Angeles: Which Adds More Value and Rent Potential?</h3>
-            <p>For LA property owners looking to add income or increase value — this choice matters.</p>
-            <div class="blog-meta"><span>Apr 9, 2026</span><span class="blog-meta-dot">&middot;</span><span>Paul Adams II</span></div>
-          </div>
-        </a>
-      </div>
     <!-- END:blog-grid -->
     </div>
 
-<!-- BEGIN:blog-more -->
-    <div class="psp-journal__more-wrap">
-      <button class="psp-btn psp-btn--outline" id="blogMoreBtn">
-        Show More Articles
-      </button>
+    <div class="psp-btn-stack" data-stack-for="psp-journal-more-wrap">
+      <div class="psp-journal__more-wrap" id="psp-journal-more-wrap">
+        <button class="psp-journal__more-btn" id="psp-journal-more-btn"
+                aria-expanded="false" aria-controls="psp-journal-grid">
+          VIEW MORE ARTICLES
+        </button>
+      </div>
+      <div class="psp-journal-view-all-wrap">
+        <a href="/blog/" class="psp-view-all-btn">VIEW ALL ARTICLES</a>
+      </div>
     </div>
-  <!-- END:blog-more -->
+
   </div>
 </section>
 
@@ -1062,60 +935,22 @@
 <section class="insider">
   <div class="container">
     <div class="insider-inner">
-
-      <div>
-        <span class="label">Market Insider Access</span>
-        <h2 class="display-md">Access Off-Market Opportunities and Real LA Market Insight</h2>
-        <p class="subhead" style="margin-top:16px;">Stay ahead of the market with curated listings, pricing intelligence, and opportunities most buyers never see.</p>
-
-        <div class="insider-features">
-          <div class="insider-feat">
-            <div class="insider-check">
-              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <p>Off-market and pre-market opportunities before they hit public platforms</p>
-          </div>
-          <div class="insider-feat">
-            <div class="insider-check">
-              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <p>Weekly pricing insights across key Los Angeles neighborhoods</p>
-          </div>
-          <div class="insider-feat">
-            <div class="insider-check">
-              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <p>Curated deals aligned with your goals, not mass listings</p>
-          </div>
-          <div class="insider-feat">
-            <div class="insider-check">
-              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <p>No noise. No spam. Just relevant opportunities</p>
-          </div>
-        </div>
-      </div>
-
       <div class="insider-form-wrap">
-        <span class="label">Free to Join</span>
-        <h3 style="font-family:var(--font-serif); font-size:26px; color:var(--white); margin-bottom:6px;">Unlock LA Insider Access</h3>
-        <p style="font-size:14px; color:rgba(255,255,255,0.4); margin-bottom:0;">Private updates. Real opportunities. No obligation.</p>
-
-        <!-- Replace YOUR_FORM_ID with Formspree form ID -->
+        <h3>The Inside Track on L.A. Real Estate.</h3>
+        <p>Subscribe to my newsletter for off-market opportunities, local insights, and curated listings.</p>
         <form class="insider-form" action="https://formspree.io/f/meajboev" method="POST" id="insiderForm">
           <input class="insider-input" type="text" name="name" placeholder="Your name" required>
           <input class="insider-input" type="email" name="email" placeholder="Your email address" required>
           <button type="submit" class="psp-btn psp-btn--primary-light" style="width:100%; justify-content:center;">
-            Get Access
+            SUBSCRIBE
           </button>
           <div class="form-msg" id="insiderMsg"></div>
         </form>
-
+        <p id="ins-nospam">No spam. Unsubscribe anytime.</p>
         <p class="insider-consent">
           By submitting you agree to be contacted by Paul Adams II via email for real estate market updates. You can unsubscribe at any time. Message and data rates may apply.
         </p>
       </div>
-
     </div>
   </div>
 </section>
@@ -1126,7 +961,6 @@
 ====================================================== -->
 <section class="cta-section">
   <div class="container">
-    <span class="label" style="justify-content:center; display:flex;">Let's Connect</span>
     <h2 class="display-md" style="text-align:center;">Ready to Talk Strategy?</h2>
     <div class="btn-group" style="justify-content:center;">
       <a href="/contact" class="psp-btn psp-btn--primary-light">Get in Touch</a>
@@ -1232,11 +1066,23 @@
      JAVASCRIPT
 ====================================================== -->
 <script>
-  // ── Nav scroll effect
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+  // ── Nav scroll effect: transparent over hero, near-black once past it
+  (function () {
+    var nav  = document.getElementById('siteNav');
+    var hero = document.querySelector('.psp-hero');
+    if (!nav) return;
+
+    if (hero) {
+      // Homepage: turn solid when hero fully exits the viewport
+      var io = new IntersectionObserver(function (entries) {
+        nav.classList.toggle('scrolled', !entries[0].isIntersecting);
+      }, { threshold: 0 });
+      io.observe(hero);
+    } else {
+      // Interior pages without a hero: always solid
+      nav.classList.add('scrolled');
+    }
+  }());
 
   // ── Mobile nav
   document.getElementById('navToggle').addEventListener('click', () => {
@@ -1311,14 +1157,97 @@
     }
   });
 
-  // ── Show more blog posts
-  const blogMoreBtn = document.getElementById('blogMoreBtn');
-  blogMoreBtn.addEventListener('click', () => {
-    document.querySelectorAll('.blog-card-wrap.hidden').forEach(el => {
-      el.classList.remove('hidden');
+  // ── Transactions — Show More / Show Less
+  (function () {
+    var grid    = document.getElementById('psp-tx-grid');
+    var btnWrap = document.getElementById('psp-tx-more-wrap');
+    var btn     = document.getElementById('psp-tx-more-btn');
+    if (!grid || !btnWrap || !btn) return;
+
+    var cards    = Array.from(grid.querySelectorAll('.psp-tx-card'));
+    var expanded = false;
+
+    function initialCount() {
+      var w = window.innerWidth;
+      return w >= 1200 ? 6 : w >= 768 ? 4 : 3;
+    }
+
+    function render() {
+      var show = expanded ? cards.length : initialCount();
+      cards.forEach(function (c, i) {
+        var hide = i >= show;
+        c.classList.toggle('psp-tx-card--hidden', hide);
+        c.setAttribute('aria-hidden', hide ? 'true' : 'false');
+      });
+      var someHidden = cards.some(function (c) {
+        return c.classList.contains('psp-tx-card--hidden');
+      });
+      btnWrap.hidden = !someHidden && !expanded;
+      btn.textContent = expanded ? 'SHOW LESS' : 'SHOW MORE TRANSACTIONS';
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    btn.addEventListener('click', function () {
+      expanded = !expanded;
+      render();
+      if (!expanded) {
+        // Scroll section header back into view if it scrolled offscreen
+        var section = grid.closest('section');
+        if (section && section.getBoundingClientRect().top < -80) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     });
-    blogMoreBtn.style.display = 'none';
-  });
+
+    // On resize: preserve expanded state, recalc initial count
+    window.addEventListener('resize', function () { render(); }, { passive: true });
+
+    render();
+  }());
+
+  // ── Journal — Show More / Show Less
+  (function () {
+    var grid    = document.getElementById('psp-journal-grid');
+    var btnWrap = document.getElementById('psp-journal-more-wrap');
+    var btn     = document.getElementById('psp-journal-more-btn');
+    if (!grid || !btnWrap || !btn) return;
+
+    var cards    = Array.from(grid.querySelectorAll('.blog-card-wrap'));
+    var expanded = false;
+
+    function initialCount() {
+      var w = window.innerWidth;
+      return w >= 1024 ? 3 : w >= 640 ? 2 : 3;
+    }
+
+    function render() {
+      var show = expanded ? cards.length : initialCount();
+      cards.forEach(function (c, i) {
+        var hide = i >= show;
+        c.classList.toggle('hidden', hide);
+        c.setAttribute('aria-hidden', hide ? 'true' : 'false');
+      });
+      var someHidden = cards.some(function (c) { return c.classList.contains('hidden'); });
+      btnWrap.hidden = !someHidden && !expanded;
+      btn.textContent = expanded ? 'SHOW FEWER ARTICLES' : 'VIEW MORE ARTICLES';
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    btn.addEventListener('click', function () {
+      expanded = !expanded;
+      render();
+      if (!expanded) {
+        var section = grid.closest('section');
+        if (section && section.getBoundingClientRect().top < -80) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+
+    window.addEventListener('resize', function () { render(); }, { passive: true });
+
+    render();
+  }());
 
   // ── Insider form
   const insiderForm = document.getElementById('insiderForm');
@@ -1344,7 +1273,7 @@
         msg.textContent = 'Something went wrong — please try again.';
         msg.className = 'form-msg error';
       }
-      btn.innerHTML = 'Get Access';
+      btn.textContent = 'SUBSCRIBE';
       btn.disabled = false;
     });
   }
@@ -1385,70 +1314,54 @@
 }());
 </script>
 
-<!-- Explore Properties SVG outline — redesign/phase-1
-     Draws pill + circle-compartment as ONE stroke to avoid double-border. -->
 <script>
+/* Neighborhood carousel */
 (function () {
   'use strict';
+  const viewport = document.querySelector('.psp-nhd-c__viewport');
+  if (!viewport) return;
+  const track     = viewport.querySelector('.psp-nhd-c__track');
+  const btnPrev   = document.getElementById('nhd-prev');
+  const btnNext   = document.getElementById('nhd-next');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  function initExploreSVG(btn) {
-    var svg  = btn.querySelector('.psp-btn__svg-outline');
-    if (!svg) return;
-    var path = svg.querySelector('path');
-    if (!path) return;
-
-    var W  = btn.offsetWidth;
-    var H  = btn.offsetHeight;
-    if (!W || !H) return;
-
-    var sw = 1.5;          // stroke-width (matches CSS value)
-    var s  = sw / 2;       // half-stroke: center stroke on geometry edge
-    var R  = H / 2;        // pill outer radius
-    var pr = R - s;        // pill path radius (stroke centered on outer edge)
-
-    // Inner circle inscribed in pill's inner height (H - 2*sw):
-    var cr = (H - sw * 2) / 2;   // circle radius
-    var cx = W - sw - cr;        // circle center x
-    var cy = H / 2;              // circle center y
-
-    // Pill outline (closed path, clockwise):
-    var pillD = [
-      'M', (s + pr), s,
-      'L', (W - s - pr), s,
-      'A', pr, pr, '0 0 1', (W - s - pr), (H - s),
-      'L', (s + pr), (H - s),
-      'A', pr, pr, '0 0 1', (s + pr), s,
-      'Z'
-    ].join(' ');
-
-    // Circle left-arc divider (counterclockwise = left half of circle):
-    // From top inner edge (cx, sw) to bottom inner edge (cx, H-sw)
-    var divD = [
-      'M', cx, (cy - cr),
-      'A', cr, cr, '0 0 0', cx, (cy + cr)
-    ].join(' ');
-
-    path.setAttribute('d', pillD + ' ' + divD);
+  function stepPx() {
+    const cards = track.querySelectorAll('.psp-nhd-card');
+    if (cards.length < 2) return cards[0] ? cards[0].offsetWidth + 18 : 266;
+    return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
   }
 
-  function initAll() {
-    var btns = document.querySelectorAll('.psp-btn--explore');
-    btns.forEach(function (btn) { initExploreSVG(btn); });
-
-    if (typeof ResizeObserver !== 'undefined') {
-      var ro = new ResizeObserver(function (entries) {
-        entries.forEach(function (e) { initExploreSVG(e.target); });
-      });
-      btns.forEach(function (btn) { ro.observe(btn); });
-    }
+  function scrollTo(left) {
+    viewport.scrollTo({ left, behavior: prefersReduced.matches ? 'auto' : 'smooth' });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAll);
-  } else {
-    initAll();
+  function updateButtons() {
+    const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+    btnPrev.disabled = viewport.scrollLeft <= 1;
+    btnNext.disabled = viewport.scrollLeft >= maxScroll - 1;
   }
+
+  btnPrev.addEventListener('click', function () {
+    scrollTo(Math.max(0, viewport.scrollLeft - stepPx()));
+  });
+  btnNext.addEventListener('click', function () {
+    scrollTo(Math.min(viewport.scrollWidth - viewport.clientWidth, viewport.scrollLeft + stepPx()));
+  });
+
+  viewport.setAttribute('tabindex', '0');
+  viewport.addEventListener('keydown', function (e) {
+    const max = viewport.scrollWidth - viewport.clientWidth;
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollTo(Math.max(0,   viewport.scrollLeft - stepPx())); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); scrollTo(Math.min(max, viewport.scrollLeft + stepPx())); }
+    if (e.key === 'Home')       { e.preventDefault(); scrollTo(0); }
+    if (e.key === 'End')        { e.preventDefault(); scrollTo(max); }
+  });
+
+  viewport.addEventListener('scroll', updateButtons, { passive: true });
+
+  updateButtons();
 }());
 </script>
+
 </body>
 </html>

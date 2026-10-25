@@ -53,6 +53,12 @@
   --text-display-md:  clamp(2rem, 3.5vw, 3rem);      /* ~32–48px: medium headings */
   --text-display-sm:  clamp(1.5rem, 2.25vw, 2rem);   /* ~24–32px: small display */
 
+  /* Shared section heading — matches reference .display-md in styles.css */
+  --text-section-heading: clamp(1.75rem, 4vw, 3rem); /* ~28–48px */
+  --fw-section-heading:   600;
+  --lh-section-heading:   1.12;
+  --ls-section-heading:   -0.01em;
+
   /* Body scale — sans, used for copy, labels, nav */
   --text-body-lg:   1.25rem;    /* 20px — intro copy */
   --text-body:      1.0625rem;  /* 17px — standard body */
@@ -145,6 +151,7 @@
   --btn-px-sm:     1.25rem;   /* 20px */
   --btn-border-w:  1.5px;
   --btn-min-h:     44px;      /* WCAG 2.1 AA touch target */
+  --nav-action-h:  40px;      /* shared height: nav Contact button + search icon */
 }
 
 /* ---------------------------------------------------------------------------
@@ -257,6 +264,16 @@
   margin: 0;
 }
 
+/* Shared section heading — single source of truth for all major homepage section titles */
+.psp-section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-section-heading);
+  font-weight: var(--fw-section-heading);
+  line-height: var(--lh-section-heading);
+  letter-spacing: var(--ls-section-heading);
+  margin: 0;
+}
+
 /* Body scale */
 .psp-body-lg {
   font-family: var(--font-sans);
@@ -324,7 +341,7 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--btn-py) var(--btn-px);
-  border-radius: var(--radius-pill);
+  border-radius: 6px;
   border: var(--btn-border-w) solid transparent;
   font-family: var(--font-sans);
   font-size: var(--text-body-sm);
@@ -385,15 +402,15 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Explore — outlined pill + attached circular arrow badge (hero CTA) */
+/* Explore — outlined button on dark/hero background */
 .psp-btn--explore {
   background-color: transparent;
   color: var(--color-white);
-  border-color: var(--color-white);
-  padding-right: var(--btn-py);
+  border-color: rgba(255, 255, 255, 0.62);
 }
 .psp-btn--explore:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.90);
 }
 
 .psp-btn__arrow-badge {

@@ -16,6 +16,10 @@
   width: 100%;
   height: var(--nav-height); /* 76px */
   background: transparent;
+  transition: background 220ms ease-out, box-shadow 220ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .psp-nav { transition: none; }
 }
 
 .psp-nav__inner {
@@ -42,7 +46,7 @@
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 500;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.06em;
   color: var(--color-white);
   line-height: 1;
 }
@@ -71,7 +75,7 @@
 
 .psp-nav__link {
   font-family: var(--font-sans);
-  font-size: 0.6875rem; /* 11px */
+  font-size: 0.75rem; /* 12px */
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -98,13 +102,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(255, 255, 255, 0.85) !important; /* overrides styles.css button{border:none} reset */
+  width: var(--nav-action-h);
+  height: var(--nav-action-h);
+  border: var(--btn-border-w) solid rgba(255, 255, 255, 0.85) !important; /* overrides styles.css button{border:none} reset */
   background: transparent;
   cursor: pointer;
   color: var(--color-white);
-  border-radius: 50%;
+  border-radius: 6px;
   transition: background var(--transition-base), border-color var(--transition-base);
   flex-shrink: 0;
 }
@@ -147,22 +151,28 @@
   border-radius: 3px;
 }
 
-/* Search circle: keep circular focus ring */
+/* Search button focus ring */
 .psp-nav__search-btn:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.80);
   outline-offset: 2px;
-  border-radius: 50%;
+  border-radius: 6px;
 }
 
-/* Contact button — white outlined on transparent nav, shorter than WCAG 44px since desktop only */
+/* Contact button — white outlined on transparent nav, same height as search icon */
 .psp-nav .psp-btn--nav {
   color: var(--color-white);
   border-color: rgba(255, 255, 255, 0.55);
-  min-height: 38px;
+  min-height: var(--nav-action-h);
 }
 .psp-nav .psp-btn--nav:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.80);
+}
+
+/* Scrolled state — near-black background, text and icons remain white */
+.psp-nav.scrolled {
+  background: #101010;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* ---------------------------------------------------------------------------
@@ -301,8 +311,8 @@
     width: 44px;
     height: 44px;
     padding: 10px;
-    border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
-    border-radius: 50%;
+    border: var(--btn-border-w) solid rgba(255, 255, 255, 0.85) !important;
+    border-radius: var(--radius-sm);
   }
   .psp-nav__toggle:hover {
     background: rgba(255, 255, 255, 0.12);
@@ -350,11 +360,14 @@
 }
 
 .psp-hero__photo {
-  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
   height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
+  width: auto;
   display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 18%);
+  mask-image: linear-gradient(to right, transparent 0%, black 18%);
 }
 
 /* Gradient overlay — left-heavy for text contrast; bottom fade for depth */
@@ -422,6 +435,7 @@
 .psp-hero__headline em {
   font-style: italic;
   font-weight: var(--fw-medium);
+  white-space: nowrap;
 }
 
 /* Mobile-only line break inside italic headline sentence — hidden above 479px */
@@ -437,7 +451,8 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.86);
   margin: 0 0 36px;
-  max-width: 500px;
+  /* matches combined CTA width: 2 × 18rem min-width + gap between them */
+  max-width: calc(18rem * 2 + var(--space-5));
 }
 
 /* CTA row */
@@ -448,13 +463,16 @@
   align-items: center;
 }
 
-/* Hero CTAs — larger, more substantial than base token sizes */
-.psp-hero__ctas .psp-btn--primary-light {
+/* Hero CTAs — both buttons share size, typography, and spacing */
+.psp-hero__ctas .psp-btn--primary-light,
+.psp-hero__ctas .psp-btn--explore {
   min-height: 58px;
   padding-block: 1.0625rem;
   padding-inline: 2.25rem;
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
+  font-size: var(--text-body-sm);
+  letter-spacing: 0.03em;
+  min-width: 18rem;
+  justify-content: center;
 }
 
 /* Explore Properties — pill with inscribed circle at right.
@@ -462,66 +480,7 @@
  * eliminating the double-border that appeared when two CSS borders shared
  * the same junction. No overflow:hidden needed. */
 .psp-btn--explore {
-  --explore-h: 58px;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: calc(var(--explore-h) + 8px);
-  padding-right: calc(var(--explore-h) + 8px);
-  justify-content: center;
-  height: var(--explore-h);
-  border: none;
-  background: transparent;
-  color: var(--color-white);
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-/* SVG outline — drawn by initExploreSVG() in JS; covers the full button */
-.psp-btn__svg-outline {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.psp-btn__svg-outline path {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.58);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: stroke 200ms ease;
-}
-
-.psp-btn--explore:hover .psp-btn__svg-outline path {
-  stroke: rgba(255, 255, 255, 0.90);
-}
-
-/* Circle: positions the arrow; no border (SVG handles the arc) */
-.psp-btn__circle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: auto;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.125rem;
-  line-height: 1;
+  gap: var(--space-2);
 }
 
 /* Placeholder badge */
@@ -549,27 +508,34 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .psp-hero__content-wrap {
-    padding-top: calc(var(--nav-height) + 40px);
-    padding-bottom: 80px;
+    padding-top: calc(var(--nav-height) + 230px);
+    padding-bottom: 40px;
     padding-inline: var(--space-6);
   }
   .psp-hero__content {
-    max-width: 560px;
+    max-width: 490px;
+  }
+  .psp-hero__headline {
+    font-size: clamp(2.5rem, 4.6vw, 3.625rem);
   }
   .psp-hero__body {
     max-width: 100%;
   }
 }
 
-/* Tablet portrait — center content vertically, stack CTAs */
+/* Tablet portrait and below — content anchored to bottom-left */
 @media (max-width: 768px) {
   .psp-hero {
     min-height: 100svh;
   }
   .psp-hero__content-wrap {
-    align-items: center;
-    padding-top: calc(var(--nav-height) + 148px);
-    padding-bottom: 20px;
+    flex: none;
+    min-height: 100svh;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding-top: var(--nav-height);
+    padding-bottom: 36px;
     padding-inline: 40px;
   }
   .psp-hero__content {
@@ -589,17 +555,22 @@
     align-items: stretch;
     gap: var(--space-3);
   }
-  /* Consultation: full width */
-  .psp-hero__ctas .psp-btn--primary-light {
-    justify-content: center;
-    width: 100%;
-  }
-  /* Explore: circle is absolutely positioned so pill stretches to full width */
+  /* Both hero CTAs: full width, no min-width constraint on mobile */
+  .psp-hero__ctas .psp-btn--primary-light,
   .psp-hero__ctas .psp-btn--explore {
     width: 100%;
+    min-width: 0;
+    justify-content: center;
   }
   .psp-hero__photo {
-    object-position: 65% center;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 55% 5%;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   /* Tablet: content sits in the lower portion — reinforce with bottom-up scrim */
   .psp-hero__overlay {
@@ -622,8 +593,7 @@
 @media (max-width: 479px) {
   .psp-hero__content-wrap {
     padding-inline: var(--space-4);
-    padding-top: 220px;
-    padding-bottom: 34px;
+    padding-bottom: 20px;
   }
   .psp-hero__headline {
     font-size: clamp(2.5rem, 11vw, 3.25rem);
@@ -637,6 +607,9 @@
     font-size: var(--text-body);
     margin-bottom: 28px;
   }
+  .psp-hero__photo {
+    object-position: 50% 0%;
+  }
   /* Localized dark gradient behind the lower-left text block at mobile */
   .psp-hero__overlay {
     background:
@@ -644,6 +617,42 @@
       radial-gradient(ellipse 120% 72% at 10% 68%, rgba(8, 6, 4, 0.78) 0%, transparent 100%),
       /* Top scrim so nav remains readable */
       linear-gradient(to bottom, rgba(8, 6, 4, 0.42) 0%, transparent 22%);
+  }
+}
+
+/* Narrow mobile (≤360px) — compact button height */
+@media (max-width: 360px) {
+  .psp-hero__ctas .psp-btn--primary-light,
+  .psp-hero__ctas .psp-btn--explore {
+    min-height: 40px;
+    padding-block: 0.5rem;
+  }
+}
+
+/* Very narrow mobile (≤320px) — compact buttons + smaller headline */
+@media (max-width: 320px) {
+  .psp-hero__headline {
+    font-size: clamp(2.25rem, 10vw, 2.875rem);
+    margin-bottom: 18px;
+  }
+  .psp-hero__body {
+    margin-bottom: 22px;
+  }
+}
+
+/* Short mobile viewport — compact buttons + smaller headline + tighter spacing */
+@media (max-width: 375px) and (max-height: 650px) {
+  .psp-hero__ctas .psp-btn--primary-light,
+  .psp-hero__ctas .psp-btn--explore {
+    min-height: 40px;
+    padding-block: 0.5rem;
+  }
+  .psp-hero__headline {
+    font-size: clamp(2.25rem, 9.5vw, 2.875rem);
+    margin-bottom: 18px;
+  }
+  .psp-hero__body {
+    margin-bottom: 22px;
   }
 }
 
@@ -671,126 +680,152 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Find Your Next Move
-   Light section · stacked: intro above, 4-card full-width grid below
+   Find Your Next Move — Concept 2: Asymmetric Editorial Grid
+   Left: large hero photo + heading overlay | Right: 4 stacked service panels
    --------------------------------------------------------------------------- */
 
-.psp-next-move {
+.fnm-section {
+  border-top: 1px solid var(--color-border);
+}
+
+/* two-column asymmetric grid */
+.fnm__grid {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: var(--space-10);
-  align-items: start;
+  grid-template-columns: 47fr 53fr;
+  grid-template-rows: minmax(580px, auto);
+  gap: 20px;
+  align-items: stretch;
 }
 
-.psp-next-move__intro {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.psp-next-move .psp-eyebrow {
-  display: none;
-}
-
-.psp-next-move__heading {
-  font-family: var(--font-serif);
-  font-size: var(--text-display-md);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-display);
-  letter-spacing: var(--ls-display);
-  color: var(--color-text-primary);
-  margin: 0;
-}
-
-.psp-next-move__body {
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-  font-weight: var(--fw-regular);
-  line-height: var(--lh-body);
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-.psp-next-move__cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
-}
-
-.psp-move-card {
-  text-decoration: none;
-  color: var(--color-text-primary);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.psp-move-card__img-wrap {
+/* ── Left: hero ──────────────────────────────────────────── */
+.fnm__hero {
   position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: var(--color-bg-secondary);
+  background: #211C16;
 }
 
-.psp-move-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 400ms ease;
+.fnm__hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
   display: block;
 }
 
-.psp-move-card:hover .psp-move-card__img {
-  transform: scale(1.04);
+.fnm__hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(16,12, 8,.90)  0%,
+    rgba(16,12, 8,.62) 26%,
+    rgba(16,12, 8,.18) 54%,
+    transparent         74%
+  );
+  pointer-events: none;
 }
 
-.psp-move-card__text {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
+.fnm__hero-copy {
+  position: absolute;
+  bottom: 40px; left: 36px; right: 36px;
 }
-
-.psp-move-card__label {
+.fnm__hero-heading {
   font-family: var(--font-serif);
-  font-size: var(--text-body-sm);
-  font-weight: var(--fw-medium);
-  color: var(--color-text-primary);
-  margin: 0;
-  line-height: var(--lh-compact);
+  font-size: clamp(2.5rem, 3.8vw, 3.625rem);
+  font-weight: 300;
+  line-height: 1.06; letter-spacing: -.01em;
+  color: rgba(255,255,255,.96);
+  margin-bottom: 14px;
 }
-
-.psp-move-card__arrow {
+.fnm__hero-sub {
   font-family: var(--font-sans);
-  font-size: var(--text-body-sm);
-  color: var(--color-muted);
-  margin: 0;
-  flex-shrink: 0;
-  transition: color var(--transition-base), transform var(--transition-base);
-  display: none;
+  font-size: clamp(.75rem, .95vw, .875rem);
+  font-weight: 400; line-height: 1.68;
+  color: rgba(255,255,255,.56);
+  max-width: 32ch;
 }
 
-.psp-move-card:hover .psp-move-card__arrow {
+/* ── Right: 4 equal service panels ──────────────────────── */
+.fnm__panels {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fnm__panel {
+  display: flex; align-items: stretch;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  background: var(--color-testimonial-card);
+  border-radius: var(--radius-card);
+  overflow: hidden; position: relative;
+  flex: 1;
+  transition: background 170ms ease;
+}
+.fnm__panel:hover { background: #E6E3DC; }
+.fnm__panel:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: -2px;
+}
+
+.fnm__panel-content {
+  flex: 1; min-width: 0;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 12px;
+  padding: 26px 20px 26px 28px;
+}
+.fnm__panel-text {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.fnm__panel-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.7vw, 1.625rem);
+  font-weight: 600; line-height: 1.1; letter-spacing: .004em;
+  color: var(--color-text-primary);
+}
+.fnm__panel-desc {
+  font-family: var(--font-sans);
+  font-size: .75rem; font-weight: 400; line-height: 1.65;
   color: var(--color-text-secondary);
+  max-width: 34ch;
+}
+
+.fnm__panel-arrow {
+  flex-shrink: 0; display: flex;
+  align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+}
+.fnm__panel-arrow svg {
+  width: 15px; height: 15px;
+  stroke: var(--color-muted);
+  transition: stroke 200ms ease, transform 200ms ease;
+}
+.fnm__panel:hover .fnm__panel-arrow svg {
+  stroke: var(--color-text-primary);
   transform: translateX(3px);
 }
 
-.psp-move-card__placeholder {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  background: rgba(170, 60, 0, 0.88);
-  color: #fff;
-  font-family: var(--font-sans);
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 3px 7px;
-  border-radius: 2px;
-  pointer-events: none;
+/* photographic texture — right portion of each panel */
+.fnm__panel-texture {
+  flex-shrink: 0; width: 37%;
+  position: relative; overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+.fnm__panel-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+  transition: transform 400ms ease, filter 380ms ease;
+}
+.fnm__panel:hover .fnm__panel-img {
+  transform: scale(1.028);
+  filter: brightness(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fnm__panel                             { transition: none; }
+  .fnm__panel-arrow svg                   { transition: none; }
+  .fnm__panel:hover .fnm__panel-img       { transform: none; filter: none; }
+  .fnm__panel:hover .fnm__panel-arrow svg { transform: none; }
 }
 
 
@@ -806,9 +841,9 @@
 
 .psp-about-paul {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 5fr 7fr;
   gap: clamp(var(--space-10), 6vw, var(--space-16));
-  align-items: start;
+  align-items: stretch;
 }
 
 .psp-about-paul__photo-col {
@@ -817,26 +852,26 @@
 
 .psp-about-paul__photo {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
+  aspect-ratio: unset;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 8%;
   display: block;
 }
 
 .psp-about-paul__content {
-  padding-top: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-5);
   align-items: flex-start;
 }
 
 .psp-about-paul__heading {
   font-family: var(--font-serif);
-  font-size: clamp(1.875rem, 3vw, 2.75rem);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--ls-display);
+  font-size: var(--text-section-heading);
+  font-weight: var(--fw-section-heading);
+  line-height: var(--lh-section-heading);
+  letter-spacing: var(--ls-section-heading);
   color: var(--color-text-primary);
   margin: 0;
 }
@@ -849,118 +884,76 @@
   margin: 0;
 }
 
+.psp-about-paul__subheadline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-style: italic;
+  font-weight: var(--fw-light);
+  line-height: 1.38;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.psp-about-paul__bio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
 
 /* ---------------------------------------------------------------------------
-   Phase 3 Batch A (revised) — Responsive
+   Find Your Next Move + About Paul — Responsive
    --------------------------------------------------------------------------- */
 
-/* Small desktop: tighten gaps, keep 2-column grid */
 @media (max-width: 1024px) {
-  .psp-next-move {
-    gap: var(--space-8);
-  }
-
-  .psp-next-move__cards {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-3);
-  }
-
-  .psp-about-paul {
-    gap: var(--space-8);
-  }
+  .fnm__grid         { gap: 14px; grid-template-rows: minmax(520px, auto); }
+  .fnm__panels       { gap: 12px; }
+  .fnm__panel-content { padding: 22px 16px 22px 22px; }
+  .fnm__panel-texture { width: 33%; }
+  .fnm__hero-copy    { bottom: 28px; left: 26px; right: 26px; }
+  .psp-about-paul    { gap: var(--space-8); }
 }
 
-/* Tablet portrait: stack intro above cards, hide eyebrow, 4 photos in a row */
 @media (max-width: 768px) {
-  .psp-next-move {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-
-  .psp-next-move__cards {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-3);
-  }
+  .fnm__grid         { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 0; }
+  .fnm__hero         { aspect-ratio: 16 / 9; min-height: 260px; }
+  .fnm__hero-copy    { bottom: 22px; left: 20px; right: 20px; }
+  .fnm__hero-heading { font-size: clamp(1.875rem, 5vw, 2.5rem); }
+  .fnm__hero-sub     { font-size: .75rem; }
+  .fnm__panels       { gap: 10px; }
+  .fnm__panel-content { padding: 20px 14px 20px 18px; }
+  .fnm__panel-texture { width: 28%; }
+  .fnm__panel-heading { font-size: 1.25rem; }
 }
 
-/* 641–768px: photo stretches to fill content column height */
-@media (min-width: 641px) and (max-width: 768px) {
-  .psp-about-paul {
-    align-items: stretch;
-  }
-
-  .psp-about-paul__content {
-    padding-top: 0;
-  }
-
-  .psp-about-paul__photo {
-    aspect-ratio: auto;
-    height: 100%;
-  }
-}
-
-/* Narrow tablet / large mobile: stack About Paul to single column */
 @media (max-width: 640px) {
-  .psp-about-paul {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  .psp-about-paul__content {
-    padding-top: 0;
-  }
+  .psp-about-paul          { grid-template-columns: 1fr; gap: var(--space-8); align-items: start; }
+  .psp-about-paul__content { padding-top: 0; }
+  .psp-about-paul__photo   { aspect-ratio: 3 / 4; height: auto; }
 }
 
-/* Mobile: service cards become a vertical stacked list */
+@media (max-width: 480px) {
+  .fnm__hero         { aspect-ratio: 5 / 4; min-height: 240px; }
+  .fnm__hero-heading { font-size: 2rem; }
+  .fnm__hero-sub     { font-size: .6875rem; max-width: 26ch; }
+  .fnm__hero-copy    { bottom: 20px; left: 18px; right: 18px; }
+  .fnm__panels       { gap: 8px; }
+  .fnm__panel-texture { display: none; }
+  .fnm__panel-content { padding: 16px 16px 16px 16px; }
+  .fnm__panel-heading { font-size: 1.1875rem; }
+  .fnm__panel-desc   { max-width: 100%; font-size: .6875rem; }
+}
+
 @media (max-width: 479px) {
-  .psp-next-move__cards {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
+  .psp-about-paul__content  { gap: var(--space-5); }
+  .psp-about-paul__photo-col { max-width: 100%; }
+  .psp-about-paul__photo    { aspect-ratio: 3 / 4; object-position: center 12%; }
+}
 
-  .psp-move-card {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-4);
-    padding-block: var(--space-4);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .psp-move-card:first-child {
-    border-top: 1px solid var(--color-border);
-  }
-
-  .psp-move-card__img-wrap {
-    flex-shrink: 0;
-    width: 72px;
-    aspect-ratio: 1 / 1;
-  }
-
-  .psp-move-card__text {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .psp-move-card__label {
-    font-size: var(--text-body);
-  }
-
-  .psp-move-card__arrow {
-    display: block;
-  }
-
-  .psp-about-paul__content {
-    gap: var(--space-5);
-  }
-
-  .psp-about-paul__photo-col {
-    max-width: 100%;
-  }
-
-  .psp-about-paul__photo {
-    aspect-ratio: 3 / 2;
-    object-position: center 20%;
-  }
+@media (max-width: 360px) {
+  .fnm__hero-heading  { font-size: 1.75rem; }
+  .fnm__panel-heading { font-size: 1.0625rem; }
+  .fnm__panel-desc    { font-size: .625rem; }
 }
 
 
@@ -978,7 +971,7 @@
 
 .psp-transactions__header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-6);
   flex-wrap: wrap;
@@ -986,6 +979,16 @@
 }
 
 .psp-transactions__header-left { display: flex; flex-direction: column; gap: var(--space-2); }
+
+.psp-transactions__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-section-heading);
+  font-weight: var(--fw-section-heading);
+  line-height: var(--lh-section-heading);
+  letter-spacing: var(--ls-section-heading);
+  color: var(--color-text-primary);
+  margin: 0;
+}
 
 .psp-transactions__sub {
   font-family: var(--font-sans);
@@ -1061,7 +1064,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 9999px;
+  border-radius: 4px;
 }
 .psp-tx-badge--sold      { background: var(--color-dark); color: var(--color-white); }
 .psp-tx-badge--leased    { background: var(--color-dark); color: var(--color-white); }
@@ -1087,7 +1090,7 @@
 .psp-tx-card__address {
   font-family: var(--font-serif);
   font-size: clamp(1.1875rem, 1.4vw, 1.3125rem); /* 19–21px */
-  font-weight: var(--fw-regular);
+  font-weight: 600;
   letter-spacing: var(--ls-display);
   line-height: 1.25;
   color: var(--color-text-primary);
@@ -1132,6 +1135,16 @@
   margin-bottom: var(--space-8);
 }
 
+.psp-experiences__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-section-heading);
+  font-weight: var(--fw-section-heading);
+  line-height: var(--lh-section-heading);
+  letter-spacing: var(--ls-section-heading);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
 .psp-experiences__nav {
   display: flex;
   gap: var(--space-2);
@@ -1145,7 +1158,7 @@
   justify-content: center;
   background: none;
   border: 1px solid rgba(36,36,36,0.30);
-  border-radius: 50%;
+  border-radius: 6px;
   color: var(--color-text-primary);
   cursor: pointer;
   transition: border-color var(--transition-base);
@@ -1191,9 +1204,9 @@
 /* Quotation mark — left column, geometrically separate from text */
 .psp-experience-card__mark {
   font-family: var(--font-serif);
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: var(--fw-light);
-  color: rgba(36,36,36,0.20);
+  color: rgba(36,36,36,0.28);
   line-height: 0.62;
   display: block;
   user-select: none;
@@ -1212,7 +1225,7 @@
   font-family: var(--font-serif);
   font-size: 1.375rem;
   font-style: italic;
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-medium);
   line-height: 1.68;
   color: var(--color-text-primary);
   margin: 0;
@@ -1288,69 +1301,221 @@
 
 
 /* ---------------------------------------------------------------------------
-   Featured Neighborhoods
-   Dark section · full-bleed photo background + 2-column layout
+   Neighborhood Carousel
+   Light section · contained viewport, aligned with page grid
    --------------------------------------------------------------------------- */
 
-.psp-section--nhd-bg {
-  background-color: var(--color-dark);
-  background-image: url('../images/neighborhoods/hollywood-hills.jpg');
-  background-size: cover;
-  background-position: center 40%;
-  position: relative;
-}
-.psp-section--nhd-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(18, 16, 14, 0.78);
-  pointer-events: none;
-}
-.psp-section--nhd-bg > .psp-section-inner {
-  position: relative;
-  z-index: 1;
+.psp-nhd-c {
+  width: 100%;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--section-py);
 }
 
-.psp-neighborhoods-featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(var(--space-12), 8vw, var(--space-20));
-  align-items: start;
+/* Shared content container — same max-width and gutters as all other sections */
+.psp-nhd-c__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--section-px);
 }
 
-.psp-neighborhoods-featured__heading {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: var(--fw-light);
-  line-height: var(--lh-display);
-  letter-spacing: var(--ls-display);
-  color: var(--color-white);
-  margin: var(--space-4) 0 0;
-}
-
-.psp-nhd-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--color-border-light);
-  padding-top: var(--space-1);
-}
-
-.psp-nhd-row {
+/* Header row: heading left, nav buttons right */
+.psp-nhd-c__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-4) 0;
-  border-bottom: 1px solid var(--color-border-light);
-  text-decoration: none;
-  color: var(--color-white);
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.01em;
-  transition: opacity var(--transition-base);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
 }
-.psp-nhd-row:hover { opacity: 0.65; }
-.psp-nhd-row__arrow { color: var(--color-muted); font-size: var(--text-body-sm); }
+
+.psp-nhd-c__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-section-heading);
+  font-weight: var(--fw-section-heading);
+  line-height: var(--lh-section-heading);
+  letter-spacing: var(--ls-section-heading);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.psp-nhd-c__nav {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.psp-nhd-c__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid rgba(36, 36, 36, 0.22);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    opacity var(--transition-base);
+  flex-shrink: 0;
+}
+.psp-nhd-c__btn:hover:not(:disabled) {
+  background: var(--color-bg-secondary);
+  border-color: rgba(36, 36, 36, 0.42);
+}
+.psp-nhd-c__btn:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+.psp-nhd-c__btn:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+.psp-nhd-c__btn svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* Carousel viewport: native scroll container.
+   container-type lets mobile cards reference this width via cqi units. */
+.psp-nhd-c__viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  container-type: inline-size;
+}
+.psp-nhd-c__viewport::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .psp-nhd-c__viewport { scroll-behavior: auto; }
+}
+
+/* Scrolling track */
+.psp-nhd-c__track {
+  display: flex;
+  gap: 18px;
+  padding-right: var(--section-px);
+}
+@media (max-width: 768px) {
+  .psp-nhd-c__track { gap: 12px; }
+}
+
+/* ── Cards ─────────────────────────────────────────── */
+
+.psp-nhd-card {
+  display: block;
+  text-decoration: none;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  /* 248px → ~4.1 visible at 1440px (1100px viewport), ~3.7 at 1024px (976px) */
+  width: 248px;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.psp-nhd-card__img-wrap {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 5;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Tablet 481–768px: ~2.5 cards in 736px viewport */
+@media (max-width: 768px) {
+  .psp-nhd-card           { width: 288px; }
+  .psp-nhd-card__img-wrap { aspect-ratio: auto; height: 360px; }
+}
+
+/* Mobile ≤480px: fill viewport minus peek gap (~10–14% next-card preview).
+   cqi references .psp-nhd-c__viewport — no vw calculations needed. */
+@container (max-width: 480px) {
+  .psp-nhd-card           { width: calc(100cqi - 52px); }
+  .psp-nhd-card__img-wrap { aspect-ratio: auto; height: clamp(300px, calc(100cqi * 1.1), 360px); }
+  .psp-nhd-card__name     { font-size: clamp(1rem, 4.5cqi, 1.25rem); }
+}
+
+.psp-nhd-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition:
+    transform 420ms ease,
+    filter 420ms ease;
+}
+.psp-nhd-card:hover .psp-nhd-card__img {
+  transform: scale(1.035);
+  filter: brightness(1.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .psp-nhd-card:hover .psp-nhd-card__img {
+    transform: none;
+    filter: brightness(1.06);
+  }
+}
+
+.psp-nhd-card__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(24, 20, 16, 0.92) 0%,
+    rgba(24, 20, 16, 0.72) 25%,
+    rgba(24, 20, 16, 0.22) 55%,
+    transparent            78%
+  );
+  pointer-events: none;
+}
+
+.psp-nhd-card__name {
+  position: absolute;
+  bottom: 20px;
+  left: 18px;
+  right: 18px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.3125rem, 1.65vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.18;
+  color: rgba(255, 255, 255, 0.96);
+  pointer-events: none;
+}
+
+@media (max-width: 580px) {
+  .psp-nhd-c__header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+  .psp-nhd-c__title { width: 100%; }
+}
+
+/* Mobile ≤430px: hide arrow nav (swipe-only), tighten heading gap */
+@media (max-width: 430px) {
+  .psp-nhd-c__nav {
+    display: none;
+  }
+  .psp-nhd-c__header {
+    margin-bottom: 20px;
+  }
+}
 
 
 /* ---------------------------------------------------------------------------
@@ -1365,6 +1530,16 @@
   gap: var(--space-6);
   flex-wrap: wrap;
   margin-bottom: var(--space-10);
+}
+
+.psp-journal__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-section-heading);
+  font-weight: var(--fw-section-heading);
+  line-height: var(--lh-section-heading);
+  letter-spacing: var(--ls-section-heading);
+  color: var(--color-text-primary);
+  margin: 0;
 }
 
 .psp-journal__view-all {
@@ -1392,18 +1567,18 @@
 .psp-journal__grid .blog-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
   text-decoration: none;
   color: var(--color-text-primary);
-  padding: var(--space-6) 0;
+  padding: var(--space-8) 0;
   border-top: 1px solid var(--color-border);
+  height: 100%;
 }
 .psp-journal__grid .blog-card:hover { color: var(--color-text-primary); }
 
 .psp-journal__grid .blog-card-body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  flex: 1;
 }
 
 .psp-journal__grid .blog-cat {
@@ -1413,15 +1588,16 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--color-muted);
+  margin-bottom: var(--space-3);
 }
 
 .psp-journal__grid .blog-card h3 {
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 1.3vw, 1.1875rem);
-  font-weight: var(--fw-light);
-  line-height: var(--lh-heading);
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  font-weight: var(--fw-semibold);
+  line-height: 1.35;
   color: var(--color-text-primary);
-  margin: 0;
+  margin: 0 0 var(--space-4) 0;
   letter-spacing: var(--ls-display);
 }
 .psp-journal__grid .blog-card:hover h3 { text-decoration: underline; text-decoration-color: var(--color-border); }
@@ -1429,9 +1605,9 @@
 .psp-journal__grid .blog-card p {
   font-family: var(--font-sans);
   font-size: var(--text-body-sm);
-  line-height: var(--lh-body);
+  line-height: 1.6;
   color: var(--color-text-secondary);
-  margin: 0;
+  margin: 0 0 var(--space-6) 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -1444,7 +1620,8 @@
   color: var(--color-muted);
   display: flex;
   gap: var(--space-2);
-  margin-top: var(--space-1);
+  margin-top: auto;
+  padding-top: var(--space-10);
 }
 
 .psp-journal__grid .blog-meta-dot { opacity: 0.5; }
@@ -1455,6 +1632,25 @@
   justify-content: center;
 }
 
+.psp-journal__more-btn {
+  background: transparent;
+  border: 1.5px solid var(--color-bg-secondary);
+  border-radius: 0.375rem;
+  padding: 13px 32px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.psp-journal__more-btn:hover {
+  border-color: var(--color-text-primary);
+  background: rgba(0,0,0,0.04);
+}
+
 
 /* ---------------------------------------------------------------------------
    Phase 3 Batch B — Responsive
@@ -1462,14 +1658,287 @@
 
 @media (max-width: 1024px) {
   .psp-transactions__grid   { grid-template-columns: repeat(2, 1fr); }
-  .psp-neighborhoods-featured { grid-template-columns: 1fr; gap: var(--space-10); }
   .psp-journal__grid        { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+  /* Journal: JS show-more controls visibility; nth-child hide removed */
 }
 
 @media (max-width: 640px) {
   .psp-journal__grid        { grid-template-columns: 1fr; }
+  /* Journal: restore 3rd card visibility if it somehow shows — 2 still enough at 1-col */
 }
 
 @media (max-width: 479px) {
   .psp-transactions__grid   { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+
+/* ---------------------------------------------------------------------------
+   Progressive Disclosure — Transactions Show More / Less
+   --------------------------------------------------------------------------- */
+
+.psp-tx-card--hidden {
+  display: none;
+}
+
+.psp-tx-more-wrap {
+  margin-top: var(--space-8);
+  display: flex;
+  justify-content: center;
+}
+
+.psp-tx-more-btn {
+  background: transparent;
+  border: 1.5px solid var(--color-bg-secondary);
+  border-radius: 0.375rem;
+  padding: 13px 32px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.psp-tx-more-btn:hover {
+  border-color: var(--color-text-primary);
+  background: rgba(36, 36, 36, 0.04);
+}
+
+
+/* ---------------------------------------------------------------------------
+   Insider signup — centered single-card redesign
+   --------------------------------------------------------------------------- */
+
+/* Center the single card, replacing the two-column grid */
+.insider-inner {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  align-items: stretch;
+}
+
+/* Section outer padding */
+.insider             { padding: 80px 0; }
+@media (max-width: 1199px) { .insider { padding: 72px 0; } }
+@media (max-width: 899px)  { .insider { padding: 64px 0; } }
+@media (max-width: 599px)  { .insider { padding: 48px 0; } }
+@media (max-width: 360px)  { .insider { padding: 40px 0; } }
+
+/* Card: 820px centered, padded */
+.insider-form-wrap {
+  max-width: 820px;
+  width: 100%;
+  text-align: center;
+  padding: 48px 56px;
+}
+@media (max-width: 899px) {
+  .insider-form-wrap { max-width: 720px; padding: 40px 48px; }
+}
+@media (max-width: 599px) {
+  .insider-form-wrap { max-width: 100%; padding: 32px 22px; }
+}
+@media (max-width: 360px) {
+  .insider-form-wrap { padding: 28px 18px; }
+}
+
+/* Heading */
+.insider-form-wrap h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 3.5vw, 1.875rem);
+  color: var(--color-white);
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Description (direct sibling of h3) */
+.insider-form-wrap h3 + p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0;
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+@media (max-width: 599px) {
+  .insider-form-wrap h3 + p { margin-bottom: 22px; }
+}
+
+/* Inner form: 520px centered, left-aligned text */
+.insider-form {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+@media (max-width: 599px) {
+  .insider-form { max-width: 100%; }
+}
+
+/* "No spam. Unsubscribe anytime." */
+#ins-nospam {
+  font-size: 12px;
+  color: rgba(255,255,255,0.42);
+  margin-top: 12px;
+  margin-bottom: 0;
+  text-align: center;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 599px) {
+  #ins-nospam { max-width: 100%; margin-top: 10px; }
+}
+
+/* Consent disclosure: 7.86:1 on #1c1c1c — WCAG AAA */
+.insider-consent {
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin-top: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 599px) {
+  .insider-consent { max-width: 100%; margin-top: 10px; }
+}
+
+/* Mobile heading + description typography */
+@media (max-width: 430px) {
+  .insider-form-wrap h3     { font-size: 25px; letter-spacing: -0.01em; }
+  .insider-form-wrap h3 + p { font-size: 14px; line-height: 1.5; }
+}
+@media (max-width: 399px) {
+  .insider-form-wrap h3     { font-size: 23px; }
+  .insider-form-wrap h3 + p { font-size: 13.5px; }
+}
+@media (max-width: 384px) {
+  .insider-form-wrap h3     { font-size: 22px; }
+}
+@media (max-width: 335px) {
+  .insider-form-wrap h3     { font-size: 20px; }
+  .insider-form-wrap h3 + p { font-size: 13px; }
+}
+
+/* ---------------------------------------------------------------------------
+   CTA section — button text centering
+   The legacy .btn-group .btn rule in styles.css targets .btn only; the CTA
+   section uses .psp-btn, which was missed, leaving labels left-aligned when
+   the group stretches buttons to full width at ≤480px.
+   --------------------------------------------------------------------------- */
+.cta-section .psp-btn {
+  justify-content: center;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .btn-group .psp-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Transactions + Journal — View All responsive treatment
+   Hide in-header View All text links below 1024px; show them as charcoal
+   buttons stacked below Show More, identical in dimensions at every breakpoint.
+   --------------------------------------------------------------------------- */
+
+/* Hide header text links at tablet/mobile */
+@media (max-width: 1023px) {
+  .psp-transactions__view-all,
+  .psp-journal__view-all { display: none; }
+}
+
+/* Stack: wraps Show More + View All for each section.
+   Desktop: acts as the original centered Show More wrapper. */
+.psp-btn-stack {
+  display: flex;
+  justify-content: center;
+}
+[data-stack-for="psp-tx-more-wrap"]      { margin-top: var(--space-8); }
+[data-stack-for="psp-journal-more-wrap"] { margin-top: var(--space-10); }
+
+/* Collapse margin when Show More is hidden (all items visible) */
+.psp-btn-stack:has([id$="more-wrap"][hidden]) { margin-top: 0; }
+
+/* Reset More-wrap's own margin — stack owns the outer spacing */
+.psp-btn-stack .psp-tx-more-wrap,
+.psp-btn-stack .psp-journal__more-wrap { margin-top: 0; }
+
+/* View All wrapper: hidden at desktop */
+.psp-tx-view-all-wrap,
+.psp-journal-view-all-wrap { display: none; }
+
+/* Tablet (640–1023px): column, constrained width → identical button widths */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .psp-btn-stack {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .psp-btn-stack > div { display: flex; width: 100%; }
+  .psp-btn-stack .psp-tx-more-btn,
+  .psp-btn-stack .psp-journal__more-btn,
+  .psp-btn-stack .psp-view-all-btn {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .psp-tx-view-all-wrap,
+  .psp-journal-view-all-wrap { display: flex; }
+}
+
+/* Mobile (<640px): full-width column */
+@media (max-width: 639px) {
+  .psp-btn-stack {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .psp-btn-stack > div { display: flex; width: 100%; }
+  .psp-btn-stack .psp-tx-more-btn,
+  .psp-btn-stack .psp-journal__more-btn,
+  .psp-btn-stack .psp-view-all-btn {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .psp-tx-view-all-wrap,
+  .psp-journal-view-all-wrap { display: flex; }
+}
+
+/* View All button — charcoal filled */
+.psp-view-all-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  background: var(--color-text-primary);
+  color: #fff;
+  border: 1.5px solid var(--color-text-primary);
+  border-radius: 0.375rem;
+  padding: 13px 32px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.psp-view-all-btn:hover {
+  background: #3a3a38;
+  border-color: #3a3a38;
 }
