@@ -1,0 +1,73 @@
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+
+    <div class="psp-nav__actions">
+      <a href="#"
+         class="psp-btn psp-btn--nav"
+         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
+        Contact
+      </a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+
+    <button class="psp-nav__toggle"
+            id="navToggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="#"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="#"
+       class="psp-btn psp-btn--primary"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+      Schedule a Consultation
+    </a>
+  </div>
+</div>
