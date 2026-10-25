@@ -63,6 +63,8 @@
     .psp-dropdown-list li[aria-selected="true"] {
       background: rgba(255,255,255,0.06); color: #A9A8A2;
     }
+    .valuation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    @media (max-width: 768px) { .valuation-grid { grid-template-columns: 1fr; gap: 40px; } }
   </style>
   </head>
 <body>
@@ -154,7 +156,7 @@
 <!-- VALUATION SECTION -->
 <section class="section">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+    <div class="valuation-grid">
 
       <!-- Why this valuation -->
       <div>
