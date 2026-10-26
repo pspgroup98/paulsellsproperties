@@ -1187,12 +1187,25 @@ body:has(.post-content) {
   opacity: 0.8;
 }
 
+/* ---------- Neighborhood Detail Content Grid ---------- */
+.nbhd-content-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .nbhd-content-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
 /* ---------- Neighborhood Carousel ---------- */
 .nbhd-carousel-outer {
   position: relative;
   margin-top: 40px;
   padding: 0 52px;
-  overflow: hidden;
 }
 .nbhd-carousel {
   display: flex;
