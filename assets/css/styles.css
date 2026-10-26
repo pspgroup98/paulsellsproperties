@@ -1192,6 +1192,7 @@ body:has(.post-content) {
   position: relative;
   margin-top: 40px;
   padding: 0 52px;
+  overflow: hidden;
 }
 .nbhd-carousel {
   display: flex;
