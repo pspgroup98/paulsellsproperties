@@ -104,7 +104,7 @@
   justify-content: center;
   width: var(--nav-action-h);
   height: var(--nav-action-h);
-  border: var(--btn-border-w) solid rgba(255, 255, 255, 0.85) !important; /* overrides styles.css button{border:none} reset */
+  border: var(--btn-border-w) solid rgba(255, 255, 255, 0.85);
   background: transparent;
   cursor: pointer;
   color: var(--color-white);
@@ -115,7 +115,7 @@
 
 .psp-nav__search-btn:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 1.0) !important;
+  border-color: rgba(255, 255, 255, 1.0);
 }
 
 /* Mobile hamburger (hidden on desktop) */
@@ -311,12 +311,12 @@
     width: 44px;
     height: 44px;
     padding: 10px;
-    border: var(--btn-border-w) solid rgba(255, 255, 255, 0.85) !important;
+    border: var(--btn-border-w) solid rgba(255, 255, 255, 0.85);
     border-radius: var(--radius-sm);
   }
   .psp-nav__toggle:hover {
     background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 1.0) !important;
+    border-color: rgba(255, 255, 255, 1.0);
   }
   .psp-nav__search-btn {
     width: 44px;
