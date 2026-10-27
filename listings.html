@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los Angeles Properties | Paul Adams II</title>
+  <meta name="description" content="Browse active MLS listings and recent transactions across Los Angeles with Paul Adams II, Coldwell Banker Realty Beverly Hills. Houses, condos, multi-family, and investment properties.">
+  <link rel="canonical" href="https://paulsellsproperties.com/listings">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Los Angeles Properties | Paul Adams II">
+  <meta property="og:description" content="Browse active MLS listings and recent transactions across Los Angeles with Paul Adams II, Coldwell Banker Realty Beverly Hills.">
+  <meta property="og:url" content="https://paulsellsproperties.com/listings">
+  <meta property="og:site_name" content="Paul Adams II">
+  <meta property="og:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Los Angeles Properties | Paul Adams II">
+  <meta name="twitter:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://paulsellsproperties.com/listings#webpage",
+        "url": "https://paulsellsproperties.com/listings",
+        "name": "Los Angeles Properties | Paul Adams II",
+        "description": "Browse active MLS listings and recent transactions across Los Angeles.",
+        "isPartOf": {"@id": "https://paulsellsproperties.com/#website"},
+        "inLanguage": "en-US",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://paulsellsproperties.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Properties", "item": "https://paulsellsproperties.com/listings"}
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/design-tokens.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+
+    <div class="psp-nav__actions">
+      <a href="#"
+         class="psp-btn psp-btn--nav"
+         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
+        Contact
+      </a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+
+    <button class="psp-nav__toggle"
+            id="navToggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="#"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="#"
+       class="psp-btn psp-btn--primary"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+      Schedule a Consultation
+    </a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <span class="page-header-eyebrow">Properties</span>
+    <h1>Los Angeles Properties</h1>
+    <p>Search active MLS listings and review recent transactions across Los Angeles. Houses, condos, multi-family, and investment properties.</p>
+  </div>
+</div>
+
+<!-- MLS SEARCH -->
+<section class="section">
+  <div class="container">
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); gap:32px; align-items:center; margin-bottom:80px;">
+      <div>
+        <span class="section-label">Active MLS Listings</span>
+        <h2 class="section-title" style="font-size:clamp(28px,3vw,42px);">Search Every Active Listing in Los Angeles</h2>
+        <p style="font-size:16px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:32px;">
+          Browse the full MLS: houses, condos, multi-family, and land across every Los Angeles neighborhood. Updated in real time.
+        </p>
+        <a href="https://www.themls.com/IDXNET/Default.aspx?wid=2q0y5eCcXc5I3QI2sLSlatlNdpQ67OX6gcRNBRVwFPLv14jZddLQCaI14PjK63bT"
+           target="_blank" rel="noopener"
+           class="psp-btn psp-btn--primary-light" style="font-size:13px;">
+          Open Property Search
+        </a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="background:var(--dark-2); border:1px solid var(--border); border-radius:2px; padding:24px 28px; display:flex; align-items:center; gap:20px;">
+          <div style="width:40px; height:40px; background:rgba(255,255,255,0.06); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0;" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); margin-bottom:3px;">Full MLS Access</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5;">Every active listing, updated in real time</div>
+          </div>
+        </div>
+        <div style="background:var(--dark-2); border:1px solid var(--border); border-radius:2px; padding:24px 28px; display:flex; align-items:center; gap:20px;">
+          <div style="width:40px; height:40px; background:rgba(255,255,255,0.06); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0;" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); margin-bottom:3px;">All Property Types</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5;">Houses, condos, multi-family, and land</div>
+          </div>
+        </div>
+        <div style="background:var(--dark-2); border:1px solid var(--border); border-radius:2px; padding:24px 28px; display:flex; align-items:center; gap:20px;">
+          <div style="width:40px; height:40px; background:rgba(255,255,255,0.06); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0;" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); margin-bottom:3px;">All LA Neighborhoods</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5;">Filter by area, price, beds, and more</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid var(--border); margin-bottom:80px;"></div>
+
+    <!-- Off-market -->
+    <div style="text-align:center; max-width:560px; margin:0 auto;">
+      <span class="section-label">Beyond the MLS</span>
+      <h2 class="section-title" style="font-size:clamp(24px,2.8vw,36px); margin-bottom:16px;">Not Finding It on the Market?</h2>
+      <p style="font-size:16px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:32px;">
+        I have access to off-market and pre-market properties that never reach public listings. Tell me what you are looking for and I will find it.
+      </p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="/contact" class="psp-btn psp-btn--primary-light">Tell Me What You Need</a>
+        <a href="#"
+           class="psp-btn psp-btn--outline-light"
+           onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
+          Schedule a Showing
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RECENT TRANSACTIONS -->
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:40px;">
+      <div>
+        <span class="section-label">Verified Activity</span>
+        <h2 class="section-title" style="margin-bottom:0;">Recent Transactions</h2>
+      </div>
+    </div>
+
+    <div class="psp-transactions__grid">
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/904%20N%20Western%20Ave.png" alt="904 N Western Ave, Los Angeles" style="object-position:center center;">
+          <span class="psp-tx-badge psp-tx-badge--active">For Sale</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">904 N Western Ave</p>
+          <p class="psp-tx-card__neighborhood">Los Angeles</p>
+          <p class="psp-tx-card__price">$1,975,000</p>
+          <p class="psp-tx-card__meta">Represented Seller &middot; Mixed-Use</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/8455%20Fountain%20Ave%20%23504.png" alt="8455 Fountain Ave #504, West Hollywood" style="object-position:center top;">
+          <span class="psp-tx-badge psp-tx-badge--sold">Sold</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">8455 Fountain Ave #504</p>
+          <p class="psp-tx-card__neighborhood">West Hollywood</p>
+          <p class="psp-tx-card__price">$885,000</p>
+          <p class="psp-tx-card__meta">Represented Buyer &middot; Condominium</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/244%20N%20Chicago%20Ave.png" alt="244 N Chicago Ave, Los Angeles" style="object-position:center 25%;">
+          <span class="psp-tx-badge psp-tx-badge--off-market">Off Market</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">244 N Chicago Ave</p>
+          <p class="psp-tx-card__neighborhood">Los Angeles</p>
+          <p class="psp-tx-card__price">$1,299,000</p>
+          <p class="psp-tx-card__meta">Represented Seller</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/72450%20Manzanita%20Dr.png" alt="72450 Manzanita Dr, Palm Desert" style="object-position:center center;">
+          <span class="psp-tx-badge psp-tx-badge--active">For Sale</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">72450 Manzanita Dr</p>
+          <p class="psp-tx-card__neighborhood">Palm Desert</p>
+          <p class="psp-tx-card__price">$595,000</p>
+          <p class="psp-tx-card__meta">Represented Seller</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/4343%20Finley%20Ave%20%2336.png" alt="4343 Finley Ave #36, Los Angeles" style="object-position:center center;">
+          <span class="psp-tx-badge psp-tx-badge--sold">Sold</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">4343 Finley Ave #36</p>
+          <p class="psp-tx-card__neighborhood">Los Angeles</p>
+          <p class="psp-tx-card__price">$870,000</p>
+          <p class="psp-tx-card__meta">Represented Buyer &middot; Condominium</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/320%20S%20Ardmore%20Ave%20%23205.png" alt="320 S Ardmore Ave #205, Los Angeles" style="object-position:center center;">
+          <span class="psp-tx-badge psp-tx-badge--sold">Sold</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">320 S Ardmore Ave #205</p>
+          <p class="psp-tx-card__neighborhood">Los Angeles</p>
+          <p class="psp-tx-card__price">$340,000</p>
+          <p class="psp-tx-card__meta">Represented Buyer &middot; Condominium</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/12213%20Havelock%20Ave.png" alt="12213 Havelock Ave, Los Angeles" style="object-position:center center;">
+          <span class="psp-tx-badge psp-tx-badge--leased">Leased</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">12213 Havelock Ave</p>
+          <p class="psp-tx-card__neighborhood">Los Angeles</p>
+          <p class="psp-tx-card__price">$7,650 / month</p>
+          <p class="psp-tx-card__meta">Represented Tenant</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/4533%20Colbath%20Ave%20%2320.png" alt="4533 Colbath Ave #20, Sherman Oaks" style="object-position:center center;">
+          <span class="psp-tx-badge psp-tx-badge--leased">Leased</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">4533 Colbath Ave #20</p>
+          <p class="psp-tx-card__neighborhood">Sherman Oaks</p>
+          <p class="psp-tx-card__price">$1,950 / month</p>
+          <p class="psp-tx-card__meta">Represented Tenant</p>
+        </div>
+      </div>
+
+      <div class="psp-tx-card">
+        <div class="psp-tx-card__img-wrap">
+          <img class="psp-tx-card__img" src="assets/images/transactions_enhanced/439%20N%20Van%20Ness%20Ave%20%231.png" alt="439 N Van Ness Ave #1, Los Angeles" style="object-position:center 80%;">
+          <span class="psp-tx-badge psp-tx-badge--leased">Leased</span>
+        </div>
+        <div class="psp-tx-card__body">
+          <p class="psp-tx-card__address">439 N Van Ness Ave #1</p>
+          <p class="psp-tx-card__neighborhood">Los Angeles</p>
+          <p class="psp-tx-card__price">$1,595 / month</p>
+          <p class="psp-tx-card__meta">Represented Tenant</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Schedule a Showing?</h2>
+    <p>Found something you want to see? I will arrange access and walk you through every detail before you make a decision.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="#" class="psp-btn psp-btn--primary-light"
+         onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+        Schedule a Showing
+      </a>
+      <a href="/contact" class="psp-btn psp-btn--outline-light">Contact Me</a>
+    </div>
+    <div class="cta-contact-row">
+      <div class="cta-info-item">
+        <div class="cta-info-label">Email</div>
+        <div class="cta-info-value"><a href="mailto:Paul.Adams@CBRealty.com">Paul.Adams@CBRealty.com</a></div>
+      </div>
+      <div class="cta-info-item">
+        <div class="cta-info-label">Phone (Direct)</div>
+        <div class="cta-info-value"><a href="tel:+13019066252">301-906-6252</a></div>
+      </div>
+      <div class="cta-info-item">
+        <div class="cta-info-label">Office</div>
+        <div class="cta-info-value"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr &middot; Beverly Hills 90210</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-wrap">
+            <a href="/" class="logo-mark">
+              <span class="logo-name">Paul Adams II</span>
+              <span class="logo-rule"></span>
+              <span class="logo-sub">Los Angeles Real Estate</span>
+            </a>
+          </div>
+          <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/property-search">Property Search</a></li>
+            <li><a href="/buying-selling-tips">Buying &amp; Selling</a></li>
+            <li><a href="/about">About Me</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/home-valuation">Home Valuation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Neighborhoods</div>
+          <ul class="footer-links">
+            <li><a href="/neighborhoods/beverly-hills">Beverly Hills</a></li>
+            <li><a href="/neighborhoods/bel-air">Bel Air</a></li>
+            <li><a href="/neighborhoods/hollywood-hills">Hollywood Hills</a></li>
+            <li><a href="/neighborhoods/santa-monica">Santa Monica</a></li>
+            <li><a href="/neighborhoods/venice">Venice</a></li>
+            <li><a href="/neighborhoods/silver-lake">Silver Lake</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Email</div>
+            <div class="footer-contact-val"><a href="mailto:Paul.Adams@CBRealty.com">Paul.Adams@CBRealty.com</a></div>
+          </div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Phone</div>
+            <div class="footer-contact-val"><a href="tel:+13019066252">301-906-6252</a></div>
+          </div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Office</div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-legal">
+          Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp/fair_housing_act_overview" target="_blank" rel="noopener">Fair Housing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/analytics.js" defer></script>
+</body>
+</html>
