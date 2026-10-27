@@ -21,7 +21,7 @@
   --color-dark-overlay:     rgba(36, 36, 36, 0.55); /* photo overlay for text legibility */
 
   /* Component-specific */
-  --color-testimonial-card: #EDEBE5; /* warm greige — CONFIRM exact HEX before production */
+  --color-testimonial-card: #EDEBE5;
   --color-border:           rgba(36, 36, 36, 0.10); /* subtle dividers on light sections */
   --color-border-light:     rgba(255, 255, 255, 0.20); /* dividers on dark sections */
 
