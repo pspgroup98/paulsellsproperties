@@ -665,17 +665,17 @@
    Section modifier — compact vertical padding for denser layouts
    --------------------------------------------------------------------------- */
 
-.psp-section--compact {
-  padding-block: var(--space-16) !important; /* 64px vs default 96px */
+.psp-section--compact .psp-section-inner {
+  padding-block: var(--space-16); /* 64px desktop */
 }
 @media (max-width: 1024px) {
-  .psp-section--compact {
-    padding-block: var(--space-12) !important; /* 48px at tablet */
+  .psp-section--compact .psp-section-inner {
+    padding-block: var(--space-12); /* 48px tablet */
   }
 }
 @media (max-width: 768px) {
-  .psp-section--compact {
-    padding-block: var(--space-8) !important; /* 32px at mobile */
+  .psp-section--compact .psp-section-inner {
+    padding-block: var(--space-8); /* 32px mobile */
   }
 }
 
