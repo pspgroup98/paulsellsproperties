@@ -35,8 +35,8 @@
   'use strict';
 
   // ── Configuration ───────────────────────────────────────────────────────────
-  var MEASUREMENT_ID = 'G-FFJZQWNP3S'; // TODO: replace with real GA4 Measurement ID
-  var CLARITY_ID     = 'y76kfwt0b1';   // TODO: replace with real Clarity Project ID
+  var MEASUREMENT_ID = 'G-FFJZQWNP3S';
+  var CLARITY_ID     = 'y76kfwt0b1';
   var GA4_ENABLED    = true;
   var CLARITY_ENABLED = true;
   var CONSENT_KEY    = 'psp_analytics'; // localStorage key
@@ -353,9 +353,9 @@
       '  </strong></p>',
       '  <div class="psp-modal-actions">',
       (analyticsOn
-        ? '    <button id="psp-opt-out" class="btn btn-outline">Turn off analytics</button>'
-        : '    <button id="psp-opt-in" class="btn btn-gold">Turn on analytics</button>'),
-      '    <button id="psp-modal-close" class="btn btn-outline">Close</button>',
+        ? '    <button id="psp-opt-out" class="psp-btn psp-btn--outline-light">Turn off analytics</button>'
+        : '    <button id="psp-opt-in" class="psp-btn psp-btn--primary-light">Turn on analytics</button>'),
+      '    <button id="psp-modal-close" class="psp-btn psp-btn--outline-light">Close</button>',
       '  </div>',
       '  <p class="psp-modal-note"><a href="/privacy">Full Privacy Policy</a></p>',
       '</div>',

@@ -1291,7 +1291,7 @@
   .psp-experiences__track  { gap: var(--space-3); }
   .psp-experience-card {
     flex: 0 0 88%;
-    padding: var(--space-7, 1.75rem);
+    padding: 1.75rem;
   }
   .psp-experience-card__mark  { font-size: 5rem; }
   .psp-experience-card__quote { font-size: var(--text-body); }

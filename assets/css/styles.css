@@ -432,7 +432,7 @@ body {
 
 /* ---------- Page Header (inner pages) ---------- */
 .page-header {
-  padding: calc(var(--nav-h) + 72px) 0 72px;
+  padding: calc(var(--nav-height) + 72px) 0 72px;
   background: var(--dark);
   border-bottom: 1px solid var(--border-dark);
 }
@@ -480,7 +480,7 @@ body:has(.post-content) {
 }
 
 .post-header {
-  padding: calc(var(--nav-h) + 64px) 0 64px;
+  padding: calc(var(--nav-height) + 64px) 0 64px;
   background: var(--dark);
   border-bottom: 1px solid var(--border-dark);
 }
