@@ -62,8 +62,12 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/design-tokens.css">
   <link rel="stylesheet" href="assets/css/redesign.css">
+  <style>
+    .psp-interior .page-header h1 { max-width: none; }
+    .psp-interior .cta-banner p   { max-width: none; }
+  </style>
 </head>
-<body>
+<body class="psp-interior">
 
 <!-- NAV -->
 <header class="psp-nav" id="siteNav" role="banner">
@@ -143,91 +147,82 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="container">
-    <span class="page-header-eyebrow">Investment Properties</span>
     <h1>Investing in Los Angeles Real Estate</h1>
     <p>Representing investors in the acquisition and disposition of income-producing properties across Los Angeles, with a focus on multifamily, mixed-use, and rental property opportunities.</p>
   </div>
 </div>
 
-<!-- INVESTMENT FOCUS AREAS -->
-<section class="section">
+<!-- HOW I WORK WITH INVESTORS -->
+<section class="section svc-section-first">
   <div class="container">
-    <span class="section-label">Investment Services</span>
     <h2 class="section-title">How I Work With Investors</h2>
-    <div class="divider"></div>
-
-    <div class="pillars-grid" style="margin-top:48px;">
-      <div class="pillar-card">
-        <span class="pillar-number">01</span>
-        <h3>Multifamily Acquisitions</h3>
-        <p>Duplexes, triplexes, and small apartment buildings across Los Angeles. I identify properties with genuine income potential, review rent rolls and expense history, and evaluate the physical and legal condition before you commit capital.</p>
+    <p class="section-subtitle">Full representation from property identification to closed acquisition, with analytical support at every step.</p>
+    <div class="svc-cards">
+      <div class="svc-card">
+        <h3 class="svc-card-heading">Multifamily Acquisitions</h3>
+        <p class="svc-card-body">Duplexes, triplexes, and small apartment buildings across Los Angeles. I identify properties with genuine income potential, review rent rolls and expense history, and evaluate the physical and legal condition before you commit capital.</p>
       </div>
-      <div class="pillar-card">
-        <span class="pillar-number">02</span>
-        <h3>Rental Income Analysis</h3>
-        <p>I analyze current and market rents, vacancy rates for the specific area and property type, and the relationship between gross rent and operating expenses. The goal is a clear picture of what a property actually produces, not what the listing claims.</p>
+      <div class="svc-card">
+        <h3 class="svc-card-heading">Rental Income Analysis</h3>
+        <p class="svc-card-body">I analyze current and market rents, vacancy rates for the specific area and property type, and the relationship between gross rent and operating expenses. The goal is a clear picture of what a property actually produces, not what the listing claims.</p>
       </div>
-      <div class="pillar-card">
-        <span class="pillar-number">03</span>
-        <h3>Cash Flow Evaluation</h3>
-        <p>Every investment decision requires understanding what you will net after debt service, taxes, insurance, management, maintenance, and vacancy. I work through the numbers with you before you make an offer, not after escrow opens.</p>
+      <div class="svc-card">
+        <h3 class="svc-card-heading">Cash Flow Evaluation</h3>
+        <p class="svc-card-body">Every investment decision requires understanding what you will net after debt service, taxes, insurance, management, maintenance, and vacancy. I work through the numbers with you before you make an offer, not after escrow opens.</p>
       </div>
-      <div class="pillar-card">
-        <span class="pillar-number">04</span>
-        <h3>ADU and Value-Add Potential</h3>
-        <p>Los Angeles has one of the most active ADU markets in the country. I evaluate properties for ADU development potential, unpermitted unit legalization opportunities, and value-add improvements that affect rent and resale value.</p>
+      <div class="svc-card">
+        <h3 class="svc-card-heading">ADU and Value-Add Potential</h3>
+        <p class="svc-card-body">Los Angeles has one of the most active ADU markets in the country. I evaluate properties for ADU development potential, unpermitted unit legalization opportunities, and value-add improvements that affect rent and resale value.</p>
       </div>
-      <div class="pillar-card">
-        <span class="pillar-number">05</span>
-        <h3>Due Diligence</h3>
-        <p>Physical inspections, permit history review, rent control status, tenant occupancy, and title review are all part of the process before you remove contingencies. I coordinate with inspectors and coordinate the disclosure review on your behalf.</p>
+      <div class="svc-card">
+        <h3 class="svc-card-heading">Due Diligence</h3>
+        <p class="svc-card-body">Physical inspections, permit history review, rent control status, tenant occupancy, and title review are all part of the process before you remove contingencies. I coordinate with inspectors and manage the disclosure review on your behalf.</p>
       </div>
-      <div class="pillar-card">
-        <span class="pillar-number">06</span>
-        <h3>Disposition Strategy</h3>
-        <p>When it is time to sell, I bring the same analytical approach to pricing and marketing your investment property. That includes evaluating the buyer pool, timing, and whether a 1031 exchange structure serves your goals.</p>
+      <div class="svc-card">
+        <h3 class="svc-card-heading">Disposition Strategy</h3>
+        <p class="svc-card-body">When it is time to sell, I bring the same analytical approach to pricing and marketing your investment property. That includes evaluating the buyer pool, timing, and whether a 1031 exchange structure serves your goals.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT TO UNDERSTAND ABOUT LA -->
+<!-- WHAT INVESTORS NEED TO UNDERSTAND -->
 <section class="section section-alt">
   <div class="container">
-    <span class="section-label">Market Context</span>
     <h2 class="section-title">What Investors Need to Understand About Los Angeles</h2>
-    <div class="divider"></div>
-
-    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); gap:32px; margin-top:0;">
-
-      <div style="padding:36px 32px; background:var(--bg); border:1px solid var(--border); border-radius:2px;">
-        <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; display:block;">01</span>
-        <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; color:var(--white);">Rent Control Applies to Most Multifamily</h3>
-        <p style="font-size:15px; color:var(--mid); line-height:1.7;">Properties built before February 1, 1995 in the City of Los Angeles are generally subject to the Rent Stabilization Ordinance (RSO). This affects your ability to raise rents and the process for vacancy. Understanding rent control status is a prerequisite for any multifamily acquisition in the city.</p>
+    <p class="section-subtitle">Four factors that shape investment decisions and outcomes in this specific market.</p>
+    <div class="svc-checklist">
+      <div class="svc-checklist-item">
+        <span class="svc-checklist-number">01</span>
+        <div class="svc-checklist-content">
+          <h3 class="svc-checklist-heading">Understand Rent Control and Tenant Protections</h3>
+          <p class="svc-checklist-body">Before purchasing an income property, determine whether it is subject to local rent stabilization ordinances, California's statewide tenant protection laws, or other rental restrictions. These regulations can affect allowable rent increases, eviction procedures, operating expenses, and long-term investment returns.</p>
+        </div>
       </div>
-
-      <div style="padding:36px 32px; background:var(--bg); border:1px solid var(--border); border-radius:2px;">
-        <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; display:block;">02</span>
-        <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; color:var(--white);">Expense Ratios Vary Significantly by Property Type</h3>
-        <p style="font-size:15px; color:var(--mid); line-height:1.7;">A duplex in a Los Angeles neighborhood trades differently than a 10-unit building. Management costs, maintenance obligations, and tax treatment all differ. Gross rent multipliers and cap rates need to be evaluated against actual expenses for the specific property and tenant profile, not general market averages.</p>
+      <div class="svc-checklist-item">
+        <span class="svc-checklist-number">02</span>
+        <div class="svc-checklist-content">
+          <h3 class="svc-checklist-heading">Expense Ratios Vary Significantly by Property Type</h3>
+          <p class="svc-checklist-body">A duplex in a Los Angeles neighborhood trades differently than a 10-unit building. Management costs, maintenance obligations, and tax treatment all differ. Gross rent multipliers and cap rates need to be evaluated against actual expenses for the specific property and tenant profile, not general market averages.</p>
+        </div>
       </div>
-
-      <div style="padding:36px 32px; background:var(--bg); border:1px solid var(--border); border-radius:2px;">
-        <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; display:block;">03</span>
-        <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; color:var(--white);">ADU Potential Can Change the Investment Case</h3>
-        <p style="font-size:15px; color:var(--mid); line-height:1.7;">California's ADU laws have made it significantly easier to add units on single-family and multifamily lots. A property that appears to be a standard single-family home may support one or two additional rental units depending on lot size, setbacks, and existing structures. This potential is not always reflected in the asking price.</p>
+      <div class="svc-checklist-item">
+        <span class="svc-checklist-number">03</span>
+        <div class="svc-checklist-content">
+          <h3 class="svc-checklist-heading">ADU Potential Can Change the Investment Case</h3>
+          <p class="svc-checklist-body">California's ADU laws have made it significantly easier to add units on single-family and multifamily lots. A property that appears to be a standard single-family home may support one or two additional rental units depending on lot size, setbacks, and existing structures. This potential is not always reflected in the asking price.</p>
+        </div>
       </div>
-
-      <div style="padding:36px 32px; background:var(--bg); border:1px solid var(--border); border-radius:2px;">
-        <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; display:block;">04</span>
-        <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; color:var(--white);">Off-Market Properties Represent Real Opportunity</h3>
-        <p style="font-size:15px; color:var(--mid); line-height:1.7;">Motivated sellers of income-producing properties often prefer to transact quietly. An agent with an active investor buyer pool and direct relationships with property owners can source opportunities before they reach the MLS. This matters more for investment buyers than for any other buyer category.</p>
+      <div class="svc-checklist-item">
+        <span class="svc-checklist-number">04</span>
+        <div class="svc-checklist-content">
+          <h3 class="svc-checklist-heading">Off-Market Properties Represent Real Opportunity</h3>
+          <p class="svc-checklist-body">Motivated sellers of income-producing properties often prefer to transact quietly. An agent with an active investor buyer pool and direct relationships with property owners can source opportunities before they reach the MLS. This matters more for investment buyers than for any other buyer category.</p>
+        </div>
       </div>
-
     </div>
-
-    <div style="margin-top:48px; text-align:center;">
-      <a href="/blog/" class="psp-btn psp-btn--outline-light">Read Market Analysis</a>
+    <div class="svc-section-cta">
+      <a href="/blog/" class="psp-btn psp-btn--outline">Read Market Analysis</a>
     </div>
   </div>
 </section>
@@ -235,11 +230,10 @@
 <!-- INVESTMENT TRANSACTIONS -->
 <section class="section">
   <div class="container">
-    <span class="section-label">Verified Activity</span>
     <h2 class="section-title">Recent Investment Transactions</h2>
-    <div class="divider"></div>
+    <p class="section-subtitle">Verified transactions involving income-producing and mixed-use properties across Los Angeles.</p>
 
-    <div class="psp-transactions__grid" style="margin-top:40px;">
+    <div class="psp-transactions__grid svc-transactions-grid--3">
 
       <div class="psp-tx-card">
         <div class="psp-tx-card__img-wrap">
@@ -282,8 +276,8 @@
 
     </div>
 
-    <div style="margin-top:40px; text-align:center;">
-      <a href="/listings" class="psp-btn psp-btn--outline-light">View All Transactions</a>
+    <div class="svc-section-cta">
+      <a href="/listings" class="psp-btn psp-btn--outline">View All Transactions</a>
     </div>
   </div>
 </section>
@@ -294,24 +288,30 @@
     <h2>Ready to Discuss an Investment Strategy?</h2>
     <p>Whether you are evaluating your first income property or expanding an existing portfolio, let's start with a focused conversation about your criteria, market, and timeline.</p>
     <div class="btn-group" style="justify-content:center;">
-      <a href="#" class="psp-btn psp-btn--primary-light"
+      <a href="#" class="psp-btn psp-btn--primary"
          onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
         Schedule an Investment Call
       </a>
-      <a href="/contact" class="psp-btn psp-btn--outline-light">Contact Me</a>
+      <a href="/listings" class="psp-btn psp-btn--outline">Browse Investment Properties</a>
     </div>
-    <div class="cta-contact-row">
-      <div class="cta-info-item">
-        <div class="cta-info-label">Email</div>
-        <div class="cta-info-value"><a href="mailto:Paul.Adams@CBRealty.com">Paul.Adams@CBRealty.com</a></div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="about-contact-strip">
+  <div class="container">
+    <div class="about-contact-cols">
+      <div class="about-contact-col">
+        <span class="about-contact-label">Email</span>
+        <a href="mailto:Paul.Adams@CBRealty.com" class="about-contact-value">Paul.Adams@CBRealty.com</a>
       </div>
-      <div class="cta-info-item">
-        <div class="cta-info-label">Phone (Direct)</div>
-        <div class="cta-info-value"><a href="tel:+13019066252">301-906-6252</a></div>
+      <div class="about-contact-col">
+        <span class="about-contact-label">Phone</span>
+        <a href="tel:+13019066252" class="about-contact-value">301-906-6252</a>
       </div>
-      <div class="cta-info-item">
-        <div class="cta-info-label">Office</div>
-        <div class="cta-info-value"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr &middot; Beverly Hills 90210</a></div>
+      <div class="about-contact-col">
+        <span class="about-contact-label">Office</span>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" class="about-contact-value">301 N Canon Dr &middot; Beverly Hills 90210</a>
       </div>
     </div>
   </div>
