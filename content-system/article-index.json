@@ -2368,5 +2368,385 @@
     "last_reviewed": "2026-10-16",
     "word_count_approx": 1422,
     "social_content": null
+  },
+  {
+    "slug": "los-angeles-speed-cameras-october-2026-locations-fines",
+    "title": "Los Angeles Speed Cameras Begin October 26: Locations, Warnings and What Residents Should Know",
+    "excerpt": "Los Angeles begins activating automated speed cameras October 26, with warnings before fines. Here is what residents should know.",
+    "url": "https://paulsellsproperties.com/blog/los-angeles-speed-cameras-october-2026-locations-fines",
+    "status": "published",
+    "scheduled_publish_at": "2026-10-26T10:00:00-07:00",
+    "published_at": "2026-10-26T10:00:00-07:00",
+    "date_iso": "2026-10-26",
+    "date_display": "October 26, 2026",
+    "category": "Neighborhood",
+    "author": "Paul Adams II",
+    "article_type": "C",
+    "primary_topic": "Los Angeles speed cameras 2026",
+    "primary_keyword": "Los Angeles speed cameras 2026",
+    "secondary_topics": [
+      "LA speed camera locations",
+      "LADOT speed cameras",
+      "Los Angeles speed camera fines",
+      "AB 645 Los Angeles"
+    ],
+    "search_intent": "Understand the Los Angeles speed camera rollout, locations, warning period, and fines",
+    "normalized_search_intent": "understand the los angeles speed camera rollout locations warning period and fines",
+    "geographic_focus": "City of Los Angeles",
+    "neighborhood": null,
+    "audience": [
+      "Residents",
+      "Buyers",
+      "Homeowners",
+      "Commuters"
+    ],
+    "content_type": "news",
+    "content_freshness_type": "news",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "valley-boulevard-improvements-lincoln-heights-2026",
+      "inglewood-261-million-mobility-project-sofi-k-line"
+    ],
+    "related_articles": [],
+    "sources": [
+      {
+        "name": "LADOT Speed Safety Program",
+        "url": "https://ladot.lacity.gov/"
+      },
+      {
+        "name": "City of Los Angeles official announcements",
+        "url": "https://lacity.gov/"
+      }
+    ],
+    "review_after": "2027-01-26",
+    "last_reviewed": "2026-10-26",
+    "word_count_approx": 650,
+    "social_content": null
+  },
+  {
+    "slug": "los-angeles-county-housing-market-september-2026",
+    "title": "Los Angeles County Housing Market September 2026: Prices Rise as Sales Slow",
+    "excerpt": "September data shows LA County home prices rising even as sales volume falls. Here is what those mixed signals mean.",
+    "url": "https://paulsellsproperties.com/blog/los-angeles-county-housing-market-september-2026",
+    "status": "published",
+    "scheduled_publish_at": "2026-10-28T10:00:00-07:00",
+    "published_at": "2026-10-28T10:00:00-07:00",
+    "date_iso": "2026-10-28",
+    "date_display": "October 28, 2026",
+    "category": "Market Analysis",
+    "author": "Paul Adams II",
+    "article_type": "A",
+    "primary_topic": "Los Angeles County housing market September 2026",
+    "primary_keyword": "Los Angeles County housing market September 2026",
+    "secondary_topics": [
+      "LA home prices September 2026",
+      "Los Angeles housing inventory",
+      "LA home sales 2026"
+    ],
+    "search_intent": "Understand Los Angeles County home price and sales trends in September 2026",
+    "normalized_search_intent": "understand los angeles county home price and sales trends in september 2026",
+    "geographic_focus": "Los Angeles County",
+    "neighborhood": null,
+    "audience": [
+      "Buyers",
+      "Sellers",
+      "Homeowners"
+    ],
+    "content_type": "news",
+    "content_freshness_type": "news",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "los-angeles-housing-market-august-2026",
+      "mortgage-rates-6-95-los-angeles-buyers-september-2026",
+      "condo-financing"
+    ],
+    "related_articles": [],
+    "sources": [
+      {
+        "name": "California Association of Realtors",
+        "url": "https://www.car.org/"
+      },
+      {
+        "name": "Freddie Mac PMMS",
+        "url": "https://www.freddiemac.com/pmms"
+      },
+      {
+        "name": "Realtor.com Research",
+        "url": "https://www.realtor.com/research/"
+      }
+    ],
+    "review_after": "2027-01-28",
+    "last_reviewed": "2026-10-28",
+    "word_count_approx": 750,
+    "social_content": null
+  },
+  {
+    "slug": "la-general-hospital-redevelopment-boyle-heights-2026",
+    "title": "LA General Hospital Master Plan Approved: What Boyle Heights Property Owners Should Know",
+    "excerpt": "LA County adopted a long-term framework for the historic General Hospital campus. Here is what owners and investors should watch.",
+    "url": "https://paulsellsproperties.com/blog/la-general-hospital-redevelopment-boyle-heights-2026",
+    "status": "published",
+    "scheduled_publish_at": "2026-10-30T10:00:00-07:00",
+    "published_at": "2026-10-30T10:00:00-07:00",
+    "date_iso": "2026-10-30",
+    "date_display": "October 30, 2026",
+    "category": "Neighborhood",
+    "author": "Paul Adams II",
+    "article_type": "C",
+    "primary_topic": "LA General Hospital redevelopment Boyle Heights",
+    "primary_keyword": "LA General Hospital redevelopment Boyle Heights",
+    "secondary_topics": [
+      "Los Angeles General Hospital master plan",
+      "Boyle Heights development 2026",
+      "General Hospital Healthy Village"
+    ],
+    "search_intent": "Understand the LA General Hospital master plan approval and its implications for Boyle Heights property owners",
+    "normalized_search_intent": "understand the la general hospital master plan approval and its implications for boyle heights property owners",
+    "geographic_focus": "Boyle Heights and surrounding Eastside neighborhoods",
+    "neighborhood": "Boyle Heights",
+    "audience": [
+      "Owners",
+      "Investors",
+      "Buyers",
+      "Landlords"
+    ],
+    "content_type": "news",
+    "content_freshness_type": "news",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "boyle-heights-community-plan-2026-property-owners",
+      "analyze-duplex-los-angeles-before-buying",
+      "valley-boulevard-improvements-lincoln-heights-2026"
+    ],
+    "related_articles": [],
+    "sources": [
+      {
+        "name": "LA County Department of Economic Opportunity",
+        "url": "https://opportunity.lacounty.gov/"
+      },
+      {
+        "name": "California CEQA database",
+        "url": "https://ceqanet.opr.ca.gov/"
+      },
+      {
+        "name": "Urbanize Los Angeles",
+        "url": "https://la.urbanize.city/"
+      }
+    ],
+    "review_after": "2027-01-30",
+    "last_reviewed": "2026-10-30",
+    "word_count_approx": 800,
+    "social_content": null
+  },
+  {
+    "slug": "california-adu-permit-delay-court-ruling-2026",
+    "title": "California ADU Court Ruling: Can Homeowners Recover Damages for Permit Delays?",
+    "excerpt": "A new California appellate ruling could have important implications for homeowners whose ADU applications face improper delays.",
+    "url": "https://paulsellsproperties.com/blog/california-adu-permit-delay-court-ruling-2026",
+    "status": "approved",
+    "scheduled_publish_at": "2026-11-02T10:00:00-08:00",
+    "published_at": null,
+    "date_iso": "2026-11-02",
+    "date_display": "November 2, 2026",
+    "category": "Real Estate Laws",
+    "author": "Paul Adams II",
+    "article_type": "A",
+    "primary_topic": "California ADU permit delay court ruling and homeowner damages claims",
+    "primary_keyword": "California ADU permit delay ruling 2026",
+    "secondary_topics": [
+      "ADU permit delays California",
+      "Shi v Palos Verdes Estates",
+      "California ADU law",
+      "ADU permit approval"
+    ],
+    "search_intent": "Understand the California Court of Appeal ruling on ADU permit delays and what it means for homeowners seeking damages.",
+    "normalized_search_intent": "california adu permit delay court ruling homeowner damages 2026",
+    "geographic_focus": "California, with emphasis on Los Angeles County",
+    "neighborhood": null,
+    "audience": [
+      "Homeowners",
+      "Investors",
+      "Landlords"
+    ],
+    "content_type": "legal-regulatory",
+    "content_freshness_type": "news",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/blog/california-ab-956-two-detached-adus-los-angeles-2027",
+      "/blog/adu-vs-garage-conversion",
+      "/blog/analyze-duplex-los-angeles-before-buying",
+      "/blog/buying-rso-property-los-angeles"
+    ],
+    "related_articles": [
+      "california-ab-956-two-detached-adus-los-angeles-2027",
+      "adu-vs-garage-conversion",
+      "buying-rso-property-los-angeles"
+    ],
+    "sources": [
+      {
+        "name": "California Courts, Shi v. City of Palos Verdes Estates, appellate opinion dated October 23, 2026",
+        "url": "https://courts.ca.gov/opinion/published/2026-10-23/b350195",
+        "verificationRequired": false
+      },
+      {
+        "name": "Brownstein analysis of California ADU permit delay decision",
+        "url": null,
+        "verificationRequired": true
+      }
+    ],
+    "review_after": "2027-05-02",
+    "last_reviewed": "2026-11-02",
+    "word_count_approx": 900,
+    "social_content": null
+  },
+  {
+    "slug": "sankofa-place-inglewood-affordable-housing-2026",
+    "title": "Sankofa Place Breaks Ground in Inglewood: 120 Affordable Apartments and a New Community Center",
+    "excerpt": "A $44 million development in Inglewood is moving forward with affordable housing, community facilities, and transportation improvements.",
+    "url": "https://paulsellsproperties.com/blog/sankofa-place-inglewood-affordable-housing-2026",
+    "status": "approved",
+    "scheduled_publish_at": "2026-11-04T10:00:00-08:00",
+    "published_at": null,
+    "date_iso": "2026-11-04",
+    "date_display": "November 4, 2026",
+    "category": "Neighborhood Development",
+    "author": "Paul Adams II",
+    "article_type": "C",
+    "primary_topic": "Sankofa Place affordable housing groundbreaking at 400 Centinela Avenue in Inglewood",
+    "primary_keyword": "Sankofa Place Inglewood",
+    "secondary_topics": [
+      "400 Centinela Avenue",
+      "Inglewood affordable housing 2026",
+      "Sankofa Place at Centinela",
+      "Social Justice Learning Institute"
+    ],
+    "search_intent": "Understand the Sankofa Place affordable housing development at 400 Centinela Avenue in Inglewood, its financing, timeline, and neighborhood context.",
+    "normalized_search_intent": "sankofa place inglewood affordable housing centinela avenue 2026",
+    "geographic_focus": "Inglewood, California",
+    "neighborhood": "Inglewood",
+    "audience": [
+      "Homeowners",
+      "Buyers",
+      "Investors",
+      "Residents"
+    ],
+    "content_type": "news",
+    "content_freshness_type": "news",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/blog/inglewood-261-million-mobility-project-sofi-k-line"
+    ],
+    "related_articles": [
+      "inglewood-261-million-mobility-project-sofi-k-line",
+      "miracle-mile-apartment-sale-114-million-la-multifamily-investing"
+    ],
+    "sources": [
+      {
+        "name": "Urbanize LA, Sankofa Place construction begins, October 2026",
+        "url": "https://la.urbanize.city/post/affordable-housing-starts-work-400-centinela-ave-inglewood",
+        "verificationRequired": false
+      },
+      {
+        "name": "Aero Collective, 400 Centinela project",
+        "url": null,
+        "verificationRequired": true
+      },
+      {
+        "name": "Urbanize LA, Sankofa Place financing",
+        "url": "https://la.urbanize.city/post/construction-loan-issued-affordable-housing-400-centinela-ave-inglewood",
+        "verificationRequired": false
+      }
+    ],
+    "review_after": "2027-05-04",
+    "last_reviewed": "2026-11-04",
+    "word_count_approx": 950,
+    "social_content": null
+  },
+  {
+    "slug": "jyan-isaac-bread-silver-lake-opening-2026",
+    "title": "Jyan Isaac Bread Opens in Silver Lake: What to Know About the New Hyperion Avenue Café",
+    "excerpt": "The popular Santa Monica bakery is expanding to Silver Lake with sourdough, bagels, pastries, sandwiches, and a new neighborhood café.",
+    "url": "https://paulsellsproperties.com/blog/jyan-isaac-bread-silver-lake-opening-2026",
+    "status": "approved",
+    "scheduled_publish_at": "2026-11-06T10:00:00-08:00",
+    "published_at": null,
+    "date_iso": "2026-11-06",
+    "date_display": "November 6, 2026",
+    "category": "Los Angeles Lifestyle",
+    "author": "Paul Adams II",
+    "article_type": "B",
+    "primary_topic": "Jyan Isaac Bread Silver Lake opening at 2800 Hyperion Avenue",
+    "primary_keyword": "Jyan Isaac Bread Silver Lake",
+    "secondary_topics": [
+      "Jyan Isaac Bread Hyperion Avenue",
+      "Silver Lake bakery opening",
+      "2800 Hyperion Avenue",
+      "new Silver Lake restaurants"
+    ],
+    "search_intent": "Find out about the Jyan Isaac Bread opening in Silver Lake on Hyperion Avenue, including location, menu, and hours.",
+    "normalized_search_intent": "jyan isaac bread silver lake opening hyperion avenue 2026",
+    "geographic_focus": "Silver Lake, Los Angeles",
+    "neighborhood": "Silver Lake",
+    "audience": [
+      "Residents",
+      "Prospective buyers",
+      "Neighborhood enthusiasts"
+    ],
+    "content_type": "lifestyle",
+    "content_freshness_type": "news",
+    "evergreen": false,
+    "pillar": null,
+    "pillar_relationship": null,
+    "action_type": "new",
+    "tags": [],
+    "internal_links": [
+      "/blog/swingers-diner-silver-lake-opening-october-2026",
+      "/blog/hotel-lucile-silver-lake-opening-1931-church"
+    ],
+    "related_articles": [
+      "swingers-diner-silver-lake-opening-october-2026",
+      "hotel-lucile-silver-lake-opening-1931-church"
+    ],
+    "sources": [
+      {
+        "name": "Eater Los Angeles, Jyan Isaac Bread Silver Lake opening, October 31, 2026",
+        "url": null,
+        "verificationRequired": true
+      },
+      {
+        "name": "What Now Los Angeles, Silver Lake expansion",
+        "url": null,
+        "verificationRequired": true
+      },
+      {
+        "name": "Jyan Isaac Bread official website",
+        "url": "https://www.jyanisaacbread.com/",
+        "verificationRequired": false
+      }
+    ],
+    "review_after": "2027-02-06",
+    "last_reviewed": "2026-11-06",
+    "word_count_approx": 1000,
+    "social_content": null
   }
 ]
