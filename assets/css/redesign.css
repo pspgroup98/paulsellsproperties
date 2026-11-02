@@ -1942,3 +1942,659 @@
   background: #3a3a38;
   border-color: #3a3a38;
 }
+
+
+/* =============================================================================
+   Phase 1 Interior Redesign — Light Theme Foundation
+   Applied via .psp-interior on <body> of every interior page.
+   The homepage has no .psp-interior class and is completely unaffected.
+   ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+   Body + section backgrounds
+   --------------------------------------------------------------------------- */
+body.psp-interior {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.psp-interior .section,
+.psp-interior .section-sm { background: var(--color-bg); }
+.psp-interior .section-alt { background: var(--color-bg-secondary); }
+
+/* ---------------------------------------------------------------------------
+   Page header
+   --------------------------------------------------------------------------- */
+.psp-interior .page-header {
+  background:     var(--color-bg);
+  padding-bottom: 32px;
+}
+.psp-interior .page-header h1 {
+  color: var(--color-text-primary);
+}
+.psp-interior .page-header p {
+  color:     var(--color-text-secondary);
+  max-width: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Eyebrow labels — removed on all interior pages
+   --------------------------------------------------------------------------- */
+.psp-interior .section-label,
+.psp-interior .page-header-eyebrow {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Section typography
+   --------------------------------------------------------------------------- */
+.psp-interior .section-title    { color: var(--color-text-primary); }
+.psp-interior .section-subtitle { color: var(--color-text-secondary); max-width: none; }
+.psp-interior .divider          { background: var(--color-muted); }
+
+/* ---------------------------------------------------------------------------
+   About page: credential list
+   --------------------------------------------------------------------------- */
+.psp-interior .credential-dot                { background: var(--color-text-primary); }
+.psp-interior .credential-item strong        { color: var(--color-text-primary); }
+.psp-interior .credential-item p             { color: var(--color-text-secondary); }
+
+/* ---------------------------------------------------------------------------
+   Pillar cards on light background (used on interior pages)
+   --------------------------------------------------------------------------- */
+.psp-interior .pillar-card {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+}
+.psp-interior .pillar-number    { color: var(--color-muted); }
+.psp-interior .pillar-card h3   { color: var(--color-text-primary); }
+.psp-interior .pillar-card p    { color: var(--color-text-secondary); }
+
+/* ---------------------------------------------------------------------------
+   CTA banner on light pages
+   --------------------------------------------------------------------------- */
+.psp-interior .cta-banner {
+  background:           var(--color-bg-secondary);
+  border-top-color:     rgba(36, 36, 36, 0.12);
+  border-bottom-color:  rgba(36, 36, 36, 0.12);
+}
+.psp-interior .cta-banner h2 { color: var(--color-text-primary); }
+.psp-interior .cta-banner p  { color: var(--color-text-secondary); }
+
+/* CTA contact info grid */
+.psp-interior .cta-info-item {
+  background: var(--color-bg);
+}
+.psp-interior .cta-info-item:hover {
+  background: var(--color-bg-secondary);
+}
+.psp-interior .cta-info-label {
+  color: var(--color-muted);
+  opacity: 1;
+}
+.psp-interior .cta-info-value            { color: var(--color-text-primary); }
+.psp-interior .cta-info-value a          { color: var(--color-text-primary); }
+.psp-interior .cta-info-value a:hover    { color: var(--color-text-secondary); }
+.psp-interior .cta-contact-row {
+  background: var(--color-border);
+  border-color: var(--color-border);
+}
+
+/* ---------------------------------------------------------------------------
+   Navigation — adapted for light interior pages
+   Nav starts on cream (no transparent-over-dark-hero needed)
+   --------------------------------------------------------------------------- */
+.psp-interior .psp-nav {
+  background:  var(--color-bg);
+  box-shadow:  0 1px 0 rgba(36, 36, 36, 0.10);
+}
+
+.psp-interior .psp-nav__name       { color: var(--color-text-primary); }
+.psp-interior .psp-nav__descriptor { color: var(--color-text-secondary); }
+
+.psp-interior .psp-nav__link       { color: var(--color-text-secondary); }
+.psp-interior .psp-nav__link:hover { color: var(--color-text-primary); }
+
+.psp-interior .psp-nav__brand:focus-visible,
+.psp-interior .psp-nav__link:focus-visible,
+.psp-interior .psp-nav__toggle:focus-visible {
+  outline-color: var(--color-text-primary);
+}
+
+.psp-interior .psp-nav__search-btn {
+  border-color: rgba(36, 36, 36, 0.35);
+  color:        var(--color-text-primary);
+}
+.psp-interior .psp-nav__search-btn:hover {
+  background:   var(--color-bg-secondary);
+  border-color: var(--color-text-primary);
+}
+.psp-interior .psp-nav__search-btn:focus-visible {
+  outline-color: var(--color-text-primary);
+}
+
+.psp-interior .psp-nav .psp-btn--nav {
+  color:        var(--color-text-primary);
+  border-color: rgba(36, 36, 36, 0.35);
+}
+.psp-interior .psp-nav .psp-btn--nav:hover {
+  background:   var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  color:        var(--color-white);
+}
+
+.psp-interior .psp-nav__toggle-bar { background: var(--color-text-primary); }
+
+@media (max-width: 1024px) {
+  .psp-interior .psp-nav__toggle {
+    border-color: rgba(36, 36, 36, 0.35);
+  }
+  .psp-interior .psp-nav__toggle:hover {
+    background:   var(--color-bg-secondary);
+    border-color: var(--color-text-primary);
+  }
+}
+
+/* Scrolled state: stay on cream, keep bottom rule */
+.psp-interior .psp-nav.scrolled {
+  background:  var(--color-bg);
+  box-shadow:  0 1px 0 rgba(36, 36, 36, 0.10);
+}
+
+/* ---------------------------------------------------------------------------
+   About page v2: spacing overrides
+   Cuts the header→bio gap from the default 72+112=184px down to ~72px desktop.
+   --------------------------------------------------------------------------- */
+.psp-interior .about-bio-section {
+  padding-top: 40px;
+}
+
+.about-bio-cta {
+  margin-top: 28px;
+}
+
+/* ---------------------------------------------------------------------------
+   About page v2: portrait + bio intro grid
+   Photo is first in HTML — on desktop it sits left; on mobile it stacks above.
+   --------------------------------------------------------------------------- */
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start; /* overridden to stretch on desktop below */
+}
+
+@media (min-width: 1025px) {
+  .about-intro-grid {
+    align-items: stretch;
+  }
+  .about-intro-photo img {
+    aspect-ratio: unset;
+    height: 100%;
+    object-position: center top;
+  }
+}
+
+.about-intro-photo img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 8%;
+  border-radius: var(--radius);
+}
+
+.about-intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about-intro-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.8vw, 2.625rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.about-bio-paras {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-bio-paras p {
+  font-size: 16px;
+  line-height: 1.78;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Compact credential strip */
+.about-cred-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 24px;
+  border-top: 1px solid rgba(36, 36, 36, 0.12);
+}
+
+.about-cred-item {
+  padding: 0 14px;
+  border-left: 1px solid rgba(36, 36, 36, 0.12);
+}
+.about-cred-item:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.about-cred-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 6px;
+}
+.about-cred-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.45;
+  margin-bottom: 3px;
+}
+.about-cred-sub {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------------------------
+   About page v2: "Working Together" value section
+   Large serif heading left, editorial prose right.
+   --------------------------------------------------------------------------- */
+.about-value-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+/* Heading column — shares entry rule with the prose column */
+.about-value-label {
+  padding-top: 24px;
+  border-top: 1px solid rgba(36, 36, 36, 0.15);
+}
+
+.about-value-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  color: var(--color-text-primary);
+}
+
+.about-value-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(36, 36, 36, 0.15);
+}
+.about-value-prose p {
+  font-size: 16px;
+  line-height: 1.78;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Desktop/tablet: size the heading column to its content so "Working Together"
+   stays on one line without forcing fixed pixel widths. */
+@media (min-width: 901px) {
+  .about-value-grid {
+    grid-template-columns: max-content 1fr;
+  }
+  .about-value-heading {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .psp-interior .page-header   { padding-bottom: 24px; }
+  .psp-interior .about-bio-section { padding-top: 24px; }
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-intro-photo img {
+    aspect-ratio: 3 / 2;
+    object-position: center 15%;
+  }
+  .about-cred-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 24px;
+  }
+  .about-cred-item {
+    padding: 16px 0 0;
+    border-left: none;
+    border-top: 1px solid rgba(36, 36, 36, 0.12);
+  }
+  .about-cred-item:first-child {
+    padding-left: 0;
+    border-top: 1px solid rgba(36, 36, 36, 0.12);
+  }
+  .about-value-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  /* When stacked, only the heading gets the rule; remove it from prose */
+  .about-value-prose {
+    border-top: none;
+    padding-top: 20px;
+  }
+  /* Give the heading a bottom border as the divider when stacked */
+  .about-value-label {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(36, 36, 36, 0.12);
+  }
+}
+
+@media (max-width: 600px) {
+  .psp-interior .page-header        { padding-bottom: 20px; }
+  .psp-interior .about-bio-section  { padding-top: 20px; }
+}
+
+@media (max-width: 540px) {
+  .about-intro-photo img {
+    aspect-ratio: 4 / 3;
+    object-position: center 10%;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   About page: editorial approach section
+   Replaces the numbered .pillars-grid with a clean 2×2 text layout
+   --------------------------------------------------------------------------- */
+.about-approach-grid {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   40px 64px;
+  margin-top:            48px;
+}
+
+.about-approach-item {
+  padding-top:  24px;
+  border-top:   1px solid rgba(36, 36, 36, 0.12);
+}
+
+.about-approach-item h3 {
+  font-family:    var(--font-serif);
+  font-size:      clamp(1.25rem, 2vw, 1.5rem);
+  font-weight:    600;
+  color:          var(--color-text-primary);
+  letter-spacing: -0.01em;
+  line-height:    1.15;
+  margin-bottom:  10px;
+}
+
+.about-approach-item p {
+  font-size:   15px;
+  line-height: 1.7;
+  color:       var(--color-text-secondary);
+  margin:      0;
+}
+
+@media (max-width: 640px) {
+  .about-approach-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Working Together: tighter vertical padding */
+.psp-interior .about-value-section {
+  padding-top:    80px;
+  padding-bottom: 80px;
+}
+
+/* How I Work: left-aligned heading block */
+.about-approach-header .section-subtitle {
+  margin-left:  0;
+  margin-right: 0;
+}
+
+/* CTA: compact contact strip */
+.about-cta-contacts {
+  display:         flex;
+  gap:             0 48px;
+  justify-content: center;
+  flex-wrap:       wrap;
+  margin-top:      40px;
+}
+
+.about-cta-contact-item {
+  display:        flex;
+  flex-direction: column;
+  gap:            5px;
+}
+
+.about-cta-contact-label {
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          var(--color-muted);
+}
+
+.psp-interior .about-cta-contact-label {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
+.about-cta-contact-value {
+  font-size:       14px;
+  line-height:     1.4;
+  color:           var(--color-text-primary);
+  text-decoration: none;
+}
+
+.about-cta-contact-value:hover {
+  color: var(--color-text-secondary);
+}
+
+.psp-interior .about-cta-contact-value,
+.psp-interior .about-cta-contact-value a {
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 600px) {
+  .about-cta-contacts {
+    flex-direction: column;
+    align-items:    center;
+    gap:            20px;
+    text-align:     center;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   About page: contact strip (between CTA banner and footer)
+   --------------------------------------------------------------------------- */
+.about-contact-strip {
+  background:    var(--color-bg);
+  padding:       52px 0;
+  border-top:    1px solid rgba(36, 36, 36, 0.08);
+  border-bottom: 1px solid rgba(36, 36, 36, 0.10);
+}
+
+.about-contact-cols {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   24px 40px;
+  text-align:            center;
+}
+
+.about-contact-label {
+  display:        block;
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--color-muted);
+  margin-bottom:  8px;
+}
+
+.about-contact-value {
+  display:         block;
+  font-size:       15px;
+  line-height:     1.45;
+  color:           var(--color-text-primary);
+  text-decoration: none;
+}
+
+.about-contact-value:hover {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .about-contact-strip { padding: 44px 0; }
+}
+
+@media (max-width: 600px) {
+  .about-contact-strip { padding: 38px 0; }
+  .about-contact-cols {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* =============================================================================
+   Phase 2B — Service Landing Template
+   Reusable across buyers, sellers, investors, listings.
+   Applied via .psp-interior + service-specific classes.
+   ============================================================================= */
+
+/* First content section after page header: close the gap */
+.psp-interior .svc-section-first { padding-top: 40px; }
+@media (max-width: 900px) { .psp-interior .svc-section-first { padding-top: 24px; } }
+@media (max-width: 600px) { .psp-interior .svc-section-first { padding-top: 20px; } }
+
+/* ── Service cards (3-col desktop, 2-col tablet, 1-col mobile) ── */
+.svc-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.svc-card {
+  background:     var(--color-bg-secondary);
+  border:         1px solid rgba(36, 36, 36, 0.08);
+  border-radius:  6px;
+  padding:        32px 28px;
+  display:        flex;
+  flex-direction: column;
+}
+
+.svc-card-heading {
+  font-family:    var(--font-serif);
+  font-size:      clamp(1.0625rem, 1.5vw, 1.25rem);
+  font-weight:    600;
+  color:          var(--color-text-primary);
+  letter-spacing: -0.01em;
+  line-height:    1.2;
+  margin:         0 0 10px;
+}
+
+.svc-card-body {
+  font-size:   14px;
+  line-height: 1.72;
+  color:       var(--color-text-secondary);
+  margin:      0;
+  flex:        1;
+}
+
+/* ── Buyer strategy: vertical numbered checklist ── */
+.svc-checklist {
+  margin-top: 24px;
+}
+
+.svc-checklist-item {
+  display:               grid;
+  grid-template-columns: 56px 1fr;
+  gap:                   0 32px;
+  padding:               28px 0;
+  border-top:            1px solid rgba(36, 36, 36, 0.12);
+  align-items:           start;
+}
+
+.svc-checklist-number {
+  font-family:    var(--font-serif);
+  font-size:      clamp(2rem, 3.5vw, 2.75rem);
+  font-weight:    400;
+  color:          var(--color-text-primary);
+  line-height:    1;
+  letter-spacing: -0.02em;
+  padding-top:    3px;
+}
+
+.svc-checklist-content { min-width: 0; }
+
+.svc-checklist-heading {
+  font-family:    var(--font-serif);
+  font-size:      clamp(1.125rem, 1.8vw, 1.375rem);
+  font-weight:    600;
+  color:          var(--color-text-primary);
+  letter-spacing: -0.01em;
+  line-height:    1.25;
+  margin:         0 0 10px;
+}
+
+.svc-checklist-body {
+  font-size:   15px;
+  line-height: 1.7;
+  color:       var(--color-text-secondary);
+  margin:      0;
+}
+
+/* ── Centered CTA link below section content ── */
+.svc-section-cta {
+  margin-top:      48px;
+  display:         flex;
+  justify-content: center;
+}
+
+/* ── 4-up transaction grid for service pages ── */
+.svc-transactions-grid {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 40px;
+}
+
+/* ── 3-up transaction grid (buyers page) ── */
+.svc-transactions-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 40px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .svc-cards               { grid-template-columns: repeat(2, 1fr); }
+  .svc-transactions-grid   { grid-template-columns: repeat(2, 1fr); }
+  .svc-transactions-grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .svc-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .svc-checklist-item {
+    grid-template-columns: 44px 1fr;
+    gap: 0 16px;
+  }
+  .svc-checklist-number { font-size: 1.75rem; padding-top: 1px; }
+}
+@media (max-width: 479px) {
+  .svc-transactions-grid    { grid-template-columns: 1fr; }
+  .svc-transactions-grid--3 { grid-template-columns: 1fr; }
+}
