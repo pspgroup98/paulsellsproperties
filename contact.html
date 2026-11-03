@@ -3,169 +3,572 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Paul Adams II | Los Angeles Real Estate Agent</title>
-  <meta name="description" content="Contact Paul Adams II, Los Angeles real estate agent at Coldwell Banker Realty Beverly Hills. Schedule a call, send an email, or visit the Beverly Hills office.">
+  <title>Contact Paul Adams II | Los Angeles Real Estate</title>
+  <meta name="description" content="Get in touch with Paul Adams II, Coldwell Banker Realty Beverly Hills. Send a message, call directly, or schedule a consultation to talk strategy.">
   <link rel="canonical" href="https://paulsellsproperties.com/contact">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact Paul Adams II | Los Angeles Real Estate Agent">
-  <meta property="og:description" content="Reach Paul Adams II, Coldwell Banker Realty Beverly Hills. Schedule a call or send a message to get started.">
+  <meta property="og:title" content="Contact Paul Adams II | Los Angeles Real Estate">
+  <meta property="og:description" content="Reach Paul Adams II, Coldwell Banker Realty Beverly Hills. Send a message or schedule a consultation to talk Los Angeles real estate strategy.">
   <meta property="og:url" content="https://paulsellsproperties.com/contact">
   <meta property="og:site_name" content="Paul Adams II">
   <meta property="og:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
   <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Paul Adams II | Los Angeles Real Estate Agent">
+  <meta name="twitter:title" content="Contact Paul Adams II | Los Angeles Real Estate">
   <meta name="twitter:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Contact Paul Adams II","item":"https://paulsellsproperties.com/contact"}]}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://paulsellsproperties.com/contact#webpage",
+        "url": "https://paulsellsproperties.com/contact",
+        "name": "Contact Paul Adams II | Los Angeles Real Estate",
+        "description": "Contact page for Paul Adams II, Coldwell Banker Realty Beverly Hills.",
+        "isPartOf": {"@id": "https://paulsellsproperties.com/#website"},
+        "inLanguage": "en-US",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://paulsellsproperties.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://paulsellsproperties.com/contact"}
+          ]
+        }
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://paulsellsproperties.com/#paul",
+        "name": "Paul Adams II",
+        "telephone": "+13019066252",
+        "email": "Paul.Adams@CBRealty.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "301 N Canon Dr Ste E",
+          "addressLocality": "Beverly Hills",
+          "addressRegion": "CA",
+          "postalCode": "90210",
+          "addressCountry": "US"
+        },
+        "url": "https://paulsellsproperties.com/contact"
+      }
+    ]
+  }
   </script>
+
   <link rel="stylesheet" href="assets/css/styles.css">
-    </head>
-<body>
+  <link rel="stylesheet" href="assets/css/design-tokens.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
+
+  <style>
+  /* ══════════════════════════════════════════════════════════
+     CONTACT PAGE — component styles
+     (supplements the global CSS cascade)
+     ══════════════════════════════════════════════════════════ */
+
+  /* First section: pull up closer to page-header */
+  .contact-section-first { padding-top: 72px; }
+
+  /* Section headings shared by form + cards */
+  .contact-section-heading {
+    font-family: var(--serif);
+    font-size: 1.625rem;     /* 26px */
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--site-text);
+    margin: 0 0 36px;
+    text-wrap: balance;
+  }
+
+  /* ── Form ── */
+  .contact-form { display: flex; flex-direction: column; gap: 20px; }
+
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+  }
+  .contact-field label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--site-text-2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact-field .cf-optional {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--site-muted);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .contact-field input,
+  .contact-field textarea {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--site-text);
+    background: var(--site-white, #fff);
+    border: 1.5px solid rgba(36,36,36,0.20);
+    border-radius: 4px;
+    padding: 13px 16px;
+    width: 100%;
+    max-width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    line-height: 1.4;
+  }
+  .contact-field input:focus,
+  .contact-field textarea:focus {
+    outline: none;
+    border-color: var(--site-text);
+    box-shadow: 0 0 0 3px rgba(36,36,36,0.08);
+  }
+  .contact-field input::placeholder,
+  .contact-field textarea::placeholder { color: var(--site-muted); }
+  .contact-field textarea { min-height: 140px; resize: vertical; }
+
+  /* Field validation states */
+  .contact-field.has-error input,
+  .contact-field.has-error textarea,
+  .contact-field.has-error .cf-select__trigger { border-color: #B44B3A; background: #FFF9F8; }
+  .contact-field__error {
+    font-size: 11px; color: #B44B3A; font-weight: 500; display: none;
+  }
+  .contact-field.has-error .contact-field__error { display: block; }
+
+  .cf-submit-row { display: flex; flex-direction: column; gap: 12px; }
+  .cf-submit-row .psp-btn--primary { width: 100%; justify-content: center; }
+  .cf-privacy { font-size: 11px; color: var(--site-text-2); line-height: 1.6; }
+  .cf-privacy a { color: var(--site-text-2); text-decoration: underline; }
+
+  .cf-banner {
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.55;
+    display: none;
+  }
+  .cf-banner.is-visible { display: block; }
+  .cf-banner--success { background: #EAF2ED; color: #2A5C3C; border: 1px solid rgba(42,92,60,0.18); }
+  .cf-banner--error   { background: #FDF2F0; color: #B44B3A; border: 1px solid rgba(180,75,58,0.18); }
+
+  /* ── Custom accessible select ── */
+  .cf-select {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+  }
+  .cf-select__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--site-text);
+    background: var(--site-white, #fff);
+    border: 1.5px solid rgba(36,36,36,0.20);
+    border-radius: 4px;
+    padding: 13px 16px;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    min-height: 50px;
+  }
+  .cf-select__trigger:focus {
+    outline: none;
+    border-color: var(--site-text);
+    box-shadow: 0 0 0 3px rgba(36,36,36,0.08);
+  }
+  .cf-select__trigger.is-placeholder { color: var(--site-muted); }
+  .cf-select__value { flex: 1; text-align: left; line-height: 1.4; }
+  .cf-select__arrow {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--site-muted);
+    transition: transform 0.18s ease, color 0.15s;
+  }
+  .cf-select__arrow svg { display: block; }
+  .cf-select.is-open .cf-select__arrow { transform: rotate(180deg); color: var(--site-text); }
+  .cf-select.is-open .cf-select__trigger {
+    border-color: var(--site-text);
+    box-shadow: 0 0 0 3px rgba(36,36,36,0.08);
+  }
+  .cf-select__menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: #fff;
+    border: 1.5px solid rgba(36,36,36,0.20);
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+    list-style: none;
+    padding: 6px 0;
+    display: none;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  .cf-select.is-open .cf-select__menu { display: block; }
+  .cf-option {
+    padding: 11px 16px;
+    font-size: 15px;
+    color: var(--site-text);
+    cursor: pointer;
+    transition: background 0.10s;
+    line-height: 1.4;
+  }
+  .cf-option:hover,
+  .cf-option.is-focused  { background: var(--site-bg-alt, #E2E0DA); }
+  .cf-option.is-selected { background: var(--site-bg, #FAF9F6); font-weight: 500; }
+
+  /* ── Contact cards ── */
+  .contact-cards-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+  }
+  .contact-card {
+    background: var(--site-bg-alt, #E2E0DA);
+    border: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    border-radius: var(--radius, 6px);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Reach Out card: contact items */
+  .contact-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    min-width: 0;
+  }
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    min-width: 0;
+  }
+  .contact-item__label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--site-muted, #A9A8A2);
+  }
+  .contact-item__value {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--site-text, #242424);
+    text-decoration: none;
+    line-height: 1.45;
+    font-style: normal;
+    transition: color 0.15s;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .contact-item__value:hover { color: var(--site-text-2, #666762); }
+
+  /* Schedule card */
+  .schedule-card-body { flex: 1; }
+  .schedule-card-text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--site-text-2, #666762);
+    margin: 0 0 28px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .contact-cards-grid { grid-template-columns: minmax(0, 1fr); }
+    .contact-section-heading { font-size: 1.5rem; }
+  }
+  @media (max-width: 520px) {
+    .contact-section-first { padding-top: 44px; }
+    .contact-section-heading { font-size: 1.375rem; }
+    .contact-form-row { grid-template-columns: minmax(0, 1fr); }
+    .contact-card { padding: 24px 22px; }
+    .schedule-card-body .psp-btn--primary { width: 100%; }
+  }
+  @media (max-width: 320px) {
+    .contact-card { padding: 20px 16px; }
+  }
+  </style>
+</head>
+<body class="psp-interior">
 
 <!-- NAV -->
-<nav class="nav scrolled">
-  <div class="nav-inner">
-    <a href="/" class="logo-mark"><span class="logo-name">Paul Adams II</span><span class="logo-rule"></span><span class="logo-sub">Los Angeles Real Estate</span></a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="/">Home</a></li>
-      <li class="nav-item">
-        <span>Properties ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/property-search">Property Search</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <span>Buying &amp; Selling ▾</span>
-        <div class="nav-dropdown-menu"><a href="/buying-selling-tips">Buying &amp; Selling Tips</a></div>
-      </li>
-      <li class="nav-item">
-        <span>About Me ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/about">My Bio</a>
-          <a href="/contact" class="active">Contact Me</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="/blog/">Blog</a></li>
-      <li class="nav-item"><a href="/home-valuation">Custom Home Valuation</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="#" class="btn btn-gold btn-sm"
-         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+
+    <div class="psp-nav__actions">
+      <a href="/contact"
+         class="psp-btn psp-btn--nav"
+         aria-current="page">
+        Contact
       </a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
     </div>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+
+    <button class="psp-nav__toggle"
+            id="navToggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
+
   </div>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="/">Home</a>
-  <a href="/property-search" class="mobile-sub">Property Search</a>
-  <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-  <a href="/about">My Bio</a>
-  <a href="/contact">Contact Me</a>
-  <a href="/blog/">Blog</a>
-  <a href="/home-valuation">Home Valuation</a>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="/contact" aria-current="page">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="https://calendly.com/adams2paul/30min"
+       target="_blank"
+       rel="noopener"
+       class="psp-btn psp-btn--primary"
+       onclick="if(window.PSP&&PSP.openCalendly){PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;}">
+      Schedule a Consultation
+    </a>
+  </div>
 </div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="container">
-    <span class="page-header-eyebrow">Let's Connect</span>
-    <h1>Paul Adams II</h1>
-    <p>Ready to talk strategy? Reach out directly or schedule a call to get started.</p>
+    <h1>Let's Talk Real Estate.</h1>
+    <p>Whether you're buying, selling, investing, or exploring your options in Los Angeles, I'd welcome the opportunity to learn more about your goals.</p>
   </div>
 </div>
 
-<!-- CONTACT SECTION -->
-<section class="section">
+<!-- ══════════════════════════════════════════════
+     SEND A MESSAGE — contact form
+     ══════════════════════════════════════════════ -->
+<section class="section contact-section-first" id="contact-form-section">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+    <h2 class="contact-section-heading">Send a Message</h2>
 
-      <!-- Contact Info -->
-      <div>
-        <span class="section-label">Contact Information</span>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,32px); margin-bottom:32px;">Reach Out Directly</h2>
+    <form class="contact-form"
+          id="contactForm"
+          action="https://formspree.io/f/mdenrkkg"
+          method="POST"
+          novalidate>
 
-        <div style="display:flex; flex-direction:column; gap:28px; margin-bottom:40px;">
-          <div>
-            <div style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--light); margin-bottom:6px;">Email</div>
-            <a href="mailto:Paul.Adams@CBRealty.com" style="font-size:18px; font-weight:600; color:var(--white); transition:color 0.15s;">
-              Paul.Adams@CBRealty.com
-            </a>
-          </div>
-          <div>
-            <div style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--light); margin-bottom:6px;">Phone (Direct)</div>
-            <a href="tel:+13019066252" style="font-size:18px; font-weight:600; color:var(--white);">301-906-6252</a>
-          </div>
-          <div>
-            <div style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--light); margin-bottom:6px;">Office Address</div>
-            <address style="font-style:normal; font-size:16px; color:var(--mid); line-height:1.6;">
-              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
-            </address>
-          </div>
+      <input type="hidden" name="_subject" value="New inquiry — paulsellsproperties.com">
+
+      <!-- Row 1: Name + Email -->
+      <div class="contact-form-row">
+        <div class="contact-field" id="cff-name">
+          <label for="cf-name">Full Name</label>
+          <input type="text" id="cf-name" name="name"
+                 placeholder="Your full name"
+                 autocomplete="name"
+                 required aria-required="true"
+                 aria-describedby="cferr-name">
+          <span class="contact-field__error" id="cferr-name" role="alert">Please enter your name.</span>
         </div>
-
-        <div style="padding:28px; background:var(--bg-alt); border-radius:2px; border:1px solid var(--border);">
-          <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--light); margin-bottom:10px;">Prefer to schedule a time?</div>
-          <p style="font-size:14px; color:var(--mid); margin-bottom:16px; line-height:1.6;">Book a call directly on my calendar — choose a time that works for you.</p>
-          <a href="#" class="btn btn-primary" style="font-size:13px;"
-             onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-            Start a Conversation
-          </a>
-        </div>
-
-        <div style="margin-top:28px; padding:24px; border:1px solid var(--border); border-radius:2px;">
-          <div style="font-size:12px; font-weight:600; color:var(--light); margin-bottom:4px;">Paul Adams II | CA DRE# 02232552</div>
-          <div style="font-size:12px; color:var(--light);">Coldwell Banker Residential Brokerage Company | CA DRE# 00616212</div>
+        <div class="contact-field" id="cff-email">
+          <label for="cf-email">Email Address</label>
+          <input type="email" id="cf-email" name="email"
+                 placeholder="you@example.com"
+                 autocomplete="email"
+                 required aria-required="true"
+                 aria-describedby="cferr-email">
+          <span class="contact-field__error" id="cferr-email" role="alert">Please enter a valid email address.</span>
         </div>
       </div>
 
-      <!-- Contact Form -->
-      <div>
-        <span class="section-label">Send a Message</span>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,32px); margin-bottom:32px;">How Can I Help?</h2>
+      <!-- Row 2: Phone + Interest -->
+      <div class="contact-form-row">
+        <div class="contact-field" id="cff-phone">
+          <label for="cf-phone">Phone Number <span class="cf-optional">optional</span></label>
+          <input type="tel" id="cf-phone" name="phone"
+                 placeholder="(310) 555-0100"
+                 autocomplete="tel">
+        </div>
+        <div class="contact-field" id="cff-interest">
+          <label id="cfs-interest-label">I'm Interested In</label>
 
-        <!--
-          SETUP INSTRUCTIONS:
-          1. Go to https://formspree.io and create a free account
-          2. Create a new form and copy your form ID
-          3. Replace YOUR_FORM_ID below with your actual ID (e.g. xpzgkwqb)
-        -->
-        <form class="form-grid" id="contactForm" action="https://formspree.io/f/mdenrkkg" method="POST">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your email" required>
+          <!-- Custom accessible select -->
+          <div class="cf-select" id="cfs-interest"
+               role="combobox"
+               aria-labelledby="cfs-interest-label"
+               aria-haspopup="listbox"
+               aria-expanded="false"
+               tabindex="0">
+            <div class="cf-select__trigger is-placeholder" id="cfs-interest-trigger">
+              <span class="cf-select__value" id="cfs-interest-value">Select one</span>
+              <span class="cf-select__arrow" aria-hidden="true">
+                <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                  <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
-            </div>
+            <ul class="cf-select__menu" role="listbox" aria-labelledby="cfs-interest-label" id="cfs-interest-menu">
+              <li class="cf-option" role="option" data-value="buying"    aria-selected="false" tabindex="-1">Buying</li>
+              <li class="cf-option" role="option" data-value="selling"   aria-selected="false" tabindex="-1">Selling</li>
+              <li class="cf-option" role="option" data-value="investing" aria-selected="false" tabindex="-1">Investing</li>
+              <li class="cf-option" role="option" data-value="leasing"   aria-selected="false" tabindex="-1">Leasing</li>
+              <li class="cf-option" role="option" data-value="general"   aria-selected="false" tabindex="-1">General Inquiry</li>
+            </ul>
+            <input type="hidden" name="interest" id="cf-interest-hidden">
           </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="The more detail the better..." rows="5" required></textarea>
+          <span class="contact-field__error" id="cferr-interest" role="alert">Please select an option.</span>
+        </div>
+      </div>
+
+      <!-- Message — full width -->
+      <div class="contact-field" id="cff-message">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message"
+                  placeholder="Tell me about your goals, timeline, or questions&#8230;"
+                  required aria-required="true"
+                  aria-describedby="cferr-message"></textarea>
+        <span class="contact-field__error" id="cferr-message" role="alert">Please include a message.</span>
+      </div>
+
+      <!-- Submit -->
+      <div class="cf-submit-row">
+        <button type="submit" class="psp-btn psp-btn--primary" id="cf-submit-btn">
+          Send Message
+        </button>
+        <p class="cf-privacy">
+          Your information is used only to respond to your inquiry and is transmitted securely via
+          <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree</a>.
+          See our <a href="/privacy">Privacy Policy</a>.
+        </p>
+      </div>
+
+      <div class="cf-banner cf-banner--success" id="cf-success" role="status">
+        Message received. I'll be in touch within one business day.
+      </div>
+      <div class="cf-banner cf-banner--error" id="cf-error" role="alert">
+        Something went wrong — please email directly at
+        <a href="mailto:Paul.Adams@CBRealty.com">Paul.Adams@CBRealty.com</a>.
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     REACH OUT + SCHEDULE — two cards
+     ══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="contact-cards-grid">
+
+      <!-- Card A: Reach Out Directly -->
+      <div class="contact-card">
+        <h2 class="contact-section-heading">Reach Out Directly</h2>
+        <div class="contact-items">
+          <div class="contact-item">
+            <span class="contact-item__label">Email</span>
+            <a href="mailto:Paul.Adams@CBRealty.com" class="contact-item__value">Paul.Adams@CBRealty.com</a>
           </div>
-          <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);margin-bottom:0.75rem;">
-            Your information is used only to respond to your inquiry and is transmitted via
-            <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree</a>.
-            See our <a href="/privacy">Privacy Policy</a>.
-          </p>
-          <div>
-            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; text-align:center;">
-              Send Message
-            </button>
+          <div class="contact-item">
+            <span class="contact-item__label">Phone</span>
+            <a href="tel:+13019066252" class="contact-item__value">301-906-6252</a>
           </div>
-          <div class="form-message" id="formMsg"></div>
-        </form>
+          <div class="contact-item">
+            <span class="contact-item__label">Office</span>
+            <address class="contact-item__value">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210"
+                 target="_blank" rel="noopener"
+                 style="color:inherit; text-decoration:none;">
+                301 N Canon Dr, Ste E<br>Beverly Hills, CA&nbsp;90210
+              </a>
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card B: Prefer to Schedule? -->
+      <div class="contact-card">
+        <h2 class="contact-section-heading">Prefer to Schedule a Time?</h2>
+        <div class="schedule-card-body">
+          <p class="schedule-card-text">Book a call directly on my calendar. Choose a time that works for you and I'll come prepared with context on your goals and the current market.</p>
+          <a href="https://calendly.com/adams2paul/30min"
+             target="_blank"
+             rel="noopener"
+             class="psp-btn psp-btn--primary"
+             onclick="if(window.PSP&&PSP.openCalendly){PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;}">
+            Schedule a Consultation
+          </a>
+        </div>
       </div>
 
     </div>
@@ -187,8 +590,15 @@
           </div>
           <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            </a>
           </div>
         </div>
         <div>
@@ -225,9 +635,12 @@
           </div>
           <div class="footer-contact-block">
             <div class="footer-contact-lbl">Office</div>
-            <div class="footer-contact-val"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a></div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210"
+                 target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
           </div>
-          <div class="footer-dre">CA DRE# 02232552</div>
         </div>
       </div>
     </div>
@@ -235,7 +648,9 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom-inner">
-        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+        <p class="footer-legal">
+          Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | &copy;2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.
+        </p>
         <div class="footer-bottom-links">
           <a href="/terms">Terms</a>
           <a href="/privacy">Privacy</a>
@@ -246,42 +661,166 @@
   </div>
 </footer>
 
+<!-- Custom select + form JS -->
 <script>
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navMobile').classList.toggle('open');
+(function () {
+  'use strict';
+
+  /* ── Custom accessible select ── */
+  var cs      = document.getElementById('cfs-interest');
+  var trigger = document.getElementById('cfs-interest-trigger');
+  var valueEl = document.getElementById('cfs-interest-value');
+  var hidden  = document.getElementById('cf-interest-hidden');
+  var opts    = Array.from(document.querySelectorAll('#cfs-interest-menu .cf-option'));
+  var focused = -1;
+
+  function openCS() {
+    cs.classList.add('is-open');
+    cs.setAttribute('aria-expanded', 'true');
+    focused = opts.findIndex(function (o) { return o.classList.contains('is-selected'); });
+    if (focused < 0) focused = 0;
+    setFocused(focused);
+  }
+  function closeCS() {
+    cs.classList.remove('is-open');
+    cs.setAttribute('aria-expanded', 'false');
+    opts.forEach(function (o) { o.classList.remove('is-focused'); });
+    focused = -1;
+  }
+  function selectOpt(i) {
+    var opt = opts[i];
+    if (!opt) return;
+    opts.forEach(function (o) { o.classList.remove('is-selected'); o.setAttribute('aria-selected', 'false'); });
+    opt.classList.add('is-selected');
+    opt.setAttribute('aria-selected', 'true');
+    hidden.value = opt.dataset.value;
+    valueEl.textContent = opt.textContent.trim();
+    trigger.classList.remove('is-placeholder');
+    closeCS();
+    var field = document.getElementById('cff-interest');
+    if (field) field.classList.remove('has-error');
+  }
+  function setFocused(i) {
+    opts.forEach(function (o) { o.classList.remove('is-focused'); });
+    if (i >= 0 && i < opts.length) {
+      opts[i].classList.add('is-focused');
+      opts[i].scrollIntoView({ block: 'nearest' });
+    }
+    focused = i;
+  }
+
+  trigger.addEventListener('click', function (e) {
+    e.preventDefault();
+    cs.classList.contains('is-open') ? closeCS() : openCS();
+  });
+  cs.addEventListener('keydown', function (e) {
+    var isOpen = cs.classList.contains('is-open');
+    switch (e.key) {
+      case 'Enter': case ' ':
+        e.preventDefault();
+        if (isOpen) { if (focused >= 0) selectOpt(focused); } else { openCS(); }
+        break;
+      case 'ArrowDown':
+        e.preventDefault();
+        if (!isOpen) { openCS(); return; }
+        setFocused(Math.min(focused + 1, opts.length - 1));
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        if (!isOpen) { openCS(); return; }
+        setFocused(Math.max(focused - 1, 0));
+        break;
+      case 'Escape': e.preventDefault(); closeCS(); cs.focus(); break;
+      case 'Tab':    if (isOpen) closeCS(); break;
+    }
+  });
+  opts.forEach(function (opt, i) {
+    opt.addEventListener('click', function () { selectOpt(i); });
+    opt.addEventListener('mouseenter', function () { setFocused(i); });
+  });
+  document.addEventListener('click', function (e) {
+    if (!cs.contains(e.target)) closeCS();
   });
 
-  // Form submission handling with Formspree
-  const form = document.getElementById('contactForm');
-  const msg = document.getElementById('formMsg');
+  /* ── Formspree async submission ── */
+  var form    = document.getElementById('contactForm');
+  var success = document.getElementById('cf-success');
+  var error   = document.getElementById('cf-error');
+  var btn     = document.getElementById('cf-submit-btn');
+
+  function checkField(fieldId, inputId, emailMode) {
+    var field = document.getElementById(fieldId);
+    var input = document.getElementById(inputId);
+    if (!input) return true;
+    var val = input.value.trim();
+    var ok  = val.length > 0;
+    if (emailMode && ok) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if (!ok) {
+      field.classList.add('has-error');
+      input.setAttribute('aria-invalid', 'true');
+    } else {
+      field.classList.remove('has-error');
+      input.removeAttribute('aria-invalid');
+    }
+    return ok;
+  }
+
   if (form) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      const btn = form.querySelector('button[type=submit]');
-      btn.textContent = 'Sending...';
+      var valid = true;
+      if (!checkField('cff-name',    'cf-name',    false)) valid = false;
+      if (!checkField('cff-email',   'cf-email',   true))  valid = false;
+      if (!checkField('cff-message', 'cf-message', false)) valid = false;
+      /* custom select */
+      var iField = document.getElementById('cff-interest');
+      if (!hidden.value) { iField.classList.add('has-error'); valid = false; }
+      else               { iField.classList.remove('has-error'); }
+      if (!valid) return;
+
+      btn.textContent = 'Sending…';
       btn.disabled = true;
+      success.classList.remove('is-visible');
+      error.classList.remove('is-visible');
+
       try {
-        const res = await fetch(form.action, {
+        var res = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
         if (res.ok) {
-          msg.textContent = 'Thank you for your inquiry. I will be in touch shortly.';
-          msg.className = 'form-message success';
+          success.classList.add('is-visible');
           form.reset();
+          /* reset custom select */
+          opts.forEach(function (o) { o.classList.remove('is-selected'); o.setAttribute('aria-selected','false'); });
+          hidden.value = '';
+          valueEl.textContent = 'Select one';
+          trigger.classList.add('is-placeholder');
         } else {
-          throw new Error();
+          throw new Error('non-ok');
         }
-      } catch {
-        msg.textContent = 'Something went wrong — please check your information and try again.';
-        msg.className = 'form-message error';
+      } catch (_) {
+        error.classList.add('is-visible');
       }
       btn.textContent = 'Send Message';
       btn.disabled = false;
     });
+
+    /* Clear errors on input */
+    ['cf-name', 'cf-email', 'cf-message'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', function () {
+        var wrap = el.closest('.contact-field');
+        if (wrap) { wrap.classList.remove('has-error'); el.removeAttribute('aria-invalid'); }
+      });
+    });
   }
+})();
 </script>
+
+<script src="assets/js/nav.js" defer></script>
 <script src="assets/js/analytics.js" defer></script>
 </body>
 </html>
