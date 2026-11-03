@@ -3,401 +3,650 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Los Angeles Real Estate Insights | Paul Adams II</title>
+  <title>Journal | Paul Adams II</title>
   <meta name="description" content="Real estate strategy, market analysis, and Los Angeles neighborhood insights from Paul Adams II, Coldwell Banker Realty Beverly Hills.">
   <link rel="canonical" href="https://paulsellsproperties.com/blog/">
   <link rel="alternate" type="application/rss+xml" title="Paul Adams II | Los Angeles Real Estate Insights" href="https://paulsellsproperties.com/feed.xml">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Los Angeles Real Estate Insights | Paul Adams II">
+  <meta property="og:title" content="Journal | Paul Adams II">
   <meta property="og:description" content="Real estate strategy, market analysis, and Los Angeles neighborhood insights from Paul Adams II, Coldwell Banker Realty Beverly Hills.">
   <meta property="og:url" content="https://paulsellsproperties.com/blog/">
   <meta property="og:site_name" content="Paul Adams II">
   <meta property="og:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Los Angeles Real Estate Insights | Paul Adams II">
+  <meta name="twitter:title" content="Journal | Paul Adams II">
   <meta name="twitter:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Journal","item":"https://paulsellsproperties.com/blog/"}]}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Real Estate Insights","item":"https://paulsellsproperties.com/blog/"}]}
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../assets/css/styles.css">
-    </head>
-<body>
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <link rel="stylesheet" href="../assets/css/redesign.css">
+
+  <!-- JOURNAL-SPECIFIC COMPONENT STYLES -->
+  <style>
+
+  /* ── Interior page overrides
+     Needed because styles.css sets body{background:var(--dark)} and
+     .page-header{background:var(--dark)} — overrides below use higher specificity
+     than any production CSS rule so they win regardless of injection order. ── */
+  body.psp-interior {
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+  }
+  body.psp-interior .page-header {
+    background: var(--color-bg);
+    padding-bottom: 44px;
+  }
+  body.psp-interior .page-header h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    max-width: 740px;
+    margin-bottom: 20px;
+    color: var(--color-text-primary);
+  }
+  body.psp-interior .page-header p {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    max-width: none;
+    line-height: 1.65;
+    margin-top: 0;
+  }
+
+  /* ── Interior-page nav: light bg + dark text to match approved interior templates ── */
+  .psp-interior .psp-nav {
+    background: var(--color-bg);
+    box-shadow: 0 1px 0 var(--color-border);
+  }
+  .psp-interior .psp-nav__name       { color: var(--color-text-primary); }
+  .psp-interior .psp-nav__descriptor { color: var(--color-text-secondary); }
+  .psp-interior .psp-nav__link       { color: var(--color-text-secondary); }
+  .psp-interior .psp-nav__link:hover { color: var(--color-text-primary); }
+  .psp-interior .psp-nav .psp-btn--nav {
+    color: var(--color-text-primary);
+    border-color: rgba(36, 36, 36, 0.35);
+  }
+  .psp-interior .psp-nav .psp-btn--nav:hover {
+    background: rgba(36, 36, 36, 0.06);
+    border-color: rgba(36, 36, 36, 0.55);
+  }
+  .psp-interior .psp-nav__toggle-bar { background: var(--color-text-primary); }
+  .psp-interior .psp-nav__search-btn { color: var(--color-text-secondary); }
+
+  /* CTA banner: light editorial treatment matching buyers/investors/listings pages.
+     Uses element+class selector (11) to beat .cta-banner (10) from styles.css. */
+  section.cta-banner {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid rgba(36, 36, 36, 0.12);
+    border-bottom: 1px solid rgba(36, 36, 36, 0.12);
+  }
+  section.cta-banner h2 { color: var(--color-text-primary); }
+  section.cta-banner p  { color: var(--color-text-secondary); max-width: none; }
+
+  /* ── Category filter — custom dropdown, right-aligned, contact-form styling ── */
+  .journal-filter-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+  }
+
+  /* Container */
+  .psp-dropdown {
+    position: relative;
+    width: 210px;
+  }
+
+  /* Closed trigger — matches contact form field exactly */
+  .psp-dropdown__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 16px;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    background: var(--color-white);
+    border: 1.5px solid rgba(36, 36, 36, 0.20);
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    line-height: 1.4;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .psp-dropdown__trigger:hover { border-color: rgba(36, 36, 36, 0.35); }
+  .psp-dropdown__trigger:focus,
+  .psp-dropdown.is-open .psp-dropdown__trigger {
+    outline: none;
+    border-color: var(--color-text-primary);
+    box-shadow: 0 0 0 3px rgba(36, 36, 36, 0.08);
+  }
+  .psp-dropdown__chevron {
+    flex-shrink: 0;
+    transition: transform 0.18s ease;
+  }
+  .psp-dropdown.is-open .psp-dropdown__chevron { transform: rotate(180deg); }
+
+  /* Dropdown panel */
+  .psp-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    background: var(--color-white);
+    border: 1.5px solid rgba(36, 36, 36, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(36, 36, 36, 0.12), 0 1px 4px rgba(36, 36, 36, 0.06);
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+    z-index: 200;
+    display: none;
+  }
+  .psp-dropdown.is-open .psp-dropdown__menu { display: block; }
+
+  /* Options */
+  .psp-dropdown__option {
+    padding: 10px 16px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    line-height: 1.4;
+    transition: background 0.1s;
+  }
+  .psp-dropdown__option:hover,
+  .psp-dropdown__option:focus {
+    background: rgba(36, 36, 36, 0.05);
+    outline: none;
+  }
+  .psp-dropdown__option.is-selected {
+    font-weight: 500;
+    background: rgba(36, 36, 36, 0.04);
+  }
+
+  /* ── Article grid ── */
+  .journal-section { padding: 44px 0 72px; background: var(--color-bg); }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  /* ── Article card ── */
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 32px 28px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    text-decoration: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .article-card:hover {
+    border-color: rgba(36, 36, 36, 0.22);
+    box-shadow: 0 4px 20px rgba(36, 36, 36, 0.07);
+  }
+
+  .article-card__cat {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0 0 14px;
+  }
+
+  .article-card__title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.65rem, 2.3vw, 1.9rem);
+    font-weight: 600;
+    line-height: 1.22;
+    color: var(--color-text-primary);
+    margin: 0 0 12px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .article-card__excerpt {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0 0 22px;
+    flex: 1;
+  }
+
+  .article-card__date {
+    font-size: 12px;
+    color: var(--color-muted);
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* ── Show More ── */
+  .article-card--hidden { display: none; }
+
+  .journal-more {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .journal-section { padding: 52px 0; }
+    .journal-filter-wrap { margin-bottom: 32px; }
+    .psp-dropdown { width: 100%; }
+    body.psp-interior .page-header { padding-bottom: 32px; }
+    .journal-section { padding-top: 32px; }
+    .article-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .article-card { padding: 24px 22px 20px; }
+  }
+
+  </style>
+
+</head>
+<body class="psp-interior">
 
 <!-- NAV -->
-<nav class="nav scrolled">
-  <div class="nav-inner">
-    <a href="/" class="logo-mark"><span class="logo-name">Paul Adams II</span><span class="logo-rule"></span><span class="logo-sub">Los Angeles Real Estate</span></a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="/">Home</a></li>
-      <li class="nav-item">
-        <span>Properties ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/property-search">Property Search</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Buying &amp; Selling ▾</span>
-        <div class="nav-dropdown-menu"><a href="/buying-selling-tips">Buying &amp; Selling Tips</a></div>
-      </li>
-      <li class="nav-item"><span>About Me ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/about">My Bio</a>
-          <a href="/contact">Contact Me</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Neighborhoods ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/neighborhoods/">All Neighborhoods</a>
-          <a href="/neighborhoods/beverly-hills">Beverly Hills</a>
-          <a href="/neighborhoods/bel-air">Bel Air</a>
-          <a href="/neighborhoods/hollywood-hills">Hollywood Hills</a>
-          <a href="/neighborhoods/santa-monica">Santa Monica</a>
-          <a href="/neighborhoods/silver-lake">Silver Lake</a>
-          <a href="/neighborhoods/venice">Venice</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <span>Blog ▾</span>
-        <div class="nav-dropdown-menu"><a href="/blog/" class="active">My Blog</a></div>
-      </li>
-      <li class="nav-item"><a href="/home-valuation">Custom Home Valuation</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="#" class="btn btn-gold btn-sm"
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link" aria-current="page">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+    <div class="psp-nav__actions">
+      <a href="/contact" class="psp-btn psp-btn--nav"
          onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
+        Contact
       </a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
     </div>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <button class="psp-nav__toggle" id="navToggle"
+            aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
   </div>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="/">Home</a>
-  <a href="/property-search" class="mobile-sub">Property Search</a>
-  <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-  <a href="/about">My Bio</a>
-  <a href="/contact">Contact Me</a>
-  <a href="/blog/">Blog</a>
-  <a href="/neighborhoods/">Neighborhoods</a>
-  <a href="/home-valuation">Home Valuation</a>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/" aria-current="page">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="https://calendly.com/adams2paul/30min" target="_blank" rel="noopener"
+       class="psp-btn psp-btn--primary"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+      Schedule a Consultation
+    </a>
+  </div>
 </div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="container">
-    <span class="page-header-eyebrow">Insights &amp; Guidance</span>
-    <h1>Real Estate Strategy, Market Insight, and Los Angeles Perspective</h1>
+    <h1>Journal.</h1>
     <p>Articles for buyers, sellers, landlords, and investors navigating the Los Angeles real estate market.</p>
   </div>
 </div>
 
-<!-- BLOG GRID -->
-<section class="section" style="padding-top:48px;">
+<!-- ══════════════════════════════════════════
+     ARTICLE GRID
+     ══════════════════════════════════════════ -->
+<section class="journal-section" aria-label="Journal articles">
   <div class="container">
 
-    <div class="blog-grid">
-<!-- BEGIN:blog-archive -->
-      <a href="los-angeles-467-million-housing-funding-measure-ula-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Real Estate Investing</div>
-          <h3>LA&#x27;s $467 Million Housing Funding Round: How Measure ULA Money Is Being Used</h3>
-          <p>Los Angeles is preparing approximately $467 million for affordable housing construction, preservation and stabilization, including about $324 million from Measure ULA.</p>
-          <div class="blog-meta"><span>October 18, 2026</span></div>
-        </div>
+    <div class="journal-filter-wrap">
+      <div class="psp-dropdown" id="journalDropdown">
+        <button type="button" class="psp-dropdown__trigger" id="journalDropdownTrigger"
+                aria-haspopup="listbox" aria-expanded="false" aria-controls="journalDropdownMenu">
+          <span class="psp-dropdown__value">All Articles</span>
+          <svg class="psp-dropdown__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+            <path d="M1 1.5L6 6.5L11 1.5" stroke="#666762" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="psp-dropdown__menu" id="journalDropdownMenu" role="listbox" aria-label="Filter articles by category">
+          <li class="psp-dropdown__option is-selected" role="option" data-value="all" aria-selected="true" tabindex="-1">All Articles</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="article-grid" id="articleGrid">
+
+      <!-- 1 -->
+      <a href="los-angeles-467-million-housing-funding-measure-ula-2026" class="article-card">
+        <div class="article-card__cat">Real Estate Investing</div>
+        <h2 class="article-card__title">LA&#x27;s $467 Million Housing Funding Round: How Measure ULA Money Is Being Used</h2>
+        <p class="article-card__excerpt">Los Angeles is preparing approximately $467 million for affordable housing construction, preservation and stabilization, including about $324 million from Measure ULA.</p>
+        <p class="article-card__date">October 18, 2026</p>
       </a>
 
-      <a href="hollywood-burbank-airport-new-terminal-october-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Lifestyle</div>
-          <h3>Hollywood Burbank Airport&#x27;s New Terminal: What Changes for Travelers on October 13</h3>
-          <p>Hollywood Burbank Airport is preparing to open a $1.3 billion replacement terminal on October 13, changing parking, access and the traveler experience.</p>
-          <div class="blog-meta"><span>October 18, 2026</span></div>
-        </div>
+      <!-- 2 -->
+      <a href="hollywood-burbank-airport-new-terminal-october-2026" class="article-card">
+        <div class="article-card__cat">Lifestyle</div>
+        <h2 class="article-card__title">Hollywood Burbank Airport&#x27;s New Terminal: What Changes for Travelers on October 13</h2>
+        <p class="article-card__excerpt">Hollywood Burbank Airport is preparing to open a $1.3 billion replacement terminal on October 13, changing parking, access and the traveler experience.</p>
+        <p class="article-card__date">October 18, 2026</p>
       </a>
 
-      <a href="mels-drive-in-santa-monica-138-apartments-development" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Neighborhood</div>
-          <h3>Mel&#x27;s Drive-In Could Be Replaced by 138 Apartments: What&#x27;s Proposed in Santa Monica</h3>
-          <p>A proposed eight-story development at 1670 Lincoln Boulevard would replace the historic Mel&#x27;s Drive-In building with 138 apartments and ground-floor retail.</p>
-          <div class="blog-meta"><span>October 18, 2026</span></div>
-        </div>
+      <!-- 3 -->
+      <a href="mels-drive-in-santa-monica-138-apartments-development" class="article-card">
+        <div class="article-card__cat">Neighborhood</div>
+        <h2 class="article-card__title">Mel&#x27;s Drive-In Could Be Replaced by 138 Apartments: What&#x27;s Proposed in Santa Monica</h2>
+        <p class="article-card__excerpt">A proposed eight-story development at 1670 Lincoln Boulevard would replace the historic Mel&#x27;s Drive-In building with 138 apartments and ground-floor retail.</p>
+        <p class="article-card__date">October 18, 2026</p>
       </a>
 
-      <a href="valley-village-303-homes-abc-radio-site-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Neighborhood</div>
-          <h3>303 For-Sale Homes Planned in Valley Village: What the Former ABC Radio Site Could Become</h3>
-          <p>Plans call for 303 for-sale homes at the former ABC Radio site in Valley Village, including houses, townhomes, affordable ownership units and open space.</p>
-          <div class="blog-meta"><span>October 9, 2026</span></div>
-        </div>
+      <!-- 4 -->
+      <a href="valley-village-303-homes-abc-radio-site-2026" class="article-card">
+        <div class="article-card__cat">Neighborhood</div>
+        <h2 class="article-card__title">303 For-Sale Homes Planned in Valley Village: What the Former ABC Radio Site Could Become</h2>
+        <p class="article-card__excerpt">Plans call for 303 for-sale homes at the former ABC Radio site in Valley Village, including houses, townhomes, affordable ownership units and open space.</p>
+        <p class="article-card__date">October 9, 2026</p>
       </a>
 
-      <a href="hotel-clark-opens-downtown-los-angeles-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Lifestyle</div>
-          <h3>Hotel Clark Finally Opens in Downtown Los Angeles: Inside a Decades-Long Adaptive Reuse Story</h3>
-          <p>Hotel Clark has finally opened at 426 S. Hill Street with 348 rooms, bringing a long-dormant Downtown Los Angeles landmark back into active use.</p>
-          <div class="blog-meta"><span>October 7, 2026</span></div>
-        </div>
+      <!-- 5 -->
+      <a href="hotel-clark-opens-downtown-los-angeles-2026" class="article-card">
+        <div class="article-card__cat">Lifestyle</div>
+        <h2 class="article-card__title">Hotel Clark Finally Opens in Downtown Los Angeles: Inside a Decades-Long Adaptive Reuse Story</h2>
+        <p class="article-card__excerpt">Hotel Clark has finally opened at 426 S. Hill Street with 348 rooms, bringing a long-dormant Downtown Los Angeles landmark back into active use.</p>
+        <p class="article-card__date">October 7, 2026</p>
       </a>
 
-      <a href="california-ab-956-two-detached-adus-los-angeles-2027" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Real Estate Investing</div>
-          <h3>California Will Allow Two Detached ADUs on Many Single-Family Lots: What LA Homeowners Should Know About AB 956</h3>
-          <p>California&#x27;s AB 956 will allow two detached ADUs on qualifying single-family lots starting in 2027. Here is what Los Angeles homeowners and investors should know.</p>
-          <div class="blog-meta"><span>October 5, 2026</span></div>
-        </div>
+      <!-- 6 -->
+      <a href="california-ab-956-two-detached-adus-los-angeles-2027" class="article-card">
+        <div class="article-card__cat">Real Estate Investing</div>
+        <h2 class="article-card__title">California Will Allow Two Detached ADUs on Many Single-Family Lots: What LA Homeowners Should Know About AB 956</h2>
+        <p class="article-card__excerpt">California&#x27;s AB 956 will allow two detached ADUs on qualifying single-family lots starting in 2027. Here is what Los Angeles homeowners and investors should know.</p>
+        <p class="article-card__date">October 5, 2026</p>
       </a>
 
-      <a href="valley-boulevard-improvements-lincoln-heights-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Neighborhood</div>
-          <h3>Valley Boulevard Is Getting a $9.4 Million Makeover: What It Could Mean for Lincoln Heights</h3>
-          <p>Valley Boulevard is slated for bus lanes, bike lanes, sidewalks, trees, lighting and a Lincoln Park expansion. Here is what the project could mean for Lincoln Heights.</p>
-          <div class="blog-meta"><span>October 2, 2026</span></div>
-        </div>
+      <!-- 7 -->
+      <a href="valley-boulevard-improvements-lincoln-heights-2026" class="article-card">
+        <div class="article-card__cat">Neighborhood</div>
+        <h2 class="article-card__title">Valley Boulevard Is Getting a $9.4 Million Makeover: What It Could Mean for Lincoln Heights</h2>
+        <p class="article-card__excerpt">Valley Boulevard is slated for bus lanes, bike lanes, sidewalks, trees, lighting and a Lincoln Park expansion. Here is what the project could mean for Lincoln Heights.</p>
+        <p class="article-card__date">October 2, 2026</p>
       </a>
 
-      <a href="horror-show-academy-museum-los-angeles-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Lifestyle</div>
-          <h3>The Horror Show Opens at the Academy Museum: What to Know About LA&#x27;s New Fall Exhibition</h3>
-          <p>The Horror Show is now open at the Academy Museum with nearly 350 objects, six themed galleries and related horror programming through 2027.</p>
-          <div class="blog-meta"><span>September 30, 2026</span></div>
-        </div>
+      <!-- 8 -->
+      <a href="horror-show-academy-museum-los-angeles-2026" class="article-card">
+        <div class="article-card__cat">Lifestyle</div>
+        <h2 class="article-card__title">The Horror Show Opens at the Academy Museum: What to Know About LA&#x27;s New Fall Exhibition</h2>
+        <p class="article-card__excerpt">The Horror Show is now open at the Academy Museum with nearly 350 objects, six themed galleries and related horror programming through 2027.</p>
+        <p class="article-card__date">September 30, 2026</p>
       </a>
 
-      <a href="sawtelle-apartment-development-housing-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Neighborhood</div>
-          <h3>Sawtelle Is Adding Hundreds of Apartments: What Buyers and Owners Should Watch</h3>
-          <p>Sawtelle is adding housing near the 405 and Metro E Line. Here is what the development pipeline may mean for buyers, owners and investors.</p>
-          <div class="blog-meta"><span>September 28, 2026</span></div>
-        </div>
+      <!-- 9 -->
+      <a href="sawtelle-apartment-development-housing-2026" class="article-card">
+        <div class="article-card__cat">Neighborhood</div>
+        <h2 class="article-card__title">Sawtelle Is Adding Hundreds of Apartments: What Buyers and Owners Should Watch</h2>
+        <p class="article-card__excerpt">Sawtelle is adding housing near the 405 and Metro E Line. Here is what the development pipeline may mean for buyers, owners and investors.</p>
+        <p class="article-card__date">September 28, 2026</p>
       </a>
 
-      <a href="miracle-mile-apartment-sale-114-million-la-multifamily-investing" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Investor Strategy</div>
-          <h3>A $114 Million Miracle Mile Apartment Sale: What It Says About LA Multifamily Investing</h3>
-          <p>A 163-unit Miracle Mile property sold for about $114 million. The deal offers useful lessons about basis, replacement cost and Los Angeles multifamily investing.</p>
-          <div class="blog-meta"><span>September 25, 2026</span></div>
-        </div>
+      <!-- 10 -->
+      <a href="miracle-mile-apartment-sale-114-million-la-multifamily-investing" class="article-card">
+        <div class="article-card__cat">Investor Strategy</div>
+        <h2 class="article-card__title">A $114 Million Miracle Mile Apartment Sale: What It Says About LA Multifamily Investing</h2>
+        <p class="article-card__excerpt">A 163-unit Miracle Mile property sold for about $114 million. The deal offers useful lessons about basis, replacement cost and Los Angeles multifamily investing.</p>
+        <p class="article-card__date">September 25, 2026</p>
       </a>
 
-      <a href="mortgage-rates-6-95-los-angeles-buyers-september-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Market Analysis</div>
-          <h3>Mortgage Rates Hit 6.95%: What It Means for Los Angeles Buyers</h3>
-          <p>Mortgage rates reached 6.95% on September 17. Here is how the increase changes payments, budgets and negotiating strategy for Los Angeles buyers.</p>
-          <div class="blog-meta"><span>September 23, 2026</span></div>
-        </div>
+      <!-- 11 -->
+      <a href="mortgage-rates-6-95-los-angeles-buyers-september-2026" class="article-card">
+        <div class="article-card__cat">Market Analysis</div>
+        <h2 class="article-card__title">Mortgage Rates Hit 6.95%: What It Means for Los Angeles Buyers</h2>
+        <p class="article-card__excerpt">Mortgage rates reached 6.95% on September 17. Here is how the increase changes payments, budgets and negotiating strategy for Los Angeles buyers.</p>
+        <p class="article-card__date">September 23, 2026</p>
       </a>
 
-      <a href="hotel-lucile-silver-lake-opening-1931-church" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Lifestyle</div>
-          <h3>Hotel Lucile Silver Lake: A New Boutique Hotel in a 1931 Church</h3>
-          <p>Hotel Lucile has opened in a restored 1931 Silver Lake church, adding 25 rooms, Sous Sous restaurant and a new adaptive-reuse destination near Sunset Junction.</p>
-          <div class="blog-meta"><span>September 23, 2026</span></div>
-        </div>
+      <!-- 12 -->
+      <a href="hotel-lucile-silver-lake-opening-1931-church" class="article-card">
+        <div class="article-card__cat">Lifestyle</div>
+        <h2 class="article-card__title">Hotel Lucile Silver Lake: A New Boutique Hotel in a 1931 Church</h2>
+        <p class="article-card__excerpt">Hotel Lucile has opened in a restored 1931 Silver Lake church, adding 25 rooms, Sous Sous restaurant and a new adaptive-reuse destination near Sunset Junction.</p>
+        <p class="article-card__date">September 23, 2026</p>
       </a>
 
-      <a href="los-angeles-just-cause-ordinance-jco-landlords" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Landlord &amp; Rental Laws</div>
-          <h3>Los Angeles Just Cause Ordinance (JCO): A Guide for Landlords</h3>
-          <p>Many Los Angeles rentals outside the RSO are still covered by the Just Cause Ordinance. Here is what landlords and investors should understand.</p>
-          <div class="blog-meta"><span>September 18, 2026</span></div>
-        </div>
+      <!-- 13 — hidden until Show More -->
+      <a href="los-angeles-just-cause-ordinance-jco-landlords" class="article-card article-card--hidden">
+        <div class="article-card__cat">Landlord &amp; Rental Laws</div>
+        <h2 class="article-card__title">Los Angeles Just Cause Ordinance (JCO): A Guide for Landlords</h2>
+        <p class="article-card__excerpt">Many Los Angeles rentals outside the RSO are still covered by the Just Cause Ordinance. Here is what landlords and investors should understand.</p>
+        <p class="article-card__date">September 18, 2026</p>
       </a>
 
-      <a href="lucas-museum-opening-exposition-park-los-angeles-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Lifestyle</div>
-          <h3>Lucas Museum Opens Sept. 22: What It Adds to Exposition Park</h3>
-          <p>The Lucas Museum opens September 22 with major galleries, a 13-acre public park and a destination restaurant, strengthening Exposition Park as a cultural district.</p>
-          <div class="blog-meta"><span>September 16, 2026</span></div>
-        </div>
+      <!-- 14 -->
+      <a href="lucas-museum-opening-exposition-park-los-angeles-2026" class="article-card article-card--hidden">
+        <div class="article-card__cat">Lifestyle</div>
+        <h2 class="article-card__title">Lucas Museum Opens Sept. 22: What It Adds to Exposition Park</h2>
+        <p class="article-card__excerpt">The Lucas Museum opens September 22 with major galleries, a 13-acre public park and a destination restaurant, strengthening Exposition Park as a cultural district.</p>
+        <p class="article-card__date">September 16, 2026</p>
       </a>
 
-      <a href="west-hollywood-housing-development-2026-santa-monica-boulevard" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Neighborhood</div>
-          <h3>New Apartments Coming to West Hollywood&#x27;s Santa Monica Boulevard</h3>
-          <p>West Hollywood is adding housing along and near Santa Monica Boulevard. Here is what current development may mean for buyers, owners and investors.</p>
-          <div class="blog-meta"><span>September 14, 2026</span></div>
-        </div>
+      <!-- 15 -->
+      <a href="west-hollywood-housing-development-2026-santa-monica-boulevard" class="article-card article-card--hidden">
+        <div class="article-card__cat">Neighborhood</div>
+        <h2 class="article-card__title">New Apartments Coming to West Hollywood&#x27;s Santa Monica Boulevard</h2>
+        <p class="article-card__excerpt">West Hollywood is adding housing along and near Santa Monica Boulevard. Here is what current development may mean for buyers, owners and investors.</p>
+        <p class="article-card__date">September 14, 2026</p>
       </a>
 
-      <a href="los-angeles-rents-falling-landlords-investors-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Multifamily</div>
-          <h3>Los Angeles Rents Are Falling: What Landlords Should Do in 2026</h3>
-          <p>Los Angeles asking rents are lower than a year ago. Landlords and multifamily buyers should rethink vacancy, pricing, concessions and projected rent growth.</p>
-          <div class="blog-meta"><span>September 11, 2026</span></div>
-        </div>
+      <!-- 16 -->
+      <a href="los-angeles-rents-falling-landlords-investors-2026" class="article-card article-card--hidden">
+        <div class="article-card__cat">Multifamily</div>
+        <h2 class="article-card__title">Los Angeles Rents Are Falling: What Landlords Should Do in 2026</h2>
+        <p class="article-card__excerpt">Los Angeles asking rents are lower than a year ago. Landlords and multifamily buyers should rethink vacancy, pricing, concessions and projected rent growth.</p>
+        <p class="article-card__date">September 11, 2026</p>
       </a>
 
-      <a href="los-angeles-housing-market-august-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Market Analysis</div>
-          <h3>Los Angeles Housing Market August 2026: Buyers Gain Leverage</h3>
-          <p>Los Angeles asking prices softened in August while inventory remained tight. Buyers have more negotiating leverage, but desirable homes can still move quickly.</p>
-          <div class="blog-meta"><span>September 9, 2026</span></div>
-        </div>
+      <!-- 17 -->
+      <a href="los-angeles-housing-market-august-2026" class="article-card article-card--hidden">
+        <div class="article-card__cat">Market Analysis</div>
+        <h2 class="article-card__title">Los Angeles Housing Market August 2026: Buyers Gain Leverage</h2>
+        <p class="article-card__excerpt">Los Angeles asking prices softened in August while inventory remained tight. Buyers have more negotiating leverage, but desirable homes can still move quickly.</p>
+        <p class="article-card__date">September 9, 2026</p>
       </a>
 
-      <a href="inglewood-261-million-mobility-project-sofi-k-line" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Neighborhood</div>
-          <h3>Inglewood&#x27;s $261 Million Mobility Overhaul: What It Could Mean for Downtown, SoFi Stadium and the K Line</h3>
-          <p>Inglewood is advancing a $261 million mobility and streetscape project connecting Downtown, the K Line and its major entertainment venues.</p>
-          <div class="blog-meta"><span>September 9, 2026</span></div>
-        </div>
+      <!-- 18 -->
+      <a href="inglewood-261-million-mobility-project-sofi-k-line" class="article-card article-card--hidden">
+        <div class="article-card__cat">Neighborhood</div>
+        <h2 class="article-card__title">Inglewood&#x27;s $261 Million Mobility Overhaul: What It Could Mean for Downtown, SoFi Stadium and the K Line</h2>
+        <p class="article-card__excerpt">Inglewood is advancing a $261 million mobility and streetscape project connecting Downtown, the K Line and its major entertainment venues.</p>
+        <p class="article-card__date">September 9, 2026</p>
       </a>
 
-      <a href="how-to-read-rent-roll-los-angeles-multifamily" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Multifamily</div>
-          <h3>How to Read a Rent Roll: Los Angeles Multifamily Investing Guide</h3>
-          <p>A rent roll is the beginning of multifamily income due diligence, not proof of income. Learn how to verify rents, leases, deposits, collections, and realistic upside before buying.</p>
-          <div class="blog-meta"><span>September 4, 2026</span></div>
-        </div>
+      <!-- 19 -->
+      <a href="how-to-read-rent-roll-los-angeles-multifamily" class="article-card article-card--hidden">
+        <div class="article-card__cat">Multifamily</div>
+        <h2 class="article-card__title">How to Read a Rent Roll: Los Angeles Multifamily Investing Guide</h2>
+        <p class="article-card__excerpt">A rent roll is the beginning of multifamily income due diligence, not proof of income. Learn how to verify rents, leases, deposits, collections, and realistic upside before buying.</p>
+        <p class="article-card__date">September 4, 2026</p>
       </a>
 
-      <a href="boyle-heights-community-plan-2026-property-owners" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Market Analysis</div>
-          <h3>Boyle Heights&#x27; New Community Plan Is Now in Effect: What Property Owners and Buyers Should Know</h3>
-          <p>The updated Boyle Heights Community Plan is now in effect. Buyers and owners should understand how parcel-specific zoning changes can affect development options and long-term value.</p>
-          <div class="blog-meta"><span>September 2, 2026</span></div>
-        </div>
+      <!-- 20 -->
+      <a href="boyle-heights-community-plan-2026-property-owners" class="article-card article-card--hidden">
+        <div class="article-card__cat">Market Analysis</div>
+        <h2 class="article-card__title">Boyle Heights&#x27; New Community Plan Is Now in Effect: What Property Owners and Buyers Should Know</h2>
+        <p class="article-card__excerpt">The updated Boyle Heights Community Plan is now in effect. Buyers and owners should understand how parcel-specific zoning changes can affect development options and long-term value.</p>
+        <p class="article-card__date">September 2, 2026</p>
       </a>
 
-      <a href="palisades-village-reopening-pacific-palisades-2026" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Lifestyle</div>
-          <h3>Palisades Village Reopens: Pacific Palisades Recovery in 2026</h3>
-          <p>Palisades Village has reopened after extensive repairs following the 2025 fire. Its return restores an important part of daily life as Pacific Palisades continues rebuilding.</p>
-          <div class="blog-meta"><span>September 2, 2026</span></div>
-        </div>
+      <!-- 21 -->
+      <a href="palisades-village-reopening-pacific-palisades-2026" class="article-card article-card--hidden">
+        <div class="article-card__cat">Lifestyle</div>
+        <h2 class="article-card__title">Palisades Village Reopens: Pacific Palisades Recovery in 2026</h2>
+        <p class="article-card__excerpt">Palisades Village has reopened after extensive repairs following the 2025 fire. Its return restores an important part of daily life as Pacific Palisades continues rebuilding.</p>
+        <p class="article-card__date">September 2, 2026</p>
       </a>
 
-      <a href="analyze-duplex-los-angeles-before-buying" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Multifamily</div>
-          <h3>How to Analyze a Los Angeles Duplex Before Buying</h3>
-          <p>A Los Angeles duplex should be analyzed as a business, not just a listing. Start with actual rents, expenses, financing, tenant risk, repairs, upside, and exit strategy.</p>
-          <div class="blog-meta"><span>August 28, 2026</span></div>
-        </div>
+      <!-- 22 -->
+      <a href="analyze-duplex-los-angeles-before-buying" class="article-card article-card--hidden">
+        <div class="article-card__cat">Multifamily</div>
+        <h2 class="article-card__title">How to Analyze a Los Angeles Duplex Before Buying</h2>
+        <p class="article-card__excerpt">A Los Angeles duplex should be analyzed as a business, not just a listing. Start with actual rents, expenses, financing, tenant risk, repairs, upside, and exit strategy.</p>
+        <p class="article-card__date">August 28, 2026</p>
       </a>
 
-      <a href="buying-rso-property-los-angeles" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Buyer&#x27;s Guide</div>
-          <h3>What Does RSO Mean in Los Angeles? A Buyer&#x27;s Guide</h3>
-          <p>RSO status can materially affect the income, tenant strategy, and value of a Los Angeles rental property. Buyers should verify the rules before underwriting the deal.</p>
-          <div class="blog-meta"><span>August 26, 2026</span></div>
-        </div>
+      <!-- 23 -->
+      <a href="buying-rso-property-los-angeles" class="article-card article-card--hidden">
+        <div class="article-card__cat">Buyer&#x27;s Guide</div>
+        <h2 class="article-card__title">What Does RSO Mean in Los Angeles? A Buyer&#x27;s Guide</h2>
+        <p class="article-card__excerpt">RSO status can materially affect the income, tenant strategy, and value of a Los Angeles rental property. Buyers should verify the rules before underwriting the deal.</p>
+        <p class="article-card__date">August 26, 2026</p>
       </a>
 
-      <a href="california-home-insurance-los-angeles-buyers-sellers" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Market Analysis</div>
-          <h3>California&#x27;s Home Insurance Market Is Changing: What Los Angeles Buyers and Sellers Need to Know</h3>
-          <p>California&#x27;s insurance market is showing signs of greater insurer participation, but Los Angeles buyers and sellers still need property-specific insurance due diligence.</p>
-          <div class="blog-meta"><span>August 24, 2026</span></div>
-        </div>
+      <!-- 24 -->
+      <a href="california-home-insurance-los-angeles-buyers-sellers" class="article-card article-card--hidden">
+        <div class="article-card__cat">Market Analysis</div>
+        <h2 class="article-card__title">California&#x27;s Home Insurance Market Is Changing: What Los Angeles Buyers and Sellers Need to Know</h2>
+        <p class="article-card__excerpt">California&#x27;s insurance market is showing signs of greater insurer participation, but Los Angeles buyers and sellers still need property-specific insurance due diligence.</p>
+        <p class="article-card__date">August 24, 2026</p>
       </a>
 
-      <a href="tenant-buyout-disclosure" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Landlord &amp; Rental Laws</div>
-          <h3>Tenant Buyout Disclosure Laws in Los Angeles</h3>
-          <p>Most landlords think offering cash for keys is simple. It&#x27;s more regulated than that.</p>
-          <div class="blog-meta"><span>April 28, 2026</span></div>
-        </div>
+      <!-- 25 -->
+      <a href="tenant-buyout-disclosure" class="article-card article-card--hidden">
+        <div class="article-card__cat">Landlord &amp; Rental Laws</div>
+        <h2 class="article-card__title">Tenant Buyout Disclosure Laws in Los Angeles</h2>
+        <p class="article-card__excerpt">Most landlords think offering cash for keys is simple. It&#x27;s more regulated than that.</p>
+        <p class="article-card__date">April 28, 2026</p>
       </a>
 
-      <a href="condo-financing" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Condo / HOA</div>
-          <h3>Condo Financing Is Tightening in Los Angeles: What Buyers and Sellers Need to Know</h3>
-          <p>Most buyers think getting pre-approved means they&#x27;re ready to buy any condo. That&#x27;s where deals fall apart.</p>
-          <div class="blog-meta"><span>April 28, 2026</span></div>
-        </div>
+      <!-- 26 -->
+      <a href="condo-financing" class="article-card article-card--hidden">
+        <div class="article-card__cat">Condo / HOA</div>
+        <h2 class="article-card__title">Condo Financing Is Tightening in Los Angeles: What Buyers and Sellers Need to Know</h2>
+        <p class="article-card__excerpt">Most buyers think getting pre-approved means they&#x27;re ready to buy any condo. That&#x27;s where deals fall apart.</p>
+        <p class="article-card__date">April 28, 2026</p>
       </a>
 
-      <a href="vacant-vs-occupied-duplex" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Investor Strategy</div>
-          <h3>Vacant vs Occupied Duplex Sales in Los Angeles: Which Strategy Gets Sellers the Best Price?</h3>
-          <p>Most duplex owners think vacancy automatically means a higher sale price. Sometimes it does. Not always.</p>
-          <div class="blog-meta"><span>April 27, 2026</span></div>
-        </div>
+      <!-- 27 -->
+      <a href="vacant-vs-occupied-duplex" class="article-card article-card--hidden">
+        <div class="article-card__cat">Investor Strategy</div>
+        <h2 class="article-card__title">Vacant vs Occupied Duplex Sales in Los Angeles: Which Strategy Gets Sellers the Best Price?</h2>
+        <p class="article-card__excerpt">Most duplex owners think vacancy automatically means a higher sale price. Sometimes it does. Not always.</p>
+        <p class="article-card__date">April 27, 2026</p>
       </a>
 
-      <a href="how-much-to-buy" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Buyer&#x27;s Guide</div>
-          <h3>How Much Do You Need to Buy a House in Los Angeles?</h3>
-          <p>The question buyers ask most — and the one that gets answered too vaguely.</p>
-          <div class="blog-meta"><span>April 24, 2026</span></div>
-        </div>
+      <!-- 28 -->
+      <a href="how-much-to-buy" class="article-card article-card--hidden">
+        <div class="article-card__cat">Buyer&#x27;s Guide</div>
+        <h2 class="article-card__title">How Much Do You Need to Buy a House in Los Angeles?</h2>
+        <p class="article-card__excerpt">The question buyers ask most — and the one that gets answered too vaguely.</p>
+        <p class="article-card__date">April 24, 2026</p>
       </a>
 
-      <a href="win-bidding-war" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Buyer Strategy</div>
-          <h3>How to Win a Bidding War in Los Angeles Without Overpaying</h3>
-          <p>Competing in the LA market takes strategy, not just a higher number.</p>
-          <div class="blog-meta"><span>April 22, 2026</span></div>
-        </div>
+      <!-- 29 -->
+      <a href="win-bidding-war" class="article-card article-card--hidden">
+        <div class="article-card__cat">Buyer Strategy</div>
+        <h2 class="article-card__title">How to Win a Bidding War in Los Angeles Without Overpaying</h2>
+        <p class="article-card__excerpt">Competing in the LA market takes strategy, not just a higher number.</p>
+        <p class="article-card__date">April 22, 2026</p>
       </a>
 
-      <a href="how-to-buy-house-la" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Buyer&#x27;s Guide</div>
-          <h3>How to Buy a House in Los Angeles: Step-by-Step Guide (2026)</h3>
-          <p>A clear walkthrough of the full buying process, from pre-approval to closing.</p>
-          <div class="blog-meta"><span>April 20, 2026</span></div>
-        </div>
+      <!-- 30 -->
+      <a href="how-to-buy-house-la" class="article-card article-card--hidden">
+        <div class="article-card__cat">Buyer&#x27;s Guide</div>
+        <h2 class="article-card__title">How to Buy a House in Los Angeles: Step-by-Step Guide (2026)</h2>
+        <p class="article-card__excerpt">A clear walkthrough of the full buying process, from pre-approval to closing.</p>
+        <p class="article-card__date">April 20, 2026</p>
       </a>
 
-      <a href="eviction-threshold" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Landlord &amp; Rental Laws</div>
-          <h3>Unincorporated LA County&#x27;s New Nonpayment Eviction Threshold: What Property Owners Need to Know</h3>
-          <p>New rules affecting when landlords can begin eviction proceedings for nonpayment of rent.</p>
-          <div class="blog-meta"><span>April 13, 2026</span></div>
-        </div>
+      <!-- 31 -->
+      <a href="eviction-threshold" class="article-card article-card--hidden">
+        <div class="article-card__cat">Landlord &amp; Rental Laws</div>
+        <h2 class="article-card__title">Unincorporated LA County&#x27;s New Nonpayment Eviction Threshold: What Property Owners Need to Know</h2>
+        <p class="article-card__excerpt">New rules affecting when landlords can begin eviction proceedings for nonpayment of rent.</p>
+        <p class="article-card__date">April 13, 2026</p>
       </a>
 
-      <a href="spring-2026-buy-or-wait" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Market Analysis</div>
-          <h3>Is Spring 2026 a Good Time to Buy in Los Angeles, or Should You Wait?</h3>
-          <p>An honest look at current conditions, inventory trends, and what the data actually says.</p>
-          <div class="blog-meta"><span>April 12, 2026</span></div>
-        </div>
+      <!-- 32 -->
+      <a href="spring-2026-buy-or-wait" class="article-card article-card--hidden">
+        <div class="article-card__cat">Market Analysis</div>
+        <h2 class="article-card__title">Is Spring 2026 a Good Time to Buy in Los Angeles, or Should You Wait?</h2>
+        <p class="article-card__excerpt">An honest look at current conditions, inventory trends, and what the data actually says.</p>
+        <p class="article-card__date">April 12, 2026</p>
       </a>
 
-      <a href="adu-vs-garage-conversion" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-category">Real Estate Investing</div>
-          <h3>ADU vs. Garage Conversion in Los Angeles: Which Adds More Value and Rent Potential?</h3>
-          <p>For LA property owners looking to add income or increase value — this choice matters.</p>
-          <div class="blog-meta"><span>April 9, 2026</span></div>
-        </div>
+      <!-- 33 -->
+      <a href="adu-vs-garage-conversion" class="article-card article-card--hidden">
+        <div class="article-card__cat">Real Estate Investing</div>
+        <h2 class="article-card__title">ADU vs. Garage Conversion in Los Angeles: Which Adds More Value and Rent Potential?</h2>
+        <p class="article-card__excerpt">For LA property owners looking to add income or increase value — this choice matters.</p>
+        <p class="article-card__date">April 9, 2026</p>
       </a>
 
-    <!-- END:blog-archive -->
+    </div>
+    <!-- /.article-grid -->
+
+    <div class="journal-more" id="journalMore">
+      <button class="psp-btn psp-btn--outline" id="showMoreBtn">
+        Show more articles
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CTA BANNER
+     ══════════════════════════════════════════ -->
+<section class="cta-banner" aria-label="Contact Paul Adams">
+  <div class="container">
+    <h2>Thinking About Buying or Selling in Los Angeles?</h2>
+    <p>Whether you're making a move or just beginning to plan, let's talk through what you're working toward.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="/contact" class="psp-btn psp-btn--primary">Get in Touch</a>
+      <a href="/listings" class="psp-btn psp-btn--outline">View Properties</a>
     </div>
   </div>
 </section>
@@ -417,8 +666,15 @@
           </div>
           <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            </a>
           </div>
         </div>
         <div>
@@ -428,7 +684,7 @@
             <li><a href="/property-search">Property Search</a></li>
             <li><a href="/buying-selling-tips">Buying &amp; Selling</a></li>
             <li><a href="/about">About Me</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/blog/">Journal</a></li>
             <li><a href="/home-valuation">Home Valuation</a></li>
           </ul>
         </div>
@@ -455,9 +711,12 @@
           </div>
           <div class="footer-contact-block">
             <div class="footer-contact-lbl">Office</div>
-            <div class="footer-contact-val"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a></div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210"
+                 target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
           </div>
-          <div class="footer-dre">CA DRE# 02232552</div>
         </div>
       </div>
     </div>
@@ -465,7 +724,7 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom-inner">
-        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | &copy;2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
         <div class="footer-bottom-links">
           <a href="/terms">Terms</a>
           <a href="/privacy">Privacy</a>
@@ -476,11 +735,138 @@
   </div>
 </footer>
 
+<!-- Filter + Show More JS -->
 <script>
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navMobile').classList.toggle('open');
+(function () {
+  'use strict';
+
+  var PAGE_SIZE    = 12;
+  var activeFilter = 'all';
+  var showAll      = false;
+
+  var allCards     = Array.from(document.querySelectorAll('#articleGrid .article-card'));
+  var moreWrap     = document.getElementById('journalMore');
+  var moreBtn      = document.getElementById('showMoreBtn');
+
+  /* ── Read categories from DOM, preserve document order ── */
+  var categoryOrder = [];
+  allCards.forEach(function (card) {
+    var catEl = card.querySelector('.article-card__cat');
+    var cat   = catEl ? catEl.textContent.trim() : '';
+    card.dataset.category = cat;
+    if (cat && categoryOrder.indexOf(cat) === -1) categoryOrder.push(cat);
   });
+
+  /* ── Custom accessible dropdown ── */
+  var dropdown   = document.getElementById('journalDropdown');
+  var triggerBtn = document.getElementById('journalDropdownTrigger');
+  var valueEl    = triggerBtn ? triggerBtn.querySelector('.psp-dropdown__value') : null;
+  var menuEl     = document.getElementById('journalDropdownMenu');
+
+  function openDD() {
+    dropdown.classList.add('is-open');
+    triggerBtn.setAttribute('aria-expanded', 'true');
+    var sel = menuEl.querySelector('.is-selected');
+    if (sel) sel.focus();
+  }
+  function closeDD(focus) {
+    dropdown.classList.remove('is-open');
+    triggerBtn.setAttribute('aria-expanded', 'false');
+    if (focus) triggerBtn.focus();
+  }
+  function pickOption(opt) {
+    activeFilter = opt.dataset.value;
+    showAll = false;
+    if (valueEl) valueEl.textContent = opt.textContent;
+    menuEl.querySelectorAll('.psp-dropdown__option').forEach(function (o) {
+      o.classList.toggle('is-selected', o === opt);
+      o.setAttribute('aria-selected', String(o === opt));
+    });
+    closeDD(true);
+    applyState();
+  }
+
+  if (dropdown && triggerBtn && menuEl) {
+    /* Populate category options */
+    categoryOrder.forEach(function (cat) {
+      var li = document.createElement('li');
+      li.className = 'psp-dropdown__option';
+      li.setAttribute('role', 'option');
+      li.dataset.value = cat;
+      li.setAttribute('aria-selected', 'false');
+      li.setAttribute('tabindex', '-1');
+      li.textContent = cat;
+      menuEl.appendChild(li);
+    });
+
+    /* Toggle */
+    triggerBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dropdown.classList.contains('is-open') ? closeDD(false) : openDD();
+    });
+
+    /* Click option */
+    menuEl.addEventListener('click', function (e) {
+      var opt = e.target.closest('.psp-dropdown__option');
+      if (opt) pickOption(opt);
+    });
+
+    /* Keyboard — trigger */
+    triggerBtn.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDD(); }
+      else if (e.key === 'Escape') { closeDD(false); }
+    });
+
+    /* Keyboard — menu */
+    menuEl.addEventListener('keydown', function (e) {
+      var opts = Array.from(menuEl.querySelectorAll('.psp-dropdown__option'));
+      var idx  = opts.indexOf(document.activeElement);
+      if      (e.key === 'ArrowDown') { e.preventDefault(); if (idx < opts.length - 1) opts[idx + 1].focus(); }
+      else if (e.key === 'ArrowUp')   { e.preventDefault(); if (idx > 0) opts[idx - 1].focus(); else triggerBtn.focus(); }
+      else if (e.key === 'Escape')    { e.preventDefault(); closeDD(true); }
+      else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (idx >= 0) pickOption(opts[idx]); }
+      else if (e.key === 'Tab')       { closeDD(false); }
+    });
+
+    /* Close on outside click */
+    document.addEventListener('click', function () { closeDD(false); });
+  }
+
+  /* ── Show More ── */
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function () { showAll = true; applyState(); });
+  }
+
+  /* ── Core render ── */
+  function applyState() {
+    var matching = allCards.filter(function (c) {
+      return activeFilter === 'all' || c.dataset.category === activeFilter;
+    });
+    var limit   = showAll ? Infinity : PAGE_SIZE;
+    var shown   = 0;
+    var toShow  = new Set(matching.slice(0, limit === Infinity ? matching.length : limit));
+
+    allCards.forEach(function (c) {
+      c.style.display = toShow.has(c) ? 'flex' : 'none';
+      if (toShow.has(c)) shown++;
+    });
+
+    var remaining = matching.length - shown;
+    if (moreWrap) {
+      if (remaining > 0) {
+        moreWrap.style.display = '';
+        if (moreBtn) moreBtn.textContent = 'Show ' + remaining + ' more article' + (remaining === 1 ? '' : 's');
+      } else {
+        moreWrap.style.display = 'none';
+      }
+    }
+  }
+
+  applyState();
+}());
 </script>
+
+<script src="../assets/js/nav.js" defer></script>
 <script src="../assets/js/analytics.js" defer></script>
 </body>
 </html>
