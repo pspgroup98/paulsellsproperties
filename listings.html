@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties &amp; Transactions | Paul Adams II</title>
+  <meta name="description" content="Browse Paul Adams II's current listings and recent transactions across Los Angeles. Coldwell Banker Realty Beverly Hills.">
+  <link rel="canonical" href="https://paulsellsproperties.com/listings">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Properties &amp; Transactions | Paul Adams II">
+  <meta property="og:description" content="Browse Paul Adams II's current listings and recent transactions across Los Angeles. Coldwell Banker Realty Beverly Hills.">
+  <meta property="og:url" content="https://paulsellsproperties.com/listings">
+  <meta property="og:site_name" content="Paul Adams II">
+  <meta property="og:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Properties &amp; Transactions | Paul Adams II">
+  <meta name="twitter:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://paulsellsproperties.com/listings#webpage",
+        "url": "https://paulsellsproperties.com/listings",
+        "name": "Properties & Transactions | Paul Adams II",
+        "description": "Browse Paul Adams II's current listings and recent transactions across Los Angeles.",
+        "isPartOf": {"@id": "https://paulsellsproperties.com/#website"},
+        "inLanguage": "en-US",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://paulsellsproperties.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Properties", "item": "https://paulsellsproperties.com/listings"}
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/design-tokens.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
+
+  <!-- LISTINGS-SPECIFIC COMPONENT STYLES -->
+  <style>
+
+  /* ── Featured listing hero ── */
+  .listings-hero {
+    padding: 72px 0 80px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .listings-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 56px;
+    align-items: center;
+  }
+  .listings-hero__img-wrap {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--color-bg-secondary);
+  }
+  .listings-hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .listings-hero__img-wrap:hover .listings-hero__img { transform: scale(1.03); }
+
+  .listings-hero__badge-row {
+    position: absolute;
+    top: 16px; left: 16px;
+    display: flex; gap: 8px; z-index: 2;
+  }
+
+  .listings-hero__details { display: flex; flex-direction: column; }
+  .listings-hero__eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--color-muted); margin: 0 0 16px;
+  }
+  .listings-hero__address {
+    font-family: var(--font-serif);
+    font-size: clamp(1.875rem, 2.8vw, 2.5rem);
+    font-weight: 500; line-height: 1.1; letter-spacing: -0.015em;
+    color: var(--color-text-primary); margin: 0 0 8px; text-wrap: balance;
+  }
+  .listings-hero__neighborhood {
+    font-size: 16px; color: var(--color-text-secondary); margin: 0 0 24px;
+  }
+  .listings-hero__price {
+    font-family: var(--font-serif);
+    font-size: 2rem; font-weight: 600;
+    color: var(--color-text-primary); margin: 0 0 20px;
+    letter-spacing: -0.01em; line-height: 1;
+  }
+  .listings-hero__meta {
+    display: flex; flex-direction: column; gap: 10px;
+    margin: 0 0 32px;
+    border-top: 1px solid var(--color-border); padding-top: 20px;
+  }
+  .listings-hero__meta-row {
+    display: flex; align-items: baseline; gap: 8px;
+    font-size: 14px; color: var(--color-text-secondary);
+  }
+  .listings-hero__meta-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--color-muted); min-width: 80px;
+  }
+  .listings-hero__ctas { display: flex; flex-direction: column; gap: 12px; }
+  .listings-hero__ctas .psp-btn { width: 100%; justify-content: center; }
+
+  /* ── Current listings section ── */
+  .listings-section { padding: 72px 0; }
+
+  /* ── Status filter tabs ── */
+  .listings-filter-bar {
+    display: flex; align-items: center; gap: 0;
+    margin: 0 0 36px; border-bottom: 1px solid var(--color-border);
+  }
+  .filter-tab {
+    padding: 10px 20px;
+    font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+    color: var(--color-text-secondary); background: transparent; border: none;
+    border-bottom: 2px solid transparent; cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    margin-bottom: -1px; letter-spacing: 0.01em; white-space: nowrap;
+  }
+  .filter-tab:hover { color: var(--color-text-primary); }
+  .filter-tab.is-active {
+    color: var(--color-text-primary); border-bottom-color: var(--color-text-primary);
+    font-weight: 600;
+  }
+  .filter-tab__count {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 18px; height: 18px; padding: 0 5px;
+    background: var(--color-bg-secondary); border-radius: 9px;
+    font-size: 10px; font-weight: 600; color: var(--color-text-secondary);
+    margin-left: 6px; vertical-align: middle;
+  }
+  .filter-tab.is-active .filter-tab__count {
+    background: var(--color-text-primary); color: var(--color-white);
+  }
+
+  /* ── Property grid ── */
+  .listings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  /* ── Property card ── */
+  .prop-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden; display: flex; flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .prop-card:hover {
+    box-shadow: 0 8px 28px rgba(36,36,36,0.10);
+    transform: translateY(-2px);
+  }
+  .prop-card--featured { border-color: rgba(36,36,36,0.22); }
+
+  .prop-card__img-wrap {
+    position: relative; aspect-ratio: 4 / 3;
+    overflow: hidden; background: var(--color-bg-secondary); flex-shrink: 0;
+  }
+  .prop-card__img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.35s ease;
+  }
+  .prop-card:hover .prop-card__img { transform: scale(1.04); }
+
+  /* Placeholder when image missing */
+  .prop-card__placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--color-bg-secondary); gap: 10px;
+  }
+  .prop-card__placeholder svg { color: var(--color-muted); }
+  .prop-card__placeholder span {
+    font-size: 11px; color: var(--color-muted); letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .prop-card__badges {
+    position: absolute; top: 12px; left: 12px;
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+
+  /* Status badges — distinct, accessible colors per status */
+  .prop-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 3px; line-height: 1;
+  }
+  .prop-badge::before {
+    content: ''; display: block; width: 5px; height: 5px;
+    border-radius: 50%; background: currentColor; opacity: 0.75;
+  }
+  /* For Sale: forest green — distinct from dark backgrounds */
+  .prop-badge--for-sale {
+    background: rgba(34, 85, 54, 0.90); color: #fff;
+  }
+  /* Sold: warm charcoal */
+  .prop-badge--sold {
+    background: rgba(36, 36, 36, 0.88); color: #fff;
+  }
+  /* Leased: slate blue */
+  .prop-badge--leased {
+    background: rgba(28, 58, 105, 0.88); color: #fff;
+  }
+  /* Featured: light pill with dark text */
+  .prop-badge--featured {
+    background: rgba(255,255,255,0.92); color: var(--color-text-primary);
+    border: 1px solid rgba(36,36,36,0.12);
+  }
+  .prop-badge--featured::before { display: none; }
+
+  /* Card body */
+  .prop-card__body {
+    padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1;
+  }
+  .prop-card__address {
+    font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600;
+    color: var(--color-text-primary); line-height: 1.2; margin: 0 0 3px;
+    letter-spacing: -0.01em;
+  }
+  .prop-card__neighborhood {
+    font-size: 13px; color: var(--color-text-secondary); margin: 0 0 14px;
+  }
+  .prop-card__price {
+    font-family: var(--font-serif); font-size: 1.375rem; font-weight: 600;
+    color: var(--color-text-primary); letter-spacing: -0.01em; line-height: 1; margin: 0 0 3px;
+  }
+  .prop-card__type {
+    font-size: 12px; color: var(--color-muted); margin: 0;
+  }
+  .prop-card__role {
+    font-size: 11px; color: var(--color-text-secondary); font-weight: 500;
+    margin: 12px 0 0; padding-top: 11px;
+    border-top: 1px solid var(--color-border);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Empty state ── */
+  .listings-empty {
+    display: none; grid-column: 1 / -1; text-align: center; padding: 64px 24px;
+  }
+  .listings-empty.is-visible { display: block; }
+  .listings-empty__icon { width: 40px; height: 40px; margin: 0 auto 18px; color: var(--color-muted); }
+  .listings-empty__heading {
+    font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400;
+    color: var(--color-text-primary); margin: 0 0 10px;
+  }
+  .listings-empty__text {
+    font-size: 14px; color: var(--color-text-secondary); line-height: 1.65;
+    max-width: 400px; margin: 0 auto 24px;
+  }
+
+  /* ── Section divider between Current Listings + Transactions ── */
+  .listings-divider {
+    border: none; border-top: 1px solid var(--color-border); margin: 0;
+  }
+
+  /* ── Transactions section ── */
+  .transactions-section {
+    padding: 72px 0; background: var(--color-bg-secondary);
+  }
+
+
+  /* ── MLS CTA section ── */
+  .mls-cta-section {
+    padding: 72px 0; background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+  }
+  .mls-cta-inner {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: 48px; align-items: center;
+  }
+  .mls-cta__text {
+    font-size: 14px; color: var(--color-text-secondary); line-height: 1.65;
+    margin: 0;
+  }
+  .mls-cta__disclaimer {
+    font-size: 11px; color: var(--color-muted); margin: 10px 0 0; line-height: 1.5;
+  }
+  .mls-cta__actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; flex-shrink: 0; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .listings-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .listings-hero { padding: 52px 0 60px; }
+    .listings-hero__img-wrap { aspect-ratio: 16 / 9; max-height: 380px; }
+    .listings-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mls-cta-inner { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .mls-cta__actions { flex-direction: row; align-items: flex-start; }
+  }
+  @media (max-width: 640px) {
+    .listings-hero { padding: 36px 0 44px; }
+    .listings-hero__address { font-size: 1.625rem; }
+    .listings-hero__price { font-size: 1.625rem; }
+    .listings-filter-bar { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 1px; }
+    .filter-tab { padding: 10px 14px; font-size: 12px; }
+    .listings-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .mls-cta__actions { flex-direction: column; }
+    .mls-cta__actions .psp-btn { width: 100%; justify-content: center; }
+  }
+  @media (max-width: 320px) {
+    .listings-hero__address { font-size: 1.375rem; }
+    .prop-card__body { padding: 16px 18px 18px; }
+  }
+  /* Override production .cta-banner p max-width for the off-market section.
+     ID selector specificity beats the class-based production rule. */
+  #off-market p { max-width: none; }
+  </style>
+
+</head>
+<body class="psp-interior">
+
+<!-- NAV -->
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link" aria-current="page">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+    <div class="psp-nav__actions">
+      <a href="/contact" class="psp-btn psp-btn--nav"
+         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
+        Contact
+      </a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+    </div>
+    <button class="psp-nav__toggle" id="navToggle"
+            aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings" aria-current="page">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="https://calendly.com/adams2paul/30min" target="_blank" rel="noopener"
+       class="psp-btn psp-btn--primary"
+       onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+      Schedule a Consultation
+    </a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <h1>Properties &amp; Transactions.</h1>
+    <p>Current listings, recent closings, and completed transactions. For every active listing in Los Angeles, use the MLS search below.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FEATURED LISTING — editorial hero
+     ══════════════════════════════════════════ -->
+<section class="listings-hero" id="featured-listing" aria-label="Featured listing">
+  <div class="container">
+    <div class="listings-hero__inner">
+
+      <!-- Image -->
+      <div class="listings-hero__img-wrap">
+        <img class="listings-hero__img"
+             src="https://paulsellsproperties.com/assets/images/transactions_enhanced/904%20N%20Western%20Ave.png"
+             alt="904 N Western Ave, Los Angeles — For Sale $1,975,000"
+             loading="eager" onerror="imgErr(this)">
+        <div class="listings-hero__badge-row">
+          <span class="prop-badge prop-badge--for-sale">For Sale</span>
+          <span class="prop-badge prop-badge--featured">Featured</span>
+        </div>
+      </div>
+
+      <!-- Details -->
+      <div class="listings-hero__details">
+        <p class="listings-hero__eyebrow">Featured Listing</p>
+        <h2 class="listings-hero__address">904 N Western Ave</h2>
+        <p class="listings-hero__neighborhood">Los Angeles, CA</p>
+        <p class="listings-hero__price">$1,975,000</p>
+        <div class="listings-hero__meta">
+          <div class="listings-hero__meta-row">
+            <span class="listings-hero__meta-label">Type</span>
+            <span>Mixed-Use</span>
+          </div>
+          <div class="listings-hero__meta-row">
+            <span class="listings-hero__meta-label">Role</span>
+            <span>Represented Seller</span>
+          </div>
+          <div class="listings-hero__meta-row">
+            <span class="listings-hero__meta-label">Status</span>
+            <span>Active — For Sale</span>
+          </div>
+        </div>
+        <div class="listings-hero__ctas">
+          <a href="/contact" class="psp-btn psp-btn--primary">
+            Inquire About This Property
+          </a>
+          <a href="#"
+             class="psp-btn psp-btn--outline"
+             onclick="PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+            Schedule a Tour
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CURRENT LISTINGS
+     ══════════════════════════════════════════ -->
+<section class="listings-section" id="current-listings">
+  <div class="container">
+
+    <h2 class="section-title">Current Listings</h2>
+    <p class="section-subtitle">Properties I am actively representing for sale.</p>
+
+    <div class="listings-grid listings-grid--active" id="active-grid">
+
+      <!-- 1: Featured / For Sale -->
+      <div class="prop-card prop-card--featured">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/904%20N%20Western%20Ave.png"
+               alt="904 N Western Ave, Los Angeles" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges">
+            <span class="prop-badge prop-badge--for-sale">For Sale</span>
+            <span class="prop-badge prop-badge--featured">Featured</span>
+          </div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">904 N Western Ave</p>
+          <p class="prop-card__neighborhood">Los Angeles</p>
+          <p class="prop-card__price">$1,975,000</p>
+          <p class="prop-card__type">Mixed-Use</p>
+          <p class="prop-card__role">Represented Seller</p>
+        </div>
+      </div>
+
+      <!-- 2: For Sale -->
+      <div class="prop-card">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/72450%20Manzanita%20Dr.png"
+               alt="72450 Manzanita Dr, Palm Desert" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges">
+            <span class="prop-badge prop-badge--for-sale">For Sale</span>
+          </div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">72450 Manzanita Dr</p>
+          <p class="prop-card__neighborhood">Palm Desert</p>
+          <p class="prop-card__price">$595,000</p>
+          <p class="prop-card__type">Residential</p>
+          <p class="prop-card__role">Represented Seller</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.active-grid -->
+
+
+  </div>
+</section>
+
+<hr class="listings-divider">
+
+<!-- ══════════════════════════════════════════
+     RECENT TRANSACTIONS
+     ══════════════════════════════════════════ -->
+<section class="transactions-section" id="recent-transactions">
+  <div class="container">
+
+    <h2 class="section-title">Recent Transactions</h2>
+
+    <!-- Filter tabs — Sold + Leased only (no active listings here) -->
+    <div class="listings-filter-bar" role="tablist" aria-label="Filter transactions by type">
+      <button class="filter-tab is-active" role="tab" aria-selected="true"  data-filter="all"    id="tab-all">All <span class="filter-tab__count" id="cnt-all">6</span></button>
+      <button class="filter-tab"           role="tab" aria-selected="false" data-filter="sold"   id="tab-sold">Sold <span class="filter-tab__count" id="cnt-sold">3</span></button>
+      <button class="filter-tab"           role="tab" aria-selected="false" data-filter="leased" id="tab-leased">Leased <span class="filter-tab__count" id="cnt-leased">3</span></button>
+    </div>
+
+    <div class="listings-grid" id="tx-grid" role="tabpanel">
+
+      <!-- Sold -->
+      <div class="prop-card" data-status="sold">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/8455%20Fountain%20Ave%20%23504.png"
+               alt="8455 Fountain Ave #504, West Hollywood" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges"><span class="prop-badge prop-badge--sold">Sold</span></div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">8455 Fountain Ave #504</p>
+          <p class="prop-card__neighborhood">West Hollywood</p>
+          <p class="prop-card__price">$885,000</p>
+          <p class="prop-card__type">Condominium</p>
+          <p class="prop-card__role">Represented Buyer</p>
+        </div>
+      </div>
+
+      <div class="prop-card" data-status="sold">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/4343%20Finley%20Ave%20%2336.png"
+               alt="4343 Finley Ave #36, Los Angeles" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges"><span class="prop-badge prop-badge--sold">Sold</span></div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">4343 Finley Ave #36</p>
+          <p class="prop-card__neighborhood">Los Angeles</p>
+          <p class="prop-card__price">$870,000</p>
+          <p class="prop-card__type">Condominium</p>
+          <p class="prop-card__role">Represented Buyer</p>
+        </div>
+      </div>
+
+      <div class="prop-card" data-status="sold">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/320%20S%20Ardmore%20Ave%20%23205.png"
+               alt="320 S Ardmore Ave #205, Los Angeles" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges"><span class="prop-badge prop-badge--sold">Sold</span></div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">320 S Ardmore Ave #205</p>
+          <p class="prop-card__neighborhood">Los Angeles</p>
+          <p class="prop-card__price">$340,000</p>
+          <p class="prop-card__type">Condominium</p>
+          <p class="prop-card__role">Represented Buyer</p>
+        </div>
+      </div>
+
+      <!-- Leased -->
+      <div class="prop-card" data-status="leased">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/12213%20Havelock%20Ave.png"
+               alt="12213 Havelock Ave, Los Angeles" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges"><span class="prop-badge prop-badge--leased">Leased</span></div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">12213 Havelock Ave</p>
+          <p class="prop-card__neighborhood">Los Angeles</p>
+          <p class="prop-card__price">$7,650 / month</p>
+          <p class="prop-card__type">Residential</p>
+          <p class="prop-card__role">Represented Tenant</p>
+        </div>
+      </div>
+
+      <div class="prop-card" data-status="leased">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/4533%20Colbath%20Ave%20%2320.png"
+               alt="4533 Colbath Ave #20, Sherman Oaks" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges"><span class="prop-badge prop-badge--leased">Leased</span></div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">4533 Colbath Ave #20</p>
+          <p class="prop-card__neighborhood">Sherman Oaks</p>
+          <p class="prop-card__price">$1,950 / month</p>
+          <p class="prop-card__type">Residential</p>
+          <p class="prop-card__role">Represented Tenant</p>
+        </div>
+      </div>
+
+      <div class="prop-card" data-status="leased">
+        <div class="prop-card__img-wrap">
+          <img class="prop-card__img"
+               src="https://paulsellsproperties.com/assets/images/transactions_enhanced/439%20N%20Van%20Ness%20Ave%20%231.png"
+               alt="439 N Van Ness Ave #1, Los Angeles" loading="lazy" onerror="imgErr(this)">
+          <div class="prop-card__badges"><span class="prop-badge prop-badge--leased">Leased</span></div>
+        </div>
+        <div class="prop-card__body">
+          <p class="prop-card__address">439 N Van Ness Ave #1</p>
+          <p class="prop-card__neighborhood">Los Angeles</p>
+          <p class="prop-card__price">$1,595 / month</p>
+          <p class="prop-card__type">Residential</p>
+          <p class="prop-card__role">Represented Tenant</p>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div class="listings-empty" id="tx-empty" aria-live="polite">
+        <svg class="listings-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <h3 class="listings-empty__heading">No transactions to show</h3>
+        <p class="listings-empty__text">No transactions match the current filter. Select All to see the full history.</p>
+      </div>
+
+    </div>
+    <!-- /.tx-grid -->
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MLS SEARCH CTA
+     ══════════════════════════════════════════ -->
+<section class="mls-cta-section" aria-label="MLS property search">
+  <div class="container">
+    <div class="mls-cta-inner">
+      <div>
+        <h2 class="section-title">Browse Every Active Listing in Los Angeles</h2>
+        <p class="mls-cta__text">The listings above represent my own client work. For the complete inventory across every Los Angeles neighborhood, use the MLS search portal.</p>
+        <p class="mls-cta__disclaimer">Data provided by TheMLS/CLAW. Updated in real time. All information deemed reliable but not guaranteed.</p>
+      </div>
+      <div class="mls-cta__actions">
+        <a href="https://www.themls.com/IDXNET/Default.aspx?wid=2q0y5eCcXc5I3QI2sLSlatlNdpQ67OX6gcRNBRVwFPLv14jZddLQCaI14PjK63bT"
+           target="_blank" rel="noopener"
+           class="psp-btn psp-btn--primary">
+          Open Property Search
+        </a>
+        <a href="/contact" class="psp-btn psp-btn--outline">
+          Tell Me What You Need
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     OFF-MARKET OPPORTUNITIES CTA
+     ══════════════════════════════════════════ -->
+<section class="cta-banner" id="off-market" aria-label="Off-market opportunities">
+  <div class="container">
+    <h2>Looking for Off-Market Opportunities?</h2>
+    <p>I work with properties that never reach public listings. Tell me what you need and I'll source it for you.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="/contact" class="psp-btn psp-btn--primary">
+        Inquire About Off-Markets
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-wrap">
+            <a href="/" class="logo-mark">
+              <span class="logo-name">Paul Adams II</span>
+              <span class="logo-rule"></span>
+              <span class="logo-sub">Los Angeles Real Estate</span>
+            </a>
+          </div>
+          <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/property-search">Property Search</a></li>
+            <li><a href="/buying-selling-tips">Buying &amp; Selling</a></li>
+            <li><a href="/about">About Me</a></li>
+            <li><a href="/blog/">Journal</a></li>
+            <li><a href="/home-valuation">Home Valuation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Neighborhoods</div>
+          <ul class="footer-links">
+            <li><a href="/neighborhoods/beverly-hills">Beverly Hills</a></li>
+            <li><a href="/neighborhoods/bel-air">Bel Air</a></li>
+            <li><a href="/neighborhoods/hollywood-hills">Hollywood Hills</a></li>
+            <li><a href="/neighborhoods/santa-monica">Santa Monica</a></li>
+            <li><a href="/neighborhoods/venice">Venice</a></li>
+            <li><a href="/neighborhoods/silver-lake">Silver Lake</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Email</div>
+            <div class="footer-contact-val"><a href="mailto:Paul.Adams@CBRealty.com">Paul.Adams@CBRealty.com</a></div>
+          </div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Phone</div>
+            <div class="footer-contact-val"><a href="tel:+13019066252">301-906-6252</a></div>
+          </div>
+          <div class="footer-contact-block">
+            <div class="footer-contact-lbl">Office</div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210"
+                 target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | &copy;2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+        <div class="footer-bottom-links">
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp/fair_housing_act_overview" target="_blank" rel="noopener">Fair Housing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Filter JS + image fallback -->
+<script>
+/* Replace a failed image with a clean placeholder — prevents alt text bleed */
+function imgErr(el) {
+  var wrap = el.parentNode;
+  el.style.display = 'none';
+  var ph = document.createElement('div');
+  ph.className = el.classList.contains('listings-hero__img')
+    ? 'listings-hero__img prop-card__placeholder'
+    : 'prop-card__placeholder';
+  ph.style.cssText = 'width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--color-bg-secondary,#E2E0DA)';
+  ph.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A9A8A2" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>'
+              + '<span style="font-size:11px;color:#A9A8A2;letter-spacing:0.05em;text-transform:uppercase">Photo unavailable</span>';
+  wrap.appendChild(ph);
+}
+
+(function () {
+  'use strict';
+  var tabs  = document.querySelectorAll('#recent-transactions .filter-tab');
+  var cards = document.querySelectorAll('#tx-grid .prop-card');
+  var empty = document.getElementById('tx-empty');
+
+  function applyFilter(filter) {
+    var visible = 0;
+    cards.forEach(function (card) {
+      var match = (filter === 'all') || (card.dataset.status === filter);
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    empty.classList.toggle('is-visible', visible === 0);
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+      applyFilter(tab.dataset.filter);
+    });
+  });
+})();
+</script>
+
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/analytics.js" defer></script>
+</body>
+</html>
