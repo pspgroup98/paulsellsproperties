@@ -1,0 +1,383 @@
+    /* =============================================================================
+       Phase 3 — Neighborhood Page Template
+       Reusable across all 15 neighborhood pages.
+       Applied via .psp-interior on <body>.
+       ============================================================================= */
+
+    /* ── Neighborhood Hero: full-bleed photo with dark overlay ── */
+    .nbhd-hero {
+      position:         relative;
+      min-height:       520px;
+      display:          flex;
+      align-items:      flex-end;
+      padding-bottom:   72px;
+      padding-top:      calc(var(--nav-height) + 72px);
+      background-size:  cover;
+      background-position: center;
+      background-color: var(--color-dark);
+    }
+    .nbhd-hero::before {
+      content:    '';
+      position:   absolute;
+      inset:      0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 18, 0.25) 0%,
+        rgba(20, 20, 18, 0.72) 100%
+      );
+    }
+    .nbhd-hero__inner {
+      position: relative;
+      z-index:  1;
+    }
+    .nbhd-hero__breadcrumb {
+      font-family:     var(--font-sans);
+      font-size:       11px;
+      font-weight:     600;
+      letter-spacing:  0.10em;
+      text-transform:  uppercase;
+      color:           rgba(255, 255, 255, 0.55);
+      margin-bottom:   16px;
+      display:         flex;
+      align-items:     center;
+      gap:             8px;
+    }
+    .nbhd-hero__breadcrumb a  { color: inherit; text-decoration: none; }
+    .nbhd-hero__breadcrumb a:hover { color: rgba(255,255,255,0.85); }
+    .nbhd-hero__breadcrumb-sep { opacity: 0.4; }
+    .nbhd-hero h1 {
+      font-family:    var(--font-serif);
+      font-size:      clamp(3rem, 6vw, 5.5rem);
+      font-weight:    400;
+      color:          var(--color-white);
+      line-height:    1.0;
+      letter-spacing: -0.02em;
+      margin:         0 0 20px;
+    }
+    .nbhd-hero__intro {
+      font-size:   clamp(15px, 1.5vw, 17px);
+      line-height: 1.72;
+      color:       rgba(255, 255, 255, 0.75);
+      max-width:   560px;
+      margin:      0;
+    }
+    @media (max-width: 768px) {
+      .nbhd-hero { min-height: 380px; padding-bottom: 52px; }
+    }
+    @media (max-width: 480px) {
+      .nbhd-hero { min-height: 340px; padding-top: calc(var(--nav-height) + 52px); }
+    }
+
+    /* ── Stat strip (cream secondary, 4 across) ── */
+    .nbhd-stats-strip {
+      display:       grid;
+      grid-template-columns: repeat(4, 1fr);
+      border:        1px solid rgba(36, 36, 36, 0.10);
+      border-radius: 6px;
+      overflow:      hidden;
+      margin-bottom: 72px;
+    }
+    .nbhd-stat {
+      padding:      30px 24px;
+      background:   var(--color-bg-secondary);
+      border-right: 1px solid rgba(36, 36, 36, 0.10);
+    }
+    .nbhd-stat:last-child { border-right: none; }
+    .nbhd-stat__value {
+      font-family:    var(--font-serif);
+      font-size:      clamp(1.75rem, 2.5vw, 2.5rem);
+      font-weight:    400;
+      color:          var(--color-text-primary);
+      line-height:    1;
+      letter-spacing: -0.02em;
+      margin-bottom:  8px;
+    }
+    .nbhd-stat__label {
+      font-size:      11px;
+      font-weight:    700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color:          var(--color-text-secondary);
+    }
+    .nbhd-stat__note {
+      font-size:  11px;
+      color:      var(--color-muted);
+      margin-top: 3px;
+    }
+    @media (max-width: 1024px) {
+      .nbhd-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nbhd-stat:nth-child(2)                        { border-right: none; }
+      .nbhd-stat:nth-child(3), .nbhd-stat:nth-child(4) { border-top: 1px solid rgba(36,36,36,0.10); }
+    }
+    @media (max-width: 480px) {
+      .nbhd-stats-strip { grid-template-columns: 1fr 1fr; margin-bottom: 48px; }
+    }
+
+    /* ── Overview two-column grid ── */
+    .nbhd-overview-grid {
+      display:               grid;
+      grid-template-columns: 3fr 2fr;
+      gap:                   64px;
+      align-items:           start;
+    }
+    .nbhd-body-text {
+      font-size:   16px;
+      line-height: 1.82;
+      color:       var(--color-text-secondary);
+      margin:      0 0 20px;
+    }
+    .nbhd-subhead {
+      font-family:    var(--font-serif);
+      font-size:      clamp(1.125rem, 1.8vw, 1.375rem);
+      font-weight:    600;
+      color:          var(--color-text-primary);
+      letter-spacing: -0.01em;
+      line-height:    1.2;
+      margin:         40px 0 16px;
+    }
+    .nbhd-body-list {
+      display:        flex;
+      flex-direction: column;
+      gap:            10px;
+      padding-left:   20px;
+      list-style:     disc;
+      margin:         0;
+    }
+    .nbhd-body-list li {
+      font-size:   15px;
+      line-height: 1.72;
+      color:       var(--color-text-secondary);
+    }
+    .nbhd-sidebar-box {
+      background:    var(--color-bg-secondary);
+      border:        1px solid rgba(36, 36, 36, 0.08);
+      border-radius: 6px;
+      padding:       32px;
+    }
+    .nbhd-sidebar-label {
+      font-size:      11px;
+      font-weight:    700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color:          var(--color-text-secondary);
+      margin-bottom:  16px;
+    }
+    .nbhd-sub-list {
+      list-style: none;
+      padding:    0;
+      margin:     0;
+    }
+    .nbhd-sub-list li {
+      font-size:     14px;
+      color:         var(--color-text-secondary);
+      padding:       10px 0;
+      border-bottom: 1px solid rgba(36, 36, 36, 0.08);
+      line-height:   1.4;
+    }
+    .nbhd-sub-list li:last-child { border-bottom: none; }
+    .nbhd-office-block {
+      margin-top:  24px;
+      padding-top: 24px;
+      border-top:  1px solid rgba(36, 36, 36, 0.08);
+    }
+    .nbhd-office-label {
+      font-size:      11px;
+      font-weight:    700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color:          var(--color-text-secondary);
+      margin-bottom:  10px;
+    }
+    .nbhd-office-address {
+      font-style:  normal;
+      font-size:   14px;
+      color:       var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    @media (max-width: 1024px) {
+      .nbhd-overview-grid { gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .nbhd-overview-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── Market context: buyer/seller notes grid ── */
+    .nbhd-notes-grid {
+      display:               grid;
+      grid-template-columns: 1fr 1fr;
+      gap:                   48px;
+      margin-top:            48px;
+    }
+    .nbhd-notes-heading {
+      font-family:    var(--font-serif);
+      font-size:      clamp(1.125rem, 1.5vw, 1.375rem);
+      font-weight:    600;
+      color:          var(--color-text-primary);
+      letter-spacing: -0.01em;
+      margin:         0 0 20px;
+      padding-bottom: 16px;
+      border-bottom:  1px solid rgba(36, 36, 36, 0.12);
+    }
+    .nbhd-notes-list {
+      list-style:     none;
+      padding:        0;
+      margin:         0;
+      display:        flex;
+      flex-direction: column;
+      gap:            14px;
+    }
+    .nbhd-notes-list li {
+      font-size:    15px;
+      line-height:  1.7;
+      color:        var(--color-text-secondary);
+      padding-left: 16px;
+      position:     relative;
+    }
+    .nbhd-notes-list li::before {
+      content:       '';
+      position:      absolute;
+      left:          0;
+      top:           10px;
+      width:         4px;
+      height:        4px;
+      border-radius: 50%;
+      background:    var(--color-muted);
+    }
+    @media (max-width: 768px) {
+      .nbhd-notes-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── Data disclaimer ── */
+    .nbhd-disclaimer {
+      font-size:    12px;
+      color:        var(--color-muted);
+      margin-top:   32px;
+      padding-top:  20px;
+      border-top:   1px solid rgba(36,36,36,0.08);
+    }
+
+    /* ── Properties section: search-first layout ── */
+    .nbhd-search-block {
+      margin-top:  32px;
+      text-align:  center;
+    }
+    .nbhd-search-intro {
+      font-size:   16px;
+      line-height: 1.78;
+      color:       var(--color-text-secondary);
+      margin:      0 0 28px;
+    }
+    .nbhd-search-actions {
+      display:         flex;
+      gap:             12px;
+      flex-wrap:       wrap;
+      align-items:     center;
+      justify-content: center;
+    }
+
+    /* Recently Represented subsection */
+    .nbhd-represented {
+      margin-top:  52px;
+      padding-top: 24px;
+      border-top:  1px solid rgba(36, 36, 36, 0.10);
+    }
+    .nbhd-represented__label {
+      font-size:      11px;
+      font-weight:    700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color:          var(--color-muted);
+      margin:         0 0 16px;
+    }
+    .nbhd-tx-item {
+      display:               grid;
+      grid-template-columns: 80px 1fr auto;
+      gap:                   20px;
+      align-items:           center;
+      background:            var(--color-bg-secondary);
+      border:                1px solid rgba(36, 36, 36, 0.08);
+      border-radius:         6px;
+      padding:               16px 20px;
+    }
+    .nbhd-tx-item__img {
+      width:         80px;
+      height:        80px;
+      object-fit:    cover;
+      border-radius: 4px;
+      display:       block;
+    }
+    .nbhd-tx-item__body   { min-width: 0; }
+    .nbhd-tx-item__address {
+      font-size:   15px;
+      font-weight: 600;
+      color:       var(--color-text-primary);
+      margin:      6px 0 4px;
+    }
+    .nbhd-tx-item__detail {
+      font-size:   13px;
+      color:       var(--color-text-secondary);
+      margin:      0;
+      line-height: 1.55;
+    }
+    @media (max-width: 680px) {
+      .nbhd-tx-item {
+        grid-template-columns: 64px 1fr;
+        grid-template-rows:    auto auto;
+      }
+      .nbhd-tx-item__action { grid-column: 1 / -1; }
+    }
+
+    /* ── Highlights grid ── */
+    .nbhd-highlights {
+      display:               grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:                   16px;
+      margin-top:            48px;
+    }
+    .nbhd-highlight {
+      background:    var(--color-bg);
+      border:        1px solid rgba(36, 36, 36, 0.08);
+      border-radius: 6px;
+      padding:       28px 24px;
+    }
+    .nbhd-highlight__name {
+      font-family:    var(--font-serif);
+      font-size:      clamp(1.0625rem, 1.4vw, 1.25rem);
+      font-weight:    600;
+      color:          var(--color-text-primary);
+      letter-spacing: -0.01em;
+      line-height:    1.2;
+      margin:         0 0 10px;
+    }
+    .nbhd-highlight__desc {
+      font-size:   14px;
+      line-height: 1.72;
+      color:       var(--color-text-secondary);
+      margin:      0;
+    }
+    @media (max-width: 1024px) {
+      .nbhd-highlights { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .nbhd-highlights { grid-template-columns: 1fr; }
+    }
+
+    /* ── Properties section heading — centered ── */
+    .nbhd-properties .section-title { text-align: center; }
+
+    /* ── CTA: cream background + remove paragraph max-width ── */
+    .psp-interior .cta-banner {
+      background: var(--color-bg);
+    }
+    .psp-interior .cta-banner p {
+      max-width: none;
+    }
+
+    /* ── Other neighborhoods: reuse psp-nhd-c system.
+          Override background to match section-alt (secondary cream) and add top border. ── */
+    .psp-interior .psp-nhd-c {
+      background:  var(--color-bg-secondary);
+      border-top:  1px solid rgba(36, 36, 36, 0.10);
+    }
