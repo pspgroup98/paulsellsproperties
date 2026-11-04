@@ -22,78 +22,87 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://paulsellsproperties.com/blog/los-angeles-just-cause-ordinance-jco-landlords#post","headline":"Los Angeles Just Cause Ordinance: What Owners of Non-RSO Rental Property Need to Know","description":"LA's Just Cause Ordinance now applies to most non-RSO rentals. What landlords need to know about permitted evictions, required cause, registration requirements, and JCO compliance.","url":"https://paulsellsproperties.com/blog/los-angeles-just-cause-ordinance-jco-landlords","datePublished":"2026-09-18","author":{"@type":"Person","@id":"https://paulsellsproperties.com/#paul","name":"Paul Adams II","url":"https://paulsellsproperties.com/about"},"publisher":{"@id":"https://paulsellsproperties.com/#agent"},"isPartOf":{"@id":"https://paulsellsproperties.com/#website"},"image":"https://paulsellsproperties.com/assets/images/paul-hero.png","inLanguage":"en-US"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Real Estate Insights","item":"https://paulsellsproperties.com/blog/"},{"@type":"ListItem","position":3,"name":"Los Angeles Just Cause Ordinance: What Owners of Non-RSO Rental Property Need to Know","item":"https://paulsellsproperties.com/blog/los-angeles-just-cause-ordinance-jco-landlords"}]}]}
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <!-- Analytics: Calendly is loaded on demand by PSP.openCalendly() — no eager load -->
-  <script src="../assets/js/analytics.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <link rel="stylesheet" href="../assets/css/redesign.css">
+  <link rel="stylesheet" href="../assets/css/article-template.css">
 </head>
-<body>
+<body class="psp-interior">
 
 <!-- NAV -->
-<nav class="nav scrolled">
-  <div class="nav-inner">
-    <a href="/" class="logo-mark"><span class="logo-name">Paul Adams II</span><span class="logo-rule"></span><span class="logo-sub">Los Angeles Real Estate</span></a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="/">Home</a></li>
-      <li class="nav-item"><span>Properties &#9662;</span>
-        <div class="nav-dropdown-menu">
-          <a href="/property-search">Property Search</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Buying &amp; Selling &#9662;</span>
-        <div class="nav-dropdown-menu">
-          <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>About Me &#9662;</span>
-        <div class="nav-dropdown-menu">
-          <a href="/about">My Bio</a>
-          <a href="/contact">Contact Me</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Neighborhoods &#9662;</span>
-        <div class="nav-dropdown-menu">
-          <a href="/neighborhoods/">All Neighborhoods</a>
-          <a href="/neighborhoods/beverly-hills">Beverly Hills</a>
-          <a href="/neighborhoods/bel-air">Bel Air</a>
-          <a href="/neighborhoods/hollywood-hills">Hollywood Hills</a>
-          <a href="/neighborhoods/santa-monica">Santa Monica</a>
-          <a href="/neighborhoods/silver-lake">Silver Lake</a>
-          <a href="/neighborhoods/venice">Venice</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="/blog/">Blog</a></li>
-      <li class="nav-item"><a href="/home-valuation">Custom Home Valuation</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="#" class="btn btn-gold btn-sm"
-         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
-      </a>
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+    <div class="psp-nav__actions">
+      <a href="/contact" class="psp-btn psp-btn--nav">Contact</a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
     </div>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <button class="psp-nav__toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
   </div>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="/">Home</a>
-  <a href="/property-search" class="mobile-sub">Property Search</a>
-  <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-  <a href="/about">My Bio</a>
-  <a href="/contact">Contact Me</a>
-  <a href="/blog/">Blog</a>
-  <a href="/neighborhoods/">Neighborhoods</a>
-  <a href="/home-valuation">Home Valuation</a>
-</div>
+</header>
 
-<!-- POST HEADER -->
-<div class="post-header">
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="https://calendly.com/adams2paul/30min"
+       target="_blank" rel="noopener"
+       class="psp-btn psp-btn--primary"
+       onclick="if(window.PSP&&PSP.openCalendly){PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;">
+      Schedule a Consultation
+    </a>
+  </div>
+</div>
+<!-- ARTICLE HEADER -->
+<div class="psp-post-header">
   <div class="container">
-    <span class="post-category-tag">Landlord &amp; Rental Laws</span>
+    <a href="/blog/" class="psp-post-back">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Journal
+    </a>
     <h1>Los Angeles Just Cause Ordinance: What Owners of Non-RSO Rental Property Need to Know</h1>
     <div class="post-header-meta">
       <span>By Paul Adams II</span>
       <span>&middot;</span>
-      <span>Los Angeles Real Estate Advisor</span>
+      <span>Landlord &amp; Rental Laws</span>
       <span>&middot;</span>
       <span>September 18, 2026</span>
     </div>
@@ -117,7 +126,19 @@
 <h2>What should buyers investigate before purchasing an occupied rental?</h2><p>I would want a buyer to understand which units are occupied, what the current rents are, when each tenancy began, whether written leases are available, which local and state rules apply, whether the property has been properly registered, whether there are unresolved housing-code issues, whether required notices have been provided, whether there are disputes or delinquent rent, and whether the investment plan depends on a tenant vacating.</p><p>That final question matters a lot. If the entire financial plan requires immediately recovering possession of an occupied unit, the buyer should understand whether that assumption is actually realistic before removing contingencies.</p>
 <h2>Why this matters when valuing a rental property</h2><p>A tenant is not just a line on a rent roll. The terms and legal status of that tenancy can affect income, timing, renovations, financing, owner occupancy and future strategy.</p><p>Imagine two identical duplexes. One has a vacant unit. The other has a long-term occupied unit subject to applicable tenant protections. Those properties may offer very different options to a buyer even if their physical condition is identical.</p><p>That is why tenant due diligence belongs beside inspection, title, insurance and financing.</p>
 <h2>Frequently asked questions</h2><p><strong>Does JCO apply only to old buildings?</strong> No. LAHD says JCO can apply to buildings newer than October 1, 1978.</p><p><strong>Can JCO apply to a single-family rental?</strong> Yes. LAHD states that the ordinance can apply to a property containing only one single-family dwelling.</p><p><strong>Is JCO the same as rent control?</strong> No. JCO itself does not regulate rent increases. Other city or state laws may separately regulate rent depending on the property.</p><p><strong>Can an owner move into a JCO property?</strong> Owner or qualifying family occupancy can be a recognized no-fault reason in certain situations, but procedural and relocation requirements may apply. Owners should obtain legal advice before serving notices.</p><p><strong>Do Los Angeles landlords have to file eviction notices with LAHD?</strong> LAHD says eviction notices for JCO and RSO properties must be filed within three business days of service.</p>
-<h2>Paul's take</h2><p>One of the most dangerous assumptions an investor can make in Los Angeles is that a property is simple because it is not RSO.</p><p>The better question is: What rules actually apply to this property and these tenancies?</p><p>That answer can materially affect the economics of a purchase. Before buying an occupied duplex, fourplex, house or apartment building, I want the rent roll, leases, tenancy history and regulatory status looked at together rather than separately.</p><p>This article is general real-estate information, not legal advice. Owners dealing with an eviction or interpreting a specific exemption should consult an attorney familiar with Los Angeles landlord-tenant law.</p><div class="post-cta-box"><h3>Work with Paul Adams II</h3><p>If you are evaluating an occupied Los Angeles rental property, I can help you analyze the rent roll, comparable properties and acquisition economics as part of your due diligence.</p><a href="https://calendly.com/adams2paul/30min" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Conversation</a></div>
+<h2>Paul's take</h2><p>One of the most dangerous assumptions an investor can make in Los Angeles is that a property is simple because it is not RSO.</p><p>The better question is: What rules actually apply to this property and these tenancies?</p><p>That answer can materially affect the economics of a purchase. Before buying an occupied duplex, fourplex, house or apartment building, I want the rent roll, leases, tenancy history and regulatory status looked at together rather than separately.</p><p>This article is general real-estate information, not legal advice. Owners dealing with an eviction or interpreting a specific exemption should consult an attorney familiar with Los Angeles landlord-tenant law.</p>  <div class="post-cta-box">
+    <h3>Have Questions About Your Los Angeles Property?</h3>
+    <p>LA's rental laws change often and mistakes are costly. I work with property owners who want clear guidance before acting.</p>
+    <div class="btn-group">
+      <a href="/contact" class="psp-btn psp-btn--primary">Get in Touch</a>
+      <a href="https://calendly.com/adams2paul/30min"
+         target="_blank" rel="noopener"
+         class="psp-btn psp-btn--outline"
+         onclick="if(window.PSP&&PSP.openCalendly){PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;}">
+        Schedule a Call
+      </a>
+    </div>
+  </div>
 
 </article>
 
@@ -130,7 +151,7 @@
   <div class="container">
     <div class="post-more-header">
       <span class="post-more-label">Related Articles</span>
-      <a href="/blog/" class="post-more-view-all">View All Insights &rarr;</a>
+      <a href="/blog/" class="post-more-view-all">View All Articles</a>
     </div>
     <div class="post-more-grid" id="relatedArticlesGrid">
       <!-- populated by assets/js/related-articles.js -->
@@ -153,19 +174,26 @@
           </div>
           <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            </a>
           </div>
         </div>
         <div>
           <div class="footer-col-title">Navigate</div>
           <ul class="footer-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/property-search">Property Search</a></li>
-            <li><a href="/buying-selling-tips">Buying &amp; Selling</a></li>
-            <li><a href="/about">About Me</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/listings">Properties</a></li>
+            <li><a href="/buyers">Buyers</a></li>
+            <li><a href="/sellers">Sellers</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog/">Journal</a></li>
             <li><a href="/home-valuation">Home Valuation</a></li>
           </ul>
         </div>
@@ -192,9 +220,12 @@
           </div>
           <div class="footer-contact-block">
             <div class="footer-contact-lbl">Office</div>
-            <div class="footer-contact-val"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a></div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210"
+                 target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
           </div>
-          <div class="footer-dre">CA DRE# 02232552</div>
         </div>
       </div>
     </div>
@@ -202,7 +233,7 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom-inner">
-        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | &copy;2026 Coldwell Banker. All Rights Reserved. The Coldwell Banker&reg; System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | &copy;2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.</p>
         <div class="footer-bottom-links">
           <a href="/terms">Terms</a>
           <a href="/privacy">Privacy</a>
@@ -213,11 +244,32 @@
   </div>
 </footer>
 
+<!-- Mobile nav JS -->
 <script>
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navMobile').classList.toggle('open');
-  });
+(function () {
+  var toggle = document.getElementById('navToggle');
+  var menu   = document.getElementById('mobileMenu');
+  var close  = document.getElementById('mobileMenuClose');
+  if (!toggle || !menu) return;
+  function open() {
+    menu.removeAttribute('aria-hidden');
+    menu.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.setAttribute('aria-hidden', 'true');
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', open);
+  if (close) close.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
 </script>
-<script src="../assets/js/related-articles.js"></script>
+
+<script src="../assets/js/related-articles.js" defer></script>
+<script src="../assets/js/analytics.js" defer></script>
 </body>
 </html>

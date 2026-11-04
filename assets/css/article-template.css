@@ -1,0 +1,327 @@
+/* =============================================================================
+   Phase 10 — Article Detail Page Template
+   Applied via body.psp-interior on all blog article pages.
+   Loaded after styles.css, design-tokens.css, redesign.css.
+   ============================================================================= */
+
+/* ── Body background ── */
+/* Overrides body:has(.post-content) { background: var(--dark) } in styles.css */
+body.psp-interior,
+body.psp-interior:has(.post-content) {
+  background: var(--site-bg, #FAF9F6) !important;
+}
+
+/* ── Interior nav — light theme ── */
+.psp-interior .psp-nav {
+  background: var(--site-bg, #FAF9F6);
+  box-shadow: 0 1px 0 var(--site-border, rgba(36,36,36,0.10));
+}
+.psp-interior .psp-nav__name       { color: var(--site-text, #242424); }
+.psp-interior .psp-nav__descriptor { color: var(--site-text-2, #666762); }
+.psp-interior .psp-nav__link       { color: var(--site-text-2, #666762); }
+.psp-interior .psp-nav__link:hover { color: var(--site-text, #242424); }
+.psp-interior .psp-nav .psp-btn--nav {
+  color: var(--site-text, #242424);
+  border-color: rgba(36,36,36,0.35);
+}
+.psp-interior .psp-nav .psp-btn--nav:hover {
+  background: rgba(36,36,36,0.06);
+  border-color: rgba(36,36,36,0.55);
+}
+/* redesign.css hardcodes white border on toggle at ≤1024px — fix for cream background */
+.psp-interior .psp-nav__toggle {
+  border-color: rgba(36,36,36,0.35) !important;
+}
+.psp-interior .psp-nav__toggle:hover {
+  background: rgba(36,36,36,0.06) !important;
+  border-color: rgba(36,36,36,0.55) !important;
+}
+.psp-interior .psp-nav__toggle-bar { background: var(--site-text, #242424); }
+.psp-interior .psp-nav__search-btn { color: var(--site-text-2, #666762); }
+
+/* ── Article page header ── */
+/* Own class avoids .post-header { border-bottom; background: var(--dark) } cascade */
+.psp-post-header {
+  padding: calc(76px + 52px) 0 52px;
+  background: var(--site-bg, #FAF9F6);
+  border-bottom: 1px solid var(--site-border, rgba(36,36,36,0.10));
+}
+/* Matches article body max-width so left edges align at every viewport */
+.psp-post-header .container {
+  max-width: 760px;
+}
+
+/* Back-to-journal breadcrumb */
+.psp-post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--site-muted, #A9A8A2);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  margin-bottom: 28px;
+  transition: color 0.15s;
+}
+.psp-post-back:hover { color: var(--site-text-2, #666762); }
+.psp-post-back svg  { flex-shrink: 0; }
+
+.psp-post-header h1 {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--site-text, #242424);
+  margin: 0 0 30px;
+  text-wrap: balance;
+}
+.psp-post-header .post-header-meta {
+  font-size: 13px;
+  color: var(--site-muted, #A9A8A2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.psp-post-header .post-header-meta span { display: inline; }
+
+/* ── Article body ── */
+/* Overrides dark post-content rules in styles.css */
+/* padding-inline matches .container (32px) so left edge aligns with header */
+.psp-interior .post-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 72px 32px 96px;
+  background: transparent;
+}
+.psp-interior .post-content h2 {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+  font-weight: 600;
+  color: var(--site-text, #242424);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 76px 0 24px;
+}
+.psp-interior .post-content h3 {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: clamp(1.44rem, 2.4vw, 1.74rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--site-text, #242424);
+  line-height: 1.32;
+  margin: 52px 0 14px;
+}
+.psp-interior .post-content p {
+  font-size: 18px;
+  line-height: 1.88;
+  color: var(--site-text, #242424);
+  margin-bottom: 24px;
+}
+.psp-interior .post-content ul,
+.psp-interior .post-content ol {
+  margin: 0 0 24px 26px;
+  list-style: initial;
+}
+.psp-interior .post-content ol { list-style: decimal; }
+.psp-interior .post-content li {
+  font-size: 18px;
+  line-height: 1.82;
+  color: var(--site-text, #242424);
+  margin-bottom: 10px;
+}
+.psp-interior .post-content strong { color: var(--site-text, #242424); }
+/* Italic body text: 20% larger than 18px body base, slightly heavier for presence */
+.psp-interior .post-content em,
+.psp-interior .post-content i {
+  font-size: 1.2em;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Links inside article body — scope excludes buttons */
+/* styles.css .post-content a { color: rgba(255,255,255,0.85) } cascades here — override */
+.psp-interior .post-content a:not(.psp-btn) {
+  color: var(--site-text, #242424);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(36,36,36,0.30);
+  transition: text-decoration-color 0.15s;
+}
+.psp-interior .post-content a:not(.psp-btn):hover {
+  text-decoration-color: rgba(36,36,36,0.70);
+}
+/* styles.css .post-content a { text-decoration: underline } has specificity (0,1,1)
+   which beats psp-btn's (0,1,0) — explicitly cancel it on button elements */
+.psp-interior .post-content .psp-btn,
+.psp-interior .post-content .psp-btn:hover { text-decoration: none; }
+/* Lock button text colors — styles.css :hover would set var(--gold) otherwise */
+.psp-interior .post-content .psp-btn--primary,
+.psp-interior .post-content .psp-btn--primary:hover { color: var(--color-white, #FFFFFF); }
+.psp-interior .post-content .psp-btn--outline    { color: var(--color-text-primary, #242424); }
+.psp-interior .post-content .psp-btn--outline:hover { color: var(--color-white, #FFFFFF); }
+
+/* ── Pull quote ── */
+.psp-interior .post-pullquote {
+  border-left: 2px solid var(--site-text, #242424);
+  margin: 52px 0;
+  padding: 8px 0 8px 32px;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.64vw, 1.86rem);
+  color: var(--site-text, #242424);
+  line-height: 1.5;
+}
+
+/* ── Summary / key-takeaway box ── */
+.psp-interior .post-summary-box {
+  background: var(--site-bg-alt, #E2E0DA);
+  border: 1px solid var(--site-border, rgba(36,36,36,0.10));
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin: 36px 0 52px;
+}
+.psp-interior .post-summary-box .summary-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--site-muted, #A9A8A2);
+  display: block;
+  margin-bottom: 14px;
+}
+.psp-interior .post-summary-box ul  { margin: 0 0 0 20px; list-style: disc; }
+.psp-interior .post-summary-box li  {
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--site-text-2, #666762);
+  margin-bottom: 7px;
+}
+
+/* ── In-article CTA card ── */
+.psp-interior .post-cta-box {
+  background: var(--site-bg-alt, #E2E0DA);
+  border: none;
+  border-radius: 8px;
+  padding: 48px 44px 52px;
+  margin-top: 68px;
+  text-align: center;
+}
+.psp-interior .post-cta-box h3 {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-weight: 600;
+  color: var(--site-text, #242424);
+  margin: 0 0 14px;
+  line-height: 1.18;
+}
+.psp-interior .post-cta-box p {
+  font-size: 15px;
+  color: var(--site-text-2, #666762);
+  line-height: 1.72;
+  margin-bottom: 28px;
+}
+.psp-interior .post-cta-box .btn-group {
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ── Related articles section ── */
+.psp-interior .post-more {
+  background: var(--site-bg-alt, #E2E0DA);
+  border-top: none;
+  padding: 68px 0 80px;
+}
+.psp-interior .post-more-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.psp-interior .post-more-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--site-muted, #A9A8A2);
+}
+.psp-interior .post-more-view-all {
+  font-size: 13px;
+  color: var(--site-text-2, #666762);
+  text-decoration: none;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+.psp-interior .post-more-view-all:hover { color: var(--site-text, #242424); }
+.psp-interior .post-more-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.psp-interior .more-card {
+  background: var(--site-bg, #FAF9F6);
+  border: 1px solid var(--site-border, rgba(36,36,36,0.10));
+  border-radius: 8px;
+  padding: 28px 28px 32px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.psp-interior .more-card:hover {
+  border-color: rgba(36,36,36,0.22);
+  box-shadow: 0 2px 12px rgba(36,36,36,0.06);
+}
+.psp-interior .more-card-cat {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--site-muted, #A9A8A2);
+  display: block;
+  margin-bottom: 12px;
+}
+.psp-interior .more-card-title {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--site-text, #242424);
+  line-height: 1.3;
+  flex: none; /* cancels styles.css .more-card-title { flex: 1 } */
+  margin: 0;
+  padding-bottom: 0;
+}
+.psp-interior .more-card-date {
+  font-size: 12px;
+  color: var(--site-muted, #A9A8A2);
+  display: block;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--site-border, rgba(36,36,36,0.10));
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .psp-post-header h1    { font-size: clamp(2rem, 5.5vw, 2.6rem); }
+  .psp-interior .post-content h2  { margin-top: 60px; }
+  .psp-interior .post-cta-box     { padding: 36px 32px 40px; }
+  /* 1-col at tablet — avoids orphaned card in 2-col layout */
+  .psp-interior .post-more-grid   { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 600px) {
+  .psp-post-header                { padding-top: calc(76px + 36px); padding-bottom: 40px; }
+  .psp-post-back                  { margin-bottom: 22px; }
+  .psp-interior .post-content     { padding: 52px 20px 80px; }
+  .psp-interior .post-content h2  { margin-top: 52px; font-size: clamp(1.5rem, 6vw, 1.9rem); }
+  .psp-interior .post-content h3  { font-size: 1.3rem; margin-top: 40px; }
+  .psp-interior .post-content p,
+  .psp-interior .post-content li  { font-size: 17px; }
+  .psp-interior .post-cta-box     { padding: 32px 24px 36px; text-align: center; }
+  .psp-interior .post-more        { padding: 56px 0 64px; }
+  .psp-interior .post-more-grid   { grid-template-columns: 1fr; }
+  .psp-interior .post-more-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
