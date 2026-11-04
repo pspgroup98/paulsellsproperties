@@ -6,6 +6,8 @@
   <title>Los Angeles Home Valuation | Paul Adams II</title>
   <meta name="description" content="Get a custom home valuation prepared personally by Paul Adams II, Coldwell Banker Realty Beverly Hills. Accurate, confidential, and no obligation.">
   <link rel="canonical" href="https://paulsellsproperties.com/home-valuation">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Los Angeles Home Valuation | Paul Adams II">
   <meta property="og:description" content="Custom home valuation by Paul Adams II, Coldwell Banker Realty Beverly Hills. Accurate, confidential, and no obligation.">
@@ -13,210 +15,536 @@
   <meta property="og:site_name" content="Paul Adams II">
   <meta property="og:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
   <meta property="og:locale" content="en_US">
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Los Angeles Home Valuation | Paul Adams II">
   <meta name="twitter:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Los Angeles Home Valuation","item":"https://paulsellsproperties.com/home-valuation"}]}
   </script>
+
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/design-tokens.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
+
   <style>
-    /* Custom timeline dropdown */
-    .psp-dropdown { position: relative; }
-    .psp-dropdown-btn {
-      display: flex; align-items: center; justify-content: space-between;
-      width: 100%; padding: 13px 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 6px;
-      color: rgba(255,255,255,0.22);
-      font-size: 15px; font-family: inherit;
-      cursor: pointer; text-align: left;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .psp-dropdown-btn:focus { outline: none; border-color: rgba(255,255,255,0.30); }
-    .psp-dropdown-btn[aria-expanded="true"] { border-color: rgba(255,255,255,0.30); }
-    .psp-dropdown-btn[aria-expanded="true"] .psp-chev { transform: rotate(180deg); }
-    .psp-dropdown-btn.has-value { color: rgba(255,255,255,0.9); }
-    .psp-chev { flex-shrink: 0; transition: transform 0.2s; }
-    .psp-dropdown-list {
-      display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0;
-      background: #1c1c1c;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 6px;
-      list-style: none; margin: 0; padding: 4px 0;
-      z-index: 200;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
-    }
-    .psp-dropdown-list.open { display: block; }
-    .psp-dropdown-list li {
-      padding: 11px 16px; color: rgba(255,255,255,0.75);
-      font-size: 15px; cursor: pointer;
-      transition: background 0.1s, color 0.1s;
-    }
-    .psp-dropdown-list li:hover,
-    .psp-dropdown-list li[aria-selected="true"] {
-      background: rgba(255,255,255,0.06); color: #A9A8A2;
-    }
+  /* ── Home Valuation page — component styles ── */
+
+  /* Interior nav + bg */
+  .psp-interior {
+    background: var(--site-bg, #FAF9F6);
+    color: var(--site-text, #242424);
+  }
+  .psp-interior .psp-nav {
+    background: var(--site-bg, #FAF9F6);
+    box-shadow: 0 1px 0 var(--site-border, rgba(36,36,36,0.10));
+  }
+  .psp-interior .psp-nav__name       { color: var(--site-text, #242424); }
+  .psp-interior .psp-nav__descriptor { color: var(--site-text-2, #666762); }
+  .psp-interior .psp-nav__link       { color: var(--site-text-2, #666762); }
+  .psp-interior .psp-nav__link:hover { color: var(--site-text, #242424); }
+  .psp-interior .psp-nav .psp-btn--nav {
+    color: var(--site-text, #242424);
+    border-color: rgba(36,36,36,0.35);
+  }
+  .psp-interior .psp-nav .psp-btn--nav:hover {
+    background: rgba(36,36,36,0.06);
+    border-color: rgba(36,36,36,0.55);
+  }
+  .psp-interior .psp-nav__toggle-bar { background: var(--site-text, #242424); }
+  .psp-interior .psp-nav__search-btn { color: var(--site-text-2, #666762); }
+
+  /* Page header */
+  body.psp-interior .page-header {
+    background: var(--site-bg, #FAF9F6);
+    padding-bottom: 0;
+  }
+  body.psp-interior .page-header h1 {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    max-width: 740px;
+    margin-bottom: 0;
+    color: var(--site-text, #242424);
+  }
+  /* Full-width intro below h1 */
+  .hv-intro {
+    font-size: 17px;
+    color: var(--site-text-2, #666762);
+    line-height: 1.65;
+    margin: 0 0 48px;
+  }
+
+  /* Main valuation section */
+  .hv-section {
+    padding: 44px 0 88px;
+    background: var(--site-bg, #FAF9F6);
+  }
+  .hv-grid {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 72px;
+    align-items: start;
+  }
+
+  /* ── Why column ── */
+  .hv-eyebrow {
+    display: block;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--site-muted, #A9A8A2);
+    margin-bottom: 20px;
+  }
+  .hv-why-heading {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--site-text, #242424);
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+  .hv-why-body p {
+    font-size: 16px;
+    color: var(--site-text-2, #666762);
+    line-height: 1.8;
+    margin: 0 0 20px;
+  }
+  .hv-why-body p:last-child { margin-bottom: 0; }
+
+  /* Benefit cards */
+  .hv-benefit-cards {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hv-benefit-card {
+    background: var(--site-bg-alt, #E2E0DA);
+    border: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    border-radius: 8px;
+    padding: 24px 28px;
+  }
+  .hv-benefit-card strong {
+    display: block;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--site-text, #242424);
+    margin-bottom: 8px;
+  }
+  .hv-benefit-card p {
+    font-size: 14px;
+    color: var(--site-text-2, #666762);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Form column ── */
+  .hv-form-wrap {
+    background: var(--site-bg-alt, #E2E0DA);
+    border: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    border-radius: 8px;
+    padding: 36px 40px 40px;
+  }
+  .hv-form-eyebrow {
+    display: block;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--site-muted, #A9A8A2);
+    margin-bottom: 12px;
+  }
+  .hv-form-heading {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--site-text, #242424);
+    margin: 0 0 32px;
+    text-wrap: balance;
+  }
+
+  /* Form fields — same as contact.html */
+  .hv-form { display: flex; flex-direction: column; gap: 20px; }
+
+  .hv-form-row {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    gap: 20px;
+  }
+
+  .hv-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+  }
+  .hv-field label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--site-text-2, #666762);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hv-optional {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--site-muted, #A9A8A2);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .hv-field input {
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 15px;
+    color: var(--site-text, #242424);
+    background: var(--site-white, #fff);
+    border: 1.5px solid rgba(36,36,36,0.20);
+    border-radius: 4px;
+    padding: 13px 16px;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    line-height: 1.4;
+  }
+  .hv-field input:focus {
+    outline: none;
+    border-color: var(--site-text, #242424);
+    box-shadow: 0 0 0 3px rgba(36,36,36,0.08);
+  }
+  .hv-field input::placeholder { color: var(--site-muted, #A9A8A2); }
+  .hv-field.has-error input { border-color: #B44B3A; background: #FFF9F8; }
+  .hv-field__error {
+    font-size: 11px; color: #B44B3A; font-weight: 500; display: none;
+  }
+  .hv-field.has-error .hv-field__error { display: block; }
+
+  /* Custom accessible timeline select — same pattern as contact.html */
+  .hv-select {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+  }
+  .hv-select__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 15px;
+    color: var(--site-text, #242424);
+    background: var(--site-white, #fff);
+    border: 1.5px solid rgba(36,36,36,0.20);
+    border-radius: 4px;
+    padding: 13px 16px;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    min-height: 50px;
+  }
+  .hv-select__trigger:focus {
+    outline: none;
+    border-color: var(--site-text, #242424);
+    box-shadow: 0 0 0 3px rgba(36,36,36,0.08);
+  }
+  .hv-select__trigger.is-placeholder { color: var(--site-muted, #A9A8A2); }
+  .hv-select__value { flex: 1; text-align: left; line-height: 1.4; }
+  .hv-select__arrow {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--site-muted, #A9A8A2);
+    transition: transform 0.18s ease, color 0.15s;
+  }
+  .hv-select__arrow svg { display: block; }
+  .hv-select.is-open .hv-select__arrow { transform: rotate(180deg); color: var(--site-text, #242424); }
+  .hv-select.is-open .hv-select__trigger {
+    border-color: var(--site-text, #242424);
+    box-shadow: 0 0 0 3px rgba(36,36,36,0.08);
+  }
+  .hv-select__menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0; right: 0;
+    z-index: 200;
+    background: #fff;
+    border: 1.5px solid rgba(36,36,36,0.20);
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+    list-style: none;
+    padding: 6px 0;
+    display: none;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  .hv-select.is-open .hv-select__menu { display: block; }
+  .hv-option {
+    padding: 11px 16px;
+    font-size: 15px;
+    color: var(--site-text, #242424);
+    cursor: pointer;
+    transition: background 0.10s;
+    line-height: 1.4;
+  }
+  .hv-option:hover, .hv-option.is-focused  { background: var(--site-bg-alt, #E2E0DA); }
+  .hv-option.is-selected { background: var(--site-bg, #FAF9F6); font-weight: 500; }
+
+  /* Submit + privacy */
+  .hv-submit-row { display: flex; flex-direction: column; gap: 12px; }
+  .hv-submit-row .psp-btn--primary { width: 100%; justify-content: center; }
+  .hv-privacy { font-size: 11px; color: var(--site-text-2, #666762); line-height: 1.6; }
+  .hv-privacy a { color: var(--site-text-2, #666762); text-decoration: underline; }
+
+  /* Success / error banners */
+  .hv-banner {
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.55;
+    display: none;
+  }
+  .hv-banner.is-visible { display: block; }
+  .hv-banner--success { background: #EAF2ED; color: #2A5C3C; border: 1px solid rgba(42,92,60,0.18); }
+  .hv-banner--error   { background: #FDF2F0; color: #B44B3A; border: 1px solid rgba(180,75,58,0.18); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .hv-grid { grid-template-columns: 1fr 420px; gap: 56px; }
+  }
+  @media (max-width: 900px) {
+    .hv-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hv-form-eyebrow, .hv-form-heading { width: 100%; max-width: none; }
+  }
+  @media (max-width: 600px) {
+    .hv-section { padding: 36px 0 64px; }
+    .hv-intro { margin-bottom: 36px; font-size: 16px; }
+    .hv-form-wrap { padding: 32px 24px 28px; }
+    .hv-form-row { grid-template-columns: minmax(0,1fr); }
+    .hv-grid { gap: 40px; }
+    .hv-benefit-card { padding: 20px 22px; }
+  }
   </style>
-  </head>
-<body>
+</head>
+<body class="psp-interior">
 
 <!-- NAV -->
-<nav class="nav scrolled">
-  <div class="nav-inner">
-    <a href="/" class="logo-mark"><span class="logo-name">Paul Adams II</span><span class="logo-rule"></span><span class="logo-sub">Los Angeles Real Estate</span></a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="/">Home</a></li>
-      <li class="nav-item">
-        <span>Properties ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/property-search">Property Search</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Buying &amp; Selling ▾</span>
-        <div class="nav-dropdown-menu"><a href="/buying-selling-tips">Buying &amp; Selling Tips</a></div>
-      </li>
-      <li class="nav-item"><span>About Me ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/about">My Bio</a>
-          <a href="/contact">Contact Me</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="/blog/">Blog</a></li>
-      <li class="nav-item"><a href="/home-valuation" class="active">Custom Home Valuation</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="#" class="btn btn-gold btn-sm"
-         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
-      </a>
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+    <div class="psp-nav__actions">
+      <a href="/contact" class="psp-btn psp-btn--nav">Contact</a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
     </div>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <button class="psp-nav__toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
   </div>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="/">Home</a>
-  <a href="/property-search" class="mobile-sub">Property Search</a>
-  <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-  <a href="/about">My Bio</a>
-  <a href="/contact">Contact Me</a>
-  <a href="/blog/">Blog</a>
-  <a href="/home-valuation">Home Valuation</a>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="https://calendly.com/adams2paul/30min"
+       target="_blank" rel="noopener"
+       class="psp-btn psp-btn--primary"
+       onclick="if(window.PSP&&PSP.openCalendly){PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;}">
+      Schedule a Consultation
+    </a>
+  </div>
 </div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="container">
-    <span class="page-header-eyebrow">Custom Home Valuation</span>
-    <h1>Find Out What Your Los Angeles Home Is Really Worth</h1>
-    <p>Get a custom home valuation prepared personally by Paul Adams II, based on real comparable sales, current market conditions, and property-specific factors — not an automated estimate.</p>
+    <h1>Find Out What Your Home Is Worth.</h1>
   </div>
 </div>
 
 <!-- VALUATION SECTION -->
-<section class="section">
+<section class="hv-section">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+    <p class="hv-intro">A custom valuation prepared personally by Paul Adams II based on real comparable sales and current market conditions, not an automated estimate.</p>
+    <div class="hv-grid">
 
-      <!-- Why this valuation -->
-      <div>
-        <span class="section-label">Why a Custom Valuation</span>
-        <h2 class="section-title" style="font-size:clamp(22px,3vw,30px); margin-bottom:24px;">Not an Algorithm. A Real Analysis.</h2>
-        <p style="font-size:16px; color:var(--mid); line-height:1.78; margin-bottom:20px;">
-          Automated estimates like Zillow's Zestimate use public data and averages. They do not account for your specific finishes, layout, condition, or the nuanced dynamics of your micro-market.
-        </p>
-        <p style="font-size:16px; color:var(--mid); line-height:1.78; margin-bottom:36px;">
-          A custom valuation from me is based on actual comparable sales, current buyer demand, and an honest assessment of your property's position in the market.
-        </p>
+      <!-- Left: Why a custom valuation -->
+      <div class="hv-why">
+        <h2 class="hv-why-heading">Not an Algorithm.<br>A Real Analysis.</h2>
+        <div class="hv-why-body">
+          <p>Automated estimates like Zillow's Zestimate use public data and broad averages. They do not account for your specific finishes, layout, condition, or the nuanced dynamics of your micro-market.</p>
+          <p>A custom valuation from me is based on actual comparable sales, current buyer demand, and an honest assessment of your property's position in the market.</p>
+        </div>
 
-        <div style="display:flex; flex-direction:column; gap:16px;">
-          <div class="credential-item">
-            <div class="credential-dot"></div>
-            <div>
-              <strong>Accurate</strong>
-              <p>Based on real, recent comparable sales in your neighborhood — not broad averages.</p>
-            </div>
+        <div class="hv-benefit-cards">
+          <div class="hv-benefit-card">
+            <strong>Accurate</strong>
+            <p>Based on real, recent comparable sales in your neighborhood — not broad averages.</p>
           </div>
-          <div class="credential-item">
-            <div class="credential-dot"></div>
-            <div>
-              <strong>Confidential</strong>
-              <p>Your information is never shared. This is a private consultation, not a lead-generation form.</p>
-            </div>
+          <div class="hv-benefit-card">
+            <strong>Confidential</strong>
+            <p>Your information is never shared. This is a private consultation, not a lead-generation form.</p>
           </div>
-          <div class="credential-item">
-            <div class="credential-dot"></div>
-            <div>
-              <strong>No Obligation</strong>
-              <p>Request a valuation whether you are ready to sell or just want to know where you stand.</p>
-            </div>
+          <div class="hv-benefit-card">
+            <strong>No Obligation</strong>
+            <p>Request a valuation whether you are ready to sell or just want to know where you stand.</p>
           </div>
         </div>
       </div>
 
-      <!-- Valuation Form -->
-      <div>
-        <span class="section-label">Request Your Valuation</span>
-        <h2 class="section-title" style="font-size:clamp(22px,3vw,30px); margin-bottom:32px;">Get My Custom Home Valuation</h2>
+      <!-- Right: Valuation form -->
+      <div class="hv-form-wrap">
+        <h2 class="hv-form-heading">Get My Custom Home Valuation</h2>
 
-        <!--
-          SETUP: Replace YOUR_FORM_ID with your Formspree form ID.
-          Sign up at https://formspree.io (free for 50 submissions/month).
-        -->
-        <form class="form-grid" id="valuationForm" action="https://formspree.io/f/xnpaknjj" method="POST">
-          <div class="form-group">
-            <label for="address">Property Address *</label>
-            <input type="text" id="address" name="property_address" placeholder="Full address of the property" required>
+        <form class="hv-form" id="valuationForm"
+              action="https://formspree.io/f/xnpaknjj"
+              method="POST" novalidate>
+
+          <input type="hidden" name="_subject" value="Home valuation request — paulsellsproperties.com">
+
+          <!-- Property Address -->
+          <div class="hv-field" id="hvf-address">
+            <label for="hv-address">Property Address</label>
+            <input type="text" id="hv-address" name="property_address"
+                   placeholder="Full address of the property"
+                   required aria-required="true"
+                   aria-describedby="hverr-address">
+            <span class="hv-field__error" id="hverr-address" role="alert">Please enter the property address.</span>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="val-name">Your Name *</label>
-              <input type="text" id="val-name" name="name" placeholder="Full name" required>
+
+          <!-- Name + Phone -->
+          <div class="hv-form-row">
+            <div class="hv-field" id="hvf-name">
+              <label for="hv-name">Your Name</label>
+              <input type="text" id="hv-name" name="name"
+                     placeholder="Full name"
+                     autocomplete="name"
+                     required aria-required="true"
+                     aria-describedby="hverr-name">
+              <span class="hv-field__error" id="hverr-name" role="alert">Please enter your name.</span>
             </div>
-            <div class="form-group">
-              <label for="val-phone">Phone Number</label>
-              <input type="tel" id="val-phone" name="phone" placeholder="(000) 000-0000">
+            <div class="hv-field" id="hvf-phone">
+              <label for="hv-phone">Phone Number</label>
+              <input type="tel" id="hv-phone" name="phone"
+                     placeholder="(310) 555-0100"
+                     autocomplete="tel"
+                     required aria-required="true"
+                     aria-describedby="hverr-phone">
+              <span class="hv-field__error" id="hverr-phone" role="alert">Please enter your phone number.</span>
             </div>
           </div>
-          <div class="form-group">
-            <label for="val-email">Email *</label>
-            <input type="email" id="val-email" name="email" placeholder="Your email address" required>
+
+          <!-- Email -->
+          <div class="hv-field" id="hvf-email">
+            <label for="hv-email">Email Address</label>
+            <input type="email" id="hv-email" name="email"
+                   placeholder="you@example.com"
+                   autocomplete="email"
+                   required aria-required="true"
+                   aria-describedby="hverr-email">
+            <span class="hv-field__error" id="hverr-email" role="alert">Please enter a valid email address.</span>
           </div>
-          <div class="form-group">
-            <label>Your Timeline</label>
-            <div class="psp-dropdown" id="timelineDrop">
-              <button type="button" class="psp-dropdown-btn" id="timelineBtn"
-                      aria-haspopup="listbox" aria-expanded="false">
-                <span id="timelineLabel">Select your timeline</span>
-                <svg class="psp-chev" width="12" height="8" viewBox="0 0 12 8" fill="none">
-                  <path d="M1 1l5 5 5-5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <ul class="psp-dropdown-list" id="timelineList" role="listbox">
-                <li data-value="asap" role="option">As soon as possible</li>
-                <li data-value="1-3mo" role="option">1–3 months</li>
-                <li data-value="3-6mo" role="option">3–6 months</li>
-                <li data-value="6mo+" role="option">6+ months</li>
-                <li data-value="exploring" role="option">Just exploring</li>
+
+          <!-- Timeline — custom accessible select -->
+          <div class="hv-field" id="hvf-timeline">
+            <label id="hvs-timeline-label">Your Timeline <span class="hv-optional">optional</span></label>
+            <div class="hv-select" id="hvs-timeline"
+                 role="combobox"
+                 aria-labelledby="hvs-timeline-label"
+                 aria-haspopup="listbox"
+                 aria-expanded="false"
+                 tabindex="0">
+              <div class="hv-select__trigger is-placeholder" id="hvs-timeline-trigger">
+                <span class="hv-select__value" id="hvs-timeline-value">Select your timeline</span>
+                <span class="hv-select__arrow" aria-hidden="true">
+                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <ul class="hv-select__menu" id="hvs-timeline-menu" role="listbox" aria-labelledby="hvs-timeline-label">
+                <li class="hv-option" data-value="asap"      role="option">As soon as possible</li>
+                <li class="hv-option" data-value="1-3mo"     role="option">1–3 months</li>
+                <li class="hv-option" data-value="3-6mo"     role="option">3–6 months</li>
+                <li class="hv-option" data-value="6mo+"      role="option">6+ months</li>
+                <li class="hv-option" data-value="exploring" role="option">Just exploring</li>
               </ul>
-              <input type="hidden" name="timeline" id="timeline">
+              <input type="hidden" name="timeline" id="hv-timeline-hidden">
             </div>
           </div>
-          <div>
-            <button type="submit" class="btn btn-primary" style="width:100%; text-align:center;" id="valBtn">
+
+          <!-- Submit -->
+          <div class="hv-submit-row">
+            <div class="hv-banner hv-banner--success" id="hvBannerSuccess" role="alert">
+              Thank you — your valuation request is in. I will follow up within 24 hours.
+            </div>
+            <div class="hv-banner hv-banner--error" id="hvBannerError" role="alert">
+              Something went wrong. Please check your information and try again.
+            </div>
+            <button type="submit" class="psp-btn psp-btn--primary" id="hvSubmitBtn">
               Request My Valuation
             </button>
+            <p class="hv-privacy">
+              By submitting you agree to be contacted by Paul Adams II regarding your home valuation. No spam. No pressure. Information is transmitted via <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree</a>. See our <a href="/privacy">Privacy Policy</a>.
+            </p>
           </div>
-          <div class="form-message" id="valMsg"></div>
-          <p style="font-size:12px; color:var(--light); line-height:1.6; margin-top:4px;">
-            By submitting you agree to be contacted by Paul Adams II regarding your property valuation. No spam. No pressure.
-            Information is transmitted via <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Formspree</a>. See our <a href="/privacy" style="color:inherit;text-decoration:underline;">Privacy Policy</a>.
-          </p>
+
         </form>
       </div>
 
@@ -239,18 +567,26 @@
           </div>
           <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            </a>
           </div>
         </div>
         <div>
           <div class="footer-col-title">Navigate</div>
           <ul class="footer-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/property-search">Property Search</a></li>
-            <li><a href="/buying-selling-tips">Buying &amp; Selling</a></li>
-            <li><a href="/about">About Me</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/listings">Properties</a></li>
+            <li><a href="/buyers">Buyers</a></li>
+            <li><a href="/sellers">Sellers</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog/">Journal</a></li>
             <li><a href="/home-valuation">Home Valuation</a></li>
           </ul>
         </div>
@@ -277,9 +613,12 @@
           </div>
           <div class="footer-contact-block">
             <div class="footer-contact-lbl">Office</div>
-            <div class="footer-contact-val"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a></div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210"
+                 target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
           </div>
-          <div class="footer-dre">CA DRE# 02232552</div>
         </div>
       </div>
     </div>
@@ -287,7 +626,7 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom-inner">
-        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | &copy;2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.</p>
         <div class="footer-bottom-links">
           <a href="/terms">Terms</a>
           <a href="/privacy">Privacy</a>
@@ -298,73 +637,153 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navMobile').classList.toggle('open');
-  });
-
-  const form = document.getElementById('valuationForm');
-  const msg = document.getElementById('valMsg');
-  const btn = document.getElementById('valBtn');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      btn.textContent = 'Submitting...';
-      btn.disabled = true;
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          msg.textContent = 'Thank You — Your Valuation Is in Progress. I will be in touch within 24 hours.';
-          msg.className = 'form-message success';
-          form.reset();
-        } else { throw new Error(); }
-      } catch {
-        msg.textContent = 'Something went wrong — please check your information and try again.';
-        msg.className = 'form-message error';
-      }
-      btn.textContent = 'Request My Valuation';
-      btn.disabled = false;
-    });
-  }
-</script>
-<script src="assets/js/analytics.js" defer></script>
+<!-- Mobile nav JS -->
 <script>
 (function () {
-  var drop  = document.getElementById('timelineDrop');
-  var btn   = document.getElementById('timelineBtn');
-  var list  = document.getElementById('timelineList');
-  var label = document.getElementById('timelineLabel');
-  var input = document.getElementById('timeline');
-  if (!drop) return;
+  var toggle = document.getElementById('navToggle');
+  var menu   = document.getElementById('mobileMenu');
+  var close  = document.getElementById('mobileMenuClose');
+  if (!toggle || !menu) return;
+  function open() {
+    menu.removeAttribute('aria-hidden');
+    menu.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.setAttribute('aria-hidden', 'true');
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', open);
+  if (close) close.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
 
-  btn.addEventListener('click', function () {
-    var open = list.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
+<!-- Timeline select JS -->
+<script>
+(function () {
+  var cs      = document.getElementById('hvs-timeline');
+  var trigger = document.getElementById('hvs-timeline-trigger');
+  var valueEl = document.getElementById('hvs-timeline-value');
+  var hidden  = document.getElementById('hv-timeline-hidden');
+  var opts    = Array.from(document.querySelectorAll('#hvs-timeline-menu .hv-option'));
+  var focused = -1;
+
+  if (!cs) return;
+
+  function openCS() {
+    cs.classList.add('is-open');
+    cs.setAttribute('aria-expanded', 'true');
+    focused = opts.findIndex(function (o) { return o.classList.contains('is-selected'); });
+    if (focused >= 0) opts[focused].classList.add('is-focused');
+  }
+  function closeCS() {
+    cs.classList.remove('is-open');
+    cs.setAttribute('aria-expanded', 'false');
+    opts.forEach(function (o) { o.classList.remove('is-focused'); });
+    focused = -1;
+  }
+  function selectOpt(opt) {
+    opts.forEach(function (o) { o.classList.remove('is-selected'); });
+    opt.classList.add('is-selected');
+    hidden.value = opt.dataset.value;
+    valueEl.textContent = opt.textContent;
+    trigger.classList.remove('is-placeholder');
+    closeCS();
+    cs.focus();
+  }
+
+  trigger.addEventListener('click', function () {
+    cs.classList.contains('is-open') ? closeCS() : openCS();
   });
-
-  list.querySelectorAll('li').forEach(function (li) {
-    li.addEventListener('click', function () {
-      input.value = li.getAttribute('data-value');
-      label.textContent = li.textContent;
-      btn.classList.add('has-value');
-      list.querySelectorAll('li').forEach(function (l) { l.removeAttribute('aria-selected'); });
-      li.setAttribute('aria-selected', 'true');
-      list.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+  cs.addEventListener('keydown', function (e) {
+    if (!cs.classList.contains('is-open')) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') { e.preventDefault(); openCS(); }
+      return;
+    }
+    if (e.key === 'Escape')     { closeCS(); return; }
+    if (e.key === 'ArrowDown')  { e.preventDefault(); focused = Math.min(focused + 1, opts.length - 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); focused = Math.max(focused - 1, 0); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (focused >= 0) selectOpt(opts[focused]); return; }
+    opts.forEach(function (o, i) { o.classList.toggle('is-focused', i === focused); });
+  });
+  opts.forEach(function (opt) {
+    opt.addEventListener('click', function () { selectOpt(opt); });
+    opt.addEventListener('mouseenter', function () {
+      focused = opts.indexOf(opt);
+      opts.forEach(function (o, i) { o.classList.toggle('is-focused', i === focused); });
     });
   });
-
   document.addEventListener('click', function (e) {
-    if (!drop.contains(e.target)) {
-      list.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
+    if (!cs.contains(e.target)) closeCS();
   });
 })();
 </script>
+
+<!-- Form submission JS -->
+<script>
+(function () {
+  var form   = document.getElementById('valuationForm');
+  var btn    = document.getElementById('hvSubmitBtn');
+  var banner = { success: document.getElementById('hvBannerSuccess'), error: document.getElementById('hvBannerError') };
+  var fields = {
+    address: document.getElementById('hvf-address'),
+    name:    document.getElementById('hvf-name'),
+    phone:   document.getElementById('hvf-phone'),
+    email:   document.getElementById('hvf-email')
+  };
+
+  if (!form) return;
+
+  function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function validatePhone(v) { return v.replace(/\D/g, '').length >= 10; }
+  function setError(fieldEl, show) { fieldEl.classList.toggle('has-error', show); }
+
+  function validate() {
+    var ok    = true;
+    var addr  = form.querySelector('#hv-address').value.trim();
+    var name  = form.querySelector('#hv-name').value.trim();
+    var phone = form.querySelector('#hv-phone').value.trim();
+    var email = form.querySelector('#hv-email').value.trim();
+    setError(fields.address, !addr);                   if (!addr)                 ok = false;
+    setError(fields.name,    !name);                   if (!name)                 ok = false;
+    setError(fields.phone,   !validatePhone(phone));   if (!validatePhone(phone)) ok = false;
+    setError(fields.email,   !validateEmail(email));   if (!validateEmail(email)) ok = false;
+    return ok;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    banner.success.classList.remove('is-visible');
+    banner.error.classList.remove('is-visible');
+    if (!validate()) return;
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+    try {
+      var res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        banner.success.classList.add('is-visible');
+        form.reset();
+        document.getElementById('hvs-timeline-value').textContent = 'Select your timeline';
+        document.getElementById('hvs-timeline-trigger').classList.add('is-placeholder');
+        document.getElementById('hv-timeline-hidden').value = '';
+      } else { throw new Error(); }
+    } catch (_) {
+      banner.error.classList.add('is-visible');
+    }
+    btn.textContent = 'Request My Valuation';
+    btn.disabled = false;
+  });
+})();
+</script>
+
+<script src="assets/js/analytics.js" defer></script>
 </body>
 </html>
