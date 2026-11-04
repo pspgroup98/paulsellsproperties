@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Los Angeles Property Search | Paul Adams II</title>
-  <meta name="description" content="Search homes, condos, and investment properties across Los Angeles with Paul Adams II, Coldwell Banker Realty Beverly Hills. Expert guidance for every search.">
+  <meta name="description" content="Search homes, condos, and investment properties across Los Angeles with Paul Adams II, Coldwell Banker Realty Beverly Hills.">
   <link rel="canonical" href="https://paulsellsproperties.com/property-search">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="Los Angeles Property Search | Paul Adams II">
   <meta property="og:description" content="Search LA homes, condos, and investment properties with Paul Adams II, Coldwell Banker Realty Beverly Hills.">
@@ -13,140 +14,412 @@
   <meta property="og:site_name" content="Paul Adams II">
   <meta property="og:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
   <meta property="og:locale" content="en_US">
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Los Angeles Property Search | Paul Adams II">
   <meta name="twitter:image" content="https://paulsellsproperties.com/assets/images/paul-hero.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://paulsellsproperties.com/"},{"@type":"ListItem","position":2,"name":"Property Search","item":"https://paulsellsproperties.com/property-search"}]}
   </script>
+
   <link rel="stylesheet" href="assets/css/styles.css">
-    </head>
-<body>
+  <link rel="stylesheet" href="assets/css/design-tokens.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
+
+  <style>
+  /* ── Property Search page ── */
+
+  /* Nav overrides for light theme */
+  .psp-interior .psp-nav {
+    background: var(--site-bg, #FAF9F6);
+    box-shadow: 0 1px 0 var(--site-border, rgba(36,36,36,0.10));
+  }
+  .psp-interior .psp-nav__name       { color: var(--site-text, #242424); }
+  .psp-interior .psp-nav__descriptor { color: var(--site-text-2, #666762); }
+  .psp-interior .psp-nav__link       { color: var(--site-text-2, #666762); }
+  .psp-interior .psp-nav__link:hover { color: var(--site-text, #242424); }
+  .psp-interior .psp-nav .psp-btn--nav {
+    color: var(--site-text, #242424);
+    border-color: rgba(36,36,36,0.35);
+  }
+  .psp-interior .psp-nav .psp-btn--nav:hover {
+    background: rgba(36,36,36,0.06);
+    border-color: rgba(36,36,36,0.55);
+  }
+  .psp-interior .psp-nav__toggle-bar { background: var(--site-text, #242424); }
+  .psp-interior .psp-nav__search-btn { color: var(--site-text-2, #666762); }
+
+  /* Page header — own class avoids cascade conflict with base .page-header */
+  .ps-page-header {
+    padding: calc(76px + 72px) 0 0;
+    background: var(--site-bg, #FAF9F6);
+  }
+  .ps-page-header h1 {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    max-width: 740px;
+    margin-bottom: 0;
+    color: var(--site-text, #242424);
+  }
+
+  /* ── Main section ── */
+  .ps-section {
+    padding: 56px 0 72px;
+    background: var(--site-bg, #FAF9F6);
+  }
+
+  /* Intro line */
+  .ps-intro {
+    font-size: 17px;
+    color: var(--site-text-2, #666762);
+    line-height: 1.65;
+    margin: 0 0 48px;
+  }
+
+  /* ── Embed ── */
+  .ps-embed-wrap {
+    position: relative;
+    border: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 0 0;
+    background: var(--site-bg-alt, #E2E0DA);
+  }
+  /* Visible if iframe is blocked (e.g. artifact sandbox) */
+  .ps-embed-backdrop {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 32px;
+    pointer-events: none;
+  }
+  .ps-embed-backdrop-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--site-muted, #A9A8A2);
+  }
+  .ps-embed-backdrop-title {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--site-text-2, #666762);
+  }
+  .ps-embed-frame {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 640px;
+    border: none;
+    min-height: 400px;
+  }
+
+  /* Always-visible action bar below the embed */
+  .ps-embed-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    border-top: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    background: var(--site-bg-alt, #E2E0DA);
+    position: relative;
+    z-index: 1;
+  }
+  .ps-embed-action-note {
+    font-size: 12px;
+    color: var(--site-muted, #A9A8A2);
+    line-height: 1.5;
+  }
+  .ps-embed-action .psp-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Feature cards (horizontal row) ── */
+  .ps-features-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 24px 0 72px;
+  }
+  .ps-feature {
+    background: var(--site-bg-alt, #E2E0DA);
+    border: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .ps-feature-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(36,36,36,0.06);
+    border-radius: 6px;
+    margin-top: 2px;
+    color: var(--site-text, #242424);
+  }
+  .ps-feature-title {
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--site-text, #242424);
+    margin-bottom: 5px;
+  }
+  .ps-feature-desc {
+    font-size: 13px;
+    color: var(--site-text-2, #666762);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Divider ── */
+  .ps-rule {
+    border: none;
+    border-top: 1px solid var(--site-border, rgba(36,36,36,0.10));
+    margin: 0 0 72px;
+  }
+
+  /* ── Off-market section (standalone, full-width band) ── */
+  .ps-offmarket-section {
+    background: var(--site-bg-alt, #E2E0DA);
+    padding: 80px 0 88px;
+  }
+  .ps-offmarket-copy {
+    text-align: center;
+  }
+  .ps-offmarket-heading {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: var(--site-text, #242424);
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  .ps-offmarket-body {
+    font-size: 17px;
+    color: var(--site-text-2, #666762);
+    line-height: 1.8;
+    margin: 0 auto 36px;
+  }
+  .ps-offmarket-ctas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ps-offmarket-ctas .psp-btn {
+    flex: 1 1 0;
+    min-width: 150px;
+    justify-content: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .ps-embed-frame { height: 580px; }
+  }
+  @media (max-width: 900px) {
+    .ps-features-row { grid-template-columns: 1fr; gap: 12px; }
+  }
+  @media (max-width: 768px) {
+    .ps-embed-frame { height: 520px; }
+    .ps-offmarket-section { padding: 64px 0 72px; }
+    .ps-embed-action { justify-content: flex-end; }
+  }
+  @media (max-width: 600px) {
+    .ps-section { padding: 40px 0 56px; }
+    .ps-features-row { margin-bottom: 0; }
+    .ps-embed-frame { height: 460px; }
+    .ps-offmarket-section { padding: 52px 0 60px; }
+    .ps-offmarket-body { font-size: 16px; }
+    .ps-offmarket-ctas { flex-direction: column; align-items: stretch; flex-wrap: wrap; max-width: 320px; }
+    .ps-offmarket-ctas .psp-btn { flex: none; min-width: 0; width: 100%; }
+  }
+  </style>
+</head>
+<body class="psp-interior">
 
 <!-- NAV -->
-<nav class="nav scrolled">
-  <div class="nav-inner">
-    <a href="/" class="logo-mark"><span class="logo-name">Paul Adams II</span><span class="logo-rule"></span><span class="logo-sub">Los Angeles Real Estate</span></a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="/">Home</a></li>
-      <li class="nav-item">
-        <span>Properties ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/property-search" class="active">Property Search</a>
-        </div>
-      </li>
-      <li class="nav-item"><span>Buying &amp; Selling ▾</span>
-        <div class="nav-dropdown-menu"><a href="/buying-selling-tips">Buying &amp; Selling Tips</a></div>
-      </li>
-      <li class="nav-item"><span>About Me ▾</span>
-        <div class="nav-dropdown-menu">
-          <a href="/about">My Bio</a>
-          <a href="/contact">Contact Me</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="/blog/">Blog</a></li>
-      <li class="nav-item"><a href="/home-valuation">Custom Home Valuation</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="#" class="btn btn-gold btn-sm"
-         onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-        Start a Conversation
-      </a>
+<header class="psp-nav" id="siteNav" role="banner">
+  <div class="psp-nav__inner">
+    <a href="/" class="psp-nav__brand" aria-label="Paul Adams II — Home">
+      <span class="psp-nav__name">Paul Adams II</span>
+      <span class="psp-nav__descriptor">Los Angeles Real Estate</span>
+    </a>
+    <nav class="psp-nav__links" aria-label="Primary navigation">
+      <a href="/listings" class="psp-nav__link">Properties</a>
+      <a href="/neighborhoods/" class="psp-nav__link">Neighborhoods</a>
+      <a href="/blog/" class="psp-nav__link">Journal</a>
+      <a href="/buyers" class="psp-nav__link">Buyers</a>
+      <a href="/sellers" class="psp-nav__link">Sellers</a>
+      <a href="/investors" class="psp-nav__link">Investors</a>
+      <a href="/about" class="psp-nav__link">About</a>
+    </nav>
+    <div class="psp-nav__actions">
+      <a href="/contact" class="psp-btn psp-btn--nav">Contact</a>
+      <button class="psp-nav__search-btn" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
     </div>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <button class="psp-nav__toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+      <span class="psp-nav__toggle-bar"></span>
+    </button>
   </div>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="/">Home</a>
-  <a href="/property-search" class="mobile-sub">Property Search</a>
-  <a href="/buying-selling-tips">Buying &amp; Selling Tips</a>
-  <a href="/about">My Bio</a>
-  <a href="/contact">Contact Me</a>
-  <a href="/blog/">Blog</a>
-  <a href="/home-valuation">Home Valuation</a>
+</header>
+
+<!-- Mobile menu -->
+<div class="psp-mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="psp-mobile-menu__header">
+    <span class="psp-mobile-menu__brand">Paul Adams II</span>
+    <button class="psp-mobile-menu__close" id="mobileMenuClose" aria-label="Close navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="psp-mobile-menu__nav" aria-label="Mobile navigation">
+    <a href="/listings">Properties</a>
+    <a href="/neighborhoods/">Neighborhoods</a>
+    <a href="/blog/">Journal</a>
+    <a href="/buyers">Buyers</a>
+    <a href="/sellers">Sellers</a>
+    <a href="/investors">Investors</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="psp-mobile-menu__cta">
+    <a href="https://calendly.com/adams2paul/30min"
+       target="_blank" rel="noopener"
+       class="psp-btn psp-btn--primary"
+       onclick="if(window.PSP&&PSP.openCalendly){PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;}">
+      Schedule a Consultation
+    </a>
+  </div>
 </div>
 
 <!-- PAGE HEADER -->
-<div class="page-header">
+<div class="ps-page-header">
   <div class="container">
-    <span class="page-header-eyebrow">Property Search</span>
     <h1>Browse Los Angeles Homes</h1>
-    <p>Search active listings across Los Angeles — from Beverly Hills to Highland Park and everywhere between.</p>
   </div>
 </div>
 
-<!-- SEARCH SECTION -->
-<section class="section" style="padding-top:80px; padding-bottom:80px;">
+<!-- MAIN SECTION -->
+<section class="ps-section">
   <div class="container">
 
-    <!-- Search CTA -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-bottom:80px;">
-      <div>
-        <span class="section-label">Active MLS Listings</span>
-        <h2 class="section-title" style="font-size:clamp(28px,3vw,42px);">Search Every Active Listing in Los Angeles</h2>
-        <p style="font-size:16px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:32px;">
-          Browse the full MLS — houses, condos, multi-family, and land across every Los Angeles neighborhood. Updated in real time.
-        </p>
+    <!-- MLS embed -->
+    <div class="ps-embed-wrap">
+      <!-- Backdrop: visible when iframe is blocked (artifact preview, dev environments) -->
+      <div class="ps-embed-backdrop" aria-hidden="true">
+        <span class="ps-embed-backdrop-label">MLS Search</span>
+        <span class="ps-embed-backdrop-title">Active Listings — Powered by TheMLS</span>
+      </div>
+      <iframe
+        class="ps-embed-frame"
+        src="https://www.themls.com/IDXNET/Default.aspx?wid=2q0y5eCcXc5I3QI2sLSlatlNdpQ67OX6gcRNBRVwFPLv14jZddLQCaI14PjK63bT"
+        title="Los Angeles MLS Property Search — powered by TheMLS"
+        loading="lazy"
+      ></iframe>
+      <!-- Always-visible action bar: works whether or not the iframe loads -->
+      <div class="ps-embed-action">
+        <span class="ps-embed-action-note">Search not loading or prefer a larger view?</span>
         <a href="https://www.themls.com/IDXNET/Default.aspx?wid=2q0y5eCcXc5I3QI2sLSlatlNdpQ67OX6gcRNBRVwFPLv14jZddLQCaI14PjK63bT"
            target="_blank" rel="noopener"
-           class="btn btn-gold" style="font-size:13px;">
-          Open Property Search
-        </a>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div style="background:var(--dark-2); border:1px solid var(--border); border-radius:2px; padding:24px 28px; display:flex; align-items:center; gap:20px;">
-          <div style="width:40px; height:40px; background:rgba(255,255,255,0.06); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          </div>
-          <div>
-            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); margin-bottom:3px;">Full MLS Access</div>
-            <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5;">Every active listing, updated in real time</div>
-          </div>
-        </div>
-        <div style="background:var(--dark-2); border:1px solid var(--border); border-radius:2px; padding:24px 28px; display:flex; align-items:center; gap:20px;">
-          <div style="width:40px; height:40px; background:rgba(255,255,255,0.06); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div>
-            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); margin-bottom:3px;">All Property Types</div>
-            <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5;">Houses, condos, multi-family, and land</div>
-          </div>
-        </div>
-        <div style="background:var(--dark-2); border:1px solid var(--border); border-radius:2px; padding:24px 28px; display:flex; align-items:center; gap:20px;">
-          <div style="width:40px; height:40px; background:rgba(255,255,255,0.06); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); margin-bottom:3px;">All LA Neighborhoods</div>
-            <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5;">Filter by area, price, beds, and more</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Divider -->
-    <div style="border-top:1px solid var(--border); margin-bottom:80px;"></div>
-
-    <!-- Off-market CTA -->
-    <div style="text-align:center; max-width:560px; margin:0 auto;">
-      <span class="section-label">Beyond the MLS</span>
-      <h2 class="section-title" style="font-size:clamp(24px,2.8vw,36px); margin-bottom:16px;">Not Finding It on the Market?</h2>
-      <p style="font-size:16px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:32px;">
-        I have access to off-market and pre-market properties that never reach public listings. Tell me what you're looking for and I'll find it.
-      </p>
-      <div class="btn-group" style="justify-content:center;">
-        <a href="/contact" class="btn btn-primary">Tell Me What You Need</a>
-        <a href="#"
-           class="btn btn-outline-white"
-           onclick="PSP.openCalendly('https://calendly.com/adams2paul');return false;">
-          Start a Conversation
+           class="psp-btn psp-btn--outline psp-btn--sm">
+          Search Active Listings
         </a>
       </div>
     </div>
 
+    <!-- Three feature cards -->
+    <div class="ps-features-row">
+      <div class="ps-feature">
+        <div class="ps-feature-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <div>
+          <div class="ps-feature-title">Full MLS Access</div>
+          <p class="ps-feature-desc">Every active listing in Los Angeles.</p>
+        </div>
+      </div>
+      <div class="ps-feature">
+        <div class="ps-feature-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div>
+          <div class="ps-feature-title">All Property Types</div>
+          <p class="ps-feature-desc">Houses, condos, multi-family, and land.</p>
+        </div>
+      </div>
+      <div class="ps-feature">
+        <div class="ps-feature-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="ps-feature-title">All LA Neighborhoods</div>
+          <p class="ps-feature-desc">Filter by price, beds, and property type.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OFF-MARKET — full-width background band -->
+<section class="ps-offmarket-section">
+  <div class="container">
+    <div class="ps-offmarket-copy">
+      <h2 class="ps-offmarket-heading">Not Finding It on the Market?</h2>
+      <p class="ps-offmarket-body">Some properties are marketed privately or before appearing on public listing platforms. Through professional relationships and targeted outreach, I can help you explore opportunities beyond your standard property search.</p>
+      <div class="ps-offmarket-ctas">
+        <a href="/contact" class="psp-btn psp-btn--primary">Tell Me What You Need</a>
+        <a href="https://calendly.com/adams2paul/30min"
+           target="_blank" rel="noopener"
+           class="psp-btn psp-btn--outline"
+           onclick="if(window.PSP&&PSP.openCalendly){PSP.openCalendly('https://calendly.com/adams2paul/30min');return false;}">
+          Schedule a Call
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -165,18 +438,26 @@
           </div>
           <p class="footer-tagline">Third-generation real estate advisor focused on strategy, clarity, and execution across Los Angeles.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+            <a href="https://www.instagram.com/paulsellsproperties/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61580108736092" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://share.google/EG2aS8iUzQFJ3ECnX" class="social-btn" target="_blank" rel="noopener" aria-label="Google Business Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            </a>
           </div>
         </div>
         <div>
           <div class="footer-col-title">Navigate</div>
           <ul class="footer-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/property-search">Property Search</a></li>
-            <li><a href="/buying-selling-tips">Buying &amp; Selling</a></li>
-            <li><a href="/about">About Me</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/listings">Properties</a></li>
+            <li><a href="/buyers">Buyers</a></li>
+            <li><a href="/sellers">Sellers</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog/">Journal</a></li>
             <li><a href="/home-valuation">Home Valuation</a></li>
           </ul>
         </div>
@@ -203,9 +484,12 @@
           </div>
           <div class="footer-contact-block">
             <div class="footer-contact-lbl">Office</div>
-            <div class="footer-contact-val"><a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210" target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a></div>
+            <div class="footer-contact-val">
+              <div style="font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:3px;">Coldwell Banker Beverly Hills</div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=301+N+Canon+Dr+Ste+E,+Beverly+Hills,+CA+90210"
+                 target="_blank" rel="noopener" style="color:inherit;">301 N Canon Dr Ste E<br>Beverly Hills, CA 90210</a>
+            </div>
           </div>
-          <div class="footer-dre">CA DRE# 02232552</div>
         </div>
       </div>
     </div>
@@ -213,7 +497,7 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom-inner">
-        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | ©2026 Coldwell Banker. All Rights Reserved. The Coldwell Banker® System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+        <p class="footer-legal">Paul Adams II | CA DRE# 02232552 | Coldwell Banker Residential Brokerage Company | CA DRE# 00616212 | &copy;2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Affiliated real estate agents are independent contractor sales associates, not employees.</p>
         <div class="footer-bottom-links">
           <a href="/terms">Terms</a>
           <a href="/privacy">Privacy</a>
@@ -224,11 +508,31 @@
   </div>
 </footer>
 
+<!-- Mobile nav JS -->
 <script>
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navMobile').classList.toggle('open');
-  });
+(function () {
+  var toggle = document.getElementById('navToggle');
+  var menu   = document.getElementById('mobileMenu');
+  var close  = document.getElementById('mobileMenuClose');
+  if (!toggle || !menu) return;
+  function open() {
+    menu.removeAttribute('aria-hidden');
+    menu.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.setAttribute('aria-hidden', 'true');
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', open);
+  if (close) close.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
 </script>
+
 <script src="assets/js/analytics.js" defer></script>
 </body>
 </html>
