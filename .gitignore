@@ -35,6 +35,9 @@ content-system/approved-batches/*.json
 scripts/test_fixtures/
 /tmp/test_batch_*.json
 
+# Node / Playwright dev dependencies
+node_modules/
+
 # Environment
 .env
 .env.*

@@ -35,16 +35,17 @@
  * A site serving ~1,000 HTML pages/day is well within limits.
  * "Fail open" route setting handles the 1027 (daily limit exceeded) case.
  *
- * CACHING NOTE
- * ────────────
- * This Worker does NOT set cache headers — it inherits origin caching.
- * The injected meta tag reflects the visitor's country at request time.
- * Cloudflare's edge cache is bypassed for authenticated or no-cache requests.
- * For cached HTML pages (Cache-Control: public), the geo tag in the cached
- * copy reflects the country of the first visitor who populated that cache slot.
- * This is acceptable because the consent decision is binary (EU vs. non-EU)
- * and conservative (unknown → opt-in); a cached "other" tag that reaches an EU
- * visitor is unlikely for a site primarily serving US traffic.
+ * CACHING
+ * ───────
+ * HTML responses transformed by this Worker have `s-maxage=0` added to their
+ * Cache-Control header. This prevents Cloudflare's edge cache from storing
+ * geo-tagged HTML. If it did, a cached "psp-geo=other" page (US visitor)
+ * served to an EU visitor would skip the GDPR-required opt-in consent banner.
+ *
+ * s-maxage=0 tells shared caches (CDN) not to cache the response while
+ * preserving the original max-age directive so browsers may still cache.
+ * Non-HTML responses (CSS, JS, images) are returned unmodified and continue
+ * to be cached normally by both the CDN and browsers.
  *
  * SECURITY
  * ────────
@@ -91,7 +92,7 @@ export default {
       }
 
       // Inject <meta name="psp-geo" content="..."> as the first child of <head>
-      return new HTMLRewriter()
+      const transformed = new HTMLRewriter()
         .on('head', {
           element(el) {
             el.prepend(
@@ -101,6 +102,25 @@ export default {
           },
         })
         .transform(response);
+
+      // Prevent CDN from caching the geo-tagged HTML. A cached "psp-geo=other"
+      // response served to an EU visitor would skip GDPR-required opt-in consent.
+      // s-maxage=0 targets shared caches (CDN) only; browser max-age is preserved.
+      const headers = new Headers(transformed.headers);
+      const existingCC = headers.get('Cache-Control') || '';
+      const updatedCC = existingCC
+        .split(',')
+        .map(d => d.trim())
+        .filter(d => d !== '' && !d.startsWith('s-maxage'))
+        .concat('s-maxage=0')
+        .join(', ');
+      headers.set('Cache-Control', updatedCC || 'max-age=600, s-maxage=0');
+
+      return new Response(transformed.body, {
+        status: transformed.status,
+        statusText: transformed.statusText,
+        headers,
+      });
 
     } catch (e) {
       // fetch() error or HTMLRewriter error — return unmodified origin response.

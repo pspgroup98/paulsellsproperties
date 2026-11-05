@@ -1,0 +1,13 @@
+{
+  "name": "paulsellsproperties",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:unit": "node tests/consent.test.js && node tests/worker.test.js",
+    "test:browser": "node tests/playwright.test.js",
+    "test": "npm run test:unit && npm run test:browser"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}
