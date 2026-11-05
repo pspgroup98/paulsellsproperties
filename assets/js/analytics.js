@@ -41,39 +41,77 @@
   var CLARITY_ENABLED = true;
   var CONSENT_KEY    = 'psp_analytics'; // localStorage key
   var SCROLL_MILESTONES = [25, 50, 75, 90];
+  var CONSENT_VERSION  = '2';
+  var CONSENT_VER_KEY  = 'psp_analytics_ver';
+
+  // ── Geographic consent detection ────────────────────────────────────────────
+
+  /**
+   * Returns true if this visitor requires explicit opt-in (EU/EEA/UK).
+   * Trusts only the psp-geo meta tag injected by the Cloudflare Worker.
+   * When the tag is absent (Worker not deployed or errored), returns true
+   * so all visitors default to opt-in — a privacy-protective fallback.
+   */
+  function requiresOptIn() {
+    try {
+      var meta = document.querySelector('meta[name="psp-geo"]');
+      if (meta) {
+        return meta.getAttribute('content') !== 'other';
+      }
+    } catch (e) {}
+    return true; // No meta tag = Worker unavailable = all require consent
+  }
 
   // ── Consent management ──────────────────────────────────────────────────────
 
   /**
    * Return the current consent preference.
-   * Defaults to "granted" (opt-out model) if no preference has been set.
+   * US visitors (psp-geo=other): defaults to "granted" (opt-out model).
+   * EU/EEA/UK visitors (psp-geo=eu/unknown): defaults to "denied" (opt-in model).
+   * Versioned: EU visitors' old opt-out "granted" is not valid GDPR opt-in.
    */
   function getConsent() {
     try {
-      return localStorage.getItem(CONSENT_KEY) || 'granted';
+      var stored = localStorage.getItem(CONSENT_KEY);
+      if (stored === 'denied') return 'denied';
+      if (stored === 'granted') {
+        // US visitors: old "granted" remains valid
+        if (!requiresOptIn()) return 'granted';
+        // EU visitors: only valid if explicitly granted under consent version 2
+        if (localStorage.getItem(CONSENT_VER_KEY) === CONSENT_VERSION) return 'granted';
+        return 'denied'; // old opt-out "granted" not valid for EU visitors
+      }
+      // No preference stored: US defaults to granted, EU defaults to denied
+      return requiresOptIn() ? 'denied' : 'granted';
     } catch (e) {
-      return 'granted'; // storage blocked — treat as consented
+      return requiresOptIn() ? 'denied' : 'granted';
     }
   }
 
   /**
    * Set the consent preference and reload so the change takes effect.
-   * Call from privacy.html or any opt-out UI.
-   * window.PSP.setConsent("denied")  — opt out
-   * window.PSP.setConsent("granted") — opt back in
+   * Call from PSP.showPrivacyChoices() or PSP.showConsentBanner().
+   * window.PSP.setConsent("denied")  — opt out / decline
+   * window.PSP.setConsent("granted") — opt in / accept
    */
   function setConsent(value) {
     if (value !== 'granted' && value !== 'denied') return;
     try {
       localStorage.setItem(CONSENT_KEY, value);
+      if (value === 'granted' && requiresOptIn()) {
+        // EU visitor explicitly opted in — record consent version
+        localStorage.setItem(CONSENT_VER_KEY, CONSENT_VERSION);
+      } else {
+        localStorage.removeItem(CONSENT_VER_KEY);
+      }
     } catch (e) {}
     // Signal GA4 consent mode update (if gtag is already loaded)
     if (typeof gtag === 'function') {
       gtag('consent', 'update', {
         analytics_storage: value === 'granted' ? 'granted' : 'denied',
-        ad_storage: 'denied',           // always denied — no advertising
-        ad_user_data: 'denied',         // always denied
-        ad_personalization: 'denied',   // always denied
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
       });
     }
     // Reload the page so analytics scripts reflect the new choice
@@ -324,6 +362,101 @@
     });
   }
 
+  // ── Consent banner (EU/EEA/UK opt-in) ─────────────────────────────────────
+
+  /**
+   * Show a consent banner for visitors who require opt-in (EU/EEA/UK).
+   * Only shown when:
+   *   - requiresOptIn() === true (EU/EEA/UK visitor based on psp-geo tag)
+   *   - no consent preference has been stored yet (neither granted nor denied)
+   */
+  function showConsentBanner() {
+    if (!requiresOptIn()) return;
+    try {
+      var stored = localStorage.getItem(CONSENT_KEY);
+      if (stored === 'granted' || stored === 'denied') return;
+    } catch (e) { return; }
+
+    var style = document.createElement('style');
+    style.textContent = [
+      '#psp-consent-banner{',
+        'position:fixed;bottom:0;left:0;right:0;z-index:9999;',
+        'background:#FAF9F6;border-top:1px solid rgba(36,36,36,0.12);',
+        'padding:20px clamp(20px,4vw,56px);',
+        'font-family:"Inter",system-ui,sans-serif;',
+      '}',
+      '#psp-consent-banner-inner{',
+        'max-width:1200px;margin-inline:auto;',
+        'display:flex;align-items:center;gap:24px;flex-wrap:wrap;',
+      '}',
+      '#psp-consent-banner p{',
+        'flex:1;min-width:200px;',
+        'font-size:13px;line-height:1.6;color:#3a3a3a;margin:0;',
+      '}',
+      '#psp-consent-banner a{color:#242424;text-decoration:underline;text-underline-offset:2px;}',
+      '#psp-consent-banner-btns{',
+        'display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;',
+      '}',
+      '#psp-consent-decline,#psp-consent-accept{',
+        'display:inline-flex;align-items:center;justify-content:center;',
+        'padding:0 20px;height:40px;',
+        'font-family:"Inter",system-ui,sans-serif;',
+        'font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;',
+        'border-radius:4px;cursor:pointer;border:1.5px solid transparent;',
+        'transition:background 0.15s,border-color 0.15s;',
+        'white-space:nowrap;background:none;',
+      '}',
+      '#psp-consent-accept{',
+        'background:#242424;color:#FAF9F6;border-color:#242424;',
+      '}',
+      '#psp-consent-accept:hover{background:#3a3a3a;border-color:#3a3a3a;}',
+      '#psp-consent-decline{',
+        'color:#242424;border-color:rgba(36,36,36,0.35);',
+      '}',
+      '#psp-consent-decline:hover{background:rgba(36,36,36,0.06);border-color:rgba(36,36,36,0.55);}',
+      '#psp-consent-decline:focus-visible,#psp-consent-accept:focus-visible{',
+        'outline:3px solid #005fcc;outline-offset:3px;',
+      '}',
+      // Compact layout in landscape on small screens (max-height ~400px)
+      '@media(max-height:400px){',
+        '#psp-consent-banner{padding:12px clamp(16px,4vw,56px);}',
+        '#psp-consent-banner-inner{gap:12px;}',
+        '#psp-consent-decline,#psp-consent-accept{height:36px;padding:0 16px;}',
+      '}',
+      // Stack to column on narrow phones
+      '@media(max-width:479px){',
+        '#psp-consent-banner-inner{flex-direction:column;align-items:stretch;}',
+        '#psp-consent-banner-btns{flex-direction:column;}',
+        '#psp-consent-decline,#psp-consent-accept{width:100%;}',
+      '}',
+    ].join('');
+    document.head.appendChild(style);
+
+    var banner = document.createElement('div');
+    banner.id = 'psp-consent-banner';
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.innerHTML = [
+      '<div id="psp-consent-banner-inner">',
+        '<p>This site uses analytics to understand how visitors use it.',
+        ' No advertising pixels or cross-site tracking.',
+        ' <a href="/privacy">Privacy Policy</a></p>',
+        '<div id="psp-consent-banner-btns">',
+          '<button id="psp-consent-decline" type="button">Decline</button>',
+          '<button id="psp-consent-accept" type="button">Accept Analytics</button>',
+        '</div>',
+      '</div>',
+    ].join('');
+    document.body.appendChild(banner);
+
+    document.getElementById('psp-consent-accept').addEventListener('click', function () {
+      setConsent('granted');
+    });
+    document.getElementById('psp-consent-decline').addEventListener('click', function () {
+      setConsent('denied');
+    });
+  }
+
   // ── Privacy opt-out modal ──────────────────────────────────────────────────
 
   /**
@@ -383,6 +516,7 @@
     _getUTMParams(); // parsed automatically by GA4; here for reference
 
     document.addEventListener('DOMContentLoaded', function () {
+      showConsentBanner();
       _autoInstrument();
       _initScrollTracking();
       _trackArticleView();
@@ -392,12 +526,13 @@
   // ── Public API ─────────────────────────────────────────────────────────────
 
   window.PSP = window.PSP || {};
-  window.PSP.track         = track;
-  window.PSP.trackForm     = trackForm;
-  window.PSP.openCalendly  = openCalendly;
-  window.PSP.setConsent    = setConsent;
-  window.PSP.getConsent    = getConsent;
+  window.PSP.track              = track;
+  window.PSP.trackForm          = trackForm;
+  window.PSP.openCalendly       = openCalendly;
+  window.PSP.setConsent         = setConsent;
+  window.PSP.getConsent         = getConsent;
   window.PSP.showPrivacyChoices = showPrivacyChoices;
+  window.PSP.showConsentBanner  = showConsentBanner;
 
   // Run immediately (not waiting for DOMContentLoaded) so scripts load early
   init();
