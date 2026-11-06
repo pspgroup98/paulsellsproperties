@@ -175,13 +175,11 @@ def _archive_card_html(article: dict) -> str:
     date_str = _fmt_long(ts) if ts else article.get("date_display", "")
 
     return (
-        f'\n      <a href="{slug}" class="blog-card">\n'
-        f'        <div class="blog-card-body">\n'
-        f'          <div class="blog-category">{category}</div>\n'
-        f'          <h3>{title}</h3>\n'
-        f'          <p>{excerpt}</p>\n'
-        f'          <div class="blog-meta"><span>{date_str}</span></div>\n'
-        f'        </div>\n'
+        f'\n      <a href="{slug}" class="article-card">\n'
+        f'        <div class="article-card__cat">{category}</div>\n'
+        f'        <h2 class="article-card__title">{title}</h2>\n'
+        f'        <p class="article-card__excerpt">{excerpt}</p>\n'
+        f'        <p class="article-card__date">{date_str}</p>\n'
         f'      </a>\n'
     )
 
@@ -213,19 +211,21 @@ def update_homepage(article_index: list, homepage_path: Path,
     # Build show-more content
     if overflow:
         more_html = (
-            '\n    <div class="blog-more-wrap">\n'
-            '      <button class="btn btn-outline-dark" id="blogMoreBtn">\n'
-            '        Show More Articles\n'
-            '      </button>\n'
-            '    </div>\n  '
+            '\n      <div class="psp-journal__more-wrap" id="psp-journal-more-wrap">\n'
+            '        <button class="psp-journal__more-btn" id="psp-journal-more-btn"\n'
+            '                aria-expanded="false" aria-controls="psp-journal-grid">\n'
+            '          VIEW MORE ARTICLES\n'
+            '        </button>\n'
+            '      </div>\n    '
         )
     else:
         more_html = (
-            '\n    <div class="blog-more-wrap" style="display:none;">\n'
-            '      <button class="btn btn-outline-dark" id="blogMoreBtn">\n'
-            '        Show More Articles\n'
-            '      </button>\n'
-            '    </div>\n  '
+            '\n      <div class="psp-journal__more-wrap" id="psp-journal-more-wrap" hidden>\n'
+            '        <button class="psp-journal__more-btn" id="psp-journal-more-btn"\n'
+            '                aria-expanded="false" aria-controls="psp-journal-grid">\n'
+            '          VIEW MORE ARTICLES\n'
+            '        </button>\n'
+            '      </div>\n    '
         )
 
     html = homepage_path.read_text(encoding="utf-8")
