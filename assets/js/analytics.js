@@ -486,9 +486,9 @@
       '  </strong></p>',
       '  <div class="psp-modal-actions">',
       (analyticsOn
-        ? '    <button id="psp-opt-out" class="btn btn-outline">Turn off analytics</button>'
-        : '    <button id="psp-opt-in" class="btn btn-gold">Turn on analytics</button>'),
-      '    <button id="psp-modal-close" class="btn btn-outline">Close</button>',
+        ? '    <button id="psp-opt-out" class="psp-btn psp-btn--outline-light">Turn off analytics</button>'
+        : '    <button id="psp-opt-in" class="psp-btn psp-btn--primary-light">Turn on analytics</button>'),
+      '    <button id="psp-modal-close" class="psp-btn psp-btn--outline-light">Close</button>',
       '  </div>',
       '  <p class="psp-modal-note"><a href="/privacy">Full Privacy Policy</a></p>',
       '</div>',

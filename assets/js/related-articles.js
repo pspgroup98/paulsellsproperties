@@ -17,8 +17,7 @@
     "Real Estate Investing":  ["Real Estate Investing", "Landlord & Rental Laws", "Investor Strategy"],
     "Investor Strategy":      ["Investor Strategy", "Real Estate Investing", "Landlord & Rental Laws"],
     "Condo / HOA":            ["Condo / HOA", "Buyer's Guide"],
-    "Seller Strategy":        ["Seller Strategy", "Real Estate Investing", "Investor Strategy"],
-    "Market Analysis":        ["Market Analysis", "Buyer's Guide", "Buyer Strategy"]
+    "Seller Strategy":        ["Seller Strategy", "Real Estate Investing", "Investor Strategy"]
   };
 
   function isPublished(article) {
